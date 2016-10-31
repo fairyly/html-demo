@@ -13,6 +13,6 @@
       * [CSS3 翻转](https://fairyly.github.io/html-demo/css3_effects/css3d-fz/fz.html)
       * [CSS3 按钮效果](https://fairyly.github.io/html-demo/css3_effects/button2/demo.html)
       * [CSS3 照片墙](https://fairyly.github.io/html-demo/css3_effects/photowall/demo.html)
-      * [CSS3侧滑导航](https://fairyly.github.io/css3_effects/nav-slide/nav-slide.html)
+      * [](https://fairyly.github.io/css3_effects/nav-slide/nav-slide.html/CSS3侧滑导航)
 
 
