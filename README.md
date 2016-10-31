@@ -2,8 +2,8 @@
 一些模板页面和效果
 
 * [蓝色通用企业首页模板](https://fairyly.github.io/html-demo/蓝色通用企业首页模板/index.html) (IE9+，chrome,FF等)
-* [列表信息滚动](https://fairyly.github.io/html-demo/liebiao/demo.html)
-* [js图片裁剪效果](https://fairyly.github.io/html-demo/js图片裁剪效果/demo.html)
+* [列表信息滚动](https://fairyly.github.io/html-demo/列表信息滚动/demo.html)
+* [js图片裁剪效果](https://fairyly.github.io/html-demo/JavaScriptImageClip/demo.html)
 * [响应式两栏资讯博客主题页面](https://fairyly.github.io/html-demo/autoblog/demo.html) (IE9+，chrome,FF等)
 * [登陆界面](https://fairyly.github.io/html-demo/login/demo.html)(IE9+，chrome,FF等)
 * 一些CSS3效果(ie10+/chrome等)：
