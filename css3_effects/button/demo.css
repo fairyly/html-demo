@@ -1,0 +1,153 @@
+*{
+	margin: 0 auto;
+	padding: 0;
+}
+body{
+	background-color: #ccc;
+}
+.box{
+	width: 900px;
+	height: 280px;
+	margin-top: 50px auto;
+	position: relative;
+}
+.box .link{
+	width: 205px;
+	height: 280px;
+	display: inline-block;
+	margin: 0 20px;
+}
+.link .icon{
+	display: inline-block;
+	width: 100%;
+	height: 190px;
+	transition: transform 2s;
+}
+.link-mission .icon{
+	background-image: url(./imgs/mission.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #CCC;
+}
+.link-play .icon{
+	background-image: url(./imgs/play.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #CCC;
+}
+.link-touch .icon{
+	background-image: url(./imgs/touch.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #CCC;
+}
+.link .icon:hover{
+	transform: rotate(360deg) scale(1.2);
+	-webkit-transform: rotate(360deg) scale(1.2);
+	-ms-transform: rotate(360deg) scale(1.2);
+	-moz-transform: rotate(360deg) scale(1.2);
+	-o-transform: rotate(360deg) scale(1.2);
+}
+.button{
+	display: inline-block;
+	position: relative;
+	width: 180px;
+	height: 50px;
+	line-height: 50px;
+	text-decoration: none;
+	color: #2DCB70;
+	font-family: Arial;
+	font-weight: bold;
+	margin-top: 30px;
+	margin-left: 15px;
+	border: 2px solid rgba(255, 255, 255, 0.75);
+	padding-left: 40px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background-image: url(./imgs/allow.png);
+	background-position: 135px center;
+	background-repeat: no-repeat;
+	transition: background-position 0.5s ease,border 0.5s ease;
+}
+.button:hover{
+	border: 2px solid rgba(255, 255, 255, 1);
+	background-position: 145px center;
+}
+.button .line{
+	position: absolute;
+	display: block;
+	background: none;
+	transition: all 0.3s;
+}
+.button:hover .line{
+	background-color: #FFF;
+}
+.button .line-top{
+	height: 2px;
+	width:0;
+	left: -110%;
+	top: -2px;
+}
+.button:hover .line-top{
+	width:100%;
+	left: 0;
+}
+.button .line-right{
+	height: 0px;
+	width:2px;
+	left: 100%;
+	top: -100%;
+}
+.button:hover .line-right{
+	height: 100%;
+	top: 0;
+}
+.button .line-bottom{
+	height: 2px;
+	width:0px;
+	left: 210%;
+	bottom: -2px;
+}
+.button:hover .line-bottom{
+	width: 100%;
+	left: 0;
+} 
+.button .line-left{
+	height:0px;
+	width:2px;
+	left: -2px;
+	bottom:-110%;
+}
+ .button:hover .line-left{
+	height: 100%;
+	bottom: 0;
+} 
+.tip{
+	position: absolute;
+	height: 35px;
+	padding: 0 14px;
+	line-height: 35px;
+	background-color: #2DCB70;
+	color: #FFF;
+	margin: 0 auto;
+	font-size: 18px;
+	border-radius: 3px;
+	top: 120px;
+	left: 15px;
+	z-index: 99;
+	opacity: 0;
+}
+.tip em{
+	font-style: normal;
+}
+.tip span{
+	display: block;
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-top-color:  #2DCB70;
+	position: absolute;
+	top: 35px;
+	left: 50%;
+	margin-left: -3.5px; 
+}

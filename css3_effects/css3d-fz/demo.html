@@ -1,0 +1,39 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>正方体</title>
+	<link type="text/css" rel="stylesheet" href="demo3d.css" />
+	<script type="text/javascript">
+		function rotate(){
+		            var x = document.getElementById("rotatex").value;
+		            var y = document.getElementById("rotatey").value;
+		            var z = document.getElementById("rotatez").value;
+		            document.getElementById('page-group').style.webkitTransform = "rotateX("+x+"deg) rotateY("+y+"deg) rotateZ("+z+"deg)";
+
+		            document.getElementById('degx-span').innerText = x;
+		            document.getElementById('degy-span').innerText = y;
+		            document.getElementById('degz-span').innerText = z;
+		}
+	</script>
+</head>
+<body>
+	<div id="space">
+		<div id="page-group">
+			<div class="page" id="page1">1</div>
+			<div class="page" id="page2">2</div>
+			<div class="page" id="page3">3</div>
+			<div class="page" id="page4">4</div>
+			<div class="page" id="page5">5</div>
+			<div class="page" id="page6">6</div>
+		</div>
+	</div>
+	<div id="op">
+		<p>rotate x: <span id="degx-span">0</span> deg</p>
+	    	<input type="range" min="-360" max="360" id="rotatex" value="0" class="range-control" onchange="rotate()" /><br/>
+	    	<p>rotate y: <span id="degy-span">0</span> deg</p>
+	    	<input type="range" min="-360" max="360" id="rotatey" value="0" class="range-control" onchange="rotate()" /><br/>
+	    	<p>rotate z: <span id="degz-span">0</span> deg</p>
+	    	<input type="range" min="-360" max="360" id="rotatez" value="0" class="range-control" onchange="rotate()" /><br/>
+	</div>
+</body>
+</html>

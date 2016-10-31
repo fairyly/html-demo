@@ -1,0 +1,40 @@
+/*头部*/
+.header{
+	width: 680px;
+}
+/*导航*/
+.nav-ul{
+	width: 680px;
+	position: relative;
+	list-style: none;
+}
+.sc-dy{
+	display: none;
+}
+/*内容*/
+.content{
+	position: relative;
+	height: auto;
+	width: 680px;
+	margin-top: 15px;
+}
+/*右栏*/
+.right-content{
+	position: absolute;
+	z-index: 99999999;
+	margin-top: 15px;
+	left: -10px;
+	width: 315px;
+}
+.new-post-list{
+	width: 680px;
+}
+.new-post-list li{
+	display: inline-block;
+}
+#return-top{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	display: none;
+}

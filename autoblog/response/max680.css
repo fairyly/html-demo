@@ -1,0 +1,148 @@
+/*头部*/
+header{
+	height: 55px;
+	position: relative;
+}
+.header{
+	width: 50%;
+	height: 100%;
+}
+/*隐藏在大于680px的设备上显示的元素*/
+.search-sd,.sc-dy,nav,.nav-ul,.right-content{
+	display: none;
+}
+.logo img{
+	width: 100%;
+	height: 100%;
+}
+/*菜单*/
+.ht-nav,.ht-soso{
+	display: inline-block;
+	position: absolute;
+	z-index: 45;
+	height: 45px;
+	width: 45px;
+	cursor: pointer;
+}
+.ht-nav{
+	top: 3px;
+	left: 10px;
+}
+.ht-nav span{
+	display: inline-block;
+	position: relative;
+	height: 5px;
+	width: 45px;
+	top: 45%;
+	background-color: #FFF;
+}
+.ht-nav span::before{
+	display: inline-block;
+	position: absolute;
+	height: 5px;
+	width: 45px;
+	top: -15px;
+	background-color: #FFF;
+	content: "";
+}
+.ht-nav span::after{
+	display: inline-block;
+	position: absolute;
+	height: 5px;
+	width: 45px;
+	top: 15px;
+	content: "";
+	background-color: #FFF;
+}
+.ht-nav-ul{
+	position: absolute;
+	z-index: 46;
+	display: block;
+	list-style: none;
+	width: 100%;
+	left: -103%;
+	border-top: 2px solid #1873DE;
+}
+.ht-nav-ul a{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	width: 100%;
+	padding-left: 15px;
+	background-color: #333333;
+	text-decoration: none;
+	color: #FFF;
+	border-bottom: 1px solid #262626;
+}
+.ht-nav-ul a:hover{
+	background-color: #222222;
+	color: #FFF;
+	text-decoration: none;
+}
+/*搜索*/
+.ht-soso{
+	right: 10px;
+	top: 3px;
+}
+.ht-soso img{
+	position: relative;
+	top: 5px;
+	left: -2px;
+}
+.ht-search{
+	display: block;
+	width: 100%;
+	position: absolute;
+	z-index: 46;
+	background-color: #1873DE;
+	height: 60px;
+	display: none;
+}
+.ht-search form{
+	text-align: center;
+	line-height:60px; 
+}
+.ht-search input[type="text"]{
+	width: 75%;
+}
+
+/*内容*/
+.content,.lunbo,.article-list,.article-content,.article{
+	width: 100%;
+}
+.left-content{
+	width: 98%;
+	margin-left: 5px; 
+}
+.lunbo img{
+	width: 100%;
+}
+#control-ul{
+	top:9%;
+	left: 82.3529%;
+}
+
+/*文章列表*/
+.article-list-header p{
+	left: 0;
+	border: none;
+}
+.left-article-content{
+	width: 29.4119%;
+}
+.left-article-content img{
+	width: 100%;
+}
+.right-article-content{
+	width: 65%;
+}
+.article-meta span{
+	left: 0;
+}
+/*返回顶部*/
+#return-top{
+	position: fixed;
+	display: none;
+	bottom:10px;
+	right:10px
+}

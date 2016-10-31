@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>照片墙效果</title>
+	<style type="text/css">
+		body{
+		  color: #222;
+		}
+		h1{
+			font-size: 14px;
+			font-family: "Microsoft Yahei";
+			text-align: center;
+		}
+		.spinner{
+		  width:40px;
+		  height:40px;
+		  background-color:green;
+		  border-radius:100%;
+		  margin: 100px auto;
+		-webkit-animation:fadeOut 1.0s infinite ease-in-out;
+		animation:fadeOut 1.0s infinite ease-in-out;
+		}
+		@-webkit-keyframes fadeOut{
+		  from {-webkit-transform:scale(0.0);}
+		  to {-webkit-transform:scale(1.0);opacity:0;}
+		}
+		@keyframes fadeOut{
+		  form{transform:scale(0.0);}
+		  to{transform:scale(1.0);opacity:0;}
+		}
+	</style>
+</head>
+<body>
+	<h1>请使用webkit内核标准浏览器查看效果</h1>
+	<div class="spinner"></div>
+</body>
+</html>

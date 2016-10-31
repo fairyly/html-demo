@@ -1,0 +1,45 @@
+/*头部*/
+.header{
+	width: 1010px;
+}
+.logo,.search-sd,.sc-dy{
+	display: inline-block;
+	position: relative;
+}
+
+/*导航*/
+.nav-ul{
+	width: 1010px;
+	position: relative;
+	list-style: none;
+}
+.sc-dy{
+	position: relative;
+	top: -40px;
+	/*right: -275px;*/
+	right: -27.2277%;
+}
+/*内容*/
+.content{
+	position: relative;
+	height: auto;
+	width: 1010px;
+	margin-top: 15px;
+}
+.left-content,.right-content{
+	display: inline-block;
+	/*height: 20px;*/
+}
+/*右栏*/
+.right-content{
+	position: absolute;
+	z-index: 99999999;
+	width: 315px;
+	margin-left: 10px;
+}
+#return-top{
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	display: none;
+}

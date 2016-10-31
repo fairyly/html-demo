@@ -1,0 +1,154 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf8" />
+	<title>JavaScript实现图片裁剪</title>
+	<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+	<!-- 	
+	1、三个属性 opacity clip 和absolute 
+	2、按下 释放和拖动事件 
+	3、获取鼠标的坐标位置 
+	-->
+	<style type="text/css">
+		body{
+			background-color: #333;
+		}
+		#box{
+			position: absolute;
+			left: 200px;
+			top: 100px;
+			width: 388px;
+			height: 220px;
+		}
+		#img1{
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0.5;
+			filter: Alpha(opacity=50);
+		}
+		#img2{
+			position: absolute;
+			top: 0;
+			left: 0;
+			clip:rect(0,150px,150px,0);
+		}
+		/*main大小和裁剪区域的大小一致*/
+		#main{
+			height: 150px;
+			width: 150px;
+			position: absolute;
+			border: 1px solid #fff;
+			cursor: move;
+			z-index: 2;
+		}
+		/*设置小的div*/
+		.minDiv{
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			background-color: #fff;
+		}
+		/**
+		关于calc:https://developer.mozilla.org/en-US/docs/Web/CSS/calc
+		运算符前后带空格,运算时的百分比是相对于容器的宽度
+		*/
+		.left-top{
+			left: -4px;
+			top: -4px;
+			cursor: nw-resize;
+		}
+		.top{
+			left: -webkit-calc(50% - 4px);
+			left: -moz-calc(50% - 4px);
+			left: calc(50% - 4px);             
+			top: -4px;
+			cursor: n-resize;
+		}
+		.right-top{
+			left: -webkit-calc(100% - 4px);
+			left: -moz-calc(100% - 4px);
+			left: calc(100% - 4px);             
+			top: -4px;
+			cursor: ne-resize;
+		}
+		.left-mid{
+			left: -4px;
+			top: -webkit-calc(50% - 4px);
+			top: -moz-calc(50% - 4px);
+			top: calc(50% - 4px);    
+			cursor: w-resize;
+		}
+		.right-mid{
+			top: -webkit-calc(50% - 4px);
+			top: -moz-calc(50% - 4px);
+			top: calc(50% - 4px);    
+			left: -webkit-calc(100% - 4px);
+			left: -moz-calc(100% - 4px);
+			left: calc(100% - 4px);   
+			cursor: e-resize;
+		}
+		.left-bottom{
+			left: -4px;
+			top: -webkit-calc(100% - 4px);
+			top: -moz-calc(100% - 4px);
+			top: calc(100% - 4px);    
+			cursor: sw-resize;
+		}
+		.bottom{
+			top: -webkit-calc(100% - 4px);
+			top: -moz-calc(100% - 4px);
+			top: calc(100% - 4px);    
+			left: -webkit-calc(50% - 4px);
+			left: -moz-calc(50% - 4px);
+			left: calc(50% - 4px);  
+			cursor: s-resize;
+		}
+		.right-bottom{
+			top: -webkit-calc(100% - 4px);
+			top: -moz-calc(100% - 4px);
+			top: calc(100% - 4px);    
+			left: -webkit-calc(100% - 4px);
+			left: -moz-calc(100% - 4px);
+			left: calc(100% - 4px); 
+			cursor: se-resize;
+		}
+
+		#preview{
+			position: absolute;
+			width: 388px;
+			height: 220px;
+			top: 100px;
+			left: 600px;
+		}
+		#preview #img3{
+			position: absolute;
+			top:0;
+			left:0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img src="linux.jpg" id="img1">
+		<img src="linux.jpg" id="img2">
+		<div id="main">
+			<!-- 八个触点 -->
+			<div id="left-top" class="minDiv left-top"></div>
+			<div id="top" class="minDiv top"></div>
+			<div id="right-top" class="minDiv right-top"></div>
+			<div id="left-mid" class="minDiv left-mid"></div>
+			<div id="right-mid" class="minDiv right-mid"></div>
+			<div id="left-bottom" class="minDiv left-bottom"></div>
+			<div id="bottom" class="minDiv bottom"></div>
+			<div id="right-bottom" class="minDiv right-bottom"></div>
+		</div>
+		
+	</div>
+	<div id="preview">
+		<img src="linux.jpg" id="img3">
+	</div>
+	<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

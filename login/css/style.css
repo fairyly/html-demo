@@ -1,0 +1,319 @@
+*{
+	margin:0 auto;
+	padding: 0;
+}
+body{
+	background-image: url(../imgs/bg.jpg);
+	background-size: cover;
+	background-repeat:no-repeat;
+	font-family: "Microsoft Yahei",sans-serif;
+	height: 100%;
+}
+header div,h3,nav ul,nav li,header a{
+	display: inline-block;
+}
+/*顶部*/
+.top-header{
+	background-color: #0F6199;
+	width: 100%;
+	height: auto;
+	border-bottom: 2px solid red;
+}
+.top-header a{
+	display: inline-block;
+	text-decoration: none;
+	color: #E6F6F6;
+	line-height: 35px;
+	margin-left: 30px;
+}
+.top-header a:hover{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+/*头部*/
+header{
+	background-color: rgba(127,150,168,0.5);
+	height: 55px;
+	line-height: 55px;
+	position: relative;
+}
+h3,.logo,.search,nav ul,.login-regis{
+	position: absolute;
+}
+h3{
+	left: 50%;
+}
+ul{
+	list-style: none;
+}
+.logo{
+	left: 15px;
+	top: 5px;
+}
+.logo img{
+	height: 35px;
+	border: transparent;
+}
+.search{
+	left: 150px; 
+	top: 5px;
+	z-index: 10;
+}
+.search input[type="text"]{
+	height: 35px;
+	border: none;
+	border-radius: 5px;
+	text-indent: 15px;
+}
+.search input[type="text"]:focus{
+	outline: none;
+}
+nav ul{
+	left: 320px;
+	top: 0;
+}
+nav ul li{
+	margin-left: 15px;
+}
+nav ul a{
+	text-decoration: none; 
+	color: #2D2D2D;
+	font-weight: bold;
+}
+nav ul a:hover{
+	background-color: rgba(0,0,0,.02);
+}
+.login-regis{
+	right: 10px;
+}
+.login-regis a{
+	text-decoration: none;
+	height: 30px;
+	padding: 0px 15px 0px 15px;
+	line-height: 30px;
+	border-radius: 15px;
+}
+.login-regis a:first-child{
+	background-color: #32BE77;
+	color: #FFFFFF;
+}
+.login-regis a:last-child{
+	background-color: #FFFFFF;
+	color: #000000;
+	margin-left: 10px;
+}
+/*表单*/
+.container{
+	background-color: rgba(162,159,160,.75);
+	position:absolute;
+	top:50%;
+	margin-top: -10%;
+	left:50%; 
+	margin-left: -240px;
+	border-radius: 10px;
+	width: 480px;
+}
+#border-span{
+	position: absolute;
+	height: 114px;
+	margin-top: 18px;
+	left: 68px;
+}
+#border-span span{
+	display: block;
+	height: 48px;
+	width: 5px;
+	background-color: #B1B0B0;
+	border-radius:5px;
+	position: absolute;
+	display: none; 
+	z-index: 9999;
+	left: 6px; 
+}
+#border-span-1{
+	margin-top: 15px;
+	top: 0px; 
+}
+#border-span-2{
+	 top: 80px;
+}
+/* 登陆信息提示 */
+.login-error-tips{
+	background-color: #FFFFFF;
+	height: 30px;
+	width: 150px;
+	position: absolute;
+	display: none;
+	z-index: 9;
+}
+.login-error-tips::before{
+	content: "";
+	position: absolute;
+	display: block;
+	height: 0px;
+	width: 0px;
+	top: -10px;
+	left: 10px;
+	border-bottom: 10px solid #FFF;
+	border-top:none;
+	border-left:10px solid transparent;
+	border-right:10px solid transparent;
+}
+#tanhao{
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	margin: 5px;
+	color: #FFF;
+	background-color: #ED7C24;
+}
+/* 登陆 */
+#login-form ul,#regis-form ul{
+	padding: 15px 75px;
+}
+#login-form li,#regis-form li{
+	height: 48px;
+	margin-top:18px;
+}
+#login-form li:nth-child(3){
+	height: 24px;
+}
+#login-form input:not(#check),#regis-form input{
+	border: none;
+	height: 100%;
+	width: 100%;
+	border-radius: 5px;
+}
+#login-form input[type="text"],#regis-yx{
+	background-image: url(../imgs/yx1.png);
+	background-repeat: no-repeat;
+	background-position: 5px 15px;
+	text-indent: 40px;
+	font-size: 16px;
+	background-color: #E2E0E0;
+}
+#login-form input[type="password"]{
+	background-image: url(../imgs/pw1.png);
+	background-repeat: no-repeat;
+	text-indent: 40px;
+	background-color: #E2E0E0;
+	background-position: 8px 15px;
+	font-size: 16px;
+}
+#login-form input[type="submit"]{
+	background-color: #8AAF96;
+	color: #FFFFFF;
+	letter-spacing: 10px;
+	font-size: 18px;
+	font-weight: 700;
+	opacity: 0.75;
+	cursor: pointer;
+}
+#login-form input[type="submit"]:hover{
+	opacity: 0.9;
+}
+#check{
+	width: 22px;
+	height: 22px;
+	/*去掉火狐浏览器默认样式*/
+  	-moz-appearance:none;
+}
+#check+label,#check~a{
+	position: relative;
+	top: -5px;
+}
+#check+label{
+	left: 5px;
+	cursor: pointer;
+}
+#check~a{
+	left: 175px;
+	color: #444444;
+	text-decoration: none;
+}
+#check~a:hover,#regis-form+a:hover{
+	color: #171717;
+}
+#login-form+a,#regis-form+a{
+	color: #444444;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+}
+#login-form~span img,#regis-form~span img{
+	position: relative;
+	padding-bottom: 15px;
+	left: 88%;
+}
+/* 注册表单 */
+.regis{
+	display: none;
+}
+#regis-form h3{
+	position: relative;
+	left: 30px;
+}
+#regis-form li:nth-child(3){
+	position: relative;
+}
+#regis-form input[type="submit"]{
+	background-color: #32BE77;
+	color: #FFFFFF;
+	letter-spacing: 10px;
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 25px;
+}
+#regis-yx,#regis-gx{
+	outline: none;
+	color: #A9A9A9;
+}
+#regis-gx{
+	background-image: url(../imgs/gx.png);
+	background-repeat: no-repeat;
+	text-indent:165px;
+	background-color: #D2D3D3;
+	background-position: 8px 13px;
+	font-size: 16px;
+}
+.pre-text{
+	position: absolute;
+	left: 40px;
+	top: 10px;
+	font-size: 18px;
+}
+/* 注册·信息提示 */
+.regis-error-tips1,.regis-error-tips2{
+	background-color: #D95C5C;
+	height: 25px;
+	position: absolute;
+	display: none;
+	left: 410px;
+	z-index: 9;
+	padding-left: 10px;
+	color: #FFF;
+	border-radius: 5px;
+}
+.regis-error-tips1{
+	width: 120px;
+	top: 110px;
+}
+.regis-error-tips2{
+	width: 180px;
+	top: 175px;
+}
+.regis-error-tips1::before,.regis-error-tips2::before{
+	content: "";
+	position: absolute;
+	display: block;
+	height: 0px;
+	width: 0px;
+	left: -5px;
+	top: 3px;
+	border-bottom: 12px solid transparent;
+	border-top:12px solid transparent;
+	border-left:none;
+	border-right:12px solid #D95C5C;
+}

@@ -1,0 +1,463 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+	<title>自适应两栏wordpres资讯类主题</title>
+	<script type="text/javascript" src="../../jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="response/common.css">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width:1010px)" href="response/cssmin1010.css">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width:680px) and (max-width:1010px)" href="response/min680max1010.css">
+	<link rel="stylesheet" type="text/css" media="screen and (max-width:680px)" href="response/max680.css">
+</head>
+<body>
+	<div class="top-header">
+		<a href="http://www.ido321.com" target="_blank">返回首页</a>
+		<a href="#" target="_blank">源码下载</a>
+	</div>
+	<header>
+		<div class="header">
+			<div class="logo">
+				<a href="#"><img src="./imgs/logo.png"></a>
+			</div>
+			<div class="search-sd">
+				<form action="#" method="?">
+					<input type="text"  placeholder="搜索关键字">
+					<input type="submit" value="搜索" title="搜索">
+				</form>
+			</div>
+			<div class="sc-dy">
+				<a href="#">收藏</a>
+				<a href="#">订阅</a>
+			</div>
+		</div>
+		<!-- 小于680px时的菜单显示 -->
+		<div class="ht-nav" id="ht-nav">
+			<span></span>
+		</div>
+		<ul class="ht-nav-ul">
+			<li>
+				<a href="#">首页</a>
+			</li>
+			<li>
+				<a href="#">互联网</a>
+			</li>
+			<li>
+				<a href="#">IT那些事</a>
+			</li>
+			<li>
+				<a href="#">示例页面</a>
+				<ul id="ht-nav-child-nav-ul">
+					<li>
+						<a href="#">关于我</a>
+					</li>
+					<li>
+						<a href="#">给我留言</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<!-- 小于680px时的搜索显示 -->
+		<div class="ht-soso">
+			<img src="./imgs/soso.png" id="soso">
+		</div>
+		<div class="ht-search">
+			<form action="#" method="?">
+				<input type="text"  placeholder="搜索关键字">
+				<input type="submit" value="搜索" title="搜索">
+			</form>
+		</div>
+	</header>
+	<nav>
+		<ul class="nav-ul">
+			<li>
+				<a href="#" style="background:#fff;color:#1F90DE">首页</a>
+			</li>
+			<li>
+				<a href="#">互联网</a>
+			</li>
+			<li>
+				<a href="#">IT那些事</a>
+			</li>
+			<li>
+				<a href="#">示例页面</a>
+				<ul id="child-nav-ul">
+					<li>
+						<a href="#">关于我</a>
+					</li>
+					<li>
+						<a href="#">给我留言</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div class="content">
+		<div class="left-content">
+			<div class="lunbo">
+				<script type="text/javascript" src="scroll.js"></script>
+				<ul id="lunbo-img-ul">
+					<li>
+						<a href="#">
+							<img src="./imgs/lb1.jpg">
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./imgs/lb2.jpg">
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="./imgs/lb3.jpg">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<ul id="control-ul">
+				<li style="background-color:#FF6600"></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<!-- 文章列表 -->
+			<div class="article-list">
+				<div class="article-list-header">
+					<p>最新文章</p>
+				</div>
+				<div class="article-content">
+					<div class="article">
+						<div class="left-article-content">
+							<a href="#">
+								<img src="./imgs/art1.jpg" title="冷眼看网络文学现状，大神梦在何方">
+							</a>
+						</div>
+						<div class="right-article-content">
+							<h4>
+								<a href="#">冷眼看网络文学现状，大神梦在何方</a>
+							</h4>
+							<p class="article-meta">
+								<a href="#">小编</a>
+								<a href="#">3个月前(01-29)</a>
+								<a href="#">互联网</a>
+								<span><img src="./imgs/eye.png" />537</span>
+							</p>
+							<div class="article-sumary">
+								文/柳华芳 在世俗的世界里，人们总用当下拒绝未来，总用金钱来衡量江湖，
+								总用繁花来掩饰虚弱，在网络文学的梦幻变迁中，来去匆匆，枯荣岁变，
+								我的脑海里却总是无数次地闪现一个名字–侯小强。 
+								盛大文学的繁荣和波折已经成为过去，腾讯文学已...
+							</div>
+						</div>
+					</div>
+					<div class="article">
+						<div class="left-article-content">
+							<a href="#">
+								<img src="./imgs/art2.jpg" title="今非昔比？ IBM大型主机要逆袭X86">
+							</a>
+						</div>
+						<div class="right-article-content">
+							<h4>
+								<a href="#">今非昔比？ IBM大型主机要逆袭X86</a>
+							</h4>
+							<p class="article-meta">
+								<a href="#">小编</a>
+								<a href="#">3个月前(01-29)</a>
+								<a href="#">互联网</a>
+								<span><img src="./imgs/eye.png" />237</span>
+							</p>
+							<div class="article-sumary">
+								文/在前线 老凉 发自海口 发布新一代大型主机z13，IBM再一次向外界展示
+								其大型主机的价值所在。但是相比之下，IBM当仁不让的气势似乎变得低调
+								很多，其甚至称要在云计算和互联网领域逆袭X86。 据IBM介绍，z13是业
+								界首款能够单日处理2...
+							</div>
+						</div>
+					</div>
+					<div class="article">
+						<div class="left-article-content">
+							<a href="#">
+								<img src="./imgs/art3.jpg" title="工商淘宝“大战”是非观">
+							</a>
+						</div>
+						<div class="right-article-content">
+							<h4>
+								<a href="#">工商淘宝“大战”是非观</a>
+							</h4>
+							<p class="article-meta">
+								<a href="#">小编</a>
+								<a href="#">3个月前(01-29)</a>
+								<a href="#">互联网</a>
+								<span><img src="./imgs/eye.png" />137</span>
+							</p>
+							<div class="article-sumary">
+								日前，因工商总局发布关于淘宝正品率的报告和对阿里指导
+								的白皮书，引发了淘宝小二与工商总局某司长之间的一场猫鼠
+								大战。一时间围观者众，新闻相关评述也沸沸扬扬。与大多数
+								围观者一样，刚听到消息的时候，我也先入为主地站在了淘宝
+								一边，静观事态发展，甚至...
+							</div>
+						</div>
+					</div>
+					<div class="article">
+						<div class="left-article-content">
+							<a href="#">
+								<img src="./imgs/art4.jpg" title="苹果的辉煌会止于这份财报吗？">
+							</a>
+						</div>
+						<div class="right-article-content">
+							<h4>
+								<a href="#">苹果的辉煌会止于这份财报吗？</a>
+							</h4>
+							<p class="article-meta">
+								<a href="#">小编</a>
+								<a href="#">3个月前(01-29)</a>
+								<a href="#">互联网</a>
+								<span><img src="./imgs/eye.png" />89</span>
+							</p>
+							<div class="article-sumary">
+								北京时间1月28日，苹果公布了其2015年第一财季的财报。
+								尽管之前各分析机构都已经做了此财报会好看的预测，但公布
+								出来的数字还是超乎预期的辉煌。其中第一财季营收为746亿
+								美元，净利润为180亿美元，创下历史新高。令人注意的是，
+								苹果第一财季来...
+							</div>
+						</div>
+					</div>
+					<div class="article">
+						<div class="left-article-content">
+							<a href="#">
+								<img src="./imgs/wu.gif" title="没有图片">
+							</a>
+						</div>
+						<div class="right-article-content">
+							<h4>
+								<a href="#">柳爷爷，90后的苦逼您真心不懂！</a>
+							</h4>
+							<p class="article-meta">
+								<a href="#">小编</a>
+								<a href="#">3个月前(01-29)</a>
+								<a href="#">互联网</a>
+								<span><img src="./imgs/eye.png" />174</span>
+							</p>
+							<div class="article-sumary">
+								昨天晚上，央视名嘴崔永元在微博上推荐了一篇文章，
+								《柳传志：读任正非“我的父亲母亲”有感》，引起了
+								不少网友的转发讨论。躺着中枪的我也收到一些网友
+								的留言，说：“柳爷爷又写文章啦，上一次你的U盘论驳
+								斥柳传志让我们看的很爽，这一次怎么还没开喷?!”...
+							</div>
+						</div>
+					</div>
+					<div class="article">
+						<div class="left-article-content">
+							<a href="#">
+								<img src="./imgs/art5.jpg" title="这是一份什么样的 “白皮书”？">
+							</a>
+						</div>
+						<div class="right-article-content">
+							<h4>
+								<a href="#">这是一份什么样的 “白皮书”？</a>
+							</h4>
+							<p class="article-meta">
+								<a href="#">小编</a>
+								<a href="#">3个月前(01-29)</a>
+								<a href="#">互联网</a>
+								<span><img src="./imgs/eye.png" />88</span>
+							</p>
+							<div class="article-sumary">
+								1月28日，国家工商管理总局网络交易监管司发布
+								“关于对阿里巴巴集团进行行政指导工作情况的白皮书”，
+								一时之间，外界议论纷纷。 更加让人难以捉摸的是，
+								这份神秘的“白皮书“在昨天下午被工商总局官网
+								悄然下架。至今天早晨打开链接，我们惊讶的发现，其...
+							</div>
+						</div>
+					</div>
+					<div class="article">
+						<div class="left-article-content">
+							<a href="#">
+								<img src="./imgs/wu.gif" title="没有图片">
+							</a>
+						</div>
+						<div class="right-article-content">
+							<h4>
+								<a href="#">APP人均下载量停滞，和三年前没差</a>
+							</h4>
+							<p class="article-meta">
+								<a href="#">小编</a>
+								<a href="#">3个月前(01-29)</a>
+								<a href="#">互联网</a>
+								<span><img src="./imgs/eye.png" />52</span>
+							</p>
+							<div class="article-sumary">
+								几年来，人们使用的 APP 总量没什么大变化，
+								说明用户对 APP 选择开始稳定，并在他们最喜
+								欢的 APP 上花费越来越多时间，这也使 APP 要
+								脱颖而出、获得忠实用户群体难度越来越大。 
+								BI Inteligence 最新报告研究了为何 AP...
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="article-footer">
+					<p>
+						加载更多
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="right-content">
+			<div class="new-post">
+				<div class="new-post-header">
+					<p>最新文章</p>
+				</div>
+				<ul class="new-post-list">
+					<li>
+						<div>
+							<img src="./imgs/art1.jpg">
+						</div>
+						<div>
+							<p class="title">
+								<a href="#">冷眼看网络文学现状，大神梦在何方</a>
+							</p>
+							<p class="meta-data">
+								<span>2015-01-29</span>
+								<span><img src="./imgs/eye.png">537</span>
+							</p>		
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="./imgs/art2.jpg">
+						</div>
+						<div>
+							<p class="title">
+								<a href="#">今非昔比？ IBM大型主机要逆袭X86</a>
+							</p>
+							<p class="meta-data">
+								<span>2015-01-29</span>
+								<span><img src="./imgs/eye.png">237</span>
+							</p>		
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="./imgs/art3.jpg">
+						</div>
+						<div>
+							<p class="title">
+								<a href="#">工商淘宝“大战”是非观</a>
+							</p>
+							<p class="meta-data">
+								<span>2015-01-29</span>
+								<span><img src="./imgs/eye.png">137</span>
+							</p>		
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="./imgs/art4.jpg">
+						</div>
+						<div>
+							<p class="title">
+								<a href="#">苹果的辉煌会止于这份财报吗？</a>
+							</p>
+							<p class="meta-data">
+								<span>2015-01-29</span>
+								<span><img src="./imgs/eye.png">89</span>
+							</p>		
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="./imgs/wu.gif">
+						</div>
+						<div>
+							<p class="title">
+								<a href="#">柳爷爷，90后的苦逼您真心不懂！</a>
+							</p>
+							<p class="meta-data">
+								<span>2015-01-29</span>
+								<span><img src="./imgs/eye.png">174</span>
+							</p>		
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tags-list">
+				<div class="new-post-header">
+					<p>标签列表</p>
+				</div>
+				<p class="tags">
+					<a href="#">互联网</a>
+					<a href="#">车联网</a>
+					<a href="#">IT</a>
+					<a href="#">编程</a>
+					<a href="#">互联网</a>
+					<a href="#">车联网</a>
+					<a href="#">IT</a>
+					<a href="#">编程</a>
+					<a href="#">互联网</a>
+					<a href="#">车联网</a>
+					<a href="#">IT</a>
+					<a href="#">编程</a>
+					<a href="#">互联网</a>
+					<a href="#">车联网</a>
+					<a href="#">IT</a>
+					<a href="#">编程</a>
+					<a href="#">互联网</a>
+					<a href="#">车联网</a>
+					<a href="#">IT</a>
+					<a href="#">编程</a>
+				</p>
+			</div>
+			<div class="more-care-us">
+				<div class="care-us-header">
+					<p>更多地方关注我们</p>
+				</div>
+				<ul class="care-us-list">
+					<li>
+						<a href="http://www.ido321.com" target="_blank"><img src="./imgs/apple.png"></a>
+					</li>
+					<li>
+						<a href="http://www.ido321.com" target="_blank"><img src="./imgs/android.png" style="position:relative;top:2px"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0);"><img src="./imgs/weixin.png" style="position:relative;top:3px"></a>
+					</li>
+					<li>
+						<a href="http://weibo.com/rebgin" target="_blank"><img src="./imgs/weibo.png" style="position:relative;top:4px"></a>
+					</li>
+					<li>
+						<a href="http://www.ido321.com" target="_blank"><img src="./imgs/tecent.png" style="position:relative;top:2px"></a>
+					</li>
+				</ul>
+				<div class="social-content">
+					<div id="move-triangle"></div>
+					<div class="apple-content">
+						<img src="./imgs/jiu.png">
+					</div>
+					<div class="android-content">
+						<img src="./imgs/si.png">
+					</div>
+					<div class="weixin-content">
+						<img src="./imgs/erweima.png">
+					</div>
+					<div class="weibo-content">
+						<img src="./imgs/jiu.png">
+					</div>
+					<div class="tecent-content">
+						<img src="./imgs/si.png">
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<!-- 返回顶部 -->
+	<div id="return-top">
+		<a href="javascript:void(0);" title="返回顶部"></a>
+	</div>
+	<script type="text/javascript" src="style.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+@charset "utf8";
+/* 
+*  1、transition
+*  2、perspective和perspective-origin
+*  3、transform:translate.rotate
+ */
+ body{
+ 	background-color: rgba(127,150,168,0.5);
+ }
+ #space{
+ 	/*3d场景窗口*/
+ 	-webkit-perspective: 800;         /*3d物体距离窗口的距离(px)*/
+ 	-webkit-perspective-origin: 50% 50%; /*查看3d物体的位置（相对了屏幕）*/ }
+ #page-group{
+ 	width: 300px;
+ 	height: 300px;
+ 	margin:100px auto;
+ 	position: relative;
+ 	/*3d显示*/
+ 	-webkit-transform-style: preserve-3d;
+ 	
+ }
+ .page{
+ 	width:180px;
+ 	height: 180px;
+ 	/* background-color: #2466A2; */
+ 	color: #FFF;
+ 	font-size: 180px;
+ 	padding:20px;
+ 	line-height:180px;
+ 	text-align: center;
+ 	position: absolute;
+ 	 -webkit-transition: -webkit-transform 1s linear;
+ 	 background-color:#2466A2;
+ }
+ #page1{
+ }
+ #page2{
+ 	-webkit-transform-origin:right;
+ 	-webkit-transform: rotateY(-90deg);
+ }
+
+#page3{
+ 	-webkit-transform-origin:left;
+ 	-webkit-transform: rotateY(90deg);
+ }
+ #page4{
+	-webkit-transform-origin: top;
+	-webkit-transform: rotateX(-90deg);
+ }
+  #page5{
+	-webkit-transform-origin:bottom;
+	-webkit-transform: rotateX(90deg);
+  }
+   #page6{
+	-webkit-transform: translateZ(-180px);
+   }
+  #op{
+            margin:0 auto;
+            font-size:16px;
+            font-weight:bold;
+            width:800px;
+ }
+ #op .range-control{
+ 	width:721px;
+ }
