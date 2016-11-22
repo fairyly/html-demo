@@ -55,10 +55,10 @@ html-demo
   var i=null;
   for(var k in obj){
     if(obj[k]>m){
-      m=obj[k];
-      i=k;
+      m=obj[k];//键值
+      i=k;//键名
     }
   }
-  console.log(i+','+k)
+  console.log(i+','+m)
   
 ```
