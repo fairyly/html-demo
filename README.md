@@ -77,3 +77,25 @@ html-demo
   }
 
 ```
+5、 不借助临时变量，进行两个整数的交换
+```
+  var a=6;var b=8;
+  b=b-a;
+  a=a+b;
+  b=a-b;
+  
+```
+6、生成斐波那契数组的方法(前面两个数的和等于第三个数如：1,2,3,5,8,13,21,34)
+```
+  var n=9;//数列长度
+  var fibarr = [];//数列数组
+  var i = 0;
+  while(i<n) {
+    if(i<=1) {
+      fibarr.push(i);
+    }else{
+      fibarr.push(fibarr[i-1] + fibarr[i-2])
+    }
+    i++;
+  }
+```
