@@ -20,7 +20,7 @@ html-demo
   var a=[1,55,66,1,22,66,55,88];
   var arr=[];
   for(var i=0;i<test.length;i++){
-    if(arr.indexof(a[i])==-1){
+    if(arr.indexof(a[i])==-1){//判断arr中元素是否存在;arr.indexof(a[i])就是返回a[i]对应元素第一次出现在arr中的位置
       arr.push(a[i]);
     }
   }
@@ -30,20 +30,20 @@ html-demo
   var arr=[];
   var hash={};
   for(var i=0;i<test.length;i++){
-    if(!hash[a[i]]){
+    if(!hash[a[i]]){//判断键值是不是存在
       hash[a[i]]=true;
       arr.push(a[i]);
     }
   }
   
 ```
-3、一个字符串中出现最多的字母；
-
+3、一个字符串中出现最多的字母；  
+   学会像对象中加入键名和键值简称加入键值对；
 ```
   var str='asssaagggggggggddddddd';
   var obj={};
   for(var i=0,l=str.length,k;i<l;i++){//先统计各个字母出现的次数
-    k=str.charAt(i);
+    k=str.charAt(i);//返回字符串给定位置的字符
     if(obj[k]){
       obj[k]++;
     }else{
