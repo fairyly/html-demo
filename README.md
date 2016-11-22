@@ -35,4 +35,30 @@ html-demo
       arr.push(a[i]);
     }
   }
+  
+```
+3、一个字符串中出现最多的字母；
+
+```
+  var str='asssaagggggggggddddddd';
+  var obj={};
+  for(var i=0,l=str.length,k;i<l;i++){//先统计各个字母出现的次数
+    k=str.charAt(i);
+    if(obj[k]){
+      obj[k]++;
+    }else{
+      obj[k]=1;
+    }
+  }
+  //再比较obj中键值最大的
+  var m=0;
+  var i=null;
+  for(var k in obj){
+    if(obj[k]>m){
+      m=obj[k];
+      i=k;
+    }
+  }
+  console.log(i+','+k)
+  
 ```
