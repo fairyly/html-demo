@@ -14,5 +14,6 @@
       * [CSS3 按钮效果](https://fairyly.github.io/html-demo/css3_effects/button2/demo.html)
       * [CSS3 照片墙](https://fairyly.github.io/html-demo/css3_effects/photowall/demo.html)
       * [](https://fairyly.github.io/css3_effects/nav-slide/nav-slide.html/CSS3侧滑导航)
+      * [按钮波纹](https://fairyly.github.io/html-demo/按钮波纹/demo.html)
 
 
