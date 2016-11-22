@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>新建收货地址</title>
+    <meta charset="UTF-8">
+    <meta name="keywords"content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script  src="js/jquery.js"></script>
+    <script  src="js/jquery.cityselect.js"></script>
+</head>
+<body>
+<header id="You_header">
+    <div id="You_prev" onclick="window.history.back()">
+    </div>
+    <a class="You_login">新建收货地址</a>
+    <a class="save-add">保存</a>
+</header>
+<div class="newAddress">
+    <div class="address">
+        <span>收货人</span>
+        <input type="text" placeholder="名字">
+    </div>
+    <div class="address">
+        <span>手机号码</span>
+        <input type="text" maxlength="11" class="mobile" placeholder="联系手机">
+    </div>
+    <div class="address addressIn">
+        <span>选择地区</span>
+        <input type="text" data-role="choose-area" placeholder="北京" >
+    </div>
+    <div class="address addressDetail">
+        <span>详细地址</span>
+        <textarea class="textarea"  placeholder="街道门牌信息"></textarea>
+    </div>
+    <div class="address addressDetail">
+        <span>邮政编码</span>
+        <input type="text" placeholder="邮政编码">
+    </div>
+</div>
+<div class="areaChoice" data-role="usercity">
+    <p class="return" data-role="return-choice"></p>
+    <div class="areaChoice_right">
+        <p><a class="return_nex"></a>配送至</p>
+        <div class="areaUl"  id="city">
+                <ul style="display: block;" class="usercity prov" data-role="prov">
+                </ul>
+
+                <ul class="usercity city"  data-role="city">
+
+                </ul>
+                <ul  class="usercity dist"  data-role="dist">
+                </ul>
+        </div>
+    </div>
+</div>
+<script src="js/address.js"> </script>
+</body>
+</html>
