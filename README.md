@@ -38,7 +38,7 @@ html-demo
   
 ```
 3、一个字符串中出现最多的字母；  
-   学会像对象中加入键名和键值简称加入键值对；
+   学会向对象中加入键名和键值简称加入键值对；
 ```
   var str='asssaagggggggggddddddd';
   var obj={};
