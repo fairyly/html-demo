@@ -13,13 +13,25 @@ html-demo
   test.splite('').reverse().join('');//数组转化字符串
   
 ```
-
+2、去掉数组中重复的值；
 
 ```
+  第一种方法：
+  var a=[1,55,66,1,22,66,55,88];
   var arr=[];
   for(var i=0;i<test.length;i++){
-    if(arr.indexof(test[i])==-1){
-      
+    if(arr.indexof(a[i])==-1){
+      arr.push(a[i]);
+    }
+  }
+  第二种方法：
+  var a=[1,55,66,1,22,66,55,88];
+  var arr=[];
+  var hash={}
+  for(var i=0;i<test.length;i++){
+    if(!hash[a[i]]){
+      hash[a[i]]=true;
+      arr.push(a[i]);
     }
   }
 ```
