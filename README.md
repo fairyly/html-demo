@@ -62,3 +62,18 @@ html-demo
   console.log(i+','+m)
   
 ```
+4、冒泡排序
+```
+  var arr=[55,88,12,36,1];
+  for(var i=0;i<arr.length-1;i++)
+  {
+    for(var j=i+1;j<arr.length;j++){
+      if(arr[i]>arr[j]){//从arr[0]开始比较大小
+        var tem=arr[i];
+        arr[i]=arr[j];
+        arr[j]=tem
+      }
+    }
+  }
+
+```
