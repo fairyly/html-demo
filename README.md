@@ -24,10 +24,11 @@ html-demo
       arr.push(a[i]);
     }
   }
+  
   第二种方法：
   var a=[1,55,66,1,22,66,55,88];
   var arr=[];
-  var hash={}
+  var hash={};
   for(var i=0;i<test.length;i++){
     if(!hash[a[i]]){
       hash[a[i]]=true;
