@@ -51,6 +51,7 @@
           </body> 
           </html>
      ```
+```
 我们在做移动web应用的时候，常常习惯于使用position:fixed把一个input框作为提问或者搜索框固定在页面底部。但在IOS的safari和webview中，对position:fixed的支持不是很好（在IOS5之前甚至还不支持position:fixed）。我遇到的其中一个问题就是，在iOS6+环境下，input focus弹出输入法的时候，设置了position fixed的input框浮在页面上了，而不是吸附在软键盘上。效果如图（图片来源于网上）：
 
 
@@ -113,6 +114,7 @@ $('input').focus(function(){
         $(window).unbind('scroll');
 });
 
-ps : 以上代码在IOS6&7 safari中测试通过，IOS5及之前的版本没做测试。Android因为完美支持position:fixed则无需考虑此兼容方法。
+```
+注: 以上代码在IOS6&7 safari中测试通过，IOS5及之前的版本没做测试。Android因为完美支持position:fixed则无需考虑此兼容方法。
 
 
