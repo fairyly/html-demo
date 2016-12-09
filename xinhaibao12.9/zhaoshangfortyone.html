@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="editz41">
+        <div class="editz41_con">
+          <div class="editz41_conbg11" id="editmove">
+            <img src="images/z41up1.jpg">
+          </div>
+          <div class="editz41_conbg2"></div>
+          <div class="editz41_con1">
+                <p contenteditable="true">诚招代理</p>
+          </div>
+          <div class="editz41_con2">
+                <p contenteditable="true">给梦想一个机会</p>
+          </div>
+          <div class="editz41_con3">
+                <p contenteditable="true">2016进入微商的前提是，</p>
+                <p contenteditable="true">你必须选对的产品，然后</p>
+                <p contenteditable="true">选对带着你前进的那个人</p>
+                <p contenteditable="true">还要加入一个特别棒的团队。</p>
+          </div>
+          <div class="editz41_con4">
+                <p contenteditable="true">我们希望这样的你</p>
+          </div>
+          <div class="editz41_con5">
+                <p contenteditable="true">加入我 们</p>
+          </div>
+          <div class="editz41_con6">
+                <p contenteditable="true">乘风远航   世界就在眼前</p>
+          </div>
+          <div class="editz41_up1"> 
+                <div class="editz41_up11">
+                    <div class="editz41_fileInput left">
+                          <input type="file" capture="camera" name="editz41_upfile" id="editz41_upfile" style="display:none" class="editz41_upfile" onchange="document.getElementById('editz41_upfileResult').innerHTML=this.value;"/>
+                          <input class="editz41_upFileBtn" id="editz41_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz41_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          
+        </div>
+        <div class="shengchengz41">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第四十一个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#editz41_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editz41_conbg11 img").attr("src", objUrl);
+          }
+        });
+      $("#editz41_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+            
+        if (objUrl) {
+          $(".editz41_con2 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengz41").click(function(){
+                
+                $(".shengchengz41").hide();
+                $(".editz41_up1").hide();
+                $(".editz41_up2").hide();
+                $(".editz41_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz41_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src);
+                              }  
+                            });
+                            $(".editz41").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第四十一个页面结束
+     </script>
+</body>
+</html>

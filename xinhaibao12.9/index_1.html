@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    
+</head>
+<body>
+    <div class="first">
+        <div class="header">
+            <nav>
+                <div class="nav">
+                    <ul>
+                        <li style="width:28%"><a href="index.html">返回</a></li>
+                        <li style="width:45%"><a href="">微商海报</a></li>
+                        <li style="width:22%"><a href="index.html">首页</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+       <!-- 头部结束 -->
+        <div class="edit1">
+            <div class="img1">
+                <div class="m1" id="edit_conimg">
+                  <!-- onload="AutoResizeImage(500,480,this)"按照比例显示 -->
+                    <img src="images/m1.jpg" style="width:100%;max-width:640px" id="img1"/>
+                </div>
+                <div class="up1">
+                    <div class="up11">
+                        <div class="fileInput left">
+                              <input type="file" capture="camera" name="upfile" id="upfile" style="display:none" class="upfile" onchange="document.getElementById('upfileResult').innerHTML=this.value;"/>
+                              <input class="upFileBtn" id="upfileResult" type="button" value="上传图片" onclick="document.getElementById('upfile').click();" />
+                        </div>
+                        <!-- <img src="images/upload.png" style="width:60px;height:60px;"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="bg1">
+                <div class="titl" style="width:100%;margin: -40px auto;">
+                    <div class="title1">
+                        <!-- contenteditable="true" -->
+                        <p style="font-size:1.2rem;text-align:center;"><input class="input1" id="p1" type="text" maxlength="3" value="红领巾" style="border:0px;background:rgba(255,255,255,0);text-align:center;"/></p>
+                        <h2 id="p2" contenteditable="true" style="width:100%;height:3rem;line-height:3rem;margin: 0px auto;overflow: hidden;font-size:2.5rem;font-weight:bold">红领巾联盟商店</h2>
+                        <p id="p3" contenteditable="true" style="width:83%;overflow:hidden;margin:2px auto;font-size:0.5rem;border-top:1px solid #000;padding-top:2px;">HONGLINGJIN LIANMENG SHOP</p>
+                    </div>
+                </div>  
+                <div class="content1">
+                    <p id="p4" style="font-size:1rem;color:#fe86a0">微信</p>
+                    <p id="p5" contenteditable="true" style="width:100%;overflow:hidden;">517578123</p>
+                    <p id="p6" style="font-size:1rem;color:#fe86a0">QQ</p>
+                    <p id="p7" contenteditable="true" style="width:100%;overflow:hidden;">517578123</p>
+                    <p id="p8" style="font-size:1rem;color:#fe86a0">电话</p>
+                    <p id="p9" contenteditable="true" style="width:100%;overflow:hidden;">12517578123</p>
+                </div>
+                <div class="img11">
+                    <div class="m2" style="text-align:center">
+                        <img src="images/m2.jpg" style="width:8rem;height:8rem" id="img2" >
+                    </div>
+                    <div class="up2">
+                        <div class="up22">
+                            <div class="fileInput2">
+                              <input type="file" capture="camera" name="upfile2" id="upfile2" style="display:none" class="upfile2" onchange="document.getElementById('upfileResult2').innerHTML=this.value;"/>
+                              <input class="upFileBtn2" id="upfileResult2" type="button" value="上传图片" onclick="document.getElementById('upfile2').click();" />
+                            </div>
+                        </div>
+                        <!-- <img src="images/upload.png" style="width:40px;height:40px;"> -->
+                    </div>
+                </div>
+        </div>
+        <!-- edit1结束 -->
+        <div class="shengcheng">
+            <div><h3>生成</h3></div>
+        </div>
+    </div><!-- first结束 -->
+    <!-- 第一个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="" style="width:100%">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <!-- 添加touch事件 -->
+   
+    <script type="text/javascript">
+      //获取节点
+      var block10 = document.getElementById("edit_conimg");
+      var oW10,oH10;
+      // 绑定touchstart事件
+      block10.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW10 = touches.clientX - block10.offsetLeft;
+       oH10 = touches.clientY - block10.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block10.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW10;
+       var oTop = touches.clientY - oH10;
+       // if(oLeft < 0) {
+       //  oLeft = 0;
+       // }else if(oLeft > document.documentElement.clientWidth - block2.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block2.offsetWidth);
+       // }
+       block10.style.left = oLeft + "px";
+       block10.style.top = oTop + "px";
+      },false);
+       
+      block10.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>  
+    <script type="text/javascript">
+      //获取节点
+      var block11 = document.getElementById("edit_conimgde");
+      var oW11,oH11;
+      // 绑定touchstart事件
+      block11.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW11 = touches.clientX - block11.offsetLeft;
+       oH11 = touches.clientY - block11.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block11.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       console.log(e);
+       var oLeft = touches.clientX - oW11;
+       var oTop = touches.clientY - oH11;
+       if(oLeft < 0) {
+        oLeft = 0;
+       }else if(oLeft > document.documentElement.clientWidth - block2.offsetWidth) {
+        oLeft = (document.documentElement.clientWidth - block2.offsetWidth);
+       }
+       block11.style.left = oLeft + "px";
+       block11.style.top = oTop + "px";
+      },false);
+       
+      block11.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>  
+    <!-- 监听手势 缩放-->
+    
+    <script type="text/javascript">
+            var target10= document.getElementById("edit_conimg");
+            target10.style.webkitTransition = 'all ease 0.05s';
+
+            touch.on('#edit_conimg', 'touchstart', function(ev){
+                ev.preventDefault();
+            });
+
+            var initialScale = 1;
+            var currentScale;
+
+            touch.on('#edit_conimg', 'pinchend', function(ev){
+                currentScale = ev.scale - 1;
+                console.log(currentScale);
+                currentScale = initialScale + currentScale;
+                // currentScale = currentScale > 2 ? 2 : currentScale;
+                // currentScale = currentScale < 1 ? 0.5 : currentScale;
+                this.style.webkitTransform = 'scale(' + currentScale + ')';
+                console.log("当前缩放比例为:" + currentScale + ".");
+            });
+
+            touch.on('#edit_conimg', 'pinchend', function(ev){
+                initialScale = currentScale;
+            });
+    </script>
+</body>
+</html>
+

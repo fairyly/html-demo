@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    <script type="text/javascript">
+    //图片等比例缩小处理
+    function AutoResizeImage(maxWidth,maxHeight,objImg){
+            var img = new Image();
+            img.src = objImg.src;
+            var hRatio;
+            var wRatio;
+            var Ratio = 1;
+            var w = img.width;
+            var h = img.height;
+            wRatio = maxWidth / w;
+            hRatio = maxHeight / h;
+            if (maxWidth ==0 && maxHeight==0){
+                Ratio = 1;
+                }
+                else if (maxWidth==0){//
+                    if (hRatio<1) Ratio = hRatio;
+                       }else if (maxHeight==0){
+                             if (wRatio<1) Ratio = wRatio;
+                             }else if (wRatio<1 || hRatio<1){
+                                   Ratio = (wRatio<=hRatio?wRatio:hRatio);
+                                    }
+            if (Ratio<1){
+                w = w * Ratio;
+                h = h * Ratio;
+                }
+            objImg.height = h;
+            objImg.width = w;
+    }
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="edit12">
+        <div class="edit12_con"> 
+          <div class="edit12_con1">
+              <div class="edit12_con1pic" id="edit12_con1img">
+                <img src="images/mpup22.jpg"/>
+              </div>
+              <div class="edit12_up1">
+                  <div class="edit12_up11">
+                      <div class="edit12_fileInput left">
+                            <input type="file" capture="camera" name="edit12_upfile" id="edit12_upfile" style="display:none" class="edit12_upfile" onchange="document.getElementById('edit12_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit12_upFileBtn" id="edit12_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit12_upfile').click();" />
+                      </div>
+                  </div>
+              </div>  
+          </div>
+          <div class="edit12_con2">
+              <div class="edit12_con21">
+                <div class="edit12_con21txt">
+                    <p contenteditable="true">诚信微商人</p>
+                    <p contenteditable="true">我宣誓</p>
+                </div>
+              </div>
+              <div class="edit12_con22">
+                  <p contenteditable="true">本人作为微商的一份子</p>
+                  <p contenteditable="true">定当恪守以下内容：</p>
+                  <p contenteditable="true">不做假冒伪劣产品</p>
+                  <p contenteditable="true">不坑客 不杀熟</p>
+                  <p contenteditable="true">不做传销赚人头费</p>
+                  <p contenteditable="true">不乱市不欺诈宣传</p>
+                  <p contenteditable="true">......</p>
+                  <p contenteditable="true">用无微不至的服务</p>
+                  <p contenteditable="true">营造良好的诚信环境</p>
+                  <p contenteditable="true">为品质中国贡献自己最大的力量</p>
+              </div><div class="edit12_con23">
+                  <p contenteditable="true">微信：12542458741</p>
+                  <p contenteditable="true">QQ：123582451</p>
+                  <p contenteditable="true">电话：18888888888</p>
+                  <div class="edit12_con2pic" id="edit12_con2img">
+                    <img src="images/mpup2.jpg">
+                  </div>
+                  <div class="edit12_up2">
+                    <div class="edit12_up22">
+                        <div class="edit12_fileInput2 left">
+                              <input type="file" capture="camera" name="edit12_upfile2" id="edit12_upfile2" style="display:none" class="edit12_upfile2" onchange="document.getElementById('edit12_upfileResult2').innerHTML=this.value;"/>
+                              <input class="edit12_upFileBtn2" id="edit12_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit12_upfile2').click();" />
+                        </div>
+                    </div>
+                </div>
+              </div>    
+          </div>  
+        </div>
+        <div class="shengcheng12">
+            <div><h3>生成</h3></div>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十二个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="" style="width:100%">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+</body>
+</html>
+<!-- 添加touch事件 -->
+    <script type="text/javascript">
+      //获取节点
+      var block12 = document.getElementById("edit12_con1img");
+      var oW12,oH12;
+      // 绑定touchstart事件
+      block12.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW12 = touches.clientX - block12.offsetLeft;
+       oH12 = touches.clientY - block12.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block12.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW12;
+       var oTop = touches.clientY - oH12;
+       // if(oLeft < 0) {
+       //  oLeft = 0;
+       // }else if(oLeft > document.documentElement.clientWidth - block2.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block2.offsetWidth);
+       // }
+       block12.style.left = oLeft + "px";
+       block12.style.top = oTop + "px";
+      },false);
+       
+      block12.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+    <!-- 监听手势 缩放-->
+    <script type="text/javascript">
+            var target12= document.getElementById("edit12_con1img");
+            target12.style.webkitTransition = 'all ease 0.05s';
+
+            touch.on('#edit12_con1img', 'touchstart', function(ev){
+                ev.preventDefault();
+            });
+
+            var initialScale = 1;
+            var currentScale;
+
+            touch.on('#edit12_con1img', 'pinchend', function(ev){
+                currentScale = ev.scale - 1;
+                console.log(currentScale);
+                currentScale = initialScale + currentScale;
+                // currentScale = currentScale > 2 ? 2 : currentScale;
+                // currentScale = currentScale < 1 ? 0.5 : currentScale;
+                this.style.webkitTransform = 'scale(' + currentScale + ')';
+                console.log("当前缩放比例为:" + currentScale + ".");
+            });
+
+            touch.on('#edit12_con1img', 'pinchend', function(ev){
+                initialScale = currentScale;
+            });
+    </script>
+   

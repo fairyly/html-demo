@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="editf23">
+        <div class="editf23_con"> 
+          <div class="editf23_conbg1" id="editmove">
+            <img src="images/f23up1.jpg">
+          </div>
+          <div class="editf23_conbg2"></div>
+          <div class="editf23_up1">
+              <div class="editf23_up11">
+                  <div class="editf23_fileInput">
+                        <input type="file" capture="camera" name="editf23_upfile" id="editf23_upfile" style="display:none" class="editf23_upfile" onchange="document.getElementById('editf23_upfileResult').innerHTML=this.value;"/>
+                        <input class="editf23_upFileBtn" id="editf23_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf23_upfile').click();" />
+                  </div>
+              </div>
+          </div> 
+          <div class="editf23_con1">
+                <p contenteditable="true">微友团队</p>
+                <p contenteditable="true">红领巾联盟商店</p>
+          </div>
+          <div class="editf23_con2">
+                <img src="images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="editf23_up2">
+              <div class="editf23_up22">
+                  <div class="editf23_fileInput2">
+                        <input type="file" capture="camera" name="editf23_upfile2" id="editf23_upfile2" style="display:none" class="editf23_upfile2" onchange="document.getElementById('editf23_upfileResult2').innerHTML=this.value;"/>
+                        <input class="editf23_upFileBtn2" id="editf23_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editf23_upfile2').click();" />
+                  </div>
+              </div>
+          </div> 
+        </div>
+        <div class="shengchengf23">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第二十三个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#editf23_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editf23_conbg1 img").attr("src", objUrl);
+          }
+        });
+    $("#editf23_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);   
+        if (objUrl) {
+          $(".editf23_con2 img").attr("src", objUrl);
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengf23").click(function(){
+                
+                $(".shengchengf23").hide();
+                $(".editf23_up1").hide();
+                $(".editf23_up2").hide();
+                $(".editf23_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf23_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src);
+                              }  
+                            });
+                            $(".editf23").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第二十三个页面结束
+     </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    <style type="text/css">
+      .editz2{
+          width: 80%;
+          height: 47.5rem;
+          margin: 0px auto;
+          background-color: #ffffff;
+          position: relative;
+          top: 0px;
+      }
+      .editz2_con{
+          width: 100%;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+      }
+      .editz2_kong{
+          width: 100%;
+          height: 50px;
+      }
+      .editz2_conbg{
+          width: 100%;
+          height: 100%;
+          background: url(images/z2bg.png) no-repeat;
+          background-size: 100% 100%;
+           position: absolute;
+          z-index: 1;
+          text-align: center;
+          top: 0;
+      }
+      .editz2_con1{
+          width: 6rem;
+          height: 6rem;
+          overflow: hidden;
+          position: absolute;
+          z-index: 1;
+          text-align: center;
+          top: 11rem;
+          left: 10rem;
+          /*border: 2px solid #ffffff;*/
+      }
+      .editz2_con1pic{
+          position: absolute;
+          left: 2.67rem;
+          text-align: center;
+          z-index: 0;
+          top: 4.8em;
+      }
+      .editz2_con1pic img{
+          width: 20rem;
+          
+          /*margin-top: 10px;*/
+      }
+      .editz2_up1{
+          position: absolute;
+          top: 0rem;
+          left: 0rem;
+          margin: 0px auto;
+      }
+      .editz2_fileInput{
+          margin: 0px auto;
+          width:6.2rem;
+          height:6.2rem; 
+          background:url(images/upload.png) no-repeat;
+          background-size:6rem 6rem;
+          overflow:hidden;
+          position:relative;
+      }
+      .editz2_upfile{
+          position:absolute;
+          top:-10rem;
+      }
+      .editz2_upFileBtn{
+          width:6rem;height:6rem;
+          opacity:0;
+          filter:alpha(opacity=0);
+          /*cursor:pointer;*/
+      }
+      .editz2_con2{
+          width: 100%;
+          height: 17rem;
+          margin: 1em auto;
+          text-align: center;
+          position: absolute;
+          top: 27rem;
+          z-index: 2;
+      }
+      .editz2_con21 p{
+          line-height: 4rem;
+      }
+      .editz2_con21 p:nth-child(1){
+          font-size: 2.8em;
+          color: #000000;
+          font-family: "Microsoft YaHei";
+          font-weight: bold;
+      }
+      .editz2_con21 p:nth-child(2){
+          font-size: 2em;
+          color: #000000;
+          font-weight: bold;
+      }
+      .editz2_con21 p:nth-child(3),.editz2_con21 p:nth-child(4),.editz2_con21 p:nth-child(5),.editz2_con21 p:nth-child(6){
+          font-size:1.21em;
+          color: #f50f36;
+          line-height: 1.7em;
+          /*font-weight: bold;*/
+      }
+      .editz2_con21 p:nth-child(3){
+          font-size: 1.6em;
+          font-weight: bold;
+          word-spacing: 10px;
+          letter-spacing: 3px;
+      }
+      .editz2_con21 p:nth-child(4){
+          /*text-indent: 22px;*/
+      }
+      .editz2_con21 p:nth-child(5){
+          /*text-indent: 10px;*/
+      }
+      .shengchengz2{
+         width: 100%;
+         height: 3rem;
+         top: 1rem;
+         position: relative;
+      }
+      .shengchengz2 div{
+          width:60%;
+          height: 3rem;
+          margin:10px auto;
+          line-height:3rem;
+          text-align: center;
+          background-color: #04be02;
+          border-radius: 0.6rem;
+          font-size: 1.4rem;
+          color: #ffffff;
+          position:relative;  
+      }
+      .shengchengz2 div h3{
+          font-weight: initial;
+          font-size: 1.2rem;
+      }
+      /*招商第二个页结束*/
+    </style>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="editz2">
+        <div class="editz2_con">
+      <!--     <div class="editz2_kong"></div> -->
+            <div class="editz2_con1pic" >
+                    <img src="images/z2up1.jpg" id="editmove" / >
+            </div>
+            <div class="editz2_conbg" style="pointer-events: none">
+            </div>
+            <div class="editz2_con1"> 
+                  <div class="editz2_up1">
+                      <div class="editz2_up11">
+                          <div class="editz2_fileInput left">
+                                <input type="file" capture="camera" name="editz2_upfile" id="editz2_upfile" style="display:none" class="editz2_upfile" onchange="document.getElementById('editz2_upfileResult').innerHTML=this.value;"/>
+                                <input class="editz2_upFileBtn" id="editz2_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz2_upfile').click();" />
+                          </div>
+                          <!-- <img src="images/upload.png" style="width:60px;height:60px;"> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="editz2_con2">
+                  <div class="editz2_con21">
+                    <p contenteditable="true">微友团队招代理</p>
+                    <p contenteditable="true">梦想 惊喜 收获</p>
+                    <p contenteditable="true">I HAVE A DREAME</p>
+                    <p contenteditable="true">梦想总该有的，万一实现了呢？</p>
+                    <p contenteditable="true">微商时代的来临，抓住机会成就梦想的</p>
+                    <p contenteditable="true">让创业不再需要上百万的启动资金。</p>
+                  </div>
+              </div>
+        </div>
+        <div class="shengchengz2">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第二个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        
+        $("#editz2_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+            console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editz2_con1pic img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")") ;
+          
+          }
+        });
+    $("#editz2_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".editz2_con41pic img").attr("src", objUrl) ;
+         
+        }
+      });    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengz2").click(function(){
+                
+                $(".shengchengz2").hide();
+                // $(".edit3").show();
+                $(".editz2_up1").hide();
+                $(".editz2_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz2_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        // width: 720,
+                        // height:1280,
+                        // canvas: canvas,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //document.body.appendChild(canvas);
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src) ;
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".editz2").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第二个页面结束
+     </script>
+     <script type="text/javascript">
+     var initialScale = 1;
+     var currentScale;
+    //   //获取节点
+      var block20 = document.getElementById("editmove");
+      var oW20,oH20;
+      // 绑定touchstart事件
+      block20.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW20 = touches.clientX - block20.offsetLeft;
+       oH20 = touches.clientY - block20.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block20.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW20;
+       var oTop = touches.clientY - oH20;
+       block20.style.transform="translate("+oLeft/20+ "rem,"+oTop/20+"rem) rotate(0deg) scale("+initialScale+")";
+       block20.style.webkitTransform="translate("+oLeft/20+ "rem,"+oTop/20+"rem) rotate(0deg) scale("+initialScale+")";
+      },false);
+       
+      block20.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+    <!-- 监听手势 缩放-->
+     <script type="text/javascript">
+            var target19= document.getElementById("editmoveimg");
+            // target19.style.webkitTransition = 'all ease 0.05s';
+
+            touch.on('#editmove', 'touchstart', function(ev){
+                ev.preventDefault();
+            });
+
+            var initialScale = 1;
+            var currentScale;
+
+            touch.on('#editmove', 'pinchend', function(ev){
+                currentScale = ev.scale - 1;
+                console.log(currentScale);
+                currentScale = initialScale + currentScale;
+                // currentScale = currentScale > 2 ? 2 : currentScale;
+                // currentScale = currentScale < 1 ? 0.5 : currentScale;
+                this.style.webkitTransform = 'scale(' + currentScale + ')';
+                console.log("当前缩放比例为:" + currentScale + ".");
+            });
+
+            touch.on('#editmove', 'pinchend', function(ev){
+                initialScale = currentScale;
+            });
+    </script>
+</body>
+</html>

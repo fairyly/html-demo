@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="editp3">
+        <div class="editp3_con">
+      <!--     <div class="editp3_kong"></div> -->
+            <div class="editp3_conbg">
+              <div class="editp3_con1"> 
+                  <div class="editp3_con1pic">
+                        <img src="images/p3weiyou.png">
+                  </div>
+                  <div class="editp3_con1txt">
+                       <p contenteditable="true">微商基础培训</p>
+                       <p contenteditable="true">微友课堂开讲啦</p>
+                  </div>
+                  <div class="editp3_con1pic2">
+                        <img src="images/mpup2.jpg"/>
+                  </div>
+                  <div class="editp3_up1">
+                      <div class="editp3_up11">
+                          <div class="editp3_fileInput left">
+                                <input type="file" capture="camera" name="editp3_upfile" id="editp3_upfile" style="display:none" class="editp3_upfile" onchange="document.getElementById('editp3_upfileResult').innerHTML=this.value;"/>
+                                <input class="editp3_upFileBtn" id="editp3_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editp3_upfile').click();" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="editp3_con1btn">
+                      <div class="editp3_con1btn1">
+                          <p contenteditable="true">玩赚全民微商运营</p>
+                          <p contenteditable="true">零基础使用课程</p>
+                      </div>
+                  </div>
+                  <div class="editp3_con1txt2">
+                         <p contenteditable="true">微友学堂，火热报名</p>
+                  </div>
+              </div>
+              <div class="editp3_con2">
+                  <div class="editp3_con21">
+                      <img src="images/p3weiyou2.png">
+                  </div><div class="editp3_con22">
+                      <p contenteditable="true">Q Q：485124784</p>
+                      <p contenteditable="true">微信：ggg542145874</p>
+                      <p contenteditable="true">电话：13421450874</p>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="shengchengp3">
+            <div><h3>生成</h3></div>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第九个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="" style="width:100%">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+</body>
+</html>
