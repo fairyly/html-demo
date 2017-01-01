@@ -10,7 +10,7 @@ html-demo
   var test="manam";
   test.split('');//字符串转成数组
   test.split('').reverse();//数组反序排列
-  test.splite('').reverse().join('');//数组转化字符串
+  test.split('').reverse().join('');//数组转化字符串
   
 ```
 2、去掉数组中重复的值；
