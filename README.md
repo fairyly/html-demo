@@ -19,7 +19,7 @@ html-demo
   第一种方法：比较浪费资源和时间
   var a=[1,55,66,1,22,66,55,88];
   var arr=[];
-  for(var i=0;i<test.length;i++){
+  for(var i=0;i<a.length;i++){
     if(arr.indexof(a[i])==-1){//判断arr中元素是否存在;arr.indexof(a[i])就是返回a[i]对应元素第一次出现在arr中的位置
       arr.push(a[i]);
     }
@@ -29,7 +29,7 @@ html-demo
   var a=[1,55,66,1,22,66,55,88];
   var arr=[];
   var hash={};
-  for(var i=0;i<test.length;i++){
+  for(var i=0;i<a.length;i++){
     if(!hash[a[i]]){//判断键值是不是存在
       hash[a[i]]=true;
       arr.push(a[i]);
