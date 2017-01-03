@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="edit28">
+        <div class="edit28_con"> 
+          <div class="edit28_up1"> 
+                  <div class="edit28_up11">
+                      <div class="edit28_fileInput left">
+                            <input type="file" capture="camera" name="edit28_upfile" id="edit28_upfile" style="display:none" class="edit28_upfile" onchange="document.getElementById('edit28_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit28_upFileBtn" id="edit28_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit28_upfile').click();" />
+                      </div>
+                  </div>
+          </div>   
+          <div class="edit28_con1">
+              <div class="edit28_con1head">
+                <p contenteditable="true">VOICE</p>
+              </div>
+              <div class="edit28_con1txt">
+                  <div class="edit28_con1txtcon">
+                    <p contenteditable="true">从0到100万</p>
+                    <p contenteditable="true">我的微商之路</p>
+                  </div>  
+              </div>
+              <div class="edit28_con1middle">
+                    <p contenteditable="true">我是微商我</p>
+                    <p contenteditable="true">自豪</p>
+                    <p contenteditable="true">勤奋打拼白手起家</p>
+                    <p contenteditable="true">微商中国</p>
+                    <p contenteditable="true">微商趋势已经无法阻挡</p>
+              </div>   
+          </div>
+          <div class="edit28_con2">
+              <div class="edit28_con21"> 
+                  <div class="edit28_con21txt">
+                      <p contenteditable="true">创业</p>
+                      <p contenteditable="true">现代微商的合伙人制度</p>
+                      <p contenteditable="true">热点</p>
+                      <p contenteditable="true">现在红爆朋友圈的秘密</p>
+                  </div>
+              </div>
+          </div>  
+        </div>
+        <div class="shengcheng28">
+            <div><h3>生成</h3></div>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第二十八个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="" style="width:100%">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+    
+</body>
+</html>

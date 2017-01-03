@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="editfz1">
+        <div class="editfz1_con"> 
+          <div class="editfz1_conbg1">
+            <img src="images/fz1up1.jpg">
+          </div>
+          <div class="editfz1_conbg2">
+            <div class="editfz1_up1">
+                    <div class="editfz1_up11">
+                        <div class="editfz1_fileInput">
+                              <input type="file" capture="camera" name="editfz1_upfile" id="editfz1_upfile" style="display:none" class="editfz1_upfile" onchange="document.getElementById('editfz1_upfileResult').innerHTML=this.value;"/>
+                              <input class="editfz1_upFileBtn" id="editfz1_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfz1_upfile').click();" />
+                        </div>
+                    </div>
+            </div>
+            <div class="editfz1_con1">
+                  <p contenteditable="true">招代理</p>
+                  <p contenteditable="true">将来的你一定会</p>
+                  <p contenteditable="true">感谢现在努力的你</p>
+            </div>
+            <div class="editfz1_con2">
+                      <p contenteditable="true">飞速发展的科技让机会</p>
+                      <p contenteditable="true">似乎随处可见，有人抓</p>
+                      <p contenteditable="true">对了，有人抓错了，更</p>
+                      <p contenteditable="true">多人在观望中错失了良</p>
+                      <p contenteditable="true">机，空有一腔创业的热</p>
+                      <p contenteditable="true">血，却始终止步不前。</p>
+                      <p contenteditable="true">不用再害怕失败，就现</p>
+                      <p contenteditable="true">在，行动起来，成为百</p>
+                      <p contenteditable="true">名幸运者之一</p>
+            </div>
+            <div class="editfz1_con3">
+                 <img src="images/mpup2.jpg">
+            </div>
+            <div class="editfz1_up2">
+                      <div class="editfz1_up22">
+                          <div class="editfz1_fileInput2">
+                                <input type="file" capture="camera" name="editfz1_upfile2" id="editfz1_upfile2" style="display:none" class="editfz1_upfile2" onchange="document.getElementById('editfz1_upfileResult2').innerHTML=this.value;"/>
+                                <input class="editfz1_upFileBtn2" id="editfz1_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editfz1_upfile2').click();" />
+                          </div>
+                      </div>
+            </div> 
+            <div class="editfz1_con4">
+                      <p contenteditable="true">微友</p>
+                      <p contenteditable="true">团队</p>
+            </div>
+          </div>
+        </div>
+        <div class="shengchengfz1">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图招商第一个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#editfz1_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+            console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editfz1_conbg1 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")") ;
+          
+          }
+        });
+    $("#editfz1_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".editfz1_con3 img").attr("src", objUrl) ;
+         
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengfz1").click(function(){
+                
+                $(".shengchengfz1").hide();
+                // $(".edit3").show();
+                $(".editfz1_up1").hide();
+                $(".editfz1_up2").hide();
+                $(".editfz1_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfz1_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        // width: 720,
+                        // height:1280,
+                        // canvas: canvas,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //document.body.appendChild(canvas);
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src) ;
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".editfz1").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图招商第一个页面结束
+     </script>
+</body>
+</html>

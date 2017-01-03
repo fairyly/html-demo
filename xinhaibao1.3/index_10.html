@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="edit10">
+        <div class="edit10_con"> 
+          <div class="edit10_con1">
+              <div class="konghang"></div>
+              <div class="edit10_conp1">
+                  <p contenteditable="true">微友家族</p>
+              </div>
+              <div class="edit10_conp2">
+                  <p contenteditable="true">WEIYOU FAMILY</p>
+              </div>
+              <div class="edit10_conp3">
+                <div class="pbg"><p contenteditable="true">输/在/犹/豫/赢/在/行/动</p></div>
+              </div>
+              <div class="edit10_conp4">
+                <div class="edit10_conp41">
+                    <p contenteditable="true">微信：lj12345623</p>
+                    <p contenteditable="true">QQ:123456788</p>
+                    <p contenteditable="true">电话：16666688888</p>
+                </div>
+              </div>
+              <div class="edit10_con5pic">
+                <img src="images/mpup2.jpg"/>
+              </div>
+              <div class="edit10_up1">
+                  <div class="edit10_up11">
+                      <div class="edit10_fileInput left">
+                            <input type="file" capture="camera" name="edit10_upfile" id="edit10_upfile" style="display:none" class="edit10_upfile" onchange="document.getElementById('edit10_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit10_upFileBtn" id="edit10_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit10_upfile').click();" />
+                      </div>
+                  </div>
+              </div>  
+          </div>
+          <div class="edit10_con2">
+              <div class="edit10_con2pic" id="edit10_con2img">
+                <img src="images/mpup1.jpg"/>
+              </div>
+               <div class="edit10_up2">
+                  <div class="edit10_up22">
+                      <div class="edit10_fileInput2 left">
+                            <input type="file" capture="camera" name="edit10_upfile2" id="edit10_upfile2" style="display:none" class="edit10_upfile2" onchange="document.getElementById('edit10_upfileResult2').innerHTML=this.value;"/>
+                            <input class="edit10_upFileBtn2" id="edit10_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit10_upfile2').click();" />
+                      </div>
+                  </div>
+              </div>  
+          </div>  
+        </div>
+        <div class="shengcheng10">
+            <div><h3>生成</h3></div>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="" style="width:100%">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+</body>
+</html>
+<!-- 添加touch事件 -->
+
+    <script type="text/javascript">
+      //获取节点
+      var block10 = document.getElementById("edit10_con2img");
+      var oW10,oH10;
+      // 绑定touchstart事件
+      block10.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW10 = touches.clientX - block10.offsetLeft;
+       oH10 = touches.clientY - block10.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block10.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW10;
+       var oTop = touches.clientY - oH10;
+       // if(oLeft < 0) {
+       //  oLeft = 0;
+       // }else if(oLeft > document.documentElement.clientWidth - block2.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block2.offsetWidth);
+       // }
+       block10.style.left = oLeft + "px";
+       block10.style.top = oTop + "px";
+      },false);
+       
+      block10.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>  
+    <!-- 监听手势 缩放-->
+    
+    <script type="text/javascript">
+            var target10= document.getElementById("edit10_con2img");
+            target10.style.webkitTransition = 'all ease 0.05s';
+
+            touch.on('#edit10_con2img', 'touchstart', function(ev){
+                ev.preventDefault();
+            });
+
+            var initialScale = 1;
+            var currentScale;
+
+            touch.on('#edit10_con2img', 'pinchend', function(ev){
+                currentScale = ev.scale - 1;
+                console.log(currentScale);
+                currentScale = initialScale + currentScale;
+                // currentScale = currentScale > 2 ? 2 : currentScale;
+                // currentScale = currentScale < 1 ? 0.5 : currentScale;
+                this.style.webkitTransform = 'scale(' + currentScale + ')';
+                console.log("当前缩放比例为:" + currentScale + ".");
+            });
+
+            touch.on('#edit10_con2img', 'pinchend', function(ev){
+                initialScale = currentScale;
+            });
+    </script>
+   

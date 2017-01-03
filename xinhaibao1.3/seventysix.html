@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=760,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="edit76">
+        <div class="edit76_con">
+          <div class="edit76_conbg11" id="editmove">
+            <img src="images/m76up1.jpg" alt="uppic">
+          </div>
+          <div class="edit76_conbg2"></div>
+          <div class="edit76_con1">
+             <p contenteditable="true">年终大巨惠  更多惊喜等你来</p>
+             <p contenteditable="true">微友家族祝你们圣诞节快乐</p>
+          </div>
+          <div class="edit76_up1"> 
+                <div class="edit76_up11">
+                    <div class="edit76_fileInput left">
+                          <input type="file" capture="camera" name="edit76_upfile" id="edit76_upfile" style="display:none" class="edit76_upfile" onchange="document.getElementById('edit76_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit76_upFileBtn" id="edit76_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit76_upfile').click();"/>
+                    </div>
+                </div>
+          </div>
+         
+        </div>
+        <div class="shengcheng76">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第七十六个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#edit76_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit76_conbg11 img").attr("src", objUrl);
+            }
+        });
+        $("#edit76_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit76_con4 img").attr("src", objUrl);
+            }
+        });
+         //建立一个可存取到该file的url
+        function getObjectURL(file){
+	        var url = null; 
+	        if (window.createObjectURL!=undefined) { // basic
+	          url = window.createObjectURL(file);
+	        } else if (window.URL!=undefined) { // mozilla(firefox)
+	          url = window.URL.createObjectURL(file);
+	        } else if (window.webkitURL!=undefined) { // webkit or chrome
+	          url = window.webkitURL.createObjectURL(file);
+	        }
+	        return url;
+	    }
+        $(".shengcheng76").click(function(){
+                
+                $(".shengcheng76").hide();
+                $(".edit76_up1").hide();
+                $(".edit76_up2").hide();
+                $(".edit76_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit76_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base76图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src);
+                              }  
+                            });
+                            $(".edit76").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第七十六个页面结束
+     </script>
+</body>
+</html>

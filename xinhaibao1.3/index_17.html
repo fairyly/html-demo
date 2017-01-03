@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="edit17">
+        <div class="edit17_con"> 
+          <div class="edit17_con1">
+              <div class="edit17_con11pic" id="edit17_con11img">
+                 <img src="images/m10bg3.png">
+              </div>
+              <div class="edit17_up1_1">
+                    <div class="edit17_up111">
+                        <div class="edit17_fileInput11 left">
+                              <input type="file" capture="camera" name="edit17_upfile11" id="edit17_upfile11" style="display:none" class="edit17_upfile11" onchange="document.getElementById('edit17_upfileResult11').innerHTML=this.value;"/>
+                              <input class="edit17_upFileBtn11" id="edit17_upfileResult11" type="button" value="上传图片" onclick="document.getElementById('edit17_upfile11').click();" />
+                        </div>
+                    </div>
+                </div>
+          </div>
+          <div class="edit17_con2">
+              <div class="edit17_con21pic" id="edit17_con21img">
+                    <img src="images/m10up1.jpg"/>
+              </div>
+              <div class="edit17_up1"> 
+                  <div class="edit17_up11">
+                      <div class="edit17_fileInput left">
+                            <input type="file" capture="camera" name="edit17_upfile" id="edit17_upfile" style="display:none" class="edit17_upfile" onchange="document.getElementById('edit17_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit17_upFileBtn" id="edit17_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit17_upfile').click();" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="edit17_con3">
+              
+              <div class="edit17_con32">
+                  <div class="edit17_con32txt">
+                      <div><p contenteditable="true">微信：luj1258471234</p></div>
+                  </div> 
+              </div><div class="edit17_con33">
+                <div class="edit17_con33pic">
+                   <img src="images/mpup2.jpg">
+                </div>
+                <div class="edit17_up2">
+                    <div class="edit17_up22">
+                        <div class="edit17_fileInput2 left">
+                              <input type="file" capture="camera" name="edit17_upfile2" id="edit17_upfile2" style="display:none" class="edit17_upfile2" onchange="document.getElementById('edit17_upfileResult2').innerHTML=this.value;"/>
+                              <input class="edit17_upFileBtn2" id="edit17_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit17_upfile2').click();" />
+                        </div>
+                    </div>
+                </div>
+              </div> 
+              <div class="edit17_con31"> 
+                  <div class="edit17_con31txt">
+                    <p contenteditable="true">忙绿却快乐，精彩的生活自己掌握</p>
+                  </div> 
+              </div> 
+          </div>  
+        </div>
+        <div class="shengcheng17">
+            <div><h3>生成</h3></div>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十七个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="" style="width:100%">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <!-- 添加touch事件 -->
+     <script type="text/javascript">
+    //   //获取节点
+      var block17 = document.getElementById("edit17_con11img");
+      var oW17,oH17;
+      // 绑定touchstart事件
+      block17.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW17 = touches.clientX - block17.offsetLeft;
+       oH17 = touches.clientY - block17.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block17.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW17;
+       var oTop = touches.clientY - oH17;
+       // if(oLeft < 0) {
+       //  oLeft = 0;
+       // }else if(oLeft > document.documentElement.clientWidth - block2.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block2.offsetWidth);
+       // }
+       block17.style.left = oLeft + "px";
+       block17.style.top = oTop + "px";
+      },false);
+       
+      block17.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+    <!-- 监听手势 缩放-->
+     <script type="text/javascript">
+            var target17= document.getElementById("edit17_con11img");
+            target17.style.webkitTransition = 'all ease 0.05s';
+
+            touch.on('#edit17_con11img', 'touchstart', function(ev){
+                ev.preventDefault();
+            });
+
+            var initialScale = 1;
+            var currentScale;
+
+            touch.on('#edit17_con11img', 'pinchend', function(ev){
+                currentScale = ev.scale - 1;
+                console.log(currentScale);
+                currentScale = initialScale + currentScale;
+                // currentScale = currentScale > 2 ? 2 : currentScale;
+                // currentScale = currentScale < 1 ? 0.5 : currentScale;
+                this.style.webkitTransform = 'scale(' + currentScale + ')';
+                console.log("当前缩放比例为:" + currentScale + ".");
+            });
+
+            touch.on('#edit17_con11img', 'pinchend', function(ev){
+                initialScale = currentScale;
+            });
+    </script>
+     <script type="text/javascript">
+    //   //获取节点
+      var block172 = document.getElementById("edit17_con21img");
+      var oW172,oH172;
+      // 绑定touchstart事件
+      block172.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW172 = touches.clientX - block172.offsetLeft;
+       oH172 = touches.clientY - block172.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block172.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW172;
+       var oTop = touches.clientY - oH172;
+       // if(oLeft < 0) {
+       //  oLeft = 0;
+       // }else if(oLeft > document.documentElement.clientWidth - block2.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block2.offsetWidth);
+       // }
+       block172.style.left = oLeft + "px";
+       block172.style.top = oTop + "px";
+      },false);
+       
+      block172.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+    <!-- 监听手势 缩放-->
+     <script type="text/javascript">
+            var target172= document.getElementById("edit17_con21img");
+            target172.style.webkitTransition = 'all ease 0.05s';
+
+            touch.on('#edit17_con21img', 'touchstart', function(ev){
+                ev.preventDefault();
+            });
+
+            var initialScale = 1;
+            var currentScale;
+
+            touch.on('#edit17_con21img', 'pinchend', function(ev){
+                currentScale = ev.scale - 1;
+                console.log(currentScale);
+                currentScale = initialScale + currentScale;
+                // currentScale = currentScale > 2 ? 2 : currentScale;
+                // currentScale = currentScale < 1 ? 0.5 : currentScale;
+                this.style.webkitTransform = 'scale(' + currentScale + ')';
+                console.log("当前缩放比例为:" + currentScale + ".");
+            });
+
+            touch.on('#edit17_con21img', 'pinchend', function(ev){
+                initialScale = currentScale;
+            });
+    </script>
+</body>
+</html>
