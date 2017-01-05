@@ -103,3 +103,9 @@ html-demo
     i++;
   }
 ```
+7、overflow:scroll 在 iOS上滑动不流畅问题解决办法
+在模拟聊天对话页面时候，遇到问题，多余聊天对话滑动不流畅。话不多说，解决方法如下：
+
+在  overflow:scroll部分，也就是需要滑动的层处，加css
+
+-webkit-overflow-scrolling: touch;
