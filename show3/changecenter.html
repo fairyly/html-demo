@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>积分兑换</title>
+<link rel="stylesheet" href="css/ch.css" />
+<link rel="stylesheet" href="font/iconfont.css" />
+<link rel="stylesheet" href="css/weui.min.css" />
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script type="text/javascript">
+    // var docEl = document.documentElement,
+    //     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    //     recalc = function() {
+    //         docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+    //     };
+    // window.addEventListener(resizeEvt, recalc, false);
+    // document.addEventListener('DOMContentLoaded', recalc, false);
+</script>
+</head>
+<body>
+	<div class="ch-body">
+		<div class="ch-head">
+			<div class="ch-headtop">我的积分为</div>
+			<div class="ch-headbot"><span>348</span></div>
+		</div>
+		<section>
+			<div class="ch-content">
+				<ul>
+					<li>
+						<h1>TimOS美乳霜</h1>
+						<div class="ch-conlimg"><img src="images/ch-pic1.jpg" alt="pic"></div>
+						<!-- <p class="ch-conldes">补水保湿修复弹润保湿正品</p> -->
+						<p class="ch-conlprice"><img src="images/ch-ico.png" alt="icon"><span>998</span><s>原价2199</s></p>
+					</li><li>
+						<h1>蓝洋护眼贴</h1>
+						<div class="ch-conlimg"><img src="images/ch-pic2.jpg" alt="pic"></div>
+						<!-- <p class="ch-conldes">纯天然植物配方护眼贴</p> -->
+						<p class="ch-conlprice"><img src="images/ch-ico.png" alt="icon"><span>998</span><s>原价2199</s></p>
+					</li><li>
+						<h1>天地星防护衣</h1>
+						<div class="ch-conlimg"><img src="images/ch-pic3.jpg" alt="pic"></div>
+						<!-- <p class="ch-conldes">抗震防摔全方位保护手机</p> -->
+						<p class="ch-conlprice"><img src="images/ch-ico.png" alt="icon"><span>998</span><s>原价2199</s></p>
+					</li><li>
+						<h1>蓝洋护眼贴</h1>
+						<div class="ch-conlimg"><img src="images/ch-pic2.jpg" alt="pic"></div>
+						<!-- <p class="ch-conldes">纯天然植物配方护眼贴</p> -->
+						<p class="ch-conlprice"><img src="images/ch-ico.png" alt="icon"><span>998</span><s>原价2199</s></p>
+					</li>
+				</ul>
+				<!-- <div class="ch-con">
+					<div class="ch-conl">
+						<h1>TimOS美乳霜</h1>
+						<div class="ch-conlimg"><img src="images/ch-pic1.jpg" alt="pic"></div>
+						<p class="ch-conldes">补水保湿修复弹润保湿正品</p>
+						<p class="ch-conlprice"><img src="images/ch-ico.png" alt="icon"><span>998</span><s>原价2199</s></p>
+					</div>
+					<div class="ch-conr">
+						<h1>蓝洋护眼贴</h1>
+						<div class="ch-conlimg"><img src="images/ch-pic2.jpg" alt="pic"></div>
+						<p class="ch-conldes">纯天然植物配方护眼贴</p>
+						<p class="ch-conlprice"><img src="images/ch-ico.png" alt="icon"><span>998</span><s>原价2199</s></p>
+					</div>
+				</div>
+				<div class="ch-con">
+					<div class="ch-conl">
+						<h1>天地星防护衣</h1>
+						<div class="ch-conlimg"><img src="images/ch-pic3.jpg" alt="pic"></div>
+						<p class="ch-conldes">抗震防摔全方位保护手机</p>
+						<p class="ch-conlprice"><img src="images/ch-ico.png" alt="icon"><span>998</span><s>原价2199</s></p>
+					</div>
+					<div class="ch-conr">
+						<h1>蓝洋护眼贴</h1>
+						<div class="ch-conlimg"><img src="images/ch-pic2.jpg" alt="pic"></div>
+						<p class="ch-conldes">纯天然植物配方护眼贴</p>
+						<p class="ch-conlprice"><img src="images/ch-ico.png" alt="icon"><span>998</span><s>原价2199</s></p>
+					</div>
+				</div> -->
+				<div class="ch-foot">
+					<a class="weui_btn weui_btn_primary ch-footrule">积分规则</a>
+				</div>
+			</div>
+			<div class="ch-exchangerules">
+	            <article class="weui_article">
+	                <section>
+	                    <section>
+	                        <h3>最新积分规则：</h3>
+	                        <p>1.获取积分有两种方式：<a href="#">签到</a>、<a href="#">加好友</a>;</p>
+	                        <p>2.首次签到当天获取<strong>10</strong>个积分，连续签到每天获取<strong>20</strong>个积分;</p>
+	                        <p>3.通过微友达人秀长按扫描二维码添加好友获取<strong>2</strong>积分/人，每人每天最多获取<strong>20</strong>个积分，重复添加不计算;</p>
+	                        <p>4.积分用途：兑换VIP-每<strong>600</strong>积分可以兑换一个月VIP，兑换礼品(随后上线...)。</p>
+	                        <p>本规则最终解释权归本公司所有</p>
+	                    </section>
+	                </section>
+	            </article>
+	        </div>
+		</section>
+	</div>
+	<script>        
+	     $(function(){
+	     	$(".ch-footrule").click(function(){
+	     		$(".ch-content").hide();
+	     		$(".ch-exchangerules").show();
+	     	});
+	     }); 
+	</script>
+</body>
+</html>

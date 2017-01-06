@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>详细页面</title>
+<link rel="stylesheet" href="css/detail.css" />
+<link rel="stylesheet" href="css/weui.min.css" />
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+	<div class="d-content">
+		<div class="d-head">
+			<img src="images/logo.png" alt="logo"/>
+			<p>Tstar手机防护衣</p>
+		</div>
+		<div class="d-info">
+			<p>手机壳百亿市场等你来赚，低门槛99元办理授权，快速招兵买马，扩大你的代理团队，小视频营销引爆朋友圈、激活僵尸好友</p>
+		</div>
+		<div class="d-pics">
+			<div class="d-box">
+				<img src="images/pic1.jpg" alt="pic">
+			</div>
+			<div class="d-box">
+				<img src="images/pic2.jpg" alt="pic">
+			</div>
+			<div class="d-box">
+				<img src="images/pic3.jpg" alt="pic">
+			</div>
+		</div>
+		<div class="d-contact">
+			<a href="javascript:;" class="weui_btn weui_btn_primary" id="showDialog">联系我们</a>
+		</div>
+		<div class="weui_dialog_alert">
+			    <div class="weui_mask"></div>
+			    <div class="weui_dialog">
+			        <div class="weui_dialog_hd">
+			          <strong class="weui_dialog_title">长按下方 识别二维码</strong>
+			      </div>
+			        <div class="weui_dialog_bd">
+			        	<img src="images/qrcode.jpg" alt="qrcode">
+			        </div>
+			        <div class="weui_dialog_ft">
+			            <a href="#" class="weui_btn_dialog primary">确定</a>
+			        </div>
+			    </div>
+			</div>
+	</div>
+	<script type="text/javascript">
+	$(function(){
+		$("#showDialog").click(function(){
+			$(".weui_dialog_alert").show();
+		});
+		$(".primary").click(function(){
+			$(".weui_dialog_alert").hide();
+		});
+	});
+	</script>
+</body>
+</html>

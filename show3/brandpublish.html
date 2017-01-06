@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>货源发布</title>
+<link rel="stylesheet" type="text/css" href="css/bpublish.css">
+<link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/1.1.0/weui.min.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/weui.min.js"></script>
+<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+<style type="text/css">
+    .img-select div.weui-uploader__bd{
+        width: 80%;
+    }
+    .weui-uploader__file{
+        width: 45px;
+        height: 45px;
+    }
+</style>
+</head>
+<body>
+	<div class="header">
+        <a href="javascript:history.back()">
+            共收到
+        </a><a>
+            已受理
+        </a><a>
+            未受理
+        </a>
+    </div>
+    <div class="publish-tit">
+        <div class="publish-titpic">
+            <img src="images/brand-tit.png" alt="tit"/>
+            <p>货源发布</p>
+        </div>
+    </div>
+    <div class="publish-form">
+        <div class="form-tit">
+            <p>品牌介绍:</p>
+        </div>
+        <form class="publish-formcon">
+            <div class="form-text item">
+                <textarea placeholder="请输入内容" name="" rows="5" required></textarea>
+                <div class="audio-select">
+                    <img src="images/pic-audio.png" alt="audio"/>
+                </div>
+            </div>
+            <div class="img-select item">
+                <div class="img-show">
+                    <img src="images/pic-thumb.png" alt="imgshow"/>
+                </div>
+                <div class="weui-uploader__bd" id="uploaderCustom">
+                    <ul class="weui-uploader__files" id="uploaderCustomFiles"></ul>
+                    <div class="weui-uploader__input-box">
+                        <input id="uploaderCustomInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                    </div>
+                </div>
+            </div>
+            <div class="form-space item"></div>
+            <div class="form-qrcode">
+                <div class="qrcode-btn">
+                    <button>上传二维码</button>
+                    <input class="up-qrcode" type="file" capture="camera" accept="image/*,capture=camera" file-upload=""/>
+                </div>
+                <div class="qrcode-pic">
+                    <img src="images/qrcode.jpg" alt="qrcode"/>
+                </div>
+            </div>
+            <div class="form-sub">
+                <a href="javascript:;">
+                        发布
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="publish-note">
+        <div class="publish-notecon">
+            <h3>须知</h3>
+            <p>1、请如实填写关于货源的有关信息。</p>
+            <p>2、提交成功后请记住你的代理号，以便您查询受理情况。</p>
+            <p>3、我们将会安排工作人员在24小时内与你联系，请保持手机畅通</p>
+        </div>
+    </div>
+           
+    <script type="text/javascript">
+    /* 图片手动上传 */
+    var uploadCustomFileList = [];
+    var uploadCount=0;
+    // 这里是简单的调用，其余api请参考文档
+    weui.uploader('#uploaderCustom', {
+        url: '',
+        auto: false,
+        onQueued: function onQueued() {
+            uploadCustomFileList.push(this);
+            $(".img-show").hide();
+            $("li.weui-uploader__file").addClass('upfile'+uploadCount);
+            //$("li.weui-uploader__file").append('<input id="up'+uploadCount+'" type="file" accept="image/*"/>');
+        },
+        onBeforeQueued: function onBeforeQueued(files) {
+            if (["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0) {
+                weui.alert('请上传图片');
+                return false;
+            }
+            if (this.size > 500* 1024) {
+                weui.alert('请上传不超过500KB的图片');
+                return false;
+            }
+            if (files.length > 3) {
+                // 防止一下子选中过多文件
+                weui.alert('最多只能上传3张图片，请重新选择');
+                return false;
+            }
+            if (uploadCount + 1 > 3) {
+                weui.alert('最多只能上传3张图片');
+                return false;
+            }
+
+            ++uploadCount;
+        },
+    });
+
+    // 手动上传按钮
+    $("#uploaderCustomBtn").on('click', function () {
+        uploadCustomFileList.forEach(function (file) {
+            file.upload();
+        });
+    });
+    // 缩略图预览
+        document.querySelector('#uploaderCustomFiles').addEventListener('click', function(e){
+            var target = e.target;
+            while(!target.classList.contains('weui-uploader__file') && target){
+                target = target.parentNode;
+            }
+            if(!target) return;
+
+            var url = target.getAttribute('style') || '';
+            var id = target.getAttribute('data-id');
+
+            if(url){
+                
+                url = url.match(/url\((.*?)\)/)[1];
+                console.log(url);
+                $('.weui-gallery__img').css('background-image', 'url('+url+')');
+            }
+            var gallery = weui.gallery(url, {
+                onDelete: function(){
+                    weui.confirm('确定删除该图片？', function(){
+                        var index;
+                        for (var i = 0, len = uploadCustomFileList.length; i < len; ++i) {
+                            var file = uploadCustomFileList[i];
+                            if(file.id == id){
+                                index = i;
+                                break;
+                            }
+                        }
+                        if(index) uploadCustomFileList.splice(index, 1);
+
+                        target.remove();
+                        gallery.hide();
+                    });
+                }
+            });
+        });
+    $(".up-qrcode").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".qrcode-pic img").attr("src", objUrl);
+        }
+    });   
+
+    $("#up1").change(function(){
+        wx.chooseImage({
+            count: 1, // 默认9
+            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            success: function (res) {
+                var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+            }
+        });
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $('.upfile1').css("background-image", "url("+objUrl+")");
+       }
+    });
+     //建立一个可存取到该file的url
+    function getObjectURL(file){
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    } 
+    
+    </script>
+</body>
+</html>
