@@ -135,5 +135,50 @@ document.referrer:返回载入当前文档的文档的 URL;
 
 document.readyState:返回文档状态 (载入中……);
 
+-------------------------------------------------
+9、ie8中不支持rgba();可以使用filter：opacity();
 
+ie8中placeholder不显示，可以使用jquery.placeholder插件；
+
+
+10、文件上传
+   blob对象：是一个可以存储二进制文件的容器；
+   $("input").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $('.upfile1').css("background-image", "url("+objUrl+")");
+        }    
+    });
+     //建立一个可存取到该file的url
+    function getObjectURL(file){
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    } 
+   
+   FileReader对象：FileReader通过异步的方式读取文件内容，结果均是通过事件回调获取;
+   ileReader提供了四种不同的读取文件的方式，如：
+   readAsArrayBuffer会将文件内容读取为ArrayBuffer对象，
+   readAsBinaryString则将文件读取为二进制串;
+   readAsDataURL会将文件内容进行base64编码后输出；
+   readAsText读取文件的单位是字符，故对于文本文件，只要按规定的编码方式读取即可；
+   而对于媒体文件（图片、音频、视频），其内部组成并不是按字符排列，
+   故采用readAsText读取，会产生乱码，同时也不是最理想的读取文件的方式
+  
+   $('inoput').change(function(){
+      var reader = new FileReader();
+        reader.onload = function(e){
+            var dataURL=this.result;
+            $(".qrcode-pic img").attr("src", dataURL);
+        }
+        reader.readAsDataURL(this.files[0]);
+   });
+  var reader = new FileReader();
+  
 ```
