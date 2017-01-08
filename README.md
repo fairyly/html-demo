@@ -114,7 +114,26 @@ html-demo
 8、Document 对象属性和方法
 
 ```
--document.activeElement:返回当前获取焦点元素; 
-    var x = document.activeElement.tagName;
-    document.getElementById("demo").innerHTML = x;
+document.activeElement:返回当前获取焦点元素; 
+var x = document.activeElement.tagName;
+document.getElementById("demo").innerHTML = x;
+
+
+document.baseURI:返回文档的绝对基础 URI;
+
+document.cookie：设置或返回与当前文档有关的所有 cookie;
+
+document.createAttribute:创建一个属性节点;
+var h1=document.getElementsByTagName("H1")[0];
+var att=document.createAttribute("class");
+att.value="democlass";
+h1.setAttributeNode(att);
+
+document.domain:返回当前文档的域名;
+
+document.referrer:返回载入当前文档的文档的 URL;
+
+document.readyState:返回文档状态 (载入中……);
+
+
 ```
