@@ -110,3 +110,11 @@ html-demo
 在  overflow:scroll部分，也就是需要滑动的层处，加css
 
 -webkit-overflow-scrolling: touch;
+
+8、Document 对象属性和方法
+
+```
+-document.activeElement:返回当前获取焦点元素; 
+    var x = document.activeElement.tagName;
+    document.getElementById("demo").innerHTML = x;
+```
