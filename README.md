@@ -179,6 +179,5 @@ ie8中placeholder不显示，可以使用jquery.placeholder插件；
         }
         reader.readAsDataURL(this.files[0]);
    });
-  var reader = new FileReader();
   
 ```
