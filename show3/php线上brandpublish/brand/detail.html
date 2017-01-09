@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>微友</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+    <link href="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/css/style.css" rel="stylesheet" />
+    <link href="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/css/weui.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/brand/css/index.css"  rel="stylesheet"/>
+    <!-- <link href="__PUBLIC__/brand/css/swiper.min.css"  rel="stylesheet"/> -->
+    <link href="__PUBLIC__/nav/iconfont.css"  rel="stylesheet"/>
+    <!-- <script src="__PUBLIC__/brand/js/swiper.min.js" ></script> -->
+    <script src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/js/jquery.js"></script>
+    <script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/main.js"></script>
+    <!--<script src="__PUBLIC__/brand/js/jquery.min.js"></script>-->
+    <script src="__PUBLIC__/brand/js/pics.js" ></script>
+    <style type="text/css">
+    /*a:link {color: #0080FF} /* 未访问的链接 */*/
+    /*a:visited {color: #00FF00} /* 已访问的链接 */
+    /*a:hover {color: #FF00FF} /* 鼠标移动到链接上 */
+    /*a:active {color: #0000FF} /* 选定的链接 */
+    .footer a:nth-child(1) span:nth-child(1){
+        margin-top: 8px;
+    }
+    .footer a:nth-child(1) span:nth-child(2){
+        margin-top: 7px;
+    }
+    .footer a span.iconfont{
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    .footer a:nth-child(3) span.iconfont{
+        font-size: 35px;
+        margin-top: 1px;
+    }
+    .footer a:nth-child(3) span:nth-child(2){
+        margin-top:15px;
+    }
+    /*.footer a:nth-child(3) span.iconfont{
+        font-size: 26px;
+    }*/
+    .footer a:nth-child(4) span.iconfont,.footer a:nth-child(5) span.iconfont{
+        font-size: 23px;
+    }
+    </style>
+    <style>
+        .header>a:first-child>span{background:none;}
+    </style>
+</head>
+<body>
+    <!-- <include file="public:header" /> -->
+    <div class="header">
+        <a href="javascript:history.back()">
+            <span>
+            </span>
+        </a>
+        <a style="margin:0 auto;font-size:15px";>
+            品牌货源
+        </a>
+        <a>
+        </a>
+    </div>
+    <!-- 详细展示-->
+    <div class="d-content">
+            <div class="d-head">
+                <img src="/data/upload/brand/{$info.code}" alt="logo"/>
+                <!-- <img src="__PUBLIC__/brand/images/qrcode.jpg" alt="logo"> -->
+                <!-- <p>{$info.name}</p> -->
+                <p><font color="#888888">长按二维码关注咨询</font></p>
+            </div>
+            <div class="d-info">
+                <p>{$info.intro}</p>
+            </div>
+            <div class="d-pics">
+                <div class="d-box">
+                    <img src="/data/upload/brand/{$info.introduce1}" alt="pic">
+                </div>
+                <div class="d-box">
+                    <img src="/data/upload/brand/{$info.introduce2}" alt="pic">
+                </div>
+                <div class="d-box">
+                    <img src="/data/upload/brand/{$info.introduce3}" alt="pic">
+                </div>
+            </div>
+            <div class="d-contact">
+                <a href="javascript:;" class="weui_btn weui_btn_primary" id="showDialog">联系我们</a>
+            </div>
+            <div class="weui_dialog_alert">
+                    <div class="weui_mask"></div>
+                    <div class="weui_dialog">
+                        <div class="weui_dialog_hd">
+                          <strong class="weui_dialog_title">长按识别二维码</strong>
+                        </div>
+                        <div class="weui_dialog_bd">
+                            <img src="/data/upload/brand/{$info.code}" alt="qrcode">
+                            <!-- <img src="__PUBLIC__/brand/images/qrcode.jpg" alt="qrcode"> -->
+                        </div>
+                        <div class="weui_dialog_ft">
+                            <a href="#" class="weui_btn_dialog primary">确定</a>
+                        </div>
+                    </div>
+            </div>
+    </div>
+    <!-- 详细展示区域结束 -->
+    <script>        
+        $(function(){
+            $("#showDialog").click(function(){
+                $(".weui_dialog_alert").show();
+            });
+            $(".primary").click(function(){
+                $(".weui_dialog_alert").hide();
+            });
+        });
+        var docEl = document.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            docEl.style.fontSize = 14 * (docEl.clientWidth / 320) + 'px';
+        };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);   
+
+        //统计代码
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?b568cb6c867797e8aaf3d0759e396fa1";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();  
+    </script>
+
+<include file="public:footer" />
