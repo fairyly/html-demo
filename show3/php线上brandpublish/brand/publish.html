@@ -127,36 +127,6 @@
             </div>
         </div>
     </div>
-    <!-- <div id="file-uploader" style="width:100px;height:150px;background-color:#ff0000;">       
-        <noscript>          
-            <p>Please enable JavaScript to use file uploader.</p>
-        </noscript>
-    </div>   -->
-    <script type="text/javascript" src="__PUBLIC__/brand/js/fileuploader.js"></script>
-    <script>
-    $(function(){
-        // var uploader = new qq.FileUploaderBasic({
-        //     allowedExtensions: ['jpg','gif','jpeg','png','bmp','pdg'],
-        //     button: document.getElementById('file-uploader'),
-        //     multiple: false,
-        //     action: "{:U('brand/ajax_upload_imgs')}",
-        //     // inputName: 'img',
-        //     forceMultipart: true, //用$_FILES
-        //     messages: {
-        //     },
-        //     showMessage: function(message){
-        //         console.log(message);
-        //     },
-        //     onSubmit: function(id, fileName){
-        //         console.log(id+','+fileName);
-        //     },
-        //     onComplete: function(id, fileName, result){
-        //        console.log(id+','+fileName+','+result.data);
-        //        console.log(result.status);
-        //     }
-        // });
-    });
-    </script>
     <script type="text/javascript" src="__PUBLIC__/brand/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
      $(function(){
@@ -186,18 +156,18 @@
     </script>   
     <script type="text/javascript">
         var localId;
+        var r;
         $(".audio-select").click(function(){
             $(".popup-container").fadeIn();
             var s=$(".time-seconds").text();
-            var r=setInterval(redu,1000);
+            r=setInterval(redu,1000);
             function redu(){
                 s--;
                 if (s<0) {
-                    clearInterval(r);s=0;
-
+                    clearInterval(r);
+                    s=0;
                 };
                 $(".time-seconds").text(s);
-
             }
             wx.startRecord();
             wx.onVoiceRecordEnd({
@@ -209,7 +179,9 @@
             });
         });
         $(".button-default").click(function(){
-             $(".popup-container").fadeOut();
+            $(".popup-container").fadeOut();
+            clearInterval(r);
+            $(".time-seconds").html(60);
         });
         $(".button-balanced").click(function(){
             wx.stopRecord({
@@ -307,6 +279,8 @@
                             }
                         }
                         if(index) uploadCustomFileList.splice(index, 1);
+                        uploadFileName.splice(index, 1);
+                        uploadCount--;
 
                         target.remove();
                         gallery.hide();
@@ -314,12 +288,7 @@
                 }
             });
         });
-        // 手动上传按钮
-        // $("#uploaderCustomBtn").on('click', function () {
-        //     uploadCustomFileList.forEach(function (file) {
-        //         file.upload();
-        //     });
-        // });
+       
         var qcode;  
         var status="{$status}"; 
         $('.up-qrcode').click(function(){
