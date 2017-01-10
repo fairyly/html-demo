@@ -111,6 +111,8 @@ html-demo
 
 -webkit-overflow-scrolling: touch;
 
+据说这样开启了硬件加速，比较耗内存；
+
 8、Document 对象属性和方法
 
 ```
@@ -171,7 +173,7 @@ ie8中placeholder不显示，可以使用jquery.placeholder插件；
    而对于媒体文件（图片、音频、视频），其内部组成并不是按字符排列，
    故采用readAsText读取，会产生乱码，同时也不是最理想的读取文件的方式
   
-   $('inoput').change(function(){
+   $('input').change(function(){
       var reader = new FileReader();
         reader.onload = function(e){
             var dataURL=this.result;
