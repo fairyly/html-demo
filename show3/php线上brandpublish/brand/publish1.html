@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-    <div class="header">
+	<div class="header">
         <a href="javascript:history.back()">
             
         </a><a>
@@ -44,13 +44,13 @@
                 <p>产品名称:</p>
             </div>
             <div class="form-text item">
-                <input class="form-proname" placeholder="请输入产品名称(15个文字)"  maxlength="15" required value='{$info.fname}'/>
+                <input class="form-proname" placeholder="请输入产品名称"  required/>
             </div>
             <div class="form-tit">
                 <p>品牌介绍:</p>
             </div>
             <div class="form-text item">
-                <textarea class="form-pdetail" placeholder="请输入内容(200个文字以内)"  maxlength="200" name="" rows="5" required>{$info.fdetail}</textarea>
+                <textarea class="form-pdetail" placeholder="请输入内容" name="" rows="5" required></textarea>
                 <div class="audio-select">
                     <img src="__PUBLIC__/brand/images/pic-audio.png" alt="audio"/>
                 </div>
@@ -63,19 +63,9 @@
                     <input class="up-pic" type="file" capture="camera" accept="image/*,capture=camera" file-upload=""/>
                     <img src="__PUBLIC__/brand/images/pic-up.png" alt="pic-up"/>
                 </div> -->
-                <input type="hidden" name="status" id="pubstatus" value="{$info.status}">
-                <input type="hidden" name="img" id="image" value="{$info.qcode}">
-                <input type="hidden" name="img" id="image1" value="{$info.uppics1}">
-                <input type="hidden" name="img" id="image2" value="{$info.uppics2}">
-                <input type="hidden" name="img" id="image3" value="{$info.uppics3}">
-                <input type="hidden" name="img" id="image4" value="{$info.qcode}">
+                <input type="hidden" name="status" id="status" value="0">
                 <div class="weui-uploader__bd" id="uploaderCustom">
-                    <ul class="weui-uploader__files" id="uploaderCustomFiles">
-                        <li class="weui-uploader__file data1" data-id="100" style="background-image: url('{$info.uppics1}');display:none;">
-                        </li><li class="weui-uploader__file data2" data-id="101" style="background-image: url('{$info.uppics2}');display:none;">
-                        </li><li class="weui-uploader__file data3" data-id="102" style="background-image: url('{$info.uppics3}');display:none;">
-                        </li>
-                    </ul>
+                    <ul class="weui-uploader__files" id="uploaderCustomFiles"></ul>
                     <div class="weui-uploader__input-box">
                         <input id="uploaderCustomInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
                     </div>
@@ -85,10 +75,10 @@
             <div class="form-qrcode">
                 <div class="qrcode-btn">
                     <button class="up-qrcode">上传二维码</button>
-                    <!-- <input class="up-qrcode" type="file" capture="camera" accept="image/*,capture=camera" file-upload=""/> __PUBLIC__/brand/images/qrcode.jpg-->
+                    <!-- <input class="up-qrcode" type="file" capture="camera" accept="image/*,capture=camera" file-upload=""/> -->
                 </div>
                 <div class="qrcode-pic">
-                    <img src="{$info.qcode}" alt="qrcode"/>
+                    <img src="__PUBLIC__/brand/images/qrcode.jpg" alt="qrcode"/>
                 </div>
             </div>
             <div class="form-sub">
@@ -140,28 +130,28 @@
     <script type="text/javascript" src="__PUBLIC__/brand/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
      $(function(){
-        // $.ajax({  
-        //     type : "POST",  
-        //     url : '', 
-        //     success : function(data){  
-        //         // console.log(data);
-        //         wx.config({
-        //             debug: false,
-        //             appId: 'wxc5184614dbf459cb',
-        //             timestamp: 1483760657,
-        //             nonceStr: '',
-        //             signature: '',
-        //             jsApiList: [
-        //               'startRecord',
-        //               'stopRecord',
-        //               'onVoiceRecordEnd',
-        //               'translateVoice'
-        //             ]
-        //         });
-        //         wx.ready(function () {
-        //         });
-        //     }  
-        // });      
+        $.ajax({  
+            type : "POST",  
+            url : '', 
+            success : function(data){  
+                // console.log(data);
+                wx.config({
+                    debug: false,
+                    appId: 'wxc5184614dbf459cb',
+                    timestamp: 1483760657,
+                    nonceStr: '',
+                    signature: '',
+                    jsApiList: [
+                      'startRecord',
+                      'stopRecord',
+                      'onVoiceRecordEnd',
+                      'translateVoice'
+                    ]
+                });
+                wx.ready(function () {
+                });
+            }  
+        });      
      });
     </script>   
     <script type="text/javascript">
@@ -211,72 +201,17 @@
         });
     </script> 
     <script>
-        var qcode; 
         /* 图片上传 */
         var uploadCustomFileList = [];
         var uploadFileName=[];
         var uploadCount=0;
         // 这里是简单的调用，其余api请参考文档
-        $(function(){
-            var pubstatus=$('#pubstatus').val();
-            console.log(pubstatus);
-            if (pubstatus==1) {
-                $('.weui-dialog__bd').html("未审核,请等待！");
-                $('.updiolog').show();
-                $('.upclose').hide();
-            }
-            var image1=$('#image1').val();
-            var image2=$('#image2').val();
-            var image3=$('#image3').val();
-            var image4=$('#image4').val();
-            if (image1) {
-                $('.data1').show();
-                $(".img-show").hide();
-                var sp1=image1.split('/');
-                console.log(sp1[5]);
-                uploadCustomFileList.push(sp1[5]);
-                uploadFileName.push(sp1[5]);
-                uploadCount++;
-            }else{
-                $('.data1').hide();
-                return false;
-            }
-            if (image2) {
-                $('.data2').show();
-                var sp2=image2.split('/');
-                console.log(sp2[5]);
-                uploadCustomFileList.push(sp2[5]);
-                uploadFileName.push(sp2[5]);
-                uploadCount++;
-            }else{
-                 $('.data2').hide();
-            }
-            if (image3) {
-                $('.data3').show();
-                var sp3=image3.split('/');
-                console.log(sp3[5]);
-                uploadCustomFileList.push(sp3[5]);
-                uploadFileName.push(sp3[5]);
-                uploadCount++;
-            }else{
-                 $('.data3').hide();
-            }
-            if (image4=='') {
-                $('.qrcode-pic img').attr('src','__PUBLIC__/brand/images/qrcode.jpg');
-            }else{
-                qcode=$('.qrcode-pic img').attr('src');
-            }
-            console.log(uploadCustomFileList);
-            console.log(uploadFileName);
-
-        });
         weui.uploader('#uploaderCustom', {
             url: '{:U("brand/ajax_upload_imgs")}',
             auto: false,
             type:'file',
             onQueued: function onQueued() {
                 uploadCustomFileList.push(this);
-                console.log(uploadCustomFileList);
                 $(".img-show").hide();
                 this.upload();
             },
@@ -308,10 +243,10 @@
                // return true; // 阻止默认行为，不使用默认的成功态
             },
             onError: function(err){
-               console.log(this, err);
+               // console.log(this, err);
                var upfilename=eval('(' + this.xhr.response+ ')');
                uploadFileName.push(upfilename.data);
-               console.log(uploadFileName);
+               // console.log(uploadFileName);
                // return true; // 阻止默认行为，不使用默认的失败态
             }
         });
@@ -325,55 +260,28 @@
 
             var url = target.getAttribute('style') || '';
             var id = target.getAttribute('data-id');
-            console.log(id);
+
             if(url){
                 
                 url = url.match(/url\((.*?)\)/)[1];
                 console.log(url);
+                $('.weui-gallery__img').css('background-image', 'url('+url+')');
             }
             var gallery = weui.gallery(url, {
                 onDelete: function(){
                     weui.confirm('确定删除该图片？', function(){
-                        var ind=0;
-                        // for (var i = 0, len = uploadCustomFileList.length; i < len; ++i) {
-                        //     var file = uploadCustomFileList[i];
-                        //     if(file.id == id){
-                        //         index = i;
-                        //         break;
-                        //     }
-                        // }
-                        
-                        // if(index)
-                        //     console.log(index);
-                        //     uploadCustomFileList.splice(index, 1);
-                        //     uploadFileName.splice(index, 1);
-                        //     uploadCount--;
-                        console.log(uploadCustomFileList);
-                        console.log(uploadFileName);
-                        
-                        var sp=url.split('/');
-                        var u=url.split('/')[5].substring(0,17);
-                        console.log(u+','+sp);
-                        console.log(typeof u);
-
-                        var v0=uploadFileName[0];
-                        var v1=uploadFileName[1];
-                        var v2=uploadFileName[2];
-                        console.log(uploadFileName[0]);
-                        if(v0==u){
-                            ind=0;
-                            console.log(uploadFileName[0]);
-                        }else if(v1==u){
-                            ind=1;
-                        }else if(v2==u) {
-                            ind=2;
+                        var index;
+                        for (var i = 0, len = uploadCustomFileList.length; i < len; ++i) {
+                            var file = uploadCustomFileList[i];
+                            if(file.id == id){
+                                index = i;
+                                break;
+                            }
                         }
-                        uploadCustomFileList.splice(ind, 1);
-                        uploadFileName.splice(ind, 1);
+                        if(index) uploadCustomFileList.splice(index, 1);
+                        uploadFileName.splice(index, 1);
                         uploadCount--;
-                        console.log(ind);
-                        console.log(uploadCustomFileList);
-                        console.log(uploadFileName);
+
                         target.remove();
                         gallery.hide();
                     });
@@ -381,7 +289,7 @@
             });
         });
        
-         
+        var qcode;  
         var status="{$status}"; 
         $('.up-qrcode').click(function(){
             $('#img').click();return false;
@@ -412,10 +320,8 @@
                     if (result.status==0) {
                         $('.weui-dialog__bd').html(result.msg);
                         $('.updiolog').show();
-                        $('.upclose').show();
                     }else{
                         $(".qrcode-pic img").attr("src", qcode);
-                        $('#image').val(qcode);
                     }
                     // console.log(result);
                 }
@@ -442,25 +348,10 @@
         $('.brand-formsub').click(function(){
             var fname=$(".form-proname").val();
             var fdetail=$(".form-pdetail").val();
-            if(fname==''|| fdetail==''){
-                $('.weui-dialog__bd').html("产品名称或内容不能为空！");
-                $('.updiolog').show();
-                $('.upclose').show();
-                return false;
-            };
-            console.log(uploadFileName);
+            if(fname==''|| fdetail==''){return false;};
             var uppics1=uploadFileName[0];
             var uppics2;
             var uppics3;
-            if(uploadFileName[0]){
-                uppics1=uploadFileName[0];
-            }else{
-                uppics1='';
-                $('.weui-dialog__bd').html("请上传产品图片！");
-                $('.updiolog').show();
-                $('.upclose').show();
-                return false;
-            }
             if(uploadFileName[1]==undefined){
                 uppics2='';
             }else{
@@ -471,21 +362,13 @@
             }else{
                 uppics3=uploadFileName[2];
             }
-            var image=$('#image').val();
-            if(image==''){
-                $('.weui-dialog__bd').html("请先上传二维码！");
-                $('.updiolog').show();
-                $('.upclose').show();
-                return false;
-            }
-            console.log(uppics1+','+uppics2+','+uppics3)
+            console.log(uppics1);
             $.ajax({  
                 type : "POST",  
                 url : '{:U("brand/insert")}', 
                 data:{fname:fname,fdetail:fdetail,uppics1:uppics1,uppics2:uppics2,uppics3:uppics3,qcode:qcode},
                 success : function(data){  
                     console.log(data);
-                    // window.location.href='index.php/brand-index.html';
                 }  
             });      
         });
