@@ -8,8 +8,7 @@
 <link href="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/css/style.css" rel="stylesheet" />
 <link href="__PUBLIC__/nav/iconfont.css"  rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/brand/css/weui1.1.min.css"/>
-<!-- <script type="text/javascript" src="__PUBLIC__/brand/js/jquery.min.js"></script> -->
-<script src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/brand/js/jquery.min.js"></script>
 <script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/main.js"></script>
 <script type="text/javascript" src="__PUBLIC__/brand/js/weui.min.js"></script>
 <style>
@@ -42,13 +41,13 @@
        
         <form class="publish-formcon">
             <div class="form-tit">
-                <p>产品名称: <span>15个文字以内</span></p>
+                <p>产品名称:</p>
             </div>
             <div class="form-text item">
                 <input class="form-proname" placeholder="请输入产品名称(15个文字)"  maxlength="15" required value='{$info.fname}'/>
             </div>
             <div class="form-tit">
-                <p>品牌介绍: <span>200个文字以内</span></p>
+                <p>品牌介绍:</p>
             </div>
             <div class="form-text item">
                 <textarea class="form-pdetail" placeholder="请输入内容(200个文字以内)"  maxlength="200" name="" rows="5" required>{$info.fdetail}</textarea>
@@ -110,9 +109,9 @@
     <div class="publish-note">
         <div class="publish-notecon">
             <h3>须知</h3>
-            <p>1：“货源”为付费年VIP专享福利；</p>
-            <p>2：发布后需要审核，每次修改后都需要重新提交审核，审核时间为一个工作日；</p>
-            <p>3：审核成功后，五分钟可“刷新置顶”一次，置顶的方法为：在不修改之前发布内容的情况下，直接点击发布即可刷新置顶。</p>
+            <p>1、请如实填写关于货源的有关信息。</p>
+            <p>2、提交成功后请记住你的代理号，以便您查询受理情况。</p>
+            <p>3、我们将会安排工作人员在24小时内与你联系，请保持手机畅通</p>
         </div>
     </div>
     <div class="popup-container popup-showing active">
@@ -144,6 +143,30 @@
     </div>
     <script type="text/javascript" src="__PUBLIC__/brand/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
+     $(function(){
+        // $.ajax({  
+        //     type : "POST",  
+        //     url : '', 
+        //     success : function(data){  
+        //         // console.log(data);
+        //         wx.config({
+        //             debug: false,
+        //             appId: 'wxc5184614dbf459cb',
+        //             timestamp: 1483760657,
+        //             nonceStr: '',
+        //             signature: '',
+        //             jsApiList: [
+        //               'startRecord',
+        //               'stopRecord',
+        //               'onVoiceRecordEnd',
+        //               'translateVoice'
+        //             ]
+        //         });
+        //         wx.ready(function () {
+        //         });
+        //     }  
+        // });      
+     });
     </script>   
     <script type="text/javascript">
         var localId;
@@ -210,7 +233,7 @@
                 $('.upclose').hide();
             }
             if (pubstatus==''){
-                $('.qrcode-pic img').attr('src','http://weiyounew.oss-cn-hangzhou.aliyuncs.com/images/127.jpg');
+                $('.qrcode-pic img').attr('src','__PUBLIC__/brand/images/qrcode.jpg');
             }
             var image1=$('#image1').val();
             var image2=$('#image2').val();
@@ -260,26 +283,28 @@
         });
         // 这里是简单的调用，其余api请参考文档
         weui.uploader('#uploaderCustom', {
-            url: '{:U("brand/upload",array("status"=>1))}',
+            url: '{:U("brand/ajax_upload_imgs")}',
             auto: false,
             type:'file',
             onQueued: function onQueued() {
                 uploadCustomFileList.push(this);
                 console.log(uploadCustomFileList);
                 console.log(this);
-               
                 $(".img-show").hide();
                 this.upload();
-                var upf=eval('(' + this.xhr.response+ ')');
-                console.log(upf.msg);
+                // // var upf=eval('(' + this.xhr.response+ ')');
+                // console.log(this.xhr);
+                // console.log(this.xhr.response);
+                // // $(this).css('background-image', 'url("/data/upload/brand/"'+srcopenid+'/'+upfilename.data+'")"');
+
             },
             onBeforeQueued: function onBeforeQueued(files) {
                 if (["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0) {
                     weui.alert('请上传jpg/png/gif图片');
                     return false;
                 }
-                if (this.size > 1024* 1024) {
-                    weui.alert('请上传不超过1M的图片');
+                if (this.size > 500* 1024) {
+                    weui.alert('请上传不超过500KB的图片');
                     return false;
                 }
                 if (files.length > 3) {
@@ -303,23 +328,11 @@
             onError: function(err){
                console.log(this, err);
                var upfilename=eval('(' + this.xhr.response+ ')');
-               console.log(upfilename.msg);
+               uploadFileName.push(upfilename.data);
+               console.log(uploadFileName);
+               // console.log(this.id);
                var c=this.id;
-               if (upfilename.status==0) {
-                    $('.weui-dialog__bd').html(upfilename.msg);
-                    $('.updiolog').show();
-                    $('.upclose').show();
-                    $('#d'+c+'').hide();
-                    uploadCount--;
-                    return false;
-               }else{
-                    var filesrc=upfilename.data.split('/')[5].substring(0,17);
-                    console.log(filesrc);
-                    uploadFileName.push(filesrc);
-                    console.log(uploadFileName);
-                    // console.log(this.id);
-                    $('#d'+c+'').css('background-image', 'url('+upfilename.data+')');
-               }
+               $('#d'+c+'').css('background-image', 'url(/data/upload/brand/'+srcopenid+'/'+upfilename.data+')');
                // return true; // 阻止默认行为，不使用默认的失败态
             }
         });
@@ -343,30 +356,24 @@
                 onDelete: function(){
                     weui.confirm('确定删除该图片？', function(){
                         var ind=0;
-                        if (url) {
-                            var sp=url.split('/');
-                            var u=url.split('/')[5].substring(0,17);
-                            var v0=uploadFileName[0];
-                            var v1=uploadFileName[1];
-                            var v2=uploadFileName[2];
-                            if(v0==u){
-                                ind=0;
-                            }else if(v1==u){
-                                ind=1;
-                            }else if(v2==u) {
-                                ind=2;
-                            }
-                            uploadCustomFileList.splice(ind, 1);
-                            uploadFileName.splice(ind, 1);
-                            uploadCount--;
-                            target.remove();
-                            gallery.hide();
-                        }else{
-                            uploadCount--;
-                            target.remove();
-                            gallery.hide();
-                        }
                         
+                        var sp=url.split('/');
+                        var u=url.split('/')[5].substring(0,17);
+                        var v0=uploadFileName[0];
+                        var v1=uploadFileName[1];
+                        var v2=uploadFileName[2];
+                        if(v0==u){
+                            ind=0;
+                        }else if(v1==u){
+                            ind=1;
+                        }else if(v2==u) {
+                            ind=2;
+                        }
+                        uploadCustomFileList.splice(ind, 1);
+                        uploadFileName.splice(ind, 1);
+                        uploadCount--;
+                        target.remove();
+                        gallery.hide();
                     });
                 }
             });
@@ -385,7 +392,7 @@
             var formData = new FormData($("#infos")[0]);  
             $.ajax({
                 type: "POST",
-                url: '{:U("brand/upload",array("status"=>2))}',
+                url: '{:U("brand/upload")}',
                 data:formData,
                 dataType:'json', 
                 async: false,  
@@ -478,10 +485,8 @@
                         $('.updiolog').show();
                         $('.upclose').show();
                     }
-                },
-                error:function(){
-                    console.log("请求失败");
-                }
+
+                }  
             });      
         });
     </script>
