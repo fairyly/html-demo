@@ -21,29 +21,6 @@
         height: 45px;
     }
 </style>
-<script>
-    $(function(){
-        $.ajax({
-            type: "POST",
-            url: '{:U("brand/check_insert")}',
-            async: false,  
-            cache: false,  
-            contentType: false,  
-            processData: false,  
-            success: function(result){
-                // console.log(result);
-                if (result.status==0) {
-                    $('.weui-dialog__bd').html(result.msg);
-                    $('.alterdialog').show();
-                    $('.upclose').show();
-                    $('.redirect').click(function(){
-                         window.location.href=result.data;
-                    });
-                }
-            }
-        })
-    });
-</script>
 </head>
 <body>
     <div class="header">
@@ -65,13 +42,13 @@
        
         <form class="publish-formcon">
             <div class="form-tit">
-                <p>产品名称: <span></span></p>
+                <p>产品名称: <span>15个文字以内</span></p>
             </div>
             <div class="form-text item">
                 <input class="form-proname" placeholder="请输入产品名称(15个文字)"  maxlength="15" required value='{$info.fname}'/>
             </div>
             <div class="form-tit">
-                <p>品牌介绍: <span></span></p>
+                <p>品牌介绍: <span>200个文字以内</span></p>
             </div>
             <div class="form-text item">
                 <textarea class="form-pdetail" placeholder="请输入内容(200个文字以内)"  maxlength="200" name="" rows="5" required>{$info.fdetail}</textarea>
@@ -162,17 +139,6 @@
             <div class="weui-dialog__bd"></div>
             <div class="weui-dialog__ft">
                 <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary upclose">确定</a>
-            </div>
-        </div>
-    </div>
-    <div class="alterdialog" style="display: none;">
-        <div class="weui-mask"></div>
-        <div class="weui-dialog">
-            <div class="weui-dialog__hd"><strong class="weui-dialog__title"></strong></div>
-            <div class="weui-dialog__bd"></div>
-            <div class="weui-dialog__ft">
-                <a href="javascript:window.history.back();" class="weui-dialog__btn weui-dialog__btn_default reback">返回</a>
-                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary redirect">确定</a>
             </div>
         </div>
     </div>
@@ -343,9 +309,6 @@
                     $('.weui-dialog__bd').html(upfilename.msg);
                     $('.updiolog').show();
                     $('.upclose').show();
-                    $('.upclose').click(function(){
-                        window.location.href='/user-vip.html';
-                    });
                     $('#d'+c+'').hide();
                     uploadCount--;
                     return false;
@@ -412,9 +375,6 @@
          
         var status="{$status}"; 
         $('.up-qrcode').click(function(){
-            $('#img').click();return false;
-        })
-        $('.qrcode-pic').click(function(){
             $('#img').click();return false;
         })
         $("#img").change(function(){
@@ -517,9 +477,6 @@
                         $('.weui-dialog__bd').html(data.msg);
                         $('.updiolog').show();
                         $('.upclose').show();
-                        $('.upclose').click(function(){
-                             window.location.href=data.data;
-                        });
                     }
                 },
                 error:function(){
