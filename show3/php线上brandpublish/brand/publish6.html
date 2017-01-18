@@ -31,7 +31,7 @@
             contentType: false,  
             processData: false,  
             success: function(result){
-                console.log(result);
+                // console.log(result);
                 if (result.status==0) {
                     $('.weui-dialog__bd').html(result.msg);
                     $('.alterdialog').show();
@@ -75,7 +75,7 @@
             </div>
             <div class="form-text item">
                 <textarea class="form-pdetail" placeholder="请输入内容(200个文字以内)"  maxlength="200" name="" rows="5" required>{$info.fdetail}</textarea>
-                <div class="audio-select" style="display:block">
+                <div class="audio-select">
                     <img src="__PUBLIC__/brand/images/pic-audio.png" alt="audio"/>
                 </div>
             </div>
@@ -146,7 +146,7 @@
             <div class="popup-body">
                 <div class="popup popup-record-voice" style="margin-top:0px;">
                     <p><img src="__PUBLIC__/brand/images/wx-recording.gif"/></p>
-                    <p class="balanced center">00：<span class="time-seconds"></span></p> 
+                    <p class="balanced center">00：<span class="time-seconds">60</span></p> 
                 </div>
             </div>
             <div class="popup-buttons">
@@ -178,111 +178,52 @@
     </div>
     <script type="text/javascript" src="__PUBLIC__/brand/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
-        $(function(){
-            $.ajax({  
-                type : "POST",  
-                url : '{:U("voice/getVoice")}', 
-                success : function(d){  
-                    console.log(d);
-                    wx.config({
-                        debug: false,
-                        appId: d.data.appId,
-                        timestamp: d.data.timestamp,
-                        nonceStr: d.data.nonceStr,
-                        signature: d.data.signature,
-                        jsApiList: [
-                          'startRecord',
-                          'stopRecord',
-                          'onVoiceRecordEnd',
-                          'translateVoice'
-                        ]
-                    });
-                    wx.ready(function () {
-                    });
-                    wx.error(function(res){
-                            console.log(res);
-                    });
-                    wx.checkJsApi({
-                        jsApiList: ['chooseImage'], 
-                        success: function(res) {
-                            console.log(res);
-                        }
-                    });
-                }  
-            }); 
-        // 语音转换
-            var localId;
-            var r;
-            $(".audio-select").click(function(){
-                $(".popup-container").fadeIn();
-                var s=60;
+    </script>   
+    <script type="text/javascript">
+        var localId;
+        var r;
+        $(".audio-select").click(function(){
+            $(".popup-container").fadeIn();
+            var s=$(".time-seconds").text();
+            r=setInterval(redu,1000);
+            function redu(){
+                s--;
+                if (s<0) {
+                    clearInterval(r);
+                    s=0;
+                };
                 $(".time-seconds").text(s);
-                r=setInterval(redu,1000);
-                function redu(){
-                    s--;
-                    $(".time-seconds").text(s);
-                    if (s<10) {
-                        $(".time-seconds").html('0'+s);
-                    }
-                    if (s<0) {
-                        clearInterval(r);
-                        s=0;
-                        $(".time-seconds").text('0'+s);
-                    }
-                    
-                }
-                wx.startRecord();
-                wx.onVoiceRecordEnd({
-                // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-                    complete: function (res) {
-                        localId = res.localId; 
-                        console.log(localId );
-                        $(".popup-container").fadeOut();
-                        trans(localId);
-                    }
-                });
-            });
-            $(".button-default").click(function(){
-                $(".popup-container").fadeOut();
-                clearInterval(r);
-                wx.stopRecord({
-                    success: function (res) {  
-                    }
-                });
-                $(".time-seconds").html(60);
-            });
-            $(".button-balanced").click(function(){
-                clearInterval(r);
-                $(".popup-container").hide();
-                wx.stopRecord({
-                    success: function (res) {
-                        localId = res.localId;
-                        console.log(localId);   
-                        trans(localId);
-                    }
-                });
-                $(".time-seconds").html(60);
-            });
-            function trans(localId){
-                wx.translateVoice({
-                    localId: localId, // 需要识别的音频的本地Id，由录音相关接口获得
-                    isShowProgressTips: 1, // 默认为1，显示进度提示
-                    success: function (res) {
-                        var result = res.translateResult;
-                        // alert(res.translateResult); // 语音识别的结果
-                        console.log(res);
-                        console.log(res.translateResult);
-                        $('.weui-dialog__bd').html(result);
-                        $('.updiolog').show();
-                        $('.upclose').show();
-                        $('.upclose').click(function(){
-                            $(".form-pdetail").val(result);
-                            $('.updiolog').hide();
-                        });
-                    }
-                });
             }
-        })
+            wx.startRecord();
+            wx.onVoiceRecordEnd({
+            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+                complete: function (res) {
+                    localId = res.localId; 
+                    console.log(localId );
+                }
+            });
+        });
+        $(".button-default").click(function(){
+            $(".popup-container").fadeOut();
+            clearInterval(r);
+            $(".time-seconds").html(60);
+        });
+        $(".button-balanced").click(function(){
+            wx.stopRecord({
+                success: function (res) {
+                    localId = res.localId;
+                    console.log(localId);
+                }
+            });
+            wx.translateVoice({
+                localId: 'localId', // 需要识别的音频的本地Id，由录音相关接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                success: function (res) {
+                    alert(res.translateResult); // 语音识别的结果
+                }
+            });
+            // $(".popup-container").fadeOut();
+        });
     </script> 
     <script>
         var qcode; 
