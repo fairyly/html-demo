@@ -213,8 +213,6 @@
         // 语音转换
             var localId;
             var r;
-            var descrip;
-            var tail;
             $(".audio-select").click(function(){
                 $(".popup-container").fadeIn();
                 var s=60;
@@ -265,7 +263,6 @@
                 });
                 $(".time-seconds").html(60);
             });
-            
             function trans(localId){
                 wx.translateVoice({
                     localId: localId, // 需要识别的音频的本地Id，由录音相关接口获得
@@ -278,21 +275,9 @@
                         $('.weui-dialog__bd').html(result);
                         $('.updiolog').show();
                         $('.upclose').show();
-                        tail=$(".form-pdetail").val();
                         $('.upclose').click(function(){
-                            if (typeof(descrip)=="undefined") {
-                                descrip=result;
-                                $(".form-pdetail").val(result);
-                                $('.updiolog').hide();
-                                console.log(descrip);
-                            }else{
-                                // descrip=t+result;
-                                console.log(tail);
-                                $(".form-pdetail").val(tail+result);
-                                $('.updiolog').hide();
-                            }
-                            // $(".form-pdetail").val(result);
-                            // $('.updiolog').hide();
+                            $(".form-pdetail").val(result);
+                            $('.updiolog').hide();
                         });
                     }
                 });
