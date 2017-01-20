@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="./css/style.css" rel="stylesheet" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+<script src="./js/jquery.js"></script>
+<script src="./js/main.js"></script>
+<style>
+.header>a:first-child>span{background:none;}
+</style>
+	<script>
+      $(document).ready(function(){
+       $(".footer a").eq(0).css({"background":"url(./images/aa2.png) center 12px no-repeat","backgroundSize":"18px auto"}); 
+	   $(".footer a").children("span").css("color","black");
+	   $(".footer a").eq(0).children("span").css("color","#3CAF36");
+	  })
+    </script>
+</head>
+
+<body>
+<div id="main">
+		<!---消息列表--> 
+		<div class="darenxiu" id="xiaoxi">
+			<div class="header">
+				 <a href="javascript:history.back()" id="list_back"><span></span></a>
+				 <a>消息列表</a>
+				 <a href="#"><span class="mymy"></span></a>
+			</div>
+			<div class="xiaoxi_yj">
+			   <a href="#">
+			     <img src="./img/pinpai2.jpg"/>
+			   </a>
+			</div>
+	    <div class="xiaoxi_find">
+		     <form>
+			    <p>
+				  <span></span>
+				  <input type="text" placeholder="查找好友"/>
+				  <a href="javascript:;" class="find_button">查找</a>
+				</p>
+			 </form>
+		</div>
+	    <div class="darenxiu_list">
+			<a class="darenxiu_box" href="./liaotian/index.html">
+			   <img src="./img/01.jpg" />
+			   <div class="darenxiu_box_content">
+				   <p><span class="red">欧巴欧巴欧巴</span><i></i></p>
+				   <p><span>hello hhellohelloellohellohello哥们</span></p>
+			   </div>
+			   <p class="xx_num">2</p>
+			   <span>29分钟前</span>
+			</a>
+			
+			<a class="darenxiu_box" href="./liaotian/index.html">
+			   <img src="./img/01.jpg" />
+			   <div class="darenxiu_box_content">
+				   <p><span class="red">欧巴欧巴欧巴</span><i></i></p>
+				   <p><span>hello 哥们</span></p>
+			   </div>
+			   <p class="xx_num">9</p>
+			   <span>29分钟前</span>
+			</a>
+			
+			<a class="darenxiu_box" href="./liaotian/index.html">
+			   <img src="./img/01.jpg" />
+			   <div class="darenxiu_box_content">
+				   <p><span class="red">欧巴欧巴欧巴</span><i></i></p>
+				   <p><span>hello 哥们</span></p>
+			   </div>
+			   <p class="xx_num">12</p>
+			   <span>29分钟前</span>
+			</a>
+			
+			<a class="darenxiu_box" href="./liaotian/index.html">
+			   <img src="./img/01.jpg" />
+			   <div class="darenxiu_box_content">
+				   <p><span class="red">欧巴欧巴欧巴 </span><i></i></p>
+				   <p><span>hello 哥们</span></p>
+			   </div>
+			   <p class="xx_num">9</p>
+			   <span>29分钟前</span>
+			</a>
+			
+		</div>
+	   <div class="weixinq_page">
+			   <a href="#">加载更多</a> 
+	   </div> 
+	   </div> 
+</div>
+<div class="footer_center">
+	<div class="footer">
+	 <a href="xiaoxilist.html"><span>消息</span><p class="f_tishi"></p></a>
+	 <a href="index.html"><span>微友</span></a>
+	 <a href="9list.html"><span>百宝箱</span></a>
+	 <a href="vip.html"><span>VIP</span></a>
+	 <a href="my.html"><span>我</span></a>
+	</div>
+</div>
+</body>
+</html>

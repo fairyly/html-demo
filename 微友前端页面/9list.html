@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<link href="./css/style.css" rel="stylesheet" />
+<script src="./js/jquery.js"></script>
+<script src="./js/main.js"></script>
+<style>
+.header>a:first-child>span{background:none;}
+</style>
+</head>
+<body>
+<div id="main">
+        <div class="header">
+		 <a href="javascript:history.back()"><span></span></a>
+		 <a href="#">百宝箱</a>
+		 <a href="#"></a>
+		</div>
+		<div class="list9">
+					<div class="header">
+						 <a><span style="background:none;"></span></a>
+						 <a href="9list.html">百宝箱</a>
+						 <a href="#"><span></span></a>
+					</div>
+					<a href="index.html" style="background:#f8caca">
+						<img src="./images/9_1.png" />
+						<span>达人秀</span>
+					</a>
+					<a href="weixinqun.html" style="background:#f7e8cb">
+						<img src="./images/9_2.png" />
+						<span>微信群</span>
+					</a>
+					<a href="my.html" style="background:#e7f7ca">
+						<img src="./images/9_3.png" />
+						<span>个人中心</span>
+					</a>
+					<a href="vip2.html" style="background:#c9f7c9">
+						<img src="./images/9_4.png" />
+						<span>VIP专区</span>
+					</a>
+					<a href="javascript:;" style="background:#cbf7e8" >
+						<img src="./images/9_5.png" />
+						<span>微商培训</span>
+					</a>
+					<a href="vip.html" style="background:#cbe8f8">
+						<img src="./images/9_6.png" />
+						<span>免费VIP</span>
+					</a>
+					<a href="javascript:;" style="background:#c9caf8">
+						<img src="./images/9_7.png" />
+						<span>朋友圈语音</span>
+					</a>
+					<a href="javascript:;" style="background:#e7caf8">
+						<img src="./images/9_8.png" />
+						<span>快递查询</span>
+					</a>
+					<a href="javascript:;" style="background:#f7cae7">
+						<img src="./images/9_9.png" />
+						<span>实用工具</span>
+					</a>
+		 </div>  
+</div>
+<div class="footer_center">
+	<div class="footer">
+	 <a href="xiaoxilist.html"><span>消息</span><p class="f_tishi"></p></a>
+	 <a href="index.html"><span>微友</span></a>
+	 <a href="9list.html"><span>百宝箱</span></a>
+	 <a href="vip.html"><span>VIP</span></a>
+	 <a href="my.html"><span>我</span></a>
+	</div>
+</div>
+	<script>
+      $(document).ready(function(){
+        $(".footer a").eq(2).css({"background":"url(./images/aa6.png) center 11px no-repeat","backgroundSize":"17px auto"});
+	   $(".footer a").eq(2).children("span").css("color","#3CAF36");
+	  })
+    </script>
+</body>
+</html>

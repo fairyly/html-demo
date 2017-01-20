@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="./css/style.css" rel="stylesheet" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+<script src="./js/jquery.js"></script>
+<script src="./js/main.js"></script>
+<style>
+.header>a:first-child>span{background:none;}
+</style>
+</head>
+
+<body>
+
+<div id="main">
+	<div class="header">
+		 <a href="javascript:history.back()"><span></span></a>
+		 <a href="#">个人中心</a>
+		 <a href="#"><span></span></a>
+	</div>
+	<div class="my_center">
+	   <div class="my_center_top">
+	      <img src="./img/01.jpg" />
+		  <div class="my_center_top_center">
+		     <p><span>昵称 :</span><i class="red">张零</i><img src="./images/3.png" /></p>
+			 <p><span>级别 :</span><i class="green">VIP会员</i></p>
+		  </div>
+		  <a href="#">续费</a>
+	   </div>
+	   <div class="my_content_time">
+	      <p>到期时间 : <span>2016-10-13</span></p>
+	   </div>
+	   <img src="./img/310.jpg" />
+	   <div class="my_conten_form">
+	      <form>
+		    <p>微信号 :</p>
+			<input type="text" />
+			<p>个性签名 : (15字以内)</p>
+			<textarea> </textarea>
+			<p>手机号 :</p>
+			<input type="text" />
+			<a href="#">保存信息</a>
+		  </form>
+	   </div>
+	</div>
+	
+</div>
+<div class="footer_center">
+	<div class="footer">
+	 <a href="xiaoxilist.html"><span>消息</span><p class="f_tishi"></p></a>
+	 <a href="index.html"><span>微友</span></a>
+	 <a href="9list.html"><span>百宝箱</span></a>
+	 <a href="vip.html"><span>VIP</span></a>
+	 <a href="my.html"><span>我</span></a>
+	</div>
+</div>
+	<script>
+      $(document).ready(function(){
+       $(".footer a").eq(4).css({"background":"url(./images/my2.png) center 12px no-repeat","backgroundSize":"17px auto"});
+	   $(".footer a").children("span").css("color","black");
+	   $(".footer a").eq(4).children("span").css("color","#3CAF36");
+	  })
+    </script>
+</body>
+</html>

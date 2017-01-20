@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="./css/style.css" rel="stylesheet" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+<script src="./js/jquery.js"></script>
+<script src="./js/main.js"></script>
+<script>
+   $(document).ready(function(){
+      $(".tishik_close").click(function(){
+	    $(".tishi1").css("display","none")
+	  })
+	  setTimeout('$(".tishi1").css("display","none")',5000)
+   })
+</script>
+</head>
+
+<body>
+
+<div class="tishi1">
+    <div class="tishik">
+	   <h2>温馨提示</h2>
+	   <p>尊敬的VIP用户您好！</p>
+	   <span>您的操作过于频繁了，您只需每间隔15分钟发布一次名片，24小时内发布99次(99位吸粉)哦！</span>
+	   <a href="javascript:;" class="tishik_close">朕知道了</a>
+	</div>
+	<p> 系统将在5秒后自动跳转</p>
+	<p>如果不想等待请点击<a href="javascript:;" onclick='$(".tishi1").css("display","none")'>这里</a></p>
+</div>
+</body>
+</html>

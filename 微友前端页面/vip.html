@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="./css/style.css" rel="stylesheet" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+<script src="./js/jquery.js"></script>
+<script src="./js/main.js"></script>
+<style>
+.header>a:first-child>span{background:none;}
+</style>
+</head>
+<body>
+
+<div id="main">
+		<div class="header">
+		 <a href="javascript:history.back()"><span></span></a>
+		 <a>VIP特权</a>
+		 <a></a>
+		</div>
+	 	<div class="vip_content">
+		    <img src="./img/121_01.jpg" />
+			<p>微友VIP六大特权</p>
+			<div class="vip_small_c">
+                <img src="./img/121_04.jpg" /> 
+                <h3>99倍加速</h3>
+                <p>普通会员24小时发布一次，VIP会员24小时发布99次.(15分钟一次)</p>			
+			    <img src="./img/121_07.jpg" />
+				<h3>红色昵称</h3>
+				<p>尊贵红色 与众不同</p>
+				<img src="./img/121_09.jpg" />
+				<h3>身份名牌</h3>
+				<p>VIP身份名牌-我的身份，如影随行</p>
+				<img src="./img/121_12.jpg" />
+				<h3>直播培训</h3>
+				<p>微哥偕同知名微商大咖，实战精英为大家做微商直播培训</p>
+			    <img src="./img/121_14.jpg" />
+				<h3>推广社区</h3>
+				<p>推广产品，招收代理，交流学习...尽在VIP专属推广社区</p>
+				<img src="./img/121_17.jpg" />
+				<h3>高端录制课程</h3>
+				<p>不定期录制实战、专业、系统的微商课程</p>
+			</div>
+			<div class="vip_content_huiyuan">
+			    <a href="#" style="background:url(./img/5_03.png) center center no-repeat;"></a>
+				<a href="#" style="background:url(./img/5_38.png) center center no-repeat;"></a>
+				<a href="#" style="background:url(./img/5_06.png) center center no-repeat;"></a>
+				<h3>先看说明:</h3>
+				<span>点击"免费开通VIP月会员"按钮，会生成您的专属"二维码推广图片"长按图片"保存图片"到手机，然后把图片发给好友即可！轻松邀请18位好友关注("个人中心"查看统计)，一个月的VIP特权Duang的就自动开通了。</span>
+				<span>只有一次机会，二维码有效期为7天，立刻行动！</span>
+			</div>
+			<div class="vip_conten_footer">
+			    <p>电话 : <span>400-678-1776</span></p>
+				<p>微信 : <span>15803800800</span></p>
+				<span>邦瑞信息科技有限公司版权所有</span>
+			</div>
+		</div>
+</div>
+<div class="footer_center">
+	<div class="footer">
+	 <a href="xiaoxilist.html"><span>消息</span><p class="f_tishi"></p></a>
+	 <a href="index.html"><span>微友</span></a>
+	 <a href="9list.html"><span>百宝箱</span></a>
+	 <a href="vip.html"><span>VIP</span></a>
+	 <a href="my.html"><span>我</span></a>
+	</div>
+</div>
+	<script>
+      $(document).ready(function(){
+	   $(".footer a").eq(3).css({"background":"url(./images/vip2.png) center 10px no-repeat","backgroundSize":"20px auto"});
+	   $(".footer a").children("span").css("color","black");
+	   $(".footer a").eq(3).children("span").css("color","#3CAF36");
+	  })
+    </script>
+</body>
+</html>

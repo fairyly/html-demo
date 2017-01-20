@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="./css/style.css" rel="stylesheet" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+<script src="./js/jquery.js"></script>
+<script src="./js/main.js"></script>
+</head>
+
+<body  style="background:#f6f6f6;">
+
+<div id="main">
+		<div class="header">
+			 <a href="javascript:history.back()"><span>返回</span></a>
+			 <a>名片发布</a>
+			 <a href="my.html"><span>个人中心</span></a>
+		</div>
+	  <div class="mingpian" id="mingpian_geren">
+	       <div class="mingpian_top">
+		       <p>个人名片发布</p>
+		   </div>
+		   <form>
+		      <input type="text" placeholder="微哥" />
+			  <input type="text" placeholder="66589868" />
+			  <p>简介 :</p>
+			  <textarea placeholder="请介绍自己...">
+			    
+			  </textarea>
+			  <div class="mingpian_up">
+			    <a href="javascript:;">上传二维码</a>
+				<img src="./images/code.jpg" />
+			  </div>
+			  <a href="javascript:;">发布</a>
+		   </form>
+	  </div>
+</div>
+<div class="footer_center">
+	<div class="footer">
+	 <a href="xiaoxilist.html"><span>消息</span><p class="f_tishi"></p></a>
+	 <a href="index.html"><span>微友</span></a>
+	 <a href="9list.html"><span>百宝箱</span></a>
+	 <a href="vip.html"><span>VIP</span></a>
+	 <a href="my.html"><span>我</span></a>
+	</div>
+</div>
+	<script>
+      $(document).ready(function(){
+	   $(".footer a").eq(2).css({"background":"url(./images/aa6.png) center 11px no-repeat","backgroundSize":"17px auto"})
+	   $(".footer a").children("span").css("color","black");
+	   $(".footer a").eq(2).children("span").css("color","#3CAF36");
+	  })
+    </script>
+</body>
+</html>

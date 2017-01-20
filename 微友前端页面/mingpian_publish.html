@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="./css/style.css" rel="stylesheet" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+<script src="./js/jquery.js"></script>
+<script src="./js/main.js"></script>
+</head>
+
+<body  style="background:#f6f6f6;">
+
+<div id="main">
+		<div class="header">
+			 <a href="javascript:history.back()"><span>返回</span></a>
+			 <a>名片发布</a>
+			 <a href="my.html"><span>个人中心</span></a>
+		</div>
+	  <div class="mingpian" >
+	       <div class="mingpian_top">
+		       <p>群名片发布</p>
+		   </div>
+		   <form>
+		      <input type="text" placeholder="群昵称" />
+			  <input type="text" placeholder="群主微信号" />
+		      <select name="">
+			    <option value="交友群">交友群</option>
+				<option value="培训群">培训群</option>
+				<option value="交流群">交流群</option>
+				<option value="同城群">同城群</option>
+				<option value="兼职群">兼职群</option>
+				<option value="微商群">微商群</option>
+			  </select>
+			  <p>简介 :</p>
+			  <textarea>
+			    
+			  </textarea>
+			  <div class="mingpian_up">
+			    <a href="javascript:;">上传二维码</a>
+				<img src="./images/127.jpg" />
+			  </div>
+			  <a href="javascript:;">发布</a>
+		   </form>
+	  </div>
+</div>
+<div class="footer_center">
+	<div class="footer">
+	 <a href="xiaoxilist.html"><span>消息</span><p class="f_tishi"></p></a>
+	 <a href="index.html"><span>微友</span></a>
+	 <a href="9list.html"><span>百宝箱</span></a>
+	 <a href="vip.html"><span>VIP</span></a>
+	 <a href="my.html"><span>我</span></a>
+	</div>
+</div>
+	<script>
+      $(document).ready(function(){
+	   $(".footer a").eq(2).css({"background":"url(./images/aa6.png) center 11px no-repeat","backgroundSize":"17px auto"});
+	   $(".footer a").children("span").css("color","black");
+	   $(".footer a").eq(2).children("span").css("color","#3CAF36");
+	  })
+    </script>
+</body>
+</html>
