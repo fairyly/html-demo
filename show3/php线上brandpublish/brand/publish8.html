@@ -31,6 +31,7 @@
             contentType: false,  
             processData: false,  
             success: function(result){
+                console.log(result);
                 if (result.status==0) {
                     $('.weui-dialog__bd').html(result.msg);
                     $('.alterdialog').show();
@@ -182,6 +183,7 @@
                 type : "POST",  
                 url : '{:U("voice/getVoice")}', 
                 success : function(d){  
+                    console.log(d);
                     wx.config({
                         debug: false,
                         appId: d.data.appId,
@@ -198,11 +200,12 @@
                     wx.ready(function () {
                     });
                     wx.error(function(res){
+                            console.log(res);
                     });
                     wx.checkJsApi({
                         jsApiList: ['chooseImage'], 
                         success: function(res) {
-                            
+                            console.log(res);
                         }
                     });
                 }  
@@ -235,6 +238,7 @@
                 // 录音时间超过一分钟没有停止的时候会执行 complete 回调
                     complete: function (res) {
                         localId = res.localId; 
+                        console.log(localId );
                         $(".popup-container").fadeOut();
                         trans(localId);
                     }
@@ -254,7 +258,8 @@
                 $(".popup-container").hide();
                 wx.stopRecord({
                     success: function (res) {
-                        localId = res.localId;  
+                        localId = res.localId;
+                        console.log(localId);   
                         trans(localId);
                     }
                 });
@@ -268,6 +273,8 @@
                     success: function (res) {
                         var result = res.translateResult;
                         // alert(res.translateResult); // 语音识别的结果
+                        console.log(res);
+                        console.log(res.translateResult);
                         $('.weui-dialog__bd').html(result);
                         $('.updiolog').show();
                         $('.upclose').show();
@@ -275,12 +282,17 @@
                         $('.upclose').click(function(){
                             if (typeof(descrip)=="undefined") {
                                 descrip=result;
-                                $(".form-pdetail").val(tail+result);
+                                $(".form-pdetail").val(result);
                                 $('.updiolog').hide();
+                                console.log(descrip);
                             }else{
+                                // descrip=t+result;
+                                console.log(tail);
                                 $(".form-pdetail").val(tail+result);
                                 $('.updiolog').hide();
                             }
+                            // $(".form-pdetail").val(result);
+                            // $('.updiolog').hide();
                         });
                     }
                 });
@@ -299,6 +311,7 @@
             // 未审核提示
             srcopenid=$("#srcopenid").val();
             var pubstatus=$('#pubstatus').val();
+            console.log(pubstatus);
             if (pubstatus==1) {
                 $('.weui-dialog__bd').html("未审核,请等待！");
                 $('.updiolog').show();
@@ -315,6 +328,7 @@
                 $('.data1').show();
                 $(".img-show").hide();
                 var sp1=image1.split('/');
+                console.log(sp1[5]);
                 uploadCustomFileList.push(sp1[5]);
                 uploadFileName.push(sp1[5]);
                 uploadCount++;
@@ -325,6 +339,7 @@
             if (image2) {
                 $('.data2').show();
                 var sp2=image2.split('/');
+                console.log(sp2[5]);
                 uploadCustomFileList.push(sp2[5]);
                 uploadFileName.push(sp2[5]);
                 uploadCount++;
@@ -334,6 +349,7 @@
             if (image3) {
                 $('.data3').show();
                 var sp3=image3.split('/');
+                console.log(sp3[5]);
                 uploadCustomFileList.push(sp3[5]);
                 uploadFileName.push(sp3[5]);
                 uploadCount++;
@@ -346,6 +362,8 @@
             }else{
                 $('.qrcode-pic img').attr('src','__PUBLIC__/brand/images/qrcode.jpg');
             }
+            console.log(uploadCustomFileList);
+            console.log(uploadFileName);
 
         });
         // 这里是简单的调用，其余api请参考文档
@@ -355,10 +373,13 @@
             type:'file',
             onQueued: function onQueued() {
                 uploadCustomFileList.push(this);
-                
+                console.log(uploadCustomFileList);
+                console.log(this);
+               
                 $(".img-show").hide();
                 this.upload();
                 var upf=eval('(' + this.xhr.response+ ')');
+                console.log(upf.msg);
             },
             onBeforeQueued: function onBeforeQueued(files) {
                 if (["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0) {
@@ -378,9 +399,11 @@
                     weui.alert('最多只能上传3张图片');
                     return false;
                 }
+                console.log(files);
                 ++uploadCount;
             },
              onSuccess: function (ret) {
+               console.log(this, ret);
                var upfilename=eval('(' + this.xhr.response+ ')');
                uploadFileName.push(upfilename.data);
                // return true; // 阻止默认行为，不使用默认的成功态
@@ -401,12 +424,10 @@
                     uploadCount--;
                     return false;
                }else{
-                    var lengs=upfilename.data.split('/')[5].length;
-                    console.log(upfilename.data.split('/')[5]+lengs);
-                    var filesrc=upfilename.data.split('/')[5].substring(0,lengs);
-                    // console.log(filesrc);
+                    var filesrc=upfilename.data.split('/')[5].substring(0,17);
+                    console.log(filesrc);
                     uploadFileName.push(filesrc);
-                    // console.log(uploadFileName);
+                    console.log(uploadFileName);
                     // console.log(this.id);
                     $('#d'+c+'').css('background-image', 'url('+upfilename.data+')');
                }
@@ -423,11 +444,11 @@
 
             var url = target.getAttribute('style') || '';
             var id = target.getAttribute('data-id');
-            // console.log(id);
+            console.log(id);
             if(url){
                 
                 url = url.match(/url\((.*?)\)/)[1];
-                // console.log(url);
+                console.log(url);
             }
             var gallery = weui.gallery(url, {
                 onDelete: function(){
@@ -435,8 +456,7 @@
                         var ind=0;
                         if (url) {
                             var sp=url.split('/');
-                            var lp=url.split('/')[5].length;
-                            var u=url.split('/')[5].substring(0,lp);
+                            var u=url.split('/')[5].substring(0,17);
                             var v0=uploadFileName[0];
                             var v1=uploadFileName[1];
                             var v2=uploadFileName[2];
@@ -515,7 +535,7 @@
                 $('.upclose').show();
                 return false;
             };
-            // console.log(uploadFileName);
+            console.log(uploadFileName);
             var uppics1=uploadFileName[0];
             var uppics2;
             var uppics3;
@@ -553,7 +573,7 @@
                 $('.upclose').show();
                 return false;
             }
-            // console.log(uppics1+','+uppics2+','+uppics3)
+            console.log(uppics1+','+uppics2+','+uppics3)
             $.ajax({  
                 type : "POST",  
                 url : '{:U("brand/insert")}', 
