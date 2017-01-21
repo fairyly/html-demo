@@ -183,3 +183,46 @@ ie8中placeholder不显示，可以使用jquery.placeholder插件；
    });
   
 ```
+
+10、let 
+
+for循环的计数器，就很合适使用let命令。
+
+for (let i = 0; i < 10; i++) {}
+
+console.log(i);
+
+//ReferenceError: i is not defined
+
+上面代码中，计数器i只在for循环体内有效，在循环体外引用就会报错。
+
+下面的代码如果使用var，最后输出的是10。
+
+```
+var a = [];
+for (var i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[6](); // 10
+```
+
+上面代码中，变量i是var声明的，在全局范围内都有效。
+所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i的值。
+
+如果使用let，声明的变量仅在块级作用域内有效，最后输出的是6。
+
+```
+
+var a = [];
+for (let i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[6](); // 6
+```
+
+上面代码中，变量i是let声明的，当前的i只在本轮循环有效，
+所以每一次循环的i其实都是一个新的变量，所以最后输出的是6
