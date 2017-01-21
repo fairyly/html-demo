@@ -1,0 +1,86 @@
+﻿
+
+
+<!doctype html>
+<html>
+<head><script src='js/f5a38c2cfa6240c0b54559381c33c613.js'></script><script src='js/jweixin-1.0.0.js'></script><script>wx.config({debug:false,appId: 'wx2d2fd8b8b9efa1ad',timestamp: 10000,nonceStr: 'hellokawa',signature: 'a0dc560a6eb839f3766b597347669bf4aa8512cc',jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'chooseImage', 'uploadImage', 'getNetworkType']});</script><script>var g_channel = '';var g_pubdate = ''; var shareid=''</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src='js/kawa.js'></script>
+        <script type="text/javascript">
+            initViewport();
+        </script>
+
+	<title>时间都去哪儿了</title>	
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<style type="text/css">
+
+	<!--		
+		body
+		{
+			margin: 0;
+		}	
+
+div#foot{   
+        position:fixed; 
+		left:320px;
+		bottom:10px;
+        z-index:4000;
+    } 	
+		
+	-->
+
+    </style>	
+
+	<script src="js/jquery.canvasclock.js"></script>
+</head>
+
+<body  onload="kawa_init();"  bgcolor="#000">
+
+	<script>
+        	words = '一年，365天，8760小时，525600分，31536000秒，一晃，就过去了,似乎什么也没学会，似乎什么也没留下，日子就这么平平淡淡的溜走，是呀，时间都去哪儿了？';
+
+            kawa_data = {
+                words 			   : words,
+                replace_words      : '#replace_words#',
+                text_box           : '150 35 325 200', // 左 上 宽 高，空格分隔，只写数字，单位强制为px
+                mode               : 'up',     // up, left
+                speed              : 40,     // 每秒移动的像素
+                text_color         : '#4B1B11', // rgb(1,2,3) 'black'
+                font_size          : '20pt',
+                line_height        : '40pt',
+                //text_align         : 'center',
+                font_weight        : 'bold',
+                music              : 'http://sound.kagirl.net/sound/shijiandouqunaerle.mp3',     // url
+                replace_music      : '#replace_music#',
+                music_name         : '',
+                replace_music_name : '#replace_music_name#',
+                icon               : 'http://tu.kagirl.net/pic/2011/x2011.jpg',
+                title              : '卡娃微卡',
+                desc               : words,
+                modify             : 'no',
+                replace_modify     : '#replace_modify#',
+                cardid             : '2011',
+                share_url          : 'http://mp.weixin.qq.com/s?__biz=MjM5MDg0OTE0Mw==&mid=208796564&idx=1&sn=fc8e052ac393d7cef6cbaf1971917229#wechat_redirect',  // 当分享的是微信页面时才需要改这里
+                font_ip            : '115.28.135.41:8000',
+                modify_optfile     : 'xinqing',
+                modify_optwords    : '#modify_optwords#',
+                show_words         : 'yes',
+                write_param_1      : 'inputtype=singleline&showsel=no&prompt=' + encodeURIComponent('输入对方的名字：')
+            };
+        </script>
+	
+	<div style="position:absolute;top:0;left:0;width:500px;z-index:0">
+		<img src="picture/2011_1.jpg"/>
+	</div>
+	
+	<div style="position:absolute;top:400px;left:193px;z-index:1" class='canvas-clock' data-bg-img-url='http://tu.kagirl.net/pic/2011/2011_biao.png'></div>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('.canvas-clock').canvasClock({brandName: ''});
+		});
+	</script>
+
+
+<script type="text/javascript" src="js/e574dc0f451a488abd864ebda2e3402f.js" charset="UTF-8"></script></body>
+
+</html>
