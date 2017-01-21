@@ -136,7 +136,7 @@ document.domain:返回当前文档的域名;
 document.referrer:返回载入当前文档的文档的 URL;
 
 document.readyState:返回文档状态 (载入中……);
-
+```
 -------------------------------------------------
 9、ie8中不支持rgba();可以使用filter：opacity();
 
@@ -145,6 +145,8 @@ ie8中placeholder不显示，可以使用jquery.placeholder插件；
 
 10、文件上传
    blob对象：是一个可以存储二进制文件的容器；
+   
+```
    $("input").change(function(){
         var objUrl = getObjectURL(this.files[0]);
         if (objUrl) {
@@ -184,7 +186,7 @@ ie8中placeholder不显示，可以使用jquery.placeholder插件；
   
 ```
 
-10、let 
+11、let 
 
 for循环的计数器，就很合适使用let命令。
 
