@@ -1,0 +1,35 @@
+<div class="tishi1 t1" style="display: none;">
+	<div class="tishik tishik2">
+	   <h2>温馨提示</h2>
+	   <p>尊敬的用户您好</p>
+	   <span>普通会员24小时内发布一次名片，开通VIP 24小时可发布99次(99倍吸粉),与100000+好友聊天合作等更多特权！</span>
+	   <a href="javascript:void(0)" data="1" class="tishik_close">稍后再说</a>
+	   <a href="/index.php/user-vip.html" class="tishik_link">限时免费</a>
+	</div>
+</div>
+<div class="tishi1 t2" style="display: none;">
+	<div class="tishik">
+	   <h2>温馨提示</h2>
+	   <p>尊敬的VIP会员您好！</p>
+	   <span>您的操作过于频繁了，每间隔15分钟发布一次名片，24小时内发布99次名片；您可以先与微友聊天互动哦！</span>
+	   <a href="javascript:void(0)" data="2" class="tishik_close">朕知道了</a>
+	</div>
+</div>
+<div class="tishi1 t3" style="display: none;">
+	<div class="tishik">
+	   <h2>温馨提示</h2>
+	   <p>尊敬的用户您好！</p>
+	   <span>首次发布请完善您的个人资料，微商之路从此改变、更多惊喜等着您…</span>
+	   <a href="{:U('user/index')}" data="3" class="tishik_close">朕知道了</a>
+	</div>
+</div>
+<div class="tishi1 t4" style="display: none;">
+	<div class="tishik tishik2">
+	   <h2>温馨提示</h2>
+	   <p>尊敬的用户您好！</p>
+	   <span>开通VIP即可发起聊天：再也不用担心好友少了，立刻与100000+微友交流合作，卖货，招商、赚米…
+</span>
+	   <a href="javascript:void(0)" data="4" class="tishik_close">稍后再说</a>
+	   <a href="/index.php/user-vip.html" class="tishik_link">限时免费</a>
+	</div>
+</div>

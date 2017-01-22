@@ -1,0 +1,56 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editqt37">
+        <div class="editqt37_con">
+              <div class="editqt37_con1"> 
+                  <p contenteditable="true">本人已确认以上配置</p>
+              </div>
+               <div class="editqt37_con2"> 
+                  <p contenteditable="true">啦啦啦</p>
+              </div>
+        </div>
+        <div class="shengchengqt37">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“文字”生成趣图</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 趣图第三十七页面结束 -->
+     
+     <script type="text/javascript">
+           $(".shengchengqt37").click(function(){
+                
+                $(".shengchengqt37").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editqt37_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editqt37").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //趣图第三十七个页面结束
+     </script>
+<include file="poster:footer" />

@@ -1,0 +1,86 @@
+<include file="poster:header" />
+    <div class="editmore">
+        <div class="muban">
+            <div class="muban1">
+                <div class="list1"></div>
+               <!--  <a href="index_1.html"><img src="images/11.jpg"/></a><a href="index_2.html"><img src="images/22.jpg"/></a><a href="index_3.html"><img src="images/33.jpg"/></a><a href="index_3.html"><img src="images/33.jpg"/></a> --><!-- <a href=""><img src="images/1.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/2.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/3.jpg" style="width:50%;height:250px"/></a> -->
+            </div>
+            <!-- <div class="muban2">
+                <div class="list2"></div> -->
+               <!--  <a href="index_1.html"><img src="images/4.jpg"/></a><a href="index_2.html"><img src="images/5.jpg"/></a><a href="index_3.html"><img src="images/6.jpg"/></a><a href="index_1.html"><img src="images/7.jpg"/> </a><a href=""><img src="images/1.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/2.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/3.jpg" style="width:50%;height:250px"/></a>-->
+            <!-- </div>
+            <div class="muban3">
+                <div class="list3"></div> -->
+                <!-- <a href="index_4.html"><img src="images/4.jpg"/></a><a href="index_5.html"><img src="images/5.jpg"/></a><a href="index_6.html"><img src="images/6.jpg"/></a><a href="index_7.html"><img src="images/7.jpg"/></a><a href=""><img src="images/1.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/2.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/3.jpg" style="width:50%;height:250px"/></a>-->
+          <!--   </div>
+            <div class="muban4">
+                <div class="list4"></div> -->
+                <!--<a href="index_9.html"><img src="images/9.jpg"/></a><a href="index_10.html"><img src="images/10.jpg"/></a> <a href=""><img src="images/1.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/2.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/3.jpg" style="width:50%;height:250px"/></a> -->
+            <!-- </div> -->
+        </div>
+    </div>
+        <div class="bottomnav">
+            <ul>
+                <li><a href="{:U('poster/watermark')}"><span class="iconfont">&#xe630;</span><p>水印</p></a></li><li><a href="{:U('poster/more')}"><span class="iconfont">&#xe611;</span><p>名片</p></a></li><li><a href="{:U('poster/morepx')}"><span class="iconfont">&#xed0d;</span><p>培训</p></a></li><li><a href="{:U('poster/morezs')}"><span class="iconfont">&#xe74a;</span><p>招商</p></a></li><li><a href="{:U('poster/moreqt')}"><span class="iconfont">&#xe6ed;</span><p>趣图</p></a></li>
+            </ul>
+        </div>
+    
+     <!-- 更多模板页面结束 -->
+     <script type="text/javascript">
+      $(".bottomnav li:eq(1) a").css("color","#04be02");
+         $(function(){
+                var counter = 0;
+                // 每页展示4个
+                var num = 4;
+                var pageStart = 0,pageEnd = 0;
+               
+                // dropload
+                $('.muban1').dropload({
+                    scrollArea : window,
+                    loadDownFn : function(me){
+                        console.log("ajax开始");
+                        $.ajax({
+                            type: 'GET',
+                            url: '__PUBLIC__/poster/json/more1.json',
+                            dataType: 'json',
+                            success: function(data){
+                                var result = '';
+                                counter++;
+                                pageEnd = num * counter;
+                                pageStart = pageEnd - num;
+                                console.log("ajax请求成功");
+                                for(var i = pageStart; i < pageEnd; i++){
+                                    result +=   '<a href="'+data.lists[i].link+'">'
+                                                    +'<img src="__PUBLIC__/poster/'+data.lists[i].pic+'" alt="">'
+                                                +'</a>';
+                                    if((i + 1) >= data.lists.length){
+                                        // 锁定
+                                        me.lock();
+                                        // 无数据
+                                        me.noData();
+                                        break;
+                                    }
+                                }
+                                // 为了测试，延迟1秒加载
+                                setTimeout(function(){
+                                    $('.list1').append(result);
+                                    // 每次数据加载完，必须重置
+                                    me.resetload();
+                                },1000);
+                            },
+                            error: function(xhr, type){
+                                // alert('Ajax error!');
+                                console.log("请求失败");
+                                // 即使加载出错，也得重置
+                                me.resetload();
+                            }
+                        });
+                    }
+                });
+            // 第一块加载结束
+            
+            });
+     </script>
+</body>
+</html>
+

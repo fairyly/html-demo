@@ -1,0 +1,49 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href="{:U('poster/fortythree')}"><img src="__PUBLIC__/poster/images/43.jpg"></a></div>
+                <div class="swiper-slide"><a href="{:U('poster/eight')}"><img src="__PUBLIC__/poster/images/12.jpg"/></a></div>
+                <div class="swiper-slide"><a href="{:U('poster/peixunthirteen')}"><img src="__PUBLIC__/poster/images/px15.jpg"/></a></div>
+                <div class="swiper-slide"><a href="{:U('poster/peixuntwenty')}"><img src="__PUBLIC__/poster/images/px20.jpg"/></a></div>
+                <div class="swiper-slide"><a href="{:U('poster/zhaoshangthirtyfive')}"><img src="__PUBLIC__/poster/images/zs35.jpg"/></a></div>
+                <div class="swiper-slide"><a href="{:U('poster/zhaoshangtwentyfive')}"><img src="__PUBLIC__/poster/images/zs25.jpg"/></a></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="text_sapce"></div>
+       <!--  <div class="more"></div> -->
+        <div class="more">
+            <div style="margin-top:5px;">
+                <a href="{:U('poster/more')}"><h2>更多海报模板</h2></a>
+            </div>
+            <p style="text-align:center;margin:0 auto;margin-top:-7px;">修改模板上的“图片”和“文字”生成你的海报</p>
+        </div>
+    </div>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            // effect : 'coverflow',
+            // slidesPerView: 3,
+            // centeredSlides: true,
+            initialSlide :1,
+            paginationClickable: true,
+            effect : 'coverflow',
+            slidesPerView: 2,
+            centeredSlides: true,
+            coverflow: {
+                        rotate: 30,
+                        stretch: 10,
+                        depth: 60,
+                        modifier: 2,
+                        slideShadows : true
+                    }
+        });
+    </script>
+   
+</body>
+</html>
+

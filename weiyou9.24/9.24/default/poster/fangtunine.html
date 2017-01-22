@@ -1,0 +1,115 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editf9">
+        <div class="editf9_con"> 
+          <div class="editf9_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/f9up1.jpg">
+          </div>
+          <div class="editf9_conbg2"></div>
+          <div class="editf9_up1">
+                  <div class="editf9_up11">
+                      <div class="editf9_fileInput">
+                            <input type="file" capture="camera" name="editf9_upfile" id="editf9_upfile" style="display:none" class="editf9_upfile" onchange="document.getElementById('editf9_upfileResult').innerHTML=this.value;"/>
+                            <input class="editf9_upFileBtn" id="editf9_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf9_upfile').click();" />
+                      </div>
+                  </div>
+          </div> 
+          <div class="editf9_con1">
+                <p contenteditable="true">做出成绩才是最好的好证明！</p>
+          </div>
+          <div class="editf9_con2">
+                <p contenteditable="true">王某某，90后，</p>
+                <p contenteditable="true">兼职做微商半年，边学习方法边实践，</p>
+                <p contenteditable="true">从一无所知做到现在，月收入过万真的不是梦</p>
+          </div>
+          <div class="editf9_con3">
+                <p contenteditable="true">
+                    <span>微信:wx88888888</span>
+                    <span>QQ:88888888</span>
+                    <span>电话:18888888888</span>
+                </p>
+          </div>
+          
+        </div>
+        <div class="shengchengf9">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第九个页面结束 -->
+     
+     <script type="text/javascript">
+        $("#editf9_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+            console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editf9_conbg1 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")") ;
+          
+          }
+        });
+    $("#editf9_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".editf9_con3pic img").attr("src", objUrl) ;
+         
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengf9").click(function(){
+                
+                $(".shengchengf9").hide();
+                // $(".edit3").show();
+                $(".editf9_up1").hide();
+                $(".editf9_up2").hide();
+                $(".editf9_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf9_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".editf9").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第九个页面结束
+     </script>
+<include file="poster:footer" />

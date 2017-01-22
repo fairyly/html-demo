@@ -1,0 +1,137 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+.rili{
+	max-width: 640px;
+	margin:0px auto;
+	position: relative;
+    top: 1.2rem;
+    margin-bottom: 50px;
+}
+.qiandao{
+	width: 100%;
+	height: 32%;
+	margin:0px auto;
+	text-align: center;
+	background: url(../images/rilihead.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+.today{
+	position: relative;
+	width: 5.5rem;
+	height: 5.5rem;
+	border-radius: 50%;
+	margin: 0px auto;
+	background-color: #ffffff;
+	text-align: center;
+	line-height: 5.5rem;
+    color: #04BE02;
+    font-weight: bold;
+    border: solid 5px rgba(222, 212, 212, 0.42);
+}
+.renshu{
+	width: 9rem;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 15px;
+	margin: 0px auto;
+	background-color: #ffffff;
+	text-align: center;
+	color: #04BE02;
+    font-size: 0.6em;
+}
+.jifen{
+	width: 100%;
+	margin: 0px auto;
+
+}
+.jifen1{
+	width: 50%;
+	text-align: center;
+	color: #ffffff;
+	display: inline-block;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.jifen2{
+	display: inline-block;
+	width: 50%;
+	text-align: center;
+	color: #ffffff;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.qdsuccess{
+     background:rgba(0,0,0,0.38);
+     position:fixed;
+	 width:100%;
+	 height:100%;
+	 margin: 0px auto;
+	 top:0px;
+	 left:0px;
+	 display:none;
+	 z-index: 2;
+}
+.qdshow{
+	width: 15rem;
+	height: 10rem;
+	border-radius: 10px;
+	margin: 0px auto;
+	text-align: center;
+	color: #04BE02;
+	background-color: #ffffff;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top: -7.5rem;
+	margin-left: -7rem;
+}
+.qdshow img{
+	width: 3rem;
+	height: 3rem;
+}
+.ok{
+	width: 100%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	background-color: #04BE02;
+	font-size: 1.5em;
+	color: #ffffff;
+	border-radius: 0px 0px 10px 10px;
+}
+.yqd{
+	width: 100%;
+	height: 7.5rem;
+	margin: 0px auto;
+	position: absolute;
+	top: 0.8rem;
+    left: 0rem;
+    display: none;
+    padding-top: 0.5rem;
+}
+.yiqiandao{
+	width: 5.5rem;
+	height: 5.5rem;
+	border-radius: 50%;
+	margin: 0px auto;
+	border:1px solid red;
+	line-height: 5.5rem;
+	color: red;
+	font-weight: bold;
+	transform:rotate(-30deg);
+	-webkit-transform:rotate(-30deg);
+}
+.signrules{
+	width:100%;
+    border-top: 1px dashed#ccc;
+    padding-top: 1rem;
+}
+.signrules p{
+	width: 91%;
+	margin: 0px auto;
+	color: #000000;
+	line-height: 1.6rem;
+	font-size: 0.9rem;
+	font-family: "Microsoft YaHei";
+}
