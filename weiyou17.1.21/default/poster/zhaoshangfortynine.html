@@ -1,0 +1,95 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editz49">
+        <div class="editz49_con">
+          <div class="editz49_conbg2"></div>
+          <div class="editz49_con1">
+                <p contenteditable="true">乘风远航，世界就在眼前</p>
+          </div>
+          <div class="editz49_con2">
+                <p contenteditable="true">加入我们</p>
+          </div>
+          <div class="editz49_con3">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+        
+          <div class="editz49_up2"> 
+                <div class="editz49_up22">
+                    <div class="editz49_fileInput2 left">
+                          <input type="file" capture="camera" name="editz49_upfile2" id="editz49_upfile2" style="display:none" class="editz49_upfile2" onchange="document.getElementById('editz49_upfileResult2').innerHTML=this.value;"/>
+                          <input class="editz49_upFileBtn2" id="editz49_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editz49_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengchengz49">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第四十九个页面结束 -->
+     <script type="text/javascript">
+        $("#editz49_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editz49_conbg11 img").attr("src", objUrl);
+          }
+        });
+      $("#editz49_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".editz49_con3 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengz49").click(function(){
+                
+                $(".shengchengz49").hide();
+                $(".editz49_up1").hide();
+                $(".editz49_up2").hide();
+                $(".editz49_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz49_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editz49").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第四十九个页面结束
+     </script>
+<include file="poster:footer" />

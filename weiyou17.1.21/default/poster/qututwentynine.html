@@ -1,0 +1,62 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editqt29">
+        <div class="editqt29_con">
+              <div class="editqt29_con1"> 
+                  <p contenteditable="true">马云一夜负债10亿，转手淘宝</p>
+              </div> 
+              <div class="editqt29_con2"> 
+                  <p contenteditable="true">20:00</p>
+              </div> 
+               <div class="editqt29_con3"> 
+                  <p contenteditable="true">7月7日</p>
+              </div>
+               <div class="editqt29_con4"> 
+                  <p contenteditable="true">星期四</p>
+              </div>
+        </div>
+        <div class="shengchengqt29">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“文字”生成趣图</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 趣图第二十九页面结束 -->
+     
+     <script type="text/javascript">
+           $(".shengchengqt29").click(function(){
+                
+                $(".shengchengqt29").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editqt29_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                                }
+                            });
+                            $(".editqt29").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //趣图第二十九个页面结束
+     </script>
+<include file="poster:footer" />

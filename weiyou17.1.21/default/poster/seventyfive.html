@@ -1,0 +1,113 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit75">
+        <div class="edit75_con">
+          <div class="edit75_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/m75up1.jpg" alt="uppic">
+          </div>
+          <div class="edit75_conbg2"></div>
+          <div class="edit75_con1">
+             <p contenteditable="true">王某某</p>
+             <p contenteditable="true">-我为微友代言</p>
+             <p contenteditable="true">微友首席讲师</p>
+             <p contenteditable="true">团队金牌代理</p>
+          </div>
+          <div class="edit75_con2">
+             <p contenteditable="true">WEIYOU  FAMILY</p>
+             <p contenteditable="true"><span>微友家族-</span>实现梦想的地方</p>
+          </div>
+          <div class="edit75_con3">
+             <p contenteditable="true">微 信：WX888888</p>
+             <p contenteditable="true">Q Q ：88888888</p>
+             <p contenteditable="true">电 话：18888888888</p>
+          </div>
+          <div class="edit75_con4">
+              <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="edit75_up1"> 
+                <div class="edit75_up11">
+                    <div class="edit75_fileInput left">
+                          <input type="file" capture="camera" name="edit75_upfile" id="edit75_upfile" style="display:none" class="edit75_upfile" onchange="document.getElementById('edit75_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit75_upFileBtn" id="edit75_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit75_upfile').click();"/>
+                    </div>
+                </div>
+          </div>
+          <div class="edit75_up2"> 
+                <div class="edit75_up22">
+                    <div class="edit75_fileInput2">
+                          <input type="file" capture="camera" name="edit75_upfile2" id="edit75_upfile2" style="display:none" class="edit75_upfile2" onchange="document.getElementById('edit75_upfileResult2').innerHTML=this.value;"/>
+                          <input class="edit75_upFileBtn2" id="edit75_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit75_upfile2').click();"/>
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengcheng75">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第七十五个页面结束 -->
+     <script type="text/javascript">
+        $("#edit75_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit75_conbg11 img").attr("src", objUrl);
+            }
+        });
+        $("#edit75_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit75_con4 img").attr("src", objUrl);
+            }
+        });
+         //建立一个可存取到该file的url
+        function getObjectURL(file){
+	        var url = null; 
+	        if (window.createObjectURL!=undefined) { // basic
+	          url = window.createObjectURL(file);
+	        } else if (window.URL!=undefined) { // mozilla(firefox)
+	          url = window.URL.createObjectURL(file);
+	        } else if (window.webkitURL!=undefined) { // webkit or chrome
+	          url = window.webkitURL.createObjectURL(file);
+	        }
+	        return url;
+	    }
+        $(".shengcheng75").click(function(){
+                
+                $(".shengcheng75").hide();
+                $(".edit75_up1").hide();
+                $(".edit75_up2").hide();
+                $(".edit75_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit75_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base75图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit75").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第七十五个页面结束
+     </script>
+<include file="poster:footer" />
