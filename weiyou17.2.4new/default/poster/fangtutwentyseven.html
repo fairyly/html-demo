@@ -1,0 +1,138 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editf27">
+        <div class="editf27_con"> 
+          <div class="editf27_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/f27up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editf27_conbg12">
+            <img src="__PUBLIC__/poster/images/f27up2.jpg" alt="uppic"/>
+          </div>
+          <div class="editf27_conbg2"></div>
+          <div class="editf27_up1">
+              <div class="editf27_up11">
+                  <div class="editf27_fileInput">
+                        <input type="file" capture="camera" name="editf27_upfile" id="editf27_upfile" style="display:none" class="editf27_upfile" onchange="document.getElementById('editf27_upfileResult').innerHTML=this.value;"/>
+                        <input class="editf27_upFileBtn" id="editf27_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf27_upfile').click();" />
+                  </div>
+              </div>
+          </div> 
+          <p contenteditable="true" class="editf27_con1p">美好时光</p>
+          <div class="editf27_con1">
+                <p contenteditable="true">是的，我就是这么的好</p>
+                <p contenteditable="true">不是虚张，不是浮夸、是内心明明澈澈的知道</p>
+                <p contenteditable="true">最好的时光是，那一天，你终于知道并坚信自己有多好</p>
+          </div>
+          <div class="editf27_con2">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode" />
+                <p contenteditable="true">微信：wx888888</p>
+                <p contenteditable="true">Q Q ：88888888</p>
+                <p contenteditable="true">电话：18888888888</p>
+          </div>
+          <div class="editf27_con3">
+                <p contenteditable="true">红领巾联盟服装店</p>
+                <p contenteditable="true">幸福像花儿</p>
+                <p contenteditable="true">一样绽放</p>
+                <p contenteditable="true">做最好最美的自己</p>
+          </div>
+          <div class="editf27_up2">
+                <div class="editf27_up22">
+                    <div class="editf27_fileInput2 left">
+                          <input type="file" capture="camera" name="editf27_upfile2" id="editf27_upfile2" style="display:none" class="editf27_upfile2" onchange="document.getElementById('editf27_upfileResult2').innerHTML=this.value;"/>
+                          <input class="editf27_upFileBtn2" id="editf27_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editf27_upfile2').click();" />
+                    </div>
+                </div>
+          </div> 
+          <div class="editf27_up3">
+                <div class="editf27_up33">
+                    <div class="editf27_fileInput3 left">
+                          <input type="file" capture="camera" name="editf27_upfile3" id="editf27_upfile3" style="display:none" class="editf27_upfile3" onchange="document.getElementById('editf27_upfileResult3').innerHTML=this.value;"/>
+                          <input class="editf27_upFileBtn3" id="editf27_upfileResult3" type="button" value="上传图片" onclick="document.getElementById('editf27_upfile3').click();" />
+                    </div>
+                </div>
+          </div> 
+        </div>
+        <div class="shengchengf27">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第二十七个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#editf27_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editf27_conbg1 img").attr("src", objUrl);
+          }
+        });
+      $("#editf27_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);  
+        if (objUrl) {
+          $(".editf27_conbg12 img").attr("src", objUrl);
+        }
+      });
+      $("#editf27_upfile3").change(function(){
+        var objUrl = getObjectURL(this.files[0]);  
+        if (objUrl) {
+          $(".editf27_con2 img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengf27").click(function(){
+                
+                $(".shengchengf27").hide();
+                $(".editf27_up1").hide();
+                $(".editf27_up2").hide();
+                $(".editf27_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf27_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editf27").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第二十七个页面结束
+     </script>
+<include file="poster:footer" />

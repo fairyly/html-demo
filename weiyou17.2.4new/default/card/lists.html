@@ -1,0 +1,373 @@
+﻿		<include file="public:header" />
+        
+		<style>
+		   .header>a:first-child>span{
+		     padding-left:33px;
+		   }
+           .weui_dialog_alert{
+            display: none;
+           }
+           .weui_dialog_bd{
+                text-align: left;
+                text-indent: 20px;
+            }
+		</style>
+        <div class="header">
+            <a href="javascript:;" id="adds">
+                <span id="city_select_toggle">
+                    同城交友
+                </span>
+            </a>
+            <a>
+                达人秀
+            </a>
+            <a href="{:U('sign/index')}"><span>签到赚积分</span></a>
+            <!-- <a href="javascript:void(0)"class="fabu">
+                <span>免费发布</span>
+            </a>  -->
+        </div>
+        <div id="main">
+            <!--达人秀********************************************************-->
+            <div class="darenxiu" id="darenxiu" style="padding-bottom:1px;margin-bottom:-10px;">
+                <div class="darenxiu_list">
+                    <!-- 循环列表 begin -->
+                    <volist name="list" id="vo">
+                        <a class="darenxiu_box" href="#erweicode_{$key}" id="href_{$key}">
+                            <img src="{$vo.pic}" id="thumb_{$key}" />
+                            <div class="darenxiu_box_content">
+                                <if condition="$vo.role_id eq 1">
+                                    <p id="name_{$key}">
+                                        <span>
+                                            昵称 :
+                                        </span>
+                                        <span>
+                                            {$vo.name}
+                                        </span>
+                                    </p>
+                                    <else/>
+                                    <p id="name_{$key}">
+                                        <span>
+                                            昵称 :
+                                        </span>
+                                        <span class="red">
+                                            {$vo.name}
+                                        </span>
+                                        <i>
+                                        </i>
+                                    </p>
+                                </if>
+                                <p>
+                                    <span>
+                                        地区 :
+                                    </span>
+                                    <span id="location_{$key}">
+                                        {$vo.location}
+                                    </span>
+                                </p>
+                                <p>
+                                    <span>
+                                        签名 :
+                                    </span>
+                                    <span class="dirp_up" id="introduce_{$key}">
+                                        {$vo.introduce}
+                                    </span>
+                                </p>
+                            </div>
+							<p></p>
+                        </a>
+						
+                    </volist>
+                    <!-- 循环列表 end -->
+                </div>
+                <div class="weixinq_page">
+                    {$page}
+                </div>
+                <p style="width:100%;height:10px"></p>
+                <!-- <a href="{:U('brand/index')}" class="footergg">
+                    <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/banner_brand.jpg" />
+                </a> -->
+                <a href="javascript:void(0);" class="fabu">
+                    免费发布
+                </a>
+                <!-- 弹框 begin -->
+                <volist name="list" id="do">
+                    <div class="darenxiu_box_a" id="erweicode_{$key}">
+                        <p>
+                            长按二维码加好友
+                        </p>
+                        <img src="{$do.img}" id="code_img_{$key}" />
+                        <span>
+                            微信号 :
+                            <i id="weixin_{$key}">
+                                {$do.weixin}
+                            </i>
+                        </span>
+                        <em id="wx_openid_{$key}" style="display:none">
+                                {$do.openid}
+                        </em>
+                        <div class="darenxiu_box_a_a" style="margin:0 auto;">
+                        <!-- <div class="talk" style="margin:0 auto;width:100%;"> -->
+                            <a href="javascript:;" class="talk" style="margin:0 auto;width:100%;margin-top:18px;">
+                                返回
+                            </a>
+                            <!-- <if condition="$_SESSION['user']['openid'] neq $do['openid']">
+                                 <if condition="$role_id neq 1" >                              
+							  <a href="javascript:void(0);" id="erweicode_{key}" class="talk" data="{$do.id}">
+                                    聊天
+                                </a>
+                                <form action="http://www.lzytsy.com/info1.html" name="talk_{$do.id}" id="talk_{$do.id}"
+                                method="post" style="display:none;">
+                                    <input name="friendid" id='friendid_{$key}' value="{$do.openid}">
+                                    <input name="myid" value="{$_SESSION['user']['openid']}">
+                                </form>
+								    <else/>
+									<a href="javascript:void(0);" class="check_vip">
+									聊天
+								</a>
+								   </if>
+                                <else/>
+
+								<a href="javascript:void(0);" >
+									聊天
+								</a>
+   
+                            </if> -->
+                        </div>
+                    </div>
+                </volist>
+                <!-- 弹框 end -->
+                <!---地区选择-->
+                <div class="address_d">
+                    <div class="address_d_one" id="address_1">
+                        <p>
+                            地区筛选
+                        </p>
+                        <a>
+                            <span>
+                                不限
+                            </span>
+                            <select name="prov" id="prov" data-theme="c" data-icon="false">
+                                <option value="">
+                                    不限
+                                </option>
+                                <volist name="provinces" id="pro">
+                                    <option value="{$pro.id}">
+                                        {$pro.shortname}
+                                    </option>
+                                </volist>
+                            </select>
+                            <input type="hidden" id="yprov" name="yprov" value="">
+                        </a>
+                        <a>
+                            <span>
+                                不限
+                            </span>
+                            <select name="city" id="city">
+                                <option value="">
+                                    不限
+                                </option>
+                            </select>
+                            <input type="hidden" id="ycity" name="ycity" value="">
+                        </a>
+                    </div>
+                    <div class="address_d_one" id="address_2">
+                        <p>
+                            性别筛选
+                        </p>
+                        <a>
+                            <span>
+                                不限
+                            </span>
+                            <select name="sex" id="sex">
+                                <option value="">
+                                    不限
+                                </option>
+                                <option value="1">
+                                    男
+                                </option>
+                                <option value="2">
+                                    女
+                                </option>
+                            </select>
+                        </a>
+                    </div>
+                    <div class="address_d_one" id="f_find">
+                        <p>&nbsp;
+                            
+                        </p>
+                        <a href="javascript:void(0)" id="search" data-role="button" style="color:white;background:#3CAF36;">
+                            查询
+                        </a>
+                        <a href="javascript:void(0)">
+                            关闭
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="weui_dialog_alert">
+                    <div class="weui_mask"></div>
+                    <div class="weui_dialog">
+                        <div class="weui_dialog_hd"><strong class="weui_dialog_title">微友“货源”专区上线</strong></div>
+                        <div class="weui_dialog_bd">发布货源招代理,百万微商首选你</div>
+                        <div class="weui_dialog_ft">
+                            <a class="weui_btn_dialog primary diaalert">确定</a>
+                        </div>
+                    </div>
+            </div> -->
+        </div>
+		<include file="public:alertMs" />
+        <script type="text/javascript">
+            $(function(){
+                // $(".weui_dialog_alert").hide();
+                function getCookie(c_name)
+                    {
+                    if (document.cookie.length>0)
+                      {
+                      c_start=document.cookie.indexOf(c_name + "=")
+                      console.log("cookie:"+document.cookie);
+                      console.log(c_start);
+                      if (c_start!=-1)
+                        { 
+                        c_start=c_start + c_name.length+1 
+                        c_end=document.cookie.indexOf(";",c_start)
+                        if (c_end==-1) c_end=document.cookie.length
+                        return unescape(document.cookie.substring(c_start,c_end))
+                        } 
+                      }
+                    return ""
+                    }
+                var username=getCookie('username');
+                console.log(username);
+                if (username!=null && username!="")
+                  {
+                    $(".weui_dialog_alert").hide();
+                    console.log("hide");
+                    }
+                else 
+                  {
+                    $(".weui_dialog_alert").show(); 
+                    console.log("show");
+                    var date=new Date();
+                    var cookieExpire=date.getTime()+1*3600*1000;
+                    document.cookie=" username=usercookies; expire= " + cookieExpire + " ;path=/;domain=www.mozhuge.com";
+                    // document.cookie=" username=usercookies; expire= " + cookieExpire + " ;path=/;domain=www.wechatw.com";
+                  }
+                // var usercookies=document.cookie;
+                // console.log(usercookies);
+                // var phpsID=usercookies;
+                // console.log(phpsID.length);
+                // if(phpsID.length >37){
+                //     $(".weui_dialog_alert").hide();
+                // }else{
+                //      $(".weui_dialog_alert").show();
+                // }
+
+            });
+        </script>
+		<script>
+            //新增提示信息
+            $(".diaalert").click(function(){
+                $(".weui_dialog_alert").hide();
+            });
+			//达人秀聊天判断
+			$('.check_vip').click(function(){
+				liaotian();
+			})
+			//关闭弹框
+			$(".tishik_close").click(function(){
+				var id=$(this).attr('data');
+				$(".t"+id).css("display","none")
+			})
+			//聊天限制
+			function liaotian(){
+				$(".t4").css("display","block");
+				setTimeout('$(".t4").css("display","none")',5000)
+			}
+			//限时免费
+			function xianshi(){
+				$(".t1").css("display","block");
+				setTimeout('$(".t1").css("display","none")',5000)
+			}
+			//朕知道了
+			function zhenzd(){
+				$(".t2").css("display","block");
+				setTimeout('$(".t2").css("display","none")',5000)
+			}
+			//完善个人资料
+			function wanshan(){
+				$(".t3").css("display","block");
+				setTimeout('$(".t3").css("display","none")',5000)
+			}
+			$('.fabu').click(function(){
+			
+				$.post("{:U('card/ajax_check_insert')}",{status:0},function(result){
+					if(result.status==0){
+						var flag=result.data;
+						if(flag=='index'){
+							//提示完善资料 - 朕知道了
+							wanshan();
+						}
+						if(flag=='user'){
+							//普通会员太频繁 -限时免费
+							xianshi();
+						}
+						if(flag=='vip'){
+							//vip会员太频繁 -朕知道了
+							zhenzd();
+						}
+					}else{
+						window.location.href="{:U('card/insert')}";
+					}
+				},"json")
+			})
+		</script>
+        <script type="text/javascript" src="__PUBLIC__/sign/js/touch.min.js"></script>
+        <script type="text/javascript">
+        
+            var mark=0;
+            var wxhao;
+            var wxOpenId;
+            touch.on('.darenxiu_box_a img', 'touchstart', function(ev){
+                var weixinhao=$(this).parent().children('span').children().html();
+                wxhao=weixinhao.trim();
+                wxOpenId=$(this).parent().children('em').html().trim();
+                t=setTimeout(total,1000);
+            });
+            function total(){
+              mark++;//计算手指触摸开始到离开的时间；
+              console.log(mark);
+              console.log(wxOpenId);
+              if(mark>=1){
+                    clearTimeout(t);
+                    mark=0;
+                    var pipeiwx=/^[a-zA-Z0-9][a-zA-Z0-9_-]{5,19}$/;
+                    if(pipeiwx.test(wxhao)==true){
+                        console.log(wxOpenId);
+                        $.ajax({
+                          type : "POST",  
+                          url : "{:U('sign/addFriendScore')}", 
+                          data : {weixin:wxhao,openid:wxOpenId},  
+                          success : function(data){ 
+                              console.log("ajax请求成功"); 
+                              console.log(data);
+                          },
+                          error:function(){
+                            console.log("ajax请求失败");
+                          } 
+                        });
+                    }else{
+                        console.log("微信号格式不正确！");
+                    }
+                }else{
+                mark=0;
+                } 
+            }
+            
+            touch.on('.darenxiu_box_a img', 'touchend', function(ev){
+                clearTimeout(t);
+                var weixinhao=$(this).parent().children('span').children().html();
+                wxhao=weixinhao.trim();
+            });
+        </script>
+        <script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/lists.js"></script>
+		<include file="public:footer" />

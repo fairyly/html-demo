@@ -1,0 +1,204 @@
+{__NOLAYOUT__}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>微友</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+        <link href="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/css/style.css" rel="stylesheet" />
+        <link href="__PUBLIC__/brand/css/index.css"  rel="stylesheet"/>
+        <link href="__PUBLIC__/brand/css/swiper.min.css"  rel="stylesheet"/>
+        <link href="__PUBLIC__/nav/iconfont.css"  rel="stylesheet"/>
+        <script src="__PUBLIC__/brand/js/swiper.min.js" ></script>
+        <script src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/js/jquery.js"></script>
+        <script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/main.js"></script>
+        <!--<script src="__PUBLIC__/brand/js/jquery.min.js"></script>-->
+        <script src="__PUBLIC__/brand/js/pics1.js" ></script>
+        <style type="text/css">
+        a:link {color: #0080FF} /* 未访问的链接 */
+        /*a:visited {color: #00FF00} /* 已访问的链接 */
+        /*a:hover {color: #FF00FF} /* 鼠标移动到链接上 */
+        /*a:active {color: #0000FF} /* 选定的链接 */
+        .footer a:nth-child(1) span:nth-child(1){
+            margin-top: 8px;
+        }
+        .footer a:nth-child(1) span:nth-child(2){
+            margin-top: 7px;
+        }
+        .footer a span.iconfont{
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .footer a:nth-child(3) span.iconfont{
+            font-size: 35px;
+            margin-top: 1px;
+        }
+        .footer a:nth-child(3) span:nth-child(2){
+            margin-top:15px;
+        }
+        /*.footer a:nth-child(3) span.iconfont{
+            font-size: 26px;
+        }*/
+        .footer a:nth-child(4) span.iconfont,.footer a:nth-child(5) span.iconfont{
+            font-size: 23px;
+        }
+        .brand-page{
+            width: 94%;
+            height: auto;
+            margin: 0px auto;
+            margin-bottom:15px;
+        }
+        .brand-fabu{
+            width: 94%;
+            height: auto;
+            margin: 0px auto;
+            margin-bottom:50px;
+        }
+        .brand-fabu a{
+            display: block;
+            color: white;
+            width: 100%;
+            border-radius: 3px;
+            line-height: 35px;
+            height: 35px;
+            text-align: center;
+            /* background: #04BE02; */
+            margin: 1px 0 10px 0px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 0.8em;
+            background: -webkit-linear-gradient(left, #6F46E0,#CD4EB3);
+            background: -o-linear-gradient(right, #6F46E0,#CD4EB3);
+            background: -moz-linear-gradient(right,#6F46E0,#CD4EB3);
+            background: linear-gradient(to right, #6F46E0,#CD4EB3);
+            background-color: #7A45E5;
+        }
+        </style>
+        <style>
+            .header>a:first-child>span{background:none;}
+        </style>
+    </head>
+    <body>
+<div class="header">
+    <a href="javascript:history.back()">
+        <span>
+        </span>
+    </a>
+    <a style="margin:0 auto;font-size:15px";>
+        品牌货源
+    </a>
+    <a>
+    </a>
+</div>
+<header>
+    <div class="index_head"> 
+        <!-- 焦点图-->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <!-- <a href="https://jinshuju.net/f/c3o5gS"> -->
+                    <a href="{:U('brand/publish')}" class="fabu">
+                        <img src="__PUBLIC__/brand/images/banner_brand_new_pub.jpg">
+                    </a>
+                </div>
+                <!-- <div class="swiper-slide"><a href="__PUBLIC__/brand/"><img src="__PUBLIC__/brand/images/banner_1.jpg"></a></div>
+                <div class="swiper-slide"><a href="__PUBLIC__/brand/"><img src="__PUBLIC__/brand/images/banner_2.jpg"></a></div>
+                <div class="swiper-slide"><a href="__PUBLIC__/brand/"><img src="__PUBLIC__/brand/images/banner_3.jpg"></a></div>
+                <div class="swiper-slide"><a href="__PUBLIC__/brand/"><img src="__PUBLIC__/brand/images/banner_4.jpg"></a></div> -->
+            </div>
+            <!-- 分页器 -->
+        </div>
+    </div>
+</header>
+<!-- 头部焦点图结束 -->
+<!-- 首页展示-->
+<div class="content" style="margin-top:20px;margin-bottom:5px;">
+    <!-- 商家展示 -->
+    <volist name="list" id="vo">
+        <div class="con_main" id="marqueeBox">
+            <div class="con_main_con">
+                <div class="con_main_head">
+                    <!-- <a href="{$vo.detail_url}"> -->
+                    <a href="{:U('detail', array('id'=>$vo['id']))}">
+                        <div class="shopicon">
+                            <img src="{$vo.thumb}"/>
+                        </div><div class="describe">
+                            <p>{$vo.name}</p>
+                        </div>
+                    </a>
+                    <div class="des_detail">
+                        <div><p>{$vo.content}</p></div>
+                        <!-- <a href="{$vo.detail_url}"> -->
+                        <a href="{:U('detail', array('id'=>$vo['id']))}">
+                            <span>查看详情</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="con_main_pic">
+                    <div class="pics">
+                        <if condition="$vo.mpic1 neq ''"><div class="pics_l"><img src="{$vo.mpic1}" da-src="{$vo.pic1}" alt="shoppic"/></div></if><if condition="$vo.mpic2 neq ''"><div class="pics_c"><img src="{$vo.mpic2}" da-src="{$vo.pic2}" alt="shoppic"/></div></if><if condition="$vo.mpic3 neq ''"><div class="pics_r"><img src="{$vo.mpic3}" da-src="{$vo.pic3}" alt="shoppic"/></div></if>
+                    </div>
+                </div>
+            </div>
+            <div class="con_space"></div>
+        </div>
+    </volist>
+    <div class="brand-page">
+         <div class="weixinq_page"><!-- style="margin-bottom:20px;" -->
+            {$page}
+            <!-- <div style="position:relative;bottom:2em;z-index:15;margin:0 auto;height:1em;widht:100%;text-align:center;color:#576b95;font-size:14px"><a href="https://jinshuju.net/f/c3o5gS">品牌广告合作</a></div>-->
+        </div>
+    </div>
+    <div class="brand-fabu">
+        <!-- <a href="javascript:void(0);" class="fabu">
+                    发布
+        </a> -->
+        <a href="{:U('brand/publish')}" class="fabu">
+                    发布
+        </a>
+    </div>
+    
+</div>
+<div class="tanpic">
+   <!--  <div class="cunpic">
+        <div class="changepic"> -->
+            <i></i>
+            <img src="__PUBLIC__/brand/">
+      <!--   </div>
+        <span class="tanpic_close"></span>
+    </div> -->
+</div>
+<!-- 展示区域结束 -->
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    autoplayDisableOnInteraction:false,
+    // autoplay : 5000,
+    // loop : true,
+    // 分页器
+    // pagination: '.swiper-pagination',
+   
+  })   
+
+var docEl = document.documentElement,
+    //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    recalc = function() {
+        //设置根字体大小
+        docEl.style.fontSize = 14 * (docEl.clientWidth / 320) + 'px';
+    };
+//绑定浏览器缩放与加载时间
+window.addEventListener(resizeEvt, recalc, false);
+document.addEventListener('DOMContentLoaded', recalc, false);   
+
+//统计代码
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?b568cb6c867797e8aaf3d0759e396fa1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();  
+</script>
+
+<include file="public:footer" />

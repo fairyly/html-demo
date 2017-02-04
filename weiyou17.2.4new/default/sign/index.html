@@ -1,0 +1,188 @@
+<include file="public:header" />
+<link rel="stylesheet" href="__PUBLIC__/sign/css/index.css" />
+<link rel="stylesheet" href="__PUBLIC__/sign/css/sign.css" />
+<script type="text/javascript" src="__PUBLIC__/sign/js/jquery.min.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/sign/js/index.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/sign/js/calendar.js"></script>
+<script type="text/javascript">
+	// var docEl = document.documentElement,
+	//     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	//     recalc = function() {
+	//         docEl.style.fontSize = 12 * (docEl.clientWidth / 320) + 'px';
+	//     };
+	// window.addEventListener(resizeEvt, recalc, false);
+	// document.addEventListener('DOMContentLoaded', recalc, false);
+</script>    
+
+	<div class="header">
+	    <a href="javascript:history.back()">
+	        <span>
+	        </span>
+	    </a>
+	    <a href="{:U('sign/index')}">
+	        每日签到
+	    </a>
+	    <a href="{:U('user/index')}">
+	        <span></span>
+	    </a>
+	</div>
+	<section>
+		<div class="rili">
+			<div class="qiandao">
+				<p style="width:100%;height:1rem"></p>
+				<div class="today">今日签到</div>
+				<div class="yqd"><div class="yiqiandao">已签到</div></div>
+				<p style="width:100%;height:10px"></p>
+				<div class="jifen">
+					<div class="jifen2">
+						<span>连续签到<span><font color="red" class="signdays"></font></span>天</span><br />
+						<span>积分：<span><font color="red" class="signfen"></font></span></span>
+					</p>
+					</div>
+				</div>
+				<p style="width:100%;height:10px"></p>
+			</div>
+			<div class="qdsuccess">
+				<div class="qdshow">
+					<p style="width:100%;height:2rem"></p>
+					<img src="__PUBLIC__/sign/images/duihao.png">
+					<h3>恭喜！签到成功！</h3>
+					<p style="width:100%;height:5px"></p>
+					<p style="font-size:0.8rem">本次签到增加<span class="signcounts" style="color:red;font-weight:bold;"></span>积分</p>
+					<p style="width:100%;height:10px;text-align:center"></p>
+					<div class="ok">OK</div>
+				</div>
+			</div>
+			<div class="rilicontent">
+				<div id="calendar"></div>
+			</div>
+			<script type="text/javascript">
+			$(function(){
+				   //ajax获取日历json数据
+				   var signList=[];
+			       calUtil.init(signList);
+				   var now=new Date;
+				   var year=now.getFullYear();
+				   var month=now.getMonth()+1;
+				   var day=now.getDate();
+				   console.log(day);
+				   $.ajax({  
+	                          type : "POST",  
+	                          url : "{:U('sign/getSignData')}",
+	                          data : {y:year,m:month},  
+	                          // timeout : 60000,  
+	                          success:function(data){ 
+	                              console.log(data); 
+	                              var signLists=eval(data);  
+	                              console.log(signLists[0]);
+	                              var signscore=signLists[0].score;
+	                              console.log(signLists[0].score);
+	                              $(".signfen").html(signscore);
+	                              var signcondays=signLists[0].days;
+	                              console.log(signLists[0].days);
+	                              $(".signdays").html(signcondays);
+	                              console.log(signLists[1]);
+	                              console.log(signLists[1].length);
+	                              signList=signLists[1];
+	                              if(signList[signList.length-1].signDay==day){
+	                              	$(".yqd").show();
+									$(".today").css("color","#bebdbd");
+	                              }else{
+	                              	console.log("今日未签到！");
+	                              }
+	                             calUtil.init(signList);
+	                          },
+	                          error:function(){
+	                          	console.log("ajax获取初始数据失败！");
+	                          } 
+	                        });	
+			    $(".today").click(function(){
+				    $.ajax({  
+                              type : "POST",  
+                              url : "{:U('sign/sign')}",
+                              success:function(datas){  
+                                  var List=eval('('+datas+')');  
+                                  console.log(datas);
+                                  console.log(datas.length);
+                                  console.log(List.status);
+                                  console.log(List.data);
+                                  var signcounts=List.data;
+                                  $(".signcounts").html(signcounts);
+                                  if(List.status==1){
+                                  	signList=[{"signDay":day}];
+                                    calUtil.draw(signList);
+                                    $.ajax({  
+				                          type : "POST",  
+				                          url : "{:U('sign/getSignData')}",
+				                          data : {y:year,m:month},  
+				                          success:function(data){  
+				                              console.log(data); 
+				                              var signLists=eval(data);  
+				                              console.log(signLists[0]);
+				                              var signscore=signLists[0].score;
+				                              console.log(signLists[0].score);
+				                              $(".signfen").html(signscore);
+				                              var signcondays=signLists[0].days;
+				                              console.log(signLists[0].days);
+				                              $(".signdays").html(signcondays);
+				                              console.log(signLists[1]);
+				                              console.log(signLists[1].length);
+				                              signList=signLists[1];
+				                             calUtil.init(signList);
+				                             // window.location.reload();
+				                          },
+				                          error:function(){
+				                          	console.log("ajax获取初始数据失败！");
+
+				                          } 
+				                        });	
+                                  }else{
+                                  	alert("您今天已经签到过了!");
+                                  } 
+                              },
+                              error:function(){
+                              	console.log("ajax获取失败！");
+                              } 
+                            });	
+					$(".qdsuccess").show();
+				});
+				$(".qdsuccess").click(function(){
+						$(".qdsuccess").hide();
+						$(".yqd").show();
+						$(".today").css("color","#bebdbd");
+				});
+				$(".convert").click(function(){
+					$.ajax({  
+                          type : "POST",  
+                          url : "{:U('sign/scoreExchangeVIP')}",
+                          // data : {y:year,m:month},  
+                          success:function(datas){  
+                          	console.log("ajax已经请求");
+                            console.log(datas); 
+                            console.log(datas.length); 
+                            var dd=eval('('+datas+')');
+                            console.log(dd); 
+                            if(dd.data==1){
+                            	 alert("您已成功兑换一天VIP！");
+                            }
+                            if(dd.data==2){
+                            	alert("您的积分不够，请赚取积分后再兑换！");
+                            }
+                            if(dd.data==0){
+                            	alert("非法请求！");
+                            }
+                           
+                             // window.location.reload();
+                          },
+                          error:function(){
+                          	console.log("ajax获取兑换数据失败！");
+
+                          } 
+                    });	
+				});
+			});
+			</script>
+			
+		</div>
+	</section>
+<include file="public:footer" />

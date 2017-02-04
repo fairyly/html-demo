@@ -1,0 +1,128 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfz11">
+        <div class="editfz11_con"> 
+          <div class="editfz11_conbg1">
+            <img src="__PUBLIC__/poster/images/fz11up1.jpg">
+          </div>
+          <div class="editfz11_conbg12">
+            <img src="__PUBLIC__/poster/images/fz11up2.jpg">
+          </div>
+          <div class="editfz11_conbg2">
+            <div class="editfz11_up1">
+                <div class="editfz11_up11">
+                    <div class="editfz11_fileInput">
+                          <input type="file" capture="camera" name="editfz11_upfile" id="editfz11_upfile" style="display:none" class="editfz11_upfile" onchange="document.getElementById('editfz11_upfileResult').innerHTML=this.value;"/>
+                          <input class="editfz11_upFileBtn" id="editfz11_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfz11_upfile').click();" />
+                    </div>
+                </div>
+            </div> 
+            <div class="editfz11_con1">
+                  <p contenteditable="true">微友团队</p>
+                  <p contenteditable="true">TEAM</p>
+                  <p contenteditable="true">红领巾联盟欢迎你的加入</p>
+                  <p contenteditable="true">给梦想一个大舞台</p>
+            </div>
+            <div class="editfz11_con2">
+                  <img src="__PUBLIC__/poster/images/mpup2.jpg"/>
+            </div>
+            <div class="editfz11_con3">
+                  <p contenteditable="true">微信：wx888888</p>
+                  <p contenteditable="true">Q Q ：88888888</p>
+                  <p contenteditable="true">电话：18888888888</p>
+            </div>
+            <div class="editfz11_up2">
+                  <div class="editfz11_up22">
+                      <div class="editfz11_fileInput2 left">
+                            <input type="file" capture="camera" name="editfz11_upfile2" id="editfz11_upfile2" style="display:none" class="editfz11_upfile2" onchange="document.getElementById('editfz11_upfileResult2').innerHTML=this.value;"/>
+                            <input class="editfz11_upFileBtn2" id="editfz11_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editfz11_upfile2').click();" />
+                      </div>
+                  </div>
+            </div> 
+            <div class="editfz11_up3">
+                  <div class="editfz11_up33">
+                      <div class="editfz11_fileInput3 left">
+                            <input type="file" capture="camera" name="editfz11_upfile3" id="editfz11_upfile3" style="display:none" class="editfz11_upfile3" onchange="document.getElementById('editfz11_upfileResult3').innerHTML=this.value;"/>
+                            <input class="editfz11_upFileBtn3" id="editfz11_upfileResult3" type="button" value="上传图片" onclick="document.getElementById('editfz11_upfile3').click();" />
+                      </div>
+                  </div>
+            </div> 
+          </div>
+        </div>
+        <div class="shengchengfz11">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图招商第十一个页面结束 -->
+     <script type="text/javascript">
+        $("#editfz11_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editfz11_conbg1 img").attr("src", objUrl);
+          }
+        });
+      $("#editfz11_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);  
+        if (objUrl) {
+          $(".editfz11_conbg12 img").attr("src", objUrl);
+        }
+      });
+      $("#editfz11_upfile3").change(function(){
+        var objUrl = getObjectURL(this.files[0]);  
+        if (objUrl) {
+          $(".editfz11_con2 img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfz11").click(function(){
+                
+                $(".shengchengfz11").hide();
+                $(".editfz11_up1").hide();
+                $(".editfz11_up2").hide();
+                $(".editfz11_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfz11_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfz11").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图招商第十一个页面结束
+     </script>
+<include file="poster:footer" />
