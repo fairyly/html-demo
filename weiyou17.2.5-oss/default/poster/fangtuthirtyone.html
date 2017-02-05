@@ -1,0 +1,117 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editf31">
+        <div class="editf31_con"> 
+          <div class="editf31_conbg1" id="editmove">
+               <img src="__PUBLIC__/poster/images/f31up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editf31_conbg2"></div>
+          <div class="editf31_con1">
+                <p contenteditable="true">微友金牌代理</p>
+                <p contenteditable="true">首席金牌讲师</p>
+                <p contenteditable="true">—王某某</p>
+          </div>
+          <div class="editf31_con2">
+                <p contenteditable="true">红领巾联盟美妆店</p>
+                <p contenteditable="true">欢迎你的光临</p>
+          </div>
+          <div class="editf31_con3">
+                <p contenteditable="true">有梦想</p>
+                <p contenteditable="true">就去实现</p>
+          </div>
+          <div class="editf31_con4">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="editf31_con5">
+                <p contenteditable="true">微 信：WX888888</p>
+                <p contenteditable="true">Q Q ：88888888</p>
+                <p contenteditable="true">电 话：18888888888</p>
+          </div>
+          <div class="editf31_up1">
+              <div class="editf31_up11">
+                  <div class="editf31_fileInput">
+                        <input type="file" capture="camera" name="editf31_upfile" id="editf31_upfile" style="display:none" class="editf31_upfile" onchange="document.getElementById('editf31_upfileResult').innerHTML=this.value;"/>
+                        <input class="editf31_upFileBtn" id="editf31_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf31_upfile').click();" />
+                  </div>
+              </div>
+          </div>
+          <div class="editf31_up2">
+              <div class="editf31_up22">
+                  <div class="editf31_fileInput2">
+                        <input type="file" capture="camera" name="editf31_upfile2" id="editf31_upfile2" style="display:none" class="editf31_upfile2" onchange="document.getElementById('editf31_upfileResult2').innerHTML=this.value;"/>
+                        <input class="editf31_upFileBtn2" id="editf31_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editf31_upfile2').click();" />
+                  </div>
+              </div>
+          </div> 
+        </div>
+        <div class="shengchengf31">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第三十一个页面结束 -->
+     <script type="text/javascript">
+        $("#editf31_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editf31_conbg1 img").attr("src", objUrl);
+          }
+        });
+    $("#editf31_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);   
+        if (objUrl) {
+          $(".editf31_con4 img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengf31").click(function(){
+                
+                $(".shengchengf31").hide();
+                $(".editf31_up1").hide();
+                $(".editf31_up2").hide();
+                $(".editf31_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf31_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editf31").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第三十一个页面结束
+     </script>
+<include file="poster:footer" />

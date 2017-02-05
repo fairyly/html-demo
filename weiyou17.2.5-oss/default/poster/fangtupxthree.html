@@ -1,0 +1,114 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfp3">
+        <div class="editfp3_con"> 
+          <div class="editfp3_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/fp3up1.jpg">
+          </div>
+          <div class="editfp3_conbg2"></div>
+            <div class="editfp3_up1">
+                        <div class="editfp3_up11">
+                            <div class="editfp3_fileInput">
+                                  <input type="file" capture="camera" name="editfp3_upfile" id="editfp3_upfile" style="display:none" class="editfp3_upfile" onchange="document.getElementById('editfp3_upfileResult').innerHTML=this.value;"/>
+                                  <input class="editfp3_upFileBtn" id="editfp3_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfp3_upfile').click();" />
+                            </div>
+                        </div>
+            </div> 
+            <div class="editfp3_con1">
+                  <p contenteditable="true">微友课堂</p>
+                  <p contenteditable="true">一个实现梦想的平台</p>
+            </div>
+            <div class="editfp3_con2">
+                  <p contenteditable="true">经典微商培训课堂</p>
+            </div>
+            <div class="editfp3_con3">
+                  <p contenteditable="true">你的微店如何持续被人关注？</p>
+                  <p contenteditable="true">怎么引导粉丝转发你的产品？</p>
+                  <p contenteditable="true">推广信息如何在短时间内被上万人浏览？</p>
+                  <p contenteditable="true">不需要学历，经验，即学即用</p>
+            </div>
+          
+        </div>
+        <div class="shengchengfp3">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图培训第三个页面结束 -->
+    
+     <script type="text/javascript">
+        $("#editfp3_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+            console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editfp3_conbg1 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")") ;
+          
+          }
+        });
+    $("#editfp3_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".editfp3_con3 img").attr("src", objUrl) ;
+         
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengfp3").click(function(){
+                
+                $(".shengchengfp3").hide();
+                // $(".edit3").show();
+                $(".editfp3_up1").hide();
+                $(".editfp3_up2").hide();
+                $(".editfp3_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfp3_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                             
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".editfp3").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图培训第三个页面结束
+     </script>
+<include file="poster:footer" />

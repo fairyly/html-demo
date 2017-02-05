@@ -1,0 +1,64 @@
+<include file="public:header" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">   
+<div class="header">
+    <a href="javascript:history.back()">
+        <span>
+        </span>
+    </a>
+    <a href="{:U('user/index')}">
+        兑换中心
+    </a>
+    <a href="{:U('user/index')}">
+        <span></span>
+    </a>
+</div>
+<div class="ad-body">
+        <div class="ch-head">
+            <div class="ch-headtop">我的积分为</div>
+            <div class="ch-headbot"><span>348</span></div>
+        </div>
+        <div class="ad-head">
+            <div class="ad-headl">
+                <p>您兑换的物品为：<span class="ad-headlname">T-STAR手机防护衣</span></p>
+                <p></p>
+                <p><span class="ad-headlnum"><font color="#888">兑换此物品需要600积分</font></span></p>
+            </div>
+            <div class="ad-headr"><img src="__PUBLIC__/sign/images/ch-pic3.jpg" alt="pic"/></div>
+        </div>
+        <section>
+            <div class=" ad-my_conten_form">
+                <form id="info" action="{:U('user/index')}" method="post">
+                    <p>
+                        <span>*</span>收货人:
+                    </p>
+                    <input type="text" name="weixin" value="{$res.weixin}" placeholder="请输入收货人姓名"
+                    />
+                    <p>
+                        <span>*</span>收货地址：
+                    </p>
+                    <textarea rows="5" id="introduce" name="introduce">{$res.introduce}</textarea>
+                    <p>
+                        <span>*</span>联系电话:
+                    </p>
+                    <if condition="$res.phone neq ''">
+                        <input type="text" name="phone" id="phone" value="{$res.phone}" placeholder="请输入手机号"
+                        readonly>
+                        <else/>
+                        <input type="text" name="phone" id="phone" placeholder="请输入手机号">
+                    </if>
+                    <a href="javascript:void(0);" onclick="checkform();">
+                        提交
+                    </a>
+                </form>
+            </div>
+        </section>
+    </div>
+    <script>        
+         $(function(){
+            
+         }); 
+    </script>
+<script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/myindex.js"></script>
+<include file="public:footer" />

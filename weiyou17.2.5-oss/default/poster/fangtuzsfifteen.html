@@ -1,0 +1,101 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfz15">
+        <div class="editfz15_con"> 
+          <div class="editfz15_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/fz15up1.jpg">
+          </div>
+          <div class="editfz15_conbg2"></div>
+          
+          <div class="editfz15_con1">
+                <p contenteditable="true">微友团队</p>
+                <p contenteditable="true">代理招募</p>
+                <p contenteditable="true">给你一个实现</p>
+                <p contenteditable="true">梦想的机会</p>
+          </div>
+          <div class="editfz15_con2">
+              <div class="editfz15_con2txt">
+                <p contenteditable="true">2016进入微商前提你必须选对的产品</p>
+                <p contenteditable="true">然后选对带着你前进的那个人还要加入</p>
+                <p contenteditable="true">一个特别棒的团队。缺一不可</p>
+              </div>
+          </div>
+          <div class="editfz15_con3">
+                <p contenteditable="true">有意者请加微信：wx88888888</p>
+          </div>
+          <div class="editfz15_up1">
+              <div class="editfz15_up11">
+                  <div class="editfz15_fileInput">
+                        <input type="file" capture="camera" name="editfz15_upfile" id="editfz15_upfile" style="display:none" accept="image/*" class="editfz15_upfile" onchange="document.getElementById('editfz15_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfz15_upFileBtn" id="editfz15_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfz15_upfile').click();" />
+                  </div>
+              </div>
+          </div> 
+        </div>
+        <div class="shengchengfz15">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图招商第十五个页面结束 -->
+     <script type="text/javascript">
+        $("#editfz15_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editfz15_conbg1 img").attr("src", objUrl);
+          }
+        });
+      
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfz15").click(function(){
+                
+                $(".shengchengfz15").hide();
+                $(".editfz15_up1").hide();
+                $(".editfz15_up2").hide();
+                $(".editfz15_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfz15_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfz15").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图招商第十五个页面结束
+     </script>
+<include file="poster:footer" />

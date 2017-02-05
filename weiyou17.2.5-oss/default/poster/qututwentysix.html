@@ -1,0 +1,65 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editqt26">
+        <div class="editqt26_con">
+              <div class="editqt26_con1"> 
+                  <p contenteditable="true">本人欠啦啦啦一个月伙食费，</p>
+              </div>
+              <div class="editqt26_con2"> 
+                  <p contenteditable="true"> 总共10000元，一个月内必</p>
+              </div>
+              <div class="editqt26_con3"> 
+                  <p contenteditable="true">定还</p>
+              </div>
+              <div class="editqt26_con4"> 
+                  <p contenteditable="true">啦啦啦</p>
+              </div>
+              <div class="editqt26_con5"> 
+                  <p contenteditable="true">2016-07-01</p>
+              </div>
+        </div>
+        <div class="shengchengqt26">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“文字”生成趣图</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 趣图第二十六页面结束 -->
+    
+     <script type="text/javascript">
+           $(".shengchengqt26").click(function(){
+                
+                $(".shengchengqt26").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editqt26_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editqt26").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //趣图第二十六个页面结束
+     </script>
+<include file="poster:footer" />
