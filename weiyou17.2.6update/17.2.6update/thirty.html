@@ -1,0 +1,109 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit30">
+        <div class="edit30_con"> 
+          <div class="edit30_up1"> 
+                  <div class="edit30_up11">
+                      <div class="edit30_fileInput left">
+                            <input type="file" capture="camera" name="edit30_upfile" id="edit30_upfile" style="display:none" class="edit30_upfile" onchange="document.getElementById('edit30_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit30_upFileBtn" id="edit30_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit30_upfile').click();" />
+                      </div>
+                  </div>
+          </div>   
+          <div class="edit30_con1">
+              <div class="edit30_con1txt">
+                    <p contenteditable="true">微友名片</p>
+                    <p contenteditable="true">微友时尚小铺</p>
+              </div>
+              <div class="edit30_con1pic">
+                    <img src="__PUBLIC__/poster/images/mpup2.jpg">
+              </div> 
+              <div class="edit30_up2" >
+                  <div class="edit30_up22">
+                      <div class="edit30_fileInput2 left">
+                            <input type="file" capture="camera" name="edit30_upfile2" id="edit30_upfile2" style="display:none" class="edit30_upfile2" onchange="document.getElementById('edit30_upfileResult2').innerHTML=this.value;"/>
+                            <input class="edit30_upFileBtn2" id="edit30_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit30_upfile2').click();" />
+                      </div>
+                  </div>
+              </div>
+              <div class="edit30_con2txt"> 
+                  <div class="edit30_con21txt">
+                    <p contenteditable="true">微信：WX888888</p>
+                    <p contenteditable="true">Q Q ：88888888</p>
+                    <p contenteditable="true">电话：18888888888</p>
+                  </div>
+              </div>        
+          </div> 
+        </div>
+        <div class="shengcheng30">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第三十个页面结束 -->
+    <script type="text/javascript">    
+     $("#edit30_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         // $(".edit30_con21pic img").attr("src", objUrl);
+           $(".edit30_con").css("background-image", "url("+objUrl+")");
+          }
+        });
+    $("#edit30_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]); 
+        if (objUrl) {
+          $(".edit30_con1pic img").attr("src", objUrl);
+        }
+      });    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng30").click(function(){
+                
+                $(".shengcheng30").hide();
+                $(".edit30_up1").hide();
+                $(".edit30_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit30_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit30").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第三十个页面结束
+    </script>
+<include file="poster:footer" />

@@ -1,0 +1,96 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfm6">
+        <div class="editfm6_con"> 
+          <div class="editfm6_conbg1" id="editmove">
+               <img src="__PUBLIC__/poster/images/fm6up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editfm6_conbg2"></div>
+          <div class="editfm6_con1">
+                <p contenteditable="true">微友设计团队</p>
+          </div>
+		      <div class="editfm6_con2">
+                <p contenteditable="true">诚招全国代理</p>
+                <p contenteditable="true">微商第一团队</p>
+                <p contenteditable="true">微友团队金牌代理</p>
+                <p contenteditable="true">微友团队官方合作伙伴</p>
+                <p contenteditable="true">微友设计团队创始人</p>
+          </div>
+          <div class="editfm6_con3">
+                <p contenteditable="true">微信：WX88888888   电话：18888888888</p>
+                <p contenteditable="true">创新是团队的血液 团结是团队的肉体</p>
+          </div>
+          
+          <div class="editfm6_up1">
+              <div class="editfm6_up11">
+                  <div class="editfm6_fileInput">
+                        <input type="file" capture="camera" name="editfm6_upfile" id="editfm6_upfile" style="display:none" class="editfm6_upfile" onchange="document.getElementById('editfm6_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfm6_upFileBtn" id="editfm6_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfm6_upfile').click();" />
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengfm6">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--封面第六个页面结束 -->
+     <script type="text/javascript">
+        $("#editfm6_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+         $(".editfm6_conbg1 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfm6").click(function(){
+                
+                $(".shengchengfm6").hide();
+                $(".editfm6_up1").hide();
+                $(".editfm6_up2").hide();
+                $(".editfm6_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfm6_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfm6").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //封面图第六个页面结束
+     </script>
+<include file="poster:footer" />

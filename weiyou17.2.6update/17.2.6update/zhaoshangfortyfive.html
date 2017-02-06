@@ -1,0 +1,106 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editz45">
+        <div class="editz45_con">
+          <div class="editz45_conbg2"></div>
+          <div class="editz45_con1">
+                <p contenteditable="true">代理须知1</p>
+                <p contenteditable="true">无需代理费，无</p>
+                <p contenteditable="true">库存、无压力接</p>
+                <p contenteditable="true">受一件代发。</p>
+          </div>
+          <div class="editz45_con2">
+                <p contenteditable="true">代理须知2</p>
+                <p contenteditable="true">团队资源共享，</p>
+                <p contenteditable="true">强大的产品资料</p>
+                <p contenteditable="true">培训。客源培训</p>
+                <p contenteditable="true">合同保障。</p>
+          </div>
+          <div class="editz45_con3">
+                <p contenteditable="true">微信：wx88888888</p>
+                <p contenteditable="true">QQ:88888888</p>
+                <p contenteditable="true">电话:18888888888</p>
+          </div>
+          <div class="editz45_con4">
+                 <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="editz45_up2"> 
+                <div class="editz45_up22">
+                    <div class="editz45_fileInput2 left">
+                          <input type="file" capture="camera" name="editz45_upfile2" id="editz45_upfile2" style="display:none" class="editz45_upfile2" onchange="document.getElementById('editz45_upfileResult2').innerHTML=this.value;"/>
+                          <input class="editz45_upFileBtn2" id="editz45_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editz45_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengchengz45">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第四十五个页面结束 -->
+     <script type="text/javascript">
+        $("#editz45_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editz45_conbg11 img").attr("src", objUrl);
+          }
+        });
+      $("#editz45_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".editz45_con4 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengz45").click(function(){
+                
+                $(".shengchengz45").hide();
+                $(".editz45_up1").hide();
+                $(".editz45_up2").hide();
+                $(".editz45_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz45_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editz45").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第四十五个页面结束
+     </script>
+<include file="poster:footer" />

@@ -1,0 +1,121 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfz14">
+        <div class="editfz14_con"> 
+          <div class="editfz14_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/fz14up1.jpg">
+          </div>
+          <div class="editfz14_conbg2"></div>
+          <div class="editfz14_up1">
+              <div class="editfz14_up11">
+                  <div class="editfz14_fileInput">
+                        <input type="file" capture="camera" name="editfz14_upfile" id="editfz14_upfile" style="display:none" class="editfz14_upfile" onchange="document.getElementById('editfz14_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfz14_upFileBtn" id="editfz14_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfz14_upfile').click();" />
+                  </div>
+              </div>
+          </div> 
+          <div class="editfz14_con1">
+                <p contenteditable="true">希望你的热情为团队注入新的热血</p>
+                <p contenteditable="true">Welcome you to join</p>
+          </div>
+          <div class="editfz14_con2">
+                <p contenteditable="true">微友团队</p>
+                <p contenteditable="true">诚招加盟！</p>
+          </div>
+          <div class="editfz14_con3">
+                <p contenteditable="true">你可以实现梦想</p>
+                <p contenteditable="true">但你现在需要一个机会</p>
+          </div>
+          <div class="editfz14_con4">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="editfz14_con5">
+                <p contenteditable="true">微信：wx888888</p>
+                <p contenteditable="true">Q Q ：88888888</p>
+                <p contenteditable="true">电话：18888888888</p>
+          </div>
+          <div class="editfz14_con6">
+                <p contenteditable="true">微友团队创始人：杜老师</p>
+          </div>
+          <div class="editfz14_up2">
+              <div class="editfz14_up22">
+                  <div class="editfz14_fileInput2">
+                        <input type="file" capture="camera" name="editfz14_upfile2" id="editfz14_upfile2" style="display:none" class="editfz14_upfile2" onchange="document.getElementById('editfz14_upfileResult2').innerHTML=this.value;"/>
+                        <input class="editfz14_upFileBtn2" id="editfz14_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editfz14_upfile2').click();" />
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengfz14">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图招商第十四个页面结束 -->
+     <script type="text/javascript">
+        $("#editfz14_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editfz14_conbg1 img").attr("src", objUrl);
+          }
+        });
+      $("#editfz14_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);  
+        if (objUrl) {
+          $(".editfz14_con4 img").attr("src", objUrl);
+        }
+      });
+      
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfz14").click(function(){
+                
+                $(".shengchengfz14").hide();
+                $(".editfz14_up1").hide();
+                $(".editfz14_up2").hide();
+                $(".editfz14_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfz14_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfz14").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图招商第十四个页面结束
+     </script>
+<include file="poster:footer" />

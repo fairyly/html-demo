@@ -1,0 +1,96 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit71">
+        <div class="edit71_con">
+          <div class="edit71_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/m71up1.jpg" alt="uppic">
+          </div>
+          <div class="edit71_conbg2"></div>
+          <div class="edit71_con1">
+             <p contenteditable="true">进口水性环保甲油</p>
+             <p contenteditable="true">随时随地轻松美甲</p>
+          </div>
+          <div class="edit71_con2">
+             <p contenteditable="true">告别刺鼻</p>
+             <p contenteditable="true">手留余香</p>
+             <p contenteditable="true">健康为伴</p>
+          </div>
+          <div class="edit71_con3">
+              <p contenteditable="true">让世界在你</p>
+              <p contenteditable="true">的指尖跳动</p>
+          </div>
+          <div class="edit71_up1"> 
+                <div class="edit71_up11">
+                    <div class="edit71_fileInput left">
+                          <input type="file" capture="camera" name="edit71_upfile" id="edit71_upfile" style="display:none" class="edit71_upfile" onchange="document.getElementById('edit71_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit71_upFileBtn" id="edit71_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit71_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+         
+        </div>
+        <div class="shengcheng71">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第七十一个页面结束 -->
+     <script type="text/javascript">
+        $("#edit71_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit71_conbg11 img").attr("src", objUrl);
+            }
+        });
+        
+         //建立一个可存取到该file的url
+        function getObjectURL(file){
+	        var url = null; 
+	        if (window.createObjectURL!=undefined) { // basic
+	          url = window.createObjectURL(file);
+	        } else if (window.URL!=undefined) { // mozilla(firefox)
+	          url = window.URL.createObjectURL(file);
+	        } else if (window.webkitURL!=undefined) { // webkit or chrome
+	          url = window.webkitURL.createObjectURL(file);
+	        }
+	        return url;
+	    }
+        $(".shengcheng71").click(function(){
+                
+                $(".shengcheng71").hide();
+                $(".edit71_up1").hide();
+                $(".edit71_up2").hide();
+                $(".edit71_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit71_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base71图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit71").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第七十一个页面结束
+     </script>
+<include file="poster:footer" />

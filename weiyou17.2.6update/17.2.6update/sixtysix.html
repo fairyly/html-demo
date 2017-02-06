@@ -1,0 +1,97 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit66">
+        <div class="edit66_con">
+          <div class="edit66_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/m66up1.jpg" alt="uppic">
+          </div>
+          <div class="edit66_conbg2"></div>
+          <div class="edit66_con1">
+                <p contenteditable="true">美食</p>
+          </div>
+          <div class="edit66_con2">
+                <p contenteditable="true">吃出食物本来的味道</p>
+          </div>
+          <div class="edit66_con3">
+                <p contenteditable="true">超级优惠大狂欢</p>
+          </div>
+          <div class="edit66_up1"> 
+                <div class="edit66_up11">
+                    <div class="edit66_fileInput left">
+                          <input type="file" capture="camera" name="edit66_upfile" id="edit66_upfile" style="display:none" class="edit66_upfile" onchange="document.getElementById('edit66_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit66_upFileBtn" id="edit66_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit66_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          
+        </div>
+        <div class="shengcheng66">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第六十六个页面结束 -->
+     <script type="text/javascript">
+        $("#edit66_upfile").change(function(){
+          var objUrl = getObjectURL(this.files[0]);
+          if (objUrl) {
+             $(".edit66_conbg11 img").attr("src", objUrl);
+          }
+        });
+        $("#edit66_upfile2").change(function(){
+          var objUrl = getObjectURL(this.files[0]);
+          if (objUrl) {
+             $(".edit66_con4 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+        function getObjectURL(file){
+	        var url = null; 
+	        if (window.createObjectURL!=undefined) { // basic
+	          url = window.createObjectURL(file);
+	        } else if (window.URL!=undefined) { // mozilla(firefox)
+	          url = window.URL.createObjectURL(file);
+	        } else if (window.webkitURL!=undefined) { // webkit or chrome
+	          url = window.webkitURL.createObjectURL(file);
+	        }
+	        return url;
+	    }
+        $(".shengcheng66").click(function(){
+                
+                $(".shengcheng66").hide();
+                $(".edit66_up1").hide();
+                $(".edit66_up2").hide();
+                $(".edit66_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit66_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base66图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                 var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit66").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第六十六个页面结束
+     </script>
+<include file="poster:footer" />

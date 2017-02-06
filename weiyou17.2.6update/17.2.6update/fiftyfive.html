@@ -1,0 +1,103 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit55">
+        <div class="edit55_con">
+          <div class="edit55_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/m55up1.jpg">
+          </div>
+          <div class="edit55_conbg2"></div>
+          <div class="edit55_con1">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+                <p contenteditable="true">微友团队恭贺祖国67周年华诞</p>
+                <p contenteditable="true">国庆期间在本店购买产品均可享受最大优惠</p>
+          </div>
+          <div class="edit55_up1"> 
+                <div class="edit55_up11">
+                    <div class="edit55_fileInput left">
+                          <input type="file" capture="camera" name="edit55_upfile" id="edit55_upfile" style="display:none" class="edit55_upfile" onchange="document.getElementById('edit55_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit55_upFileBtn" id="edit55_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit55_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="edit55_up2"> 
+                <div class="edit55_up22">
+                    <div class="edit55_fileInput2 left">
+                          <input type="file" capture="camera" name="edit55_upfile2" id="edit55_upfile2" style="display:none" class="edit55_upfile2" onchange="document.getElementById('edit55_upfileResult2').innerHTML=this.value;"/>
+                          <input class="edit55_upFileBtn2" id="edit55_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit55_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+          
+        </div>
+        <div class="shengcheng55">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第五十五个页面结束 -->
+     <script type="text/javascript">
+        $("#edit55_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".edit55_conbg11 img").attr("src", objUrl);
+          }
+        });
+      $("#edit55_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+            
+        if (objUrl) {
+          $(".edit55_con1 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng55").click(function(){
+                
+                $(".shengcheng55").hide();
+                $(".edit55_up1").hide();
+                $(".edit55_up2").hide();
+                $(".edit55_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit55_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit55").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第五十五个页面结束
+     </script>
+<include file="poster:footer" />

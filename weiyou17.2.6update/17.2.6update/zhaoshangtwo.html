@@ -1,0 +1,102 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editz2">
+        <div class="editz2_con">
+            <div class="editz2_con1pic">
+                    <img src="__PUBLIC__/poster/images/z2up1.jpg"/>
+            </div>
+            <div class="editz2_conbg">
+              <div class="editz2_con1"> 
+                  <div class="editz2_up1">
+                      <div class="editz2_up11">
+                          <div class="editz2_fileInput left">
+                                <input type="file" capture="camera" name="editz2_upfile" id="editz2_upfile" style="display:none" class="editz2_upfile" onchange="document.getElementById('editz2_upfileResult').innerHTML=this.value;"/>
+                                <input class="editz2_upFileBtn" id="editz2_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz2_upfile').click();" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="editz2_con2">
+                  <div class="editz2_con21">
+                    <p contenteditable="true">微友团队招代理</p>
+                    <p contenteditable="true">梦想 惊喜 收获</p>
+                    <p contenteditable="true">I HAVE A DREAME</p>
+                    <p contenteditable="true">梦想总该有的，万一实现了呢？</p>
+                    <p contenteditable="true">微商时代的来临，抓住机会成就梦想的</p>
+                    <p contenteditable="true">让创业不再需要上百万的启动资金。</p>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="shengchengz2">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第二个页面结束 -->
+     <script type="text/javascript">
+        $("#editz2_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editz2_con1pic img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")");
+          }
+        });
+    $("#editz2_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".editz2_con41pic img").attr("src", objUrl);
+        }
+      });    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengz2").click(function(){
+                
+                $(".shengchengz2").hide();
+                $(".editz2_up1").hide();
+                $(".editz2_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz2_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editz2").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第二个页面结束
+     </script>
+<include file="poster:footer" />

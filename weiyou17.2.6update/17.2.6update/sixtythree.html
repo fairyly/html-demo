@@ -1,0 +1,108 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit63">
+        <div class="edit63_con">
+          <div class="edit63_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/m63up1.jpg" alt="uppic">
+          </div>
+          <div class="edit63_conbg2"></div>
+          <div class="edit63_con1">
+                <p contenteditable="true">宝宝必备，优质柔软面料</p>
+                <p contenteditable="true">舒适而贴心，亲肤无刺激</p>
+                <p contenteditable="true">和肌肤的每一次接触都是</p>
+                <p contenteditable="true">柔和的舒适的</p>
+          </div>
+          <div class="edit63_con2">
+                <p contenteditable="true">细心呵护宝宝肌肤，我们更懂</p>
+          </div>
+          <div class="edit63_con3">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="edit63_up1"> 
+                <div class="edit63_up11">
+                    <div class="edit63_fileInput left">
+                          <input type="file" capture="camera" name="edit63_upfile" id="edit63_upfile" style="display:none" class="edit63_upfile" onchange="document.getElementById('edit63_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit63_upFileBtn" id="edit63_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit63_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="edit63_up2"> 
+                <div class="edit63_up22">
+                    <div class="edit63_fileInput2 left">
+                          <input type="file" capture="camera" name="edit63_upfile2" id="edit63_upfile2" style="display:none" class="edit63_upfile2" onchange="document.getElementById('edit63_upfileResult2').innerHTML=this.value;"/>
+                          <input class="edit63_upFileBtn2" id="edit63_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit63_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+         
+        </div>
+        <div class="shengcheng63">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第六十三个页面结束 -->
+     <script type="text/javascript">
+        $("#edit63_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit63_conbg11 img").attr("src", objUrl);
+            }
+        });  
+        $("#edit63_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit63_con3 img").attr("src", objUrl);
+            }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file){
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng63").click(function(){
+                
+                $(".shengcheng63").hide();
+                $(".edit63_up1").hide();
+                $(".edit63_up2").hide();
+                $(".edit63_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit63_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit63").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第六十三个页面结束
+     </script>
+<include file="poster:footer" />

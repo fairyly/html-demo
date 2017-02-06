@@ -1,0 +1,109 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editp37">
+        <div class="editp37_con">
+          
+          <div class="editp37_conbg2"></div>
+          <div class="editp37_con1">
+                <p contenteditable="true"> 微友课堂</p>
+          </div>
+          <div class="editp37_con2">
+                <p contenteditable="true">微商培训开课了</p>
+          </div>
+          <div class="editp37_con3">
+                <img src="__PUBLIC__/poster/images/p37up1.jpg" alt="uppic">
+                <p contenteditable="true">微友资深讲师—王老师</p>
+          </div>
+          <div class="editp37_con4">
+                <p contenteditable="true">了解更多课程请扫描下方二微码</p>
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="editp37_up1"> 
+                <div class="editp37_up11">
+                    <div class="editp37_fileInput left">
+                          <input type="file" capture="camera" name="editp37_upfile" id="editp37_upfile" style="display:none" class="editp37_upfile" onchange="document.getElementById('editp37_upfileResult').innerHTML=this.value;"/>
+                          <input class="editp37_upFileBtn" id="editp37_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editp37_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="editp37_up2"> 
+                <div class="editp37_up22">
+                    <div class="editp37_fileInput2 left">
+                          <input type="file" capture="camera" name="editp37_upfile2" id="editp37_upfile2" style="display:none" class="editp37_upfile2" onchange="document.getElementById('editp37_upfileResult2').innerHTML=this.value;"/>
+                          <input class="editp37_upFileBtn2" id="editp37_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editp37_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengchengp37">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 培训第三十七个页面结束 -->
+     <script type="text/javascript">
+        $("#editp37_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editp37_con3 img").attr("src", objUrl);
+          }
+        });
+        $("#editp37_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editp37_con4 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengp37").click(function(){
+                
+                $(".shengchengp37").hide();
+                $(".editp37_up1").hide();
+                $(".editp37_up2").hide();
+                $(".editp37_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editp37_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editp37").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //培训第三十七个页面结束
+     </script>
+<include file="poster:footer" />

@@ -1,0 +1,120 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editf12">
+        <div class="editf12_con"> 
+          <div class="editf12_conbg1">
+            <img src="__PUBLIC__/poster/images/f12up1.jpg">
+          </div>
+          <div class="editf12_conbg2">
+            <div class="editf12_up1">
+                        <div class="editf12_up11">
+                            <div class="editf12_fileInput">
+                                 <input type="file" capture="camera" name="editf12_upfile" id="editf12_upfile" style="display:none" class="editf12_upfile" onchange="document.getElementById('editf12_upfileResult').innerHTML=this.value;"/>
+                                  <input class="editf12_upFileBtn" id="editf12_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf12_upfile').click();" />
+                            </div>
+                        </div>
+            </div> 
+            <div class="editf12_con1">
+                  <p contenteditable="true">想做微商你还在犹豫什么？</p>
+                  <p contenteditable="true">微友团队</p>
+            </div>
+            <div class="editf12_con2">
+                  <p contenteditable="true">你可以拉黑我,但却抹黑不了我对梦想的坚持.你可以删除我</p>
+                  <p contenteditable="true">但是删除不了我奋斗的心</p>
+            </div>
+            <div class="editf12_con3">
+                  <p contenteditable="true">让我们一起为了自己的梦想奋斗吧</p>
+            </div>
+            <div class="editf12_con4">
+                  <div class="editf12_con4txt">
+                      <p contenteditable="true">
+                          <span>微信:wx88888888</span>
+                          <span>QQ:88888888</span>
+                          <span>电话:18888888888</span>
+                      </p>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="shengchengf12">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第十二个页面结束 -->
+     
+     <script type="text/javascript">
+        $("#editf12_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+            console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editf12_conbg1 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")") ;
+          
+          }
+        });
+    $("#editf12_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".editf12_con3pic img").attr("src", objUrl) ;
+         
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengf12").click(function(){
+                
+                $(".shengchengf12").hide();
+                // $(".edit3").show();
+                $(".editf12_up1").hide();
+                $(".editf12_up2").hide();
+                $(".editf12_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf12_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                         
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas"; 
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                            
+                            $(".editf12").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第十二个页面结束
+     </script>
+<include file="poster:footer" />
