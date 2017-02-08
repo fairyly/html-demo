@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="ui-mobile"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- base href="http://xdycz.weilanghd.com/create/114?wechatUserId=o4m2IuBO_E-kLqZQiCQ58V7sU3c0&expire=1461583636815&signature=ssBUSZzTYsldF4SK6hsDMbkCwL0=" -->
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="/qutu/Public/css/jquery.css?v=2">
+    <script src="/qutu/Public/js/hm.js?v=2"></script><script src="/qutu/Public/js/jquery_002.js?v=2"></script>
+    <script src="/qutu/Public/js/jquery.js?v=2"></script>
+    <script src="/qutu/Public/js/jweixin-1.js?v=2"></script>
+    <script src="/qutu/Public/js/create.js?v=2"></script>
+    <script src="/qutu/Public/js/qrcode.js?v=2"></script>
+   
+</head>
+<body class="ui-mobile-viewport ui-overlay-c"><div style="min-height: 347px;" class="ui-page ui-body-c ui-page-active" tabindex="0" data-url="/create/114?wechatUserId=o4m2IuBO_E-kLqZQiCQ58V7sU3c0&amp;expire=1461583636815&amp;signature=ssBUSZzTYsldF4SK6hsDMbkCwL0=" data-role="page">
+
+
+
+
+    <input type="hidden" value="1" id="pn" />
+<div style="margin: 10pt">
+    <div>
+                                                        
+                
+        
+        
+                <input id="id"  class="ui-input-text ui-body-c" value=""  type="hidden">
+       
+
+
+
+
+
+        
+
+
+       
+
+
+
+
+
+    </div>
+
+    <input data-disabled="false" id="createButton" class="ui-btn ui-btn-hidden" value="生成海报" type="button">
+
+
+    <div id="result">
+    </div>
+
+
+    <div id="description" style="background-color:#f4e3bc;margin:10 10 10 10">
+
+        
+    </div>
+
+
+    <p style="text-align: center">被疯传的展业文章</p>
+    <ul style="font-size: 13px;margin:18px;padding:0px;"><li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653494238&idx=1&sn=85043ede5a2aa60917431e2363dfafdb#rd" target="_blank" style="text-decoration:none">从贷款就可以看出你有多少富人的基因
+</a></span></li></ul><ul style="font-size: 13px;margin:18px;padding:0px;"><li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653494644&idx=1&sn=753c4400fee2542166bea894553596b8#rd
+" target="_blank" style="text-decoration:none">信贷主任怒骂信贷员被偷拍，巨震撼 
+</a></span></li></ul><ul style="font-size: 13px;margin:18px;padding:0px;"><li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653494296&idx=1&sn=84974ce719a9e1a1925cd0fdc3ad6eae#rd
+" target="_blank" style="text-decoration:none">你可以拒绝贷款，但你的竞争对手不会 
+</a></span></li></ul><ul style="font-size: 13px;margin:18px;padding:0px;"><li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653494564&idx=1&sn=8de0a49d4fe78536f6b8bb93e1850aa4#rd
+" target="_blank" style="text-decoration:none">9月是贷款的最好时机，错过又要等一年 
+</a></span></li></ul><ul style="font-size: 13px;margin:18px;padding:0px;"><li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653494731&idx=1&sn=13a55808f6c1036eeaa447e391442922#rd
+" target="_blank" style="text-decoration:none">这4种钱没有也要借，不能等 
+</a></span></li></ul><ul style="font-size: 13px;margin:18px;padding:0px;"><li ><span><a href="http://mp.weixin.qq.com/mp/homepage?__biz=MzA4MzUxMjc2Nw==&hid=1&sn=a68bfcb9145482016fb8263b4381ed35#wechat_redirect" target="_blank" style="text-decoration:none">阅读更多</a></span></li></ul>    <div style="text-align: center" id="qrcode">
+        <p>分享下面的二维码给朋友制作海报</p>
+        <img style="width: 100%" src="/qutu/Public/images/qr.jpg">
+
+
+    </div>            <div id="author" style="text-align: center;font-color:#d9d9d9">
+
+
+    </div>
+
+
+</div>
+</div>
+
+</div><div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div>
+<div style="display:none;">
+    <script src="http://s95.cnzz.com/stat.php?id=1257423101&web_id=1257423101
+
+" language="JavaScript"></script>
+</div>
+</body></html>
