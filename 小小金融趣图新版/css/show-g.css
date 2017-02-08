@@ -1,0 +1,81 @@
+.float-item{
+	float: left;
+	width:32%;
+	height:100px;
+}
+header{ margin: auto; width: 100%; height: 0.6rem;  position: relative;}
+.head-nav{ margin: auto; width: 100%; height: 100%; }
+.head-nav .nav-ul{ width: 100%; height: 0.8rem;}
+.head-nav .nav-ul li{ float: left; width: 33%; height: 0.8rem; line-height: 0.56rem; text-align: center;background: #d5d5d5;opacity:0.5}
+.head-nav .nav-ul li a{ padding: .2rem 0; width: 100%; color: #fff; font-size: 1.4rem;}
+.head-nav .nav-ul li .active{ border-bottom: .1rem solid #f7f7f7; }
+.myimg{position: absolute; top: 0; right: 0; width: auto; height: 0.5rem; line-height: 0.5rem; padding: 0 1rem; color: #fff; font-size: 0.3rem;}
+.centent{ margin: auto; width: 100%; height: auto; overflow: hidden; padding: 0.2rem 0.1rem; box-sizing:border-box;padding-top: .8rem;}
+.centent .des{ margin: auto; padding: .1rem 0; width: 100%; height: 0.38rem;}
+.centent .des p{ height: 0.4rem; line-height: 0.45rem; font-size: 0.20rem; color: #666;text-align: center;margin-left: 0.9rem;position: fixed;z-index: 9998;background: #f7f7f7 none repeat scroll 0 0;border-radius: 0.15rem}
+.centent .img-box{ margin: auto; width: 100%; height: auto; overflow: hidden; padding: 0 1%;}
+.centent .img-box .section{ float: left; padding:0; width: 32%; height: auto; overflow: hidden;}
+.centent .img-box .section a img{ margin: auto; width: 100%; height: auto; border: 0px solid #000; box-sizing: border-box;display:block}
+.loading {
+	background: #d5d5d5  no-repeat scroll 1px center;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 15px;
+	padding: 15px 15px 15px 15px;
+	text-align: center;
+}
+.mya{
+	line-height:30px;
+	height:30px;
+	width:16%;
+	color:#ec672c;
+	background-color:#d5d5d5;
+	font-size:16px;
+	font-weight:lighter;
+	font-family:Microsoft YaHei;
+	-webkit-border-top-left-radius:10px;
+	-moz-border-radius-topleft:10px;
+	border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	-moz-border-radius-topright:10px;
+	border-top-right-radius:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-moz-border-radius-bottomleft:10px;
+	border-bottom-left-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	-moz-border-radius-bottomright:10px;
+	border-bottom-right-radius:10px;
+	-moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	box-shadow: inset 0px 0px 0px 0px #ffffff;
+	text-align:center;
+	display:inline-block;
+	text-decoration:none;
+	margin-left: 1%;
+	opacity: 0.5;
+}
+.mya:hover{
+	background-color:#d5d5d5;
+}
+
+.m-post {
+	/*box-shadow: 0 3px 6px -2px rgba(0, 0, 0, 0.3);*/
+
+	background: #fdfdfd  none repeat scroll 0 0;
+	margin: 0 0.12rem 0px;
+
+}
+.txt{
+	margin-bottom: 20px;
+
+	font-size: 0.16rem;
+	max-height: 78px;
+	overflow: hidden;
+	margin-top: 3px;
+}
+.la{
+	background: rgba(0, 0, 0, 0) url("/qutu/Public/images/sprite1.png") no-repeat scroll 0 -2.59rem / 3.9rem 5.02rem;
+	width: 0.28rem;
+	height: 0.16rem;
+	display: inline-block;
+}

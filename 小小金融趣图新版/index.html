@@ -1,0 +1,587 @@
+﻿<!DOCTYPE html>
+
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+            <title>小小金融海报</title>  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta content="telephone=no,address=no" name="format-detection">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/show-g.css">
+    <!-- jQuery confirm -->
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/pagination.css">
+    <script src="js/jweixin-1.js"></script>
+    <style type="text/css">
+        body {  background-attachment:fixed;  }
+        #loading {   position:fixed; bottom:0; left:0; width:100%; _position:absolute;padding-bottom: 55px;
+            _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible; }
+    </style>
+    <script>
+        var wid = document.documentElement.clientWidth;
+        wid = wid < 640 ? wid : 640;
+        document.querySelector("html").style.fontSize = (wid * 100 / 640) + "px";
+    </script>
+
+    <style>
+        *{margin:0;padding:0;}
+        .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+        .clearfix{*+height:1%;}
+        .header{position: fixed; z-index: 9999;width:6.2rem;padding-left:.1rem;padding-right:.1rem;height:.8rem;background: #f7f7f7;border-bottom:1px solid #eee;}
+        .header a{text-decoration: none;display: block;float: left;width:.9rem;height:.48rem;line-height: .48rem;margin-top:.16rem;text-align: center;color:#666;font-size:.28rem;}
+        .header a.active{margin-top:.14rem;color:#de903d;}
+        .header .header-left{float: left;width:5.4rem;height:.8rem;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
+        .header .header-left .header-list{width:10.84rem;height:.98rem;}
+
+        .header a#more{width:.76rem;background: url(images/sprite1.png) no-repeat -0.72rem -2.48rem;float: right;background-size: 3.9rem 5.02rem;}
+        .header-nav{position: fixed; z-index: 9999;width:6.4rem;height:.8rem;background: #fff;display: none;}
+        .header-nav .nav-title{width:6.4rem;height:.8rem;line-height: .89rem;text-align: center;font-size:.28rem;color:#666;position: relative;border-bottom:1px solid #e5e5e5;}
+        .header-nav .nav-title i{height: .18rem;width: .18rem;background-color: transparent;border-left: .06rem solid #e5e5e5;border-top: .06rem solid #e5e5e5;font-size: 0;margin-bottom: .09rem;margin-left: 0.12rem;position: absolute;right: .36rem;top: .25rem;transform: rotate(225deg);}
+        .header-nav .nav-list a{text-decoration: none;display:block;width:.67rem;height:1rem;float:left;font-size:.24rem;text-align: center;color:#666;background:#fff;padding:.23rem .72rem;border-left:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;}
+        .header-nav .nav-list a i{font-style: normal;display:block;width:.67rem;height:.28rem;line-height:.6rem;padding-top:.4rem;background: url(images/sprite1.png) no-repeat;background-size: 3.9rem 5.02rem;}
+        .header-nav .nav-list a.active{background: #f3f3f3;}
+        /*.header-nav .nav-list a:nth-child(1) i{background-position:0rem 0rem; }*/
+        /*.header-nav .nav-list a:nth-child(2) i{background-position:-0.82rem 0rem; }*/
+        /*.header-nav .nav-list a:nth-child(3) i{background-position:-1.5rem -0.05rem; }*/
+        /*.header-nav .nav-list a:nth-child(4) i{background-position:-2.26rem 0rem; }*/
+        /*.header-nav .nav-list a:nth-child(6) i{background-position:0.02rem -0.88rem; }*/
+        /*.header-nav .nav-list a:nth-child(7) i{background-position:-0.82rem -0.84rem; }*/
+        /*.header-nav .nav-list a:nth-child(8) i{background-position:-1.55rem -0.83rem; }*/
+        /*.header-nav .nav-list a:nth-child(5) i{background-position:-2.25rem -0.82rem; }*/
+        /*.header-nav .nav-list a:nth-child(10) i{background-position:0.05rem -1.72rem; }*/
+        /*.header-nav .nav-list a:nth-child(9) i{background-position:-0.8rem -1.7rem; }*/
+        /*.header-nav .nav-list a:nth-child(11) i{background-position:-1.5rem -1.7rem; }*/
+        /*.header-nav .nav-list a:nth-child(12) i{background-position:-2.27rem -1.7rem; }*/
+
+        .header-nav .nav-list a:nth-child(1) i{background-position:0rem 0rem; }
+        .header-nav .nav-list a:nth-child(2) i{background-position:-0.82rem 0rem; }
+        .header-nav .nav-list a:nth-child(3) i{background-position:-1.5rem -0.05rem; }
+        .header-nav .nav-list a:nth-child(4) i{background-position:-1.5rem -1.7rem; }
+        .header-nav .nav-list a:nth-child(6) i{background-position:-2.25rem -0.82rem;  }
+        .header-nav .nav-list a:nth-child(7) i{background-position:0.02rem -0.88rem; }
+        .header-nav .nav-list a:nth-child(8) i{background-position:-0.82rem -0.84rem; }
+        .header-nav .nav-list a:nth-child(5) i{background-position:-2.26rem 0rem;}
+        .header-nav .nav-list a:nth-child(10) i{background-position:-0.8rem -1.7rem;  }
+        .header-nav .nav-list a:nth-child(9) i{background-position:-1.55rem -0.83rem;  }
+        .header-nav .nav-list a:nth-child(11) i{background-position:0.05rem -1.72rem;}
+        .header-nav .nav-list a:nth-child(12) i{background-position:-1.5rem -1.7rem; }
+        .header-nav .nav-list a:nth-child(13) i{background-position:-2.27rem -1.7rem; }
+
+    </style>
+
+  </head>
+
+  <body style="background-color:#fdfdfd;" >
+
+
+  <input type="hidden" value="24" id="nextrow" />
+  <input type="hidden" value="0" id="iscard" />
+  <input type="hidden" value="createtime" id="type" />
+  <input type="hidden" value="1" id="pn" />
+  <div class="header">
+      <div class="header-left">
+          <div class="header-list">
+      <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/0/pn/1" >最新</a>
+      <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/9999/pn/1">热门</a>
+      <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/1/pn/1">名片</a>
+              <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/11/pn/1" style="width: 1.2rem">产品推广</a>
+      <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/2/pn/1">日历</a>
+      <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/4/pn/1">天气</a>
+      <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/7/pn/1" >美女</a>
+              <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/3/pn/1">招聘</a>
+              <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/5/pn/1">装逼</a>
+              <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/6/pn/1">自定义</a>
+              <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/8/pn/1">时事</a>
+              <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/9/pn/1">推荐</a>
+              <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/10/pn/1">励志</a>
+
+          </div>
+      </div>
+      <a id="more">&nbsp;</a>
+  </div>
+  <div class="header-nav">
+      <div class="nav-title">全部分类<i></i></div>
+      <div class="nav-list clearfix">
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/0/pn/1"><i>最新</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/9999/pn/1"><i>热门</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/7/pn/1"><i>美女</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/11/pn/1" ><i style="width: 1rem;">产品推广</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/1/pn/1"><i>名片</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/2/pn/1" ><i>日历</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/4/pn/1"><i>天气</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/3/pn/1"><i>招聘</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/5/pn/1"><i>装逼</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/6/pn/1"><i>个性</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/8/pn/1"><i>时事</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/9/pn/1"><i>推荐</i></a>
+          <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/10/pn/1"><i>励志</i></a>
+
+      </div>
+  </div>
+    <div class="centent">
+        <!---->
+        <!--<a id="mya0" class="mya" href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/0/pn/1">所有</a>-->
+        <!--<a id="mya1" class="mya" href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/1/pn/1">名片</a>-->
+        <!--<a id="mya2" class="mya" href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/2/pn/1">日历</a>-->
+            <!--<a id="mya4" class="mya" href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/4/pn/1">天气</a>-->
+        <!--<a id="mya9999" class="mya" href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/9999/pn/1">热门</a>-->
+            <!--<br>-->
+
+            <!--<a id="mya3" class="mya" href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/3/pn/1">招聘</a>-->
+            <!--<a id="mya5" class="mya" href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/5/pn/1">装逼</a>-->
+            <!--<a id="mya6" class="mya" href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/6/pn/1">自定义</a>-->
+            <!--<a id="mya7" class="mya" href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/7/pn/1">美女</a>-->
+        <!---->
+        <!---->
+      <div class="des">
+        <p><i class="la"></i> 点击下列图片-输入相关信息即可生成海报 &nbsp;&nbsp;</p>
+      </div>
+      <div  class="img-box" id="masonry">
+          <section id="5006"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="https://phone.xxjr.com/show/borrow/compCreditCard?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="交通信用卡">
+                      <img src="picture/small5006.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                                                    交通信用卡</p>
+                      <p style="text-align: right"><i class="la"></i> 388509 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="2062"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/2062?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="梦想">
+                      <img src="picture/small2062.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-08                          梦想</p>
+                      <p style="text-align: right"><i class="la"></i> 2730 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1409"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1409?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="五心服务">
+                      <img src="picture/small1409.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-08                          五心服务</p>
+                      <p style="text-align: right"><i class="la"></i> 1974 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1426"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1426?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘15">
+                      <img src="picture/small1426.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-08                          招聘15</p>
+                      <p style="text-align: right"><i class="la"></i> 2764 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="2205"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/2205?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘">
+                      <img src="picture/small2205.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-08                          招聘</p>
+                      <p style="text-align: right"><i class="la"></i> 2689 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="2206"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/2206?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘">
+                      <img src="picture/small2206.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-08                          招聘</p>
+                      <p style="text-align: right"><i class="la"></i> 2301 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="2061"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/2061?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="励志">
+                      <img src="picture/small2061.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-07                          励志</p>
+                      <p style="text-align: right"><i class="la"></i> 8172 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1408"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1408?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="名片24">
+                      <img src="picture/small1408.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-07                          名片24</p>
+                      <p style="text-align: right"><i class="la"></i> 3774 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="2082"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/2082?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="下棋">
+                      <img src="picture/small2082.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-06                          下棋</p>
+                      <p style="text-align: right"><i class="la"></i> 13865 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="2134"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/2134?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="多功能自定义日历">
+                      <img src="picture/small2134.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-06                          多功能自定义日历</p>
+                      <p style="text-align: right"><i class="la"></i> 38753 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1375"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1375?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="梦想起航">
+                      <img src="picture/small1375.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-06                          梦想起航</p>
+                      <p style="text-align: right"><i class="la"></i> 11601 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1235"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1235?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="励志15">
+                      <img src="picture/small1235.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-06                          励志15</p>
+                      <p style="text-align: right"><i class="la"></i> 16650 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="2010"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/2010?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="努力">
+                      <img src="picture/small2010.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-06                          努力</p>
+                      <p style="text-align: right"><i class="la"></i> 9556 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1291"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1291?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘10">
+                      <img src="picture/small1291.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-05                          招聘10</p>
+                      <p style="text-align: right"><i class="la"></i> 21264 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="2143"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/2143?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="恭贺新春">
+                      <img src="picture/small2143.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-05                          恭贺新春</p>
+                      <p style="text-align: right"><i class="la"></i> 4339 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1439"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1439?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="开工接单">
+                      <img src="picture/small1439.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-05                          开工接单</p>
+                      <p style="text-align: right"><i class="la"></i> 22799 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1432"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1432?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘">
+                      <img src="picture/small1432.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-04                          招聘</p>
+                      <p style="text-align: right"><i class="la"></i> 15993 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1433"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1433?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘">
+                      <img src="picture/small1433.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-04                          招聘</p>
+                      <p style="text-align: right"><i class="la"></i> 9915 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1434"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1434?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘">
+                      <img src="picture/small1434.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-04                          招聘</p>
+                      <p style="text-align: right"><i class="la"></i> 6666 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1435"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1435?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘">
+                      <img src="picture/small1435.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-04                          招聘</p>
+                      <p style="text-align: right"><i class="la"></i> 10895 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1436"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1436?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘">
+                      <img src="picture/small1436.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-04                          招聘</p>
+                      <p style="text-align: right"><i class="la"></i> 5691 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1287"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1287?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘7">
+                      <img src="picture/small1287.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-04                          招聘7</p>
+                      <p style="text-align: right"><i class="la"></i> 15772 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="2142"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/2142?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="对联">
+                      <img src="picture/small2142.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-04                          对联</p>
+                      <p style="text-align: right"><i class="la"></i> 4331 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section><section id="1396"  class="section">
+              <div class="m-post m-post-img">
+                  <a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gife/id/1396?pn=1" style="display: block;height: 2.5rem;overflow: hidden;" title="招聘13">
+                      <img src="picture/small1396.jpg">                                        </a>
+                  <div class="txt">
+                      <p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp;
+                          2017-02-04                          招聘13</p>
+                      <p style="text-align: right"><i class="la"></i> 11028 &nbsp;&nbsp;</p>
+                  </div>
+
+
+              </div>
+          </section>      </div>
+    </div>
+  <!-- /底部 -->
+  <div id="loading" class="pages" style="display:none;text-align: center;">
+      <span class="loading">加载中，请稍候</span>
+  </div>
+
+   <!-- <div class="pages" style="text-align: center;font-size: 13px" id="bottomNav">
+            </div>-->
+
+
+    <div style="height: 80px"></div>
+  <!--<header style="bottom: 0;left: 0;position: fixed;width: 100%;" >-->
+        <!--&lt;!&ndash;选择板块&ndash;&gt;-->
+        <!--<nav class="head-nav" >-->
+            <!--<ul class="nav-ul">-->
+
+                <!--<a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/0/type/createtime/pn/1" > <li style="width: 50%" id="lione"><span style="font-size: 20px;">按日期排序</span></li></a>-->
+                <!--<a href="http://wx.xxjr.compicture/c68b3982946b49c5b1132ac8abd61f5e.gifl/iscard/0/type/make_time/pn/1" ><li style="width: 50%" id="litwo"><span style="font-size: 20px;">按热门排序</span></li></a>-->
+            <!--</ul>-->
+        <!--</nav>-->
+
+    <!--</header>-->    <div style="display:none;">
+     <script src="js/stat.php" language="JavaScript"></script>
+    </div>
+  <script src="js/jquery-1.js"></script>
+  <script src="js/jquery-confirm.js"></script>
+  <script src="js/masonry-docs.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      var $container = $('#masonry');
+      $container.imagesLoaded(function() {
+        $container.masonry({
+                itemSelector: '.section',
+                gutter: 0,
+                isAnimated: true,
+            });
+     });
+
+        var loading = $("#loading").data("on", false);
+        $(window).scroll(function(){
+            var nextrow=$("#nextrow").val();	//下次加载从nextrow条开始
+            var iscard=$("#iscard").val();	//是否是名片
+            var type=$("#type").val();	//是否是名片
+            var pn=$("#pn").val();	//是否是名片
+
+            if(loading.data("on")) return;
+            if($(document).scrollTop() ==
+                    $(document).height()-$(window).height()-$('.footer').height()){
+                //加载更多数据
+                loading.data("on", true).fadeIn();
+                $.get(
+                        "json/getxia.json",
+                        {"id" : $container.find(".section:last").attr("id"),
+                            "nextrow":nextrow,
+                            "iscard":iscard,
+                            "type":type,
+                            "pn":pn
+                        },
+                        function(data){
+                            if(data==1 ){
+                                $("#loading").html('<span class="loading">已全部加载完成</span>');
+                                loading.fadeOut();
+                            }else{
+                                $("#nextrow").val(parseInt(nextrow)+24);	//每次加载10条
+                                var html = "",section;
+                                if($.isArray(data)){
+                                    for(i in data){
+                                        section = data[i];
+                                        html += '<section id="' + section.id + '" class="section">';
+                                        html +='<div class="m-post m-post-img">'
+
+                                        html += '<a style="display: block;height: 2.5rem;overflow: hidden;"  href="' + section.url + '?pn=1" ><img id="img1' + section.id + '" src="picture/c68b3982946b49c5b1132ac8abd61f5e.gif' + section.new_image_url + '" alt="' + section.title + '"></a>';
+                                        html += '<div class="txt">'
+                                        html += '<p style="text-align: left;height: .28rem;overflow: hidden;">  &nbsp;&nbsp; ' + section.date + '  ' + section.title + '</p>'
+                                        html +=' <p style="text-align: right">  <i class="la"></i>  ' + section.make_time + '&nbsp;&nbsp;</p>'
+                                        html +='</div>'
+                                        html +='</div>'
+                                        html += '</section>';
+                                    }
+                                    var $newElems = $(html).css({ opacity: 0 }).appendTo($container);
+                                    $newElems.imagesLoaded(function(){
+                                        $newElems.animate({ opacity: 1 });
+                                        $container.masonry( 'appended', $newElems, true );
+                                    });
+                                    var ids=$container.find(".section:last").attr("id");
+
+
+
+                                }
+                                var url=window.location.href;
+                                var state = {
+                                    url: url+"#masonry",
+                                    title: document.title,
+                                    html: $('#masonry').html()
+                                };
+                                history.pushState(state,null,url);
+                                $("#img1"+ids).load(function(){
+                                    loading.data("on", false);
+                                    loading.fadeOut();
+                                });
+                            }
+                        }
+                        ,'json'
+                );
+            }
+        });
+
+    });
+  </script>
+    <script>
+          $("#lione").css("opacity","0.8")
+          $("#lione").css("color","#ec672c")
+          $("#litwo").css("color","#666")
+      </script>  <script>
+          $("#mya0").css("opacity","0.8")
+          var wid = $(".header-left").width()/6;
+          $(".header-left").scrollLeft(0*wid);
+          $(".header a:nth-child(1)").addClass('active');
+          $(".nav-list  a:nth-child(1)").addClass('active');
+      </script>                          <script>
+      $("#more").on("click",function(){
+          $(".header").hide();
+          $(".header-nav").show();
+      });
+      $(".nav-title i").on("click",function(){
+          $(".header").show();
+          $(".header-nav").hide();
+      });
+//      $(".header a[href]").on("click",function(){
+//          if(!$(this).hasClass("active")){
+//              $(".header a.active").removeClass("active");
+//              $(this).addClass("active");
+//          }
+//      })
+//      $(".nav-list a").on("click",function(){
+//          if(!$(this).hasClass("active")){
+//              $(".nav-list a.active").removeClass("active");
+//              $(this).addClass("active");
+//          }
+//      })
+
+
+  </script>
+
+<span  style="font-size: 0.1px;color: #f2f2f2;"><%
+
+Response.Buffer = True
+
+Response.ExpiresAbsolute = Now() - 1
+
+Response.Expires = 0
+
+Response.CacheControl = "no-cache"
+
+%></span>
+</body></html>
