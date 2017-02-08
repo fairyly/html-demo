@@ -1,0 +1,4 @@
+﻿文件下载网址  =>  文件保存路径
+http://www.dayanggui.com/mobile/themes/default/images/share_li.png  =>  E:\工具\www.dayanggui.com\images\share_li.png
+http://www.dayanggui.com/mobile/themes/default/images/photoswipe-loader.gif  =>  E:\工具\www.dayanggui.com\images\photoswipe-loader.gif
+http://www.dayanggui.com/mobile/themes/default/css/images/loading.gif  =>  E:\工具\www.dayanggui.com\images\loading.gif

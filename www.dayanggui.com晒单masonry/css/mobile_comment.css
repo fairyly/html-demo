@@ -1,0 +1,429 @@
+﻿.comments{
+	width:100%;
+	overflow:hidden;
+}
+.comments *{
+	font-size:1em;
+}
+.comments_tit{
+	border-bottom:1px solid #ddd;
+	background:#fff;
+}
+.comments_tit li{
+	float:left;
+	width:33%;
+	text-align:center;
+	font-size:1.2em;
+}
+.comments_tit li a{
+	display:inline-block;
+	line-height:3em;
+	border-bottom:4px solid #fff;
+}
+.comments_tit li.cur a{
+	border-color:#000b6d;
+	color:#000b6d;
+}
+.comments .bd{
+}
+.comments .com_list{
+	padding-top:2em;
+	background:#fff;
+}
+.comments .com_list .list{
+	border-bottom:1px solid #ddd;
+}
+.comments .com_list .list_div{
+	padding:15px;
+}
+.comments .com_list .list_div .a_img{
+	float: left;
+    width: 25%;
+    border:1px solid #ddd;
+}
+.comments .com_list .list_div .a_img img{
+	width:100%;
+}
+.comments .com_list .list_div .list_right{
+	margin-left:25%;
+	padding-left:5%;
+}
+.comments .com_list .list_div .list_right h4{
+	font-size:1.2em;
+	display:block;
+	line-height:1.5em;
+	height:3em;
+	overflow:hidden;
+}
+.comments .com_list .list_div .assess_show_hide{
+	padding: 0.5em 1em;
+    font-size: 1.2em;
+    line-height: 1;
+    float: right;
+    border-radius: 5px;
+    border: 1px solid #e50150;
+    color:#e50150;
+}
+.comments .com_list .assess_list_hide{
+	border-top:1px solid #ddd;
+	position:relative;
+	padding:15px;
+	display:none;
+}
+.comments .com_list .assess_list_hide_bg{
+	background:url(../images/comment_hide_top.png) 0 bottom no-repeat;
+	background-size:100%;
+	width:15px;
+	height:20px;
+	display:block;
+	position:absolute;
+	right:4em;
+	top:-19px;
+}
+.comments .assess_list_hide .item_list{
+	padding:15px 0;
+}
+.comments .assess_list_hide .item_list .a_img{
+	float: left;
+    width: 20%;
+    border:1px solid #ddd;
+}
+.comments .assess_list_hide .item_list .a_img img{
+	width:100%;
+}
+.comments .assess_list_hide .item_list .item_right{
+	padding-left:25%;
+}
+.comments .assess_list_hide .item_list .item_right .item_lab{
+	font-size:1.2em;
+	display:block;
+	padding-top:0.5em;
+}
+.level{
+  display:inline-block;
+  margin-top:1em;
+  width:150px;
+  height:30px;
+  background:url(../images/comment_star.png) 0 0 repeat-x;
+  background-size:30px;
+  vertical-align:middle;
+  position:relative;
+}
+.level i{
+  display:block;
+  position:absolute;
+  height:30px;
+  top:0;
+  left:0;
+  transition:all 0s;
+  -moz-transition:all 0s;
+  -webkit-transition:all 0s;
+  -o-transition:all 0s;
+}
+.level i.cur{
+  background:url(../images/comment_star_cur.png) 0 0 repeat-x;
+  background-size:30px;
+}
+.level i.level_1{
+  width:20%;
+  z-index:10;
+}
+.level i.level_2{
+  width:40%;
+  z-index:9;
+}
+.level i.level_3{
+  width:60%;
+  z-index:8;
+}
+.level i.level_4{
+  width:80%;
+  z-index:7;
+}
+.level i.level_5{
+  width:100%;
+  z-index:6;
+}
+.level i.cur{
+  display:block;
+}
+
+.comments .assess_list_hide .item_list_user{
+	vertical-align:middle;
+	line-height:70px;
+}
+.comments .assess_list_hide .item_list_user img{
+	width:70px;
+	display:inline-block;
+	border:1px solid #ddd;
+	border-radius:50%;
+}
+.comments .assess_list_hide .item_list_user span{
+	vertical-align: top;
+	padding-left:10px;
+}
+.comments .assess_list_hide .item_list_user em{
+	color:#999;
+	float:right;
+}
+.comments .assess_list_hide .level_user{
+	width:100px;
+	background-size:20px;
+	height:20px;
+	margin-top:0;
+}
+.comments .assess_list_hide .level_user i.cur{
+	background-size:20px;
+}
+.comments .assess_list_hide .item_list .item_area{
+	width:100%;
+	min-width:100%;
+	max-width:100%;
+	height:150px;
+	min-height:150px;
+	max-height:150px;
+	border:1px solid #ddd;
+	line-height:25px;
+	font-size:14px;
+	padding:5px;
+}
+.comments .assess_list_hide .item_list .up_list_a,.comments .assess_list_hide .item_list .up_list{
+  width:18%;
+  padding-bottom:18%;
+  display:inline-block;
+  border:1px solid #ddd;
+  float:left;
+  background:#fff;
+  margin-right:20px;
+  margin-bottom:10px;
+  position:relative;
+}
+.comments .assess_list_hide .item_list .up_list i{
+  background:#c1e8ff;
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:0;
+  color:#fff;
+  text-align:center;
+}
+.comments .assess_list_hide .item_list .up_list img{
+	position:absolute;
+	top:0;
+	left:0;
+	max-width:100%;
+	max-height:100%;
+}
+.comments .assess_list_hide .item_list .up_list .img_del{
+  position:absolute;
+  width:20px;
+  height:20px;
+  right:-10px;
+  top:-10px;
+  background:url(../images/comment_close.png) center center no-repeat;
+  background-size:20px;
+  border-radius:50%;
+  z-index:2;
+}
+.comments .assess_list_hide .item_list .upload_a{
+	width:100%;
+	padding-bottom:100%;
+	display:inline-block;
+	background:#fff url(../images/comment_img_add.png) center center no-repeat;
+	background-size:60%;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.comments .assess_list_hide .item_list .up_list_a div{
+  width:100%!important;
+  height:100%!important;
+}
+.comments .assess_list_hide .item_list .check_com{
+	display:block;
+	line-height:2.5em;
+	font-size:1em;
+}
+.comments .assess_list_hide .item_list .ip_radio{
+  float:left;
+  background:url(../images/mobile_radio.png) center 0em no-repeat;
+  background-size:1.8em;
+  -webkit-appearance:none;
+  appearance:none;
+  width:10%;
+  padding-bottom:8%;
+  font-size:0.9em;
+  outline:0;
+  border:0;
+}
+.comments .assess_list_hide .item_list .ip_radio:checked{
+  background-position:center -6.8em;
+}
+.comments .assess_list_hide .item_list .ip_radio:focus{ outline:0 }
+.comments .assess_list_hide .item_list .ip_radio::-moz-focus-inner{ border-color:transparent!important; }
+.comments .assess_list_hide .item_list_center{
+	text-align:center;
+	padding:15px;
+	overflow:hidden;
+}
+.comments .assess_list_hide .item_list .assess_submit{
+	padding: 0.5em 1.5em;
+    font-size: 1.2em;
+    line-height: 1;
+    border-radius: 5px;
+    border: 1px solid #e50150;
+    background:#e50150;
+    color:#fff;
+    text-align:center;
+    display:inline-block;
+}
+
+.satisfaction{
+  margin-top:20px;
+  border:1px solid #ddd;
+  background:#fff;
+}
+.satisfaction .sat_left{
+  width:100%;
+  padding:20px 25px;
+}
+.satisfaction .sat_left h5{
+  font-size:1.2em;
+  color:#333;
+  text-align:left;
+  float:left;
+}
+.satisfaction .sat_left span{
+	float:right;
+	color:#999;
+}
+.satisfaction .sat_center{
+  border-top:1px solid #ddd;
+}
+.satisfaction .level_list{
+  width:100%;
+  padding:0 25px;
+}
+.satisfaction .level_lab{
+  float:left;
+  color:#999;
+  line-height:20px;
+  margin-top:1em;
+  text-align:left;
+}
+.satisfaction .level{
+	float:right;
+}
+.sat_right{
+	padding:15px 30px;
+	text-align:right;
+	overflow:hidden;
+}
+.satisfaction .sat_submit{
+	padding: 0.5em 1em;
+	font-size: 1.2em;
+	line-height: 1;
+	float: right;
+	border-radius: 5px;
+	border: 1px solid #e50150;
+	color:#e50150;
+}
+
+.w-tit1{
+	padding:20px 15px 0 20px;
+}
+.w-tit1 img{
+	width:100%;
+}
+.masonry_ul{
+  position: relative;
+  min-height:500px;
+  padding:15px 0 15px 10px;
+  background:#f8f8f8;
+  width:100%;
+}
+.masonry_ul li{
+  float:left;
+  background:#fff;
+  border:1px solid #ddd;
+  width:45%;
+  overflow:hidden;
+  margin-bottom:20px;
+  border-radius:5px;
+}
+.masonry_ul li .a_img{
+  display:block;
+  width:100%;
+}
+.masonry_ul li .a_img img{
+  width:100%;
+}
+.masonry_ul .li_head{
+  background:#383838;
+  color:#fff;
+  padding:5px 10px;
+  font-size:0.8em;
+  position:relative;
+}
+.masonry_ul .li_head .li_head_sj{
+  display:block;
+  width:22px;
+  height:14px;
+  position:absolute;
+  left:21px;
+  bottom:-14px;
+  background:url(../images/share_li.png) 0 0 no-repeat;
+}
+.masonry_ul .li_head span{
+  width:38px;
+  height:38px;
+  display:inline-block;
+  border:1px solid #7d7d7d;
+  border-radius:50%;
+  overflow:hidden;
+  background:#fff;
+  vertical-align:middle;
+  position:absolute;
+  left:10px;
+  top:-13px;
+}
+.masonry_ul .li_head em{
+  margin-left:40px;
+  display:block;
+  overflow:hidden;
+}
+.masonry_ul .li_head i.fr{
+  margin-left:40px;
+  display:block;
+  overflow:hidden;
+  text-align:right;
+}
+.masonry_ul .li_head span img{
+  width:100%;
+  border-radius:50%;
+  display:block;
+}
+.masonry_ul .li_a{
+  padding:10px 10px 0 10px;
+}
+.masonry_ul .li_a a{
+  color:#51B8F1;
+}
+.masonry_ul .li_main{
+  padding:10px;
+}
+
+.scroll-tip{
+  border:1px solid #ddd;
+  background:#f6f6f6;
+  text-align: center;
+  line-height:3em;
+  color:#999;
+  margin-top:70px;
+  font-size:1em;
+  font-weight:700;
+  left:0;
+  right:0;
+  width:auto!important;
+}
