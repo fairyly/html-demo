@@ -1,0 +1,114 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit14">
+        <div class="edit14_con"> 
+          <div class="edit14_con1">
+              <div class="edit14_con1pic" id="editmove">
+                    <img src="__PUBLIC__/poster/images/m7up1.jpg"/>
+              </div>
+              <div class="edit14_up1"> 
+                  <div class="edit14_up11">
+                      <div class="edit14_fileInput left">
+                            <input type="file" capture="camera" name="edit14_upfile" id="edit14_upfile" style="display:none" class="edit14_upfile" onchange="document.getElementById('edit14_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit14_upFileBtn" id="edit14_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit14_upfile').click();" />
+                      </div>
+                  </div>
+              </div>
+              <div class="edit14_con1text">
+                  <div><p contenteditable="true">微友创始人王某某</p></div>
+                  <div><p contenteditable="true">微商学员首席讲师</p></div>
+              </div>
+          </div>
+          <div class="edit14_con2">
+              <div class="edit14_con21"> 
+                <div class="edit14_con21txt">
+                  <p contenteditable="true">Q Q ：88888888</p>
+                  <p contenteditable="true">微信：WX888888</p>
+                  <p contenteditable="true">电话：18888888888</p>
+                </div> 
+              </div><div class="edit14_con22">
+                <div class="edit14_con22pic">
+                   <img src="__PUBLIC__/poster/images/mpup2.jpg">
+                </div>
+                <div class="edit14_up2">
+                    <div class="edit14_up22">
+                        <div class="edit14_fileInput2 left">
+                              <input type="file" capture="camera" name="edit14_upfile2" id="edit14_upfile2" style="display:none" class="edit14_upfile2" onchange="document.getElementById('edit14_upfileResult2').innerHTML=this.value;"/>
+                              <input class="edit14_upFileBtn2" id="edit14_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit14_upfile2').click();" />
+                        </div>
+                    </div>
+                  </div>
+              </div>  
+          </div>  
+        </div>
+        <div class="shengcheng14">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十三个页面结束 -->
+    <script type="text/javascript">
+       $("#edit14_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+          $(".edit14_con1pic img").attr("src", objUrl);
+        }
+      });
+        $("#edit14_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".edit14_con22pic img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng14").click(function(){
+                
+                $(".shengcheng14").hide();
+                $(".edit14_up1").hide();
+                $(".edit14_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit14_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit14").hide();
+                        }
+                });
+        });
+    //第十四个页面结束
+    </script>
+    <include file="poster:footer" />

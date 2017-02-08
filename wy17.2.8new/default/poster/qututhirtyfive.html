@@ -1,0 +1,56 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editqt35">
+        <div class="editqt35_con">
+              <div class="editqt35_con1"> 
+                  <p contenteditable="true">兔兔，我喜欢你</p>
+              </div>
+              <div class="editqt35_con2"> 
+                  <p contenteditable="true">嫁给我吧</p>
+              </div>
+        </div>
+        <div class="shengchengqt35">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“文字”生成趣图</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 趣图第三十五页面结束 -->
+    
+     <script type="text/javascript">
+           $(".shengchengqt35").click(function(){
+                
+                $(".shengchengqt35").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editqt35_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editqt35").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //趣图第三十五个页面结束
+     </script>
+<include file="poster:footer" />

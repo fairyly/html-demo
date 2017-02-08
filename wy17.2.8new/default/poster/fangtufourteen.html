@@ -1,0 +1,105 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editf14">
+        <div class="editf14_con"> 
+          <div class="editf14_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/f14up1.jpg">
+          </div>
+          <div class="editf14_conbg2"></div>
+          <div class="editf14_up1">
+                      <div class="editf14_up11">
+                          <div class="editf14_fileInput">
+                                <input type="file" capture="camera" name="editf14_upfile" id="editf14_upfile" style="display:none" class="editf14_upfile" onchange="document.getElementById('editf14_upfileResult').innerHTML=this.value;"/>
+                                <input class="editf14_upFileBtn" id="editf14_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf14_upfile').click();" />
+                          </div>
+                      </div>
+          </div> 
+          <div class="editf14_con1">
+                <p contenteditable="true">王某某</p>
+                <p contenteditable="true">微信:wx88888888</p>
+                <p contenteditable="true">电话:18888888888</p>
+          </div>
+        </div>
+        <div class="shengchengf14">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第十四个页面结束 -->
+     
+     <script type="text/javascript">
+        $("#editf14_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+            console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editf14_conbg1 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")") ;
+          
+          }
+        });
+    $("#editf14_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".editf14_con2 img").attr("src", objUrl) ;
+         
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengf14").click(function(){
+                
+                $(".shengchengf14").hide();
+                // $(".edit3").show();
+                $(".editf14_up1").hide();
+                $(".editf14_up2").hide();
+                $(".editf14_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf14_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".editf14").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第十四个页面结束
+     </script>
+<include file="poster:footer" />

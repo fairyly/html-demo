@@ -1,0 +1,100 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editz40">
+        <div class="editz40_con">
+          <div class="editz40_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/z40up1.jpg">
+          </div>
+          <div class="editz40_conbg2"></div>
+          <div class="editz40_con1">
+                <p contenteditable="true">微友团队</p>
+                <p contenteditable="true">手把手教你做一个赚钱的微商</p>
+          </div>
+          <div class="editz40_con2">
+                <p contenteditable="true">赚钱原来就这么简单</p>
+          </div>
+          <div class="editz40_con3">
+                <p contenteditable="true"><span>微信：wx88888888</span> <span>电话：18888888888</span></p>
+          </div>
+          <div class="editz40_up1"> 
+                <div class="editz40_up11">
+                    <div class="editz40_fileInput left">
+                          <input type="file" capture="camera" name="editz40_upfile" id="editz40_upfile" style="display:none" class="editz40_upfile" onchange="document.getElementById('editz40_upfileResult').innerHTML=this.value;"/>
+                          <input class="editz40_upFileBtn" id="editz40_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz40_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          
+        </div>
+        <div class="shengchengz40">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第四十个页面结束 -->
+     <script type="text/javascript">
+        $("#editz40_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editz40_conbg11 img").attr("src", objUrl);
+          }
+        });
+      $("#editz40_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+            
+        if (objUrl) {
+          $(".editz40_con2 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengz40").click(function(){
+                
+                $(".shengchengz40").hide();
+                $(".editz40_up1").hide();
+                $(".editz40_up2").hide();
+                $(".editz40_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz40_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editz40").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第四十个页面结束
+     </script>
+<include file="poster:footer" />

@@ -1,0 +1,128 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editz42">
+        <div class="editz42_con">
+          <div class="editz42_conbg11" id="editmove">
+              <p><img src="__PUBLIC__/poster/images/z42up1.jpg" alt="uppic"/></p>
+          </div>
+          <div class="editz42_conbg2"></div>
+          <div class="editz42_con1">
+              <div class="editz42_con1txt">
+                  <p contenteditable="true">梦想就是要拼</p>
+                  <p contenteditable="true">微友团队欢迎你的加入</p>
+              </div>
+          </div>
+          <div class="editz42_con2">
+            <div class="editz42_con2con">
+              <div class="editz42_con21">
+                  <p contenteditable="true">本人作为微商的一份子</p>
+                  <p contenteditable="true">定当恪守以下内容：</p>
+                  <p contenteditable="true">不做假冒伪劣产品</p>
+                  <p contenteditable="true">不坑客 不杀熟</p>
+                  <p contenteditable="true">不做传销赚人头费</p>
+                  <p contenteditable="true">不乱市不欺诈宣传</p>
+                  <p contenteditable="true">......</p>
+                  <p contenteditable="true">用无微不至的服务</p>
+                  <p contenteditable="true">营造良好的诚信环境</p>
+                  <p contenteditable="true">为品质中国贡献自己最大的力量</p>
+              </div>
+              <div class="editz42_con22">
+                    <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+                    <p contenteditable="true">微信：wx888888</p>
+                    <p contenteditable="true">Q Q ：88888888</p>
+                    <p contenteditable="true">电话：18888888888</p>
+              </div>
+            </div>
+          </div>
+          <div class="editz42_con3">
+                <p contenteditable="true"><span>经营不忘初心</span><span>只做诚信微商</span></p> 
+          </div>
+          <div class="editz42_up1"> 
+                <div class="editz42_up11">
+                    <div class="editz42_fileInput left">
+                          <input type="file" capture="camera" name="editz42_upfile" id="editz42_upfile" style="display:none" class="editz42_upfile" onchange="document.getElementById('editz42_upfileResult').innerHTML=this.value;"/>
+                          <input class="editz42_upFileBtn" id="editz42_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz42_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="editz42_up2"> 
+                <div class="editz42_up22">
+                    <div class="editz42_fileInput2 left">
+                          <input type="file" capture="camera" name="editz42_upfile2" id="editz42_upfile2" style="display:none" class="editz42_upfile2" onchange="document.getElementById('editz42_upfileResult2').innerHTML=this.value;"/>
+                          <input class="editz42_upFileBtn2" id="editz42_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editz42_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengchengz42">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第四十二个页面结束 -->
+     <script type="text/javascript">
+        $("#editz42_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editz42_conbg11 img").attr("src", objUrl);
+          }
+        });
+      $("#editz42_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+            
+        if (objUrl) {
+          $(".editz42_con22 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengz42").click(function(){
+                
+                $(".shengchengz42").hide();
+                $(".editz42_up1").hide();
+                $(".editz42_up2").hide();
+                $(".editz42_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz42_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editz42").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第四十二个页面结束
+     </script>
+<include file="poster:footer" />

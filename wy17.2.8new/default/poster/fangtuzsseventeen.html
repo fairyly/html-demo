@@ -1,0 +1,104 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfz17">
+        <div class="editfz17_con"> 
+          <div class="editfz17_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/fz17up1.jpg">
+          </div>
+          <div class="editfz17_conbg2"></div>
+          <div class="editfz17_con1">
+                <p contenteditable="true">微友诚招代理</p>
+                <p contenteditable="true">梦想就是要拼，明天的你</p>
+                <p contenteditable="true">一定会感谢现在努力的自己</p>
+          </div>
+          <div class="editfz17_con2">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="editfz17_up1">
+              <div class="editfz17_up11">
+                  <div class="editfz17_fileInput">
+                        <input type="file" capture="camera" name="editfz17_upfile" id="editfz17_upfile" style="display:none" class="editfz17_upfile" onchange="document.getElementById('editfz17_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfz17_upFileBtn" id="editfz17_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfz17_upfile').click();" />
+                  </div>
+              </div>
+          </div> 
+          <div class="editfz17_up2">
+              <div class="editfz17_up22">
+                  <div class="editfz17_fileInput2">
+                        <input type="file" capture="camera" name="editfz17_upfile2" id="editfz17_upfile2" style="display:none" class="editfz17_upfile2" onchange="document.getElementById('editfz17_upfileResult2').innerHTML=this.value;"/>
+                        <input class="editfz17_upFileBtn2" id="editfz17_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editfz17_upfile2').click();" />
+                  </div>
+              </div>
+          </div> 
+        </div>
+        <div class="shengchengfz17">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图招商第十七个页面结束 -->
+     <script type="text/javascript">
+      $("#editfz17_upfile").change(function(){
+      var objUrl = getObjectURL(this.files[0]);
+      if (objUrl) {
+       $(".editfz17_conbg1 img").attr("src", objUrl);
+        }
+      });
+      $("#editfz17_upfile2").change(function(){
+      var objUrl = getObjectURL(this.files[0]);
+      if (objUrl) {
+       $(".editfz17_con2 img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfz17").click(function(){
+                
+                $(".shengchengfz17").hide();
+                $(".editfz17_up1").hide();
+                $(".editfz17_up2").hide();
+                $(".editfz17_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfz17_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfz17").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图招商第十七个页面结束
+     </script>
+<include file="poster:footer" />

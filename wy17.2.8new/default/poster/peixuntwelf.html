@@ -1,0 +1,122 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editp12">
+        <div class="editp12_con">
+            <div class="editp12_con1pic" id="editp12_con1img">
+                    <img src="__PUBLIC__/poster/images/p12up1.jpg"/>
+            </div>
+            <div class="editp12_conbg">
+              <div class="editp12_con1"> 
+                  <div class="editp12_con1txt">
+                    <p contenteditable="true">0基础实用课堂</p>
+                    <p contenteditable="true">微友学堂开课了</p>
+                    <p contenteditable="true">微商商机</p>
+                    <p contenteditable="true">——百万营销案例</p>
+                  </div>
+                  <div class="editp12_up1">
+                      <div class="editp12_up11">
+                          <div class="editp12_fileInput left">
+                                <input type="file" capture="camera" name="editp12_upfile" id="editp12_upfile" style="display:none" class="editp12_upfile" onchange="document.getElementById('editp12_upfileResult').innerHTML=this.value;"/>
+                                <input class="editp12_upFileBtn" id="editp12_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editp12_upfile').click();" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="editp12_con2">
+                  <div class="editp12_con21">
+                      <p contenteditable="true">课程内容：</p>
+                      <p contenteditable="true">1、如何让好友看你的广告，买你的产品</p>
+                      <p contenteditable="true">2、如何通过公众号把你的产品推出去</p>
+                      <p contenteditable="true">3、如何让你的微信号快速加满好友</p>
+                      <p contenteditable="true">4、销售额过亿的案例分享</p>
+                  </div>
+              </div>
+              <div class="editp12_con3">
+                  <div class="editp12_con3pic" >
+                    <img src="__PUBLIC__/poster/images/mpup2.jpg"/>
+                  </div>
+                  <div class="editp12_up2">
+                          <div class="editp12_up21">
+                              <div class="editp12_fileInput2 left">
+                                    <input type="file" capture="camera" name="editp12_upfile2" id="editp12_upfile2" style="display:none" class="editp12_upfile2" onchange="document.getElementById('editp12_upfileResult2').innerHTML=this.value;"/>
+                                    <input class="editp12_upFileBtn2" id="editp12_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editp12_upfile2').click();" />
+                              </div>
+                          </div>
+                  </div>
+              </div>
+            </div>
+          
+        </div>
+        <div class="shengchengp12">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 培训第十二个页面结束 -->
+     
+     <script type="text/javascript">
+     		$("#editp12_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editp12_con1pic img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")");
+          }
+        });
+    $("#editp12_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);   
+        if (objUrl) {
+          $(".editp12_con3pic img").attr("src", objUrl);
+        }
+      });    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengp12").click(function(){
+                
+                $(".shengchengp12").hide();
+                $(".editp12_up1").hide();
+                $(".editp12_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editp12_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editp12").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //培训第十二个页面结束
+     </script>
+<include file="poster:footer" />

@@ -1,0 +1,95 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editp33">
+        <div class="editp33_con">
+          <div class="editp33_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/p33up1.jpg">
+          </div>
+          <div class="editp33_conbg2"></div>
+          <div class="editp33_con1">
+                <p contenteditable="true">微商基础公开课</p>
+                <p contenteditable="true">教你如何快速逆袭</p>
+                <p contenteditable="true">机遇来了！你还在等什么？</p>
+          </div>
+          <div class="editp33_con2">
+                <p contenteditable="true">讲师：王某某</p>
+          </div>
+          <div class="editp33_con3">
+                <p contenteditable="true">微友团队联合创始人/首席金牌讲师</p>
+                <p contenteditable="true">从零基础做起，高效打造团队新代理，带领团队成员月人过万</p>
+          </div>
+          <div class="editp33_up1"> 
+                <div class="editp33_up11">
+                    <div class="editp33_fileInput left">
+                          <input type="file" capture="camera" name="editp33_upfile" id="editp33_upfile" style="display:none" class="editp33_upfile" onchange="document.getElementById('editp33_upfileResult').innerHTML=this.value;"/>
+                          <input class="editp33_upFileBtn" id="editp33_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editp33_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          
+        </div>
+        <div class="shengchengp33">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 培训第三十三个页面结束 -->
+     <script type="text/javascript">
+        $("#editp33_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editp33_conbg11 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengp33").click(function(){
+                
+                $(".shengchengp33").hide();
+                $(".editp33_up1").hide();
+                $(".editp33_up2").hide();
+                $(".editp33_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editp33_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editp33").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //培训第三十三个页面结束
+     </script>
+<include file="poster:footer" />
