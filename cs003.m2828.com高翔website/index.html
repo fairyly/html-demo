@@ -1,0 +1,964 @@
+﻿<!--
+Thank you for
+Author: W3layouts
+Author URL: http://w3layouts.com
+
+User：lavyun
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mr Gao</title>
+	<!--fonts-->
+		<link rel="shortcut icon" type="image/x-icon" href="http://cs003.m2828.com/favicon.ico" />
+		<link href='css/9babd67ce0a04fa1ac7e01840ef3b64d.css' rel='stylesheet' type='text/css'>
+		<link href='css/d8d0d8a1b09249159778df29aff2c26a.css' rel='stylesheet' type='text/css'>
+	<!--//fonts-->
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="高翔 中北大学 网络工程 个人网站" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //for-mobile-apps -->
+	<!-- js -->
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!-- js -->
+	<!-- start-smooth-scrolling -->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+	<!-- start-smooth-scrolling -->
+
+</head>
+<body>
+<!-- banner -->
+<div class="banner" id="home" style="overflow: hidden">
+	<div class="container"> 
+		<div class="top-header row">
+			<script src="js/classie.js"></script>
+			<!--top-nav---->
+			<div class="logo">
+				<!--<a href="index.html"><img src="picture/logo.png" alt=""/></a>-->
+			</div>
+			<div class="top-nav">
+				<div class="nav-icon">
+					    <a href="#" class="right_bt" id="activator"><span> </span> </a>
+				</div>
+				<div class="box" id="box">
+					<div class="box_content">        					                         
+						<div class="box_content_center">
+							<div class="form_content">
+								<div class="menu_box_list">
+									<ul>
+										<li><a class="scroll" href="#home"><span>首页</span></a></li>
+										<li><a class="scroll" href="#about"><span>简介</span></a></li>
+										<li><a class="scroll" href="#services"><span>服务</span></a></li>
+										<li><a class="scroll" href="#portfolio"><span>案例</span></a></li>
+										<li><a class="scroll" href="#process"><span>流程</span></a></li>
+										<li><a class="scroll" href="#blog"><span>博客</span></a></li>
+										<li><a class="scroll" href="#contact"><span>联系</span></a></li>
+										<div class="clearfix"> </div>
+									</ul>
+								</div>
+								<a class="boxclose" id="boxclose"> <span> </span></a>
+							</div>                                  
+						</div> 	
+					</div> 
+				</div>       	  
+			</div>
+			<!---start-click-drop-down-menu----->
+			        <!----start-dropdown--->
+			         <script type="text/javascript">
+						var $ = jQuery.noConflict();
+							$(function() {
+								$('#activator').click(function(){
+									$('#box').animate({'top':'0px'},500).css({'position':'fixed'});
+								});
+								$('#boxclose').click(function(){
+								$('#box').animate({'top':'-1000px'},500);
+								});
+							});
+							$(document).ready(function(){
+							//Hide (Collapse) the toggle containers on load
+							$(".toggle_container").hide(); 
+							//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+							$(".trigger").click(function(){
+								$(this).toggleClass("active").next().slideToggle("slow");
+									return false; //Prevent the browser jump to the link anchor
+							});
+												
+						});
+					</script>
+			<!---//End-click-drop-down-menu----->
+			<div class="clearfix"> </div>
+		</div>
+		<div class="banner-info">
+			<div class="banner-left">
+				<img src="picture/logo.png" alt="">
+			</div>
+			<div class="banner-right">
+				<h1 style='font-weight:normal'>I’M 高翔</h1>
+				<div class="border"></div>
+				<h2>WEB DESIGNER</h2>
+				<a href="javascript:;" onclick="alert('并没有简历，将来会有的 O.O')">RESUME / 下 载 简 历</a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--/header-banner-->
+<!--about-->
+<div class="about text-center" id="about" style="overflow: hidden">
+	<div class="container">
+		<h3>ABOUT / 简介</h3>
+		<div class="strip text-center"><img src="picture/about.png" alt=" "/></div>
+		<p>2014年9月-2018年7月&nbsp;&nbsp;就读于中北大学网络工程专业</p>
+		<p>2015年9月&nbsp;&nbsp;开始学习web前端开发</p>
+	</div>
+</div>
+<!--//about-->
+<div class="about-back"></div>
+<!--my skill-->
+<div class="my-skills text-center" style="overflow: hidden">
+	<div class="container">
+		<h3>SKILLS / 技能</h3>
+		<div class="strip text-center"><img src="picture/skill.png" alt=" "/></div>
+		<div class="skill-grids">
+					<div class="col-md-2 skills-grid text-center">
+						<div class="circle" id="circles-1"></div>
+						<p>Html</p>
+					</div>
+					<div class="col-md-2 skills-grid text-center">
+						<div class="circle" id="circles-2"></div>
+						<p>Css</p>
+					</div>
+					<div class="col-md-2 skills-grid text-center">
+						<div class="circle" id="circles-3"></div>
+						<p>Javascript</p>
+					</div>
+					<div class="col-md-2 skills-grid text-center">
+						<div class="circle" id="circles-4"></div>
+						<p>Jquery</p>
+					</div>
+					<div class="col-md-2 skills-grid text-center">
+						<div class="circle" id="circles-5"></div>
+						<p>VueJS 2.0</p>
+					</div>
+					<div class="col-md-2 skills-grid text-center">
+						<div class="circle" id="circles-6"></div>
+						<p>Mui / 混合App</p>
+					</div>
+					<div class="col-md-2 skills-grid text-center">
+						<div class="circle" id="circles-7"></div>
+						<p>nodeJS</p>
+					</div>
+					<div class="col-md-2 skills-grid text-center">
+						<div class="circle" id="circles-8"></div>
+						<p>webpack</p>
+					</div>
+					<div class="clearfix"> </div>
+				 <script type="text/javascript" src="js/circles.js"></script>
+					         <script>
+								var colors = [
+									['#6ed4c0', '#ffffff'],['#6ed4c0', '#ffffff'], ['#6ed4c0', '#ffffff'], ['#6ed4c0', '#ffffff'], ['#6ed4c0', '#ffffff'], ['#6ed4c0', '#ffffff'], ['#6ed4c0', '#ffffff'], ['#6ed4c0', '#ffffff']
+									];
+								var percentages=[75,75,65,70,60,40,50,40];
+
+								for (var i = 1; i <= 9; i++) {
+									var child = document.getElementById('circles-' + i),
+										percentage = percentages[i-1];
+										
+										
+									Circles.create({
+										id:         child.id,
+										percentage: percentage,
+										radius:     70,
+										width:      10,
+										number:   	percentage / 1,
+										text:       '%',
+										colors:     colors[i - 1]
+									});
+								}
+						
+				</script>
+		</div>
+	</div>	
+</div>
+<!--//my skill-->
+<div class="my-skill-back"></div>
+<!--education-->
+<div class="education text-center" style="overflow: hidden">
+	<div class="container">
+		<div class="edu-info">
+			<h3>STUDY / 学习经历</h3>
+		</div>
+		<div class="strip text-center"><img src="picture/edu.png" alt=" "/></div>
+		<div class="edu-grids">
+			<div class="col-md-4 edu-grid">
+				<p>2015.9 - 2016.1</p><span>Html & Css</span>
+				<img src="picture/arrow.png" alt=""/>
+				<div class="edu-border">
+					<div class="edu-grid-master">
+						<h3>HTML、HTML5、CSS、CSS3</h3>
+						<h4>视频教程 / 书籍</h4>
+					</div>
+					<div class="edu-grid-info">
+						<h5>通过极客学院视频教程学习了基本的html与css知识</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 edu-grid">
+				<p>2016.1 - 2016.3</p><span>JS DOM & JQ</span>
+				<img src="picture/arrow.png" alt=""/>
+				<div class="edu-border">
+					<div class="edu-grid-master">
+						<h3>JavaScript DOM操作、Jquery Dom操作</h3>
+						<h4>视频教程 / 书籍</h4>
+					</div>
+					<div class="edu-grid-info">
+						<h5>视频教程学习了基础JS</h5>
+						<h5>《锋利的Jquery》学习了Jquery</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 edu-grid">
+				<p>2016.4 - 2016.8</p><span>仿站 / 切图</span>
+				<img src="picture/arrow.png" alt=""/>
+				<div class="edu-border">
+					<div class="edu-grid-master">
+						<h3>仿站、小DEMO、psd转HTML切图</h3>
+						<h4>提高熟练度</h4>
+					</div>
+					<div class="edu-grid-info">
+						<h5>期间通过慕课网练习了很多demo</h5>
+						<h5>接一些切图外包提高了代码熟练度</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 edu-grid">
+				<p>2016.7-至今</p><span>JS 高级</span>
+				<img src="picture/arrow.png" alt=""/>
+				<div class="edu-border">
+					<div class="edu-grid-master">
+						<h3>JS高级程序设计、JS面向对象</h3>
+						<h4>《Javascript高级程序设计》</h4>
+					</div>
+					<div class="edu-grid-info">
+						<h5>Javascript的高级特性</h5>
+						<h5>Javsscript面向对象机制</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 edu-grid">
+				<p>2016.9 - 至今</p><span>JS设计模式</span>
+				<img src="picture/arrow.png" alt=""/>
+				<div class="edu-border">
+					<div class="edu-grid-master">
+						<h3>高性能的JS代码</h3>
+						<h4>《Javascript设计模式与开发实践》</h4>
+					</div>
+					<div class="edu-grid-info">
+						<h5>JS设计原则与编程技巧</h5>
+						<h5>针对JacaScript的16个设计模式</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 edu-grid">
+				<p>2016.10 - 11</p><span>Vue JS 2.0</span>
+				<img src="picture/arrow.png" alt=""/>
+				<div class="edu-border">
+					<div class="edu-grid-master">
+						<h3>前端MVVM框架</h3>
+						<h4>Vue.js官方文档</h4>
+					</div>
+					<div class="edu-grid-info">
+						<h5>vue-router&vuex</h5>
+						<h5>尝试写了一些单页spa</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 edu-grid">
+				<p>2016.10</p><span>Webpack&es6</span>
+				<img src="picture/arrow.png" alt=""/>
+				<div class="edu-border">
+					<div class="edu-grid-master">
+						<h3>前端工程化&ECMAscript6</h3>
+						<h4>阮一峰《ECMAScript 6入门》</h4>
+					</div>
+					<div class="edu-grid-info">
+						<h5>了解ES6新特性</h5>
+						<h5>实战项目中运用</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 edu-grid">
+				<p>2016.11-至今</p><span>nodejs</span>
+				<img src="picture/arrow.png" alt=""/>
+				<div class="edu-border">
+					<div class="edu-grid-master">
+						<h3>深入nodejs</h3>
+						<h4>《nodejs开发指南》</h4>
+					</div>
+					<div class="edu-grid-info">
+						<h5>看书看文档敲demo</h5>
+						<h5>关注node社区</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 edu-grid">
+				<p>2016.7 - 至今</p><span>各种杂项</span>
+				<img src="picture/arrow.png" alt=""/>
+				<div class="edu-border">
+					<div class="edu-grid-master">
+						<h3>mui框架、混合app开发、git</h3>
+						<h4>接触了一些更高级的技术</h4>
+					</div>
+					<div class="edu-grid-info">
+						<h5>hbuilder、mui、混合app</h5>
+						<h5>git版本控制...</h5>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	
+</div>
+<!--//education-->
+
+<!--//work-->
+<div class="services-back"></div>
+
+<!--services-->
+<div class="services text-center" id="services" style="overflow: hidden">
+	<div class="container">
+		<div class="ser-info">
+			<h3>SERVICES / 服务</h3>
+		</div>
+		<div class="strip text-center"><img src="picture/ser.png" alt=" "/></div>
+		<div class="ser-grids">
+			<div class="col-md-3 ser-grid">
+				<div class="ser-imagea"></div>
+				<h3>网站设计</h3>
+				<p>个人网站设计，企业网站设计</p>
+			</div>
+			<div class="col-md-3 ser-grid">
+				<div class="ser-imageb"></div>
+				<h3>PSD 转 HTML</h3>
+				<p>psd设计图转html、切图</p>
+			</div>
+			<div class="col-md-3 ser-grid">
+				<div class="ser-imagec"></div>
+				<h3>网页修改</h3>
+				<p>模板修改，网页优化</p>
+			</div>
+			<div class="col-md-3 ser-grid">
+				<div class="ser-imaged"></div>
+				<h3>网站开发</h3>
+				<p>个人网站开发，企业网站开发</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--//services-->
+<!--portfolio-->
+<div class="gallery-section text-center" id="portfolio" style="overflow: hidden">
+	<div class="container">
+		<h3>PRODUCT / 产品</h3>
+		<div class="strip text-center"><img src="picture/port.png" alt=" "/></div>
+		<p>夕阳渐渐西下，那波平如镜的大海在夕阳的轻洒下显得格外抚媚。独自行走在海岸线上，观赏远处的小船驶入夕阳的倒影，聆听淘气的海水拍击沙滩时瞬间的美妙乐曲。面向大海静立，让夕阳照在脸上，慢慢闭上双眼，让自然浸润身心，张开双臂，深呼吸。那淡淡的清爽、那淡淡的舒畅，驱除那淡淡的幽忧，心灵得到升华、得到净化。</p>
+		<div class="gallery-grids">
+			<div class="top-gallery">
+				<div class="col-md-4 gallery-grid gallery1">
+					<img src="picture/20160804.png" class="img-responsive" alt="/">
+					<div class="textbox">
+						<h4>中国砂石协会首页</h4>
+						<p>PSD 转 HTML</p>
+						<div class="button"><a href="pages/2016-8-4/index.html" class="swipebox">VIEW</a></div>
+					</div>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<!--<a href="images/p1.jpg" class="swipebox">-->
+						<img src="picture/20160717.png" class="img-responsive" alt="/">
+						<div class="textbox">
+							<h4>泰品润APP</h4>
+							<p>PSD 转 HTML</p>
+							<div class="button"><a href="pages/2016-7-17/index.html" class="swipebox">VIEW</a></div>
+						</div>
+					<!--</a>-->
+				</div>
+
+				<div class="col-md-4 gallery-grid gallery1">
+					<!--<a href="images/p1.jpg" class="swipebox">-->
+						<img src="picture/20160806.png" class="img-responsive" alt="/">
+						<div class="textbox">
+							<h4>瑞金市红色文化培训中心</h4>
+							<p>PSD 转 HTML</p>
+							<div class="button"><a href="pages/2016-8-6/index.html" class="swipebox">VIEW</a></div>
+						</div>
+					<!--</a>-->
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<!--<a href="images/p1.jpg" class="swipebox">-->
+						<img src="picture/20160820.png" class="img-responsive" alt="/">
+						<div class="textbox">
+							<h4>藤之灵家具厂手机站</h4>
+							<p>PSD 转 HTML</p>
+							<div class="button"><a href="pages/2016-8-20/index.html" class="swipebox">VIEW</a></div>
+						</div>
+					<!--</a>-->
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<!--<a href="images/p1.jpg" class="swipebox">-->
+						<img src="picture/2016-10-26.png" class="img-responsive" alt="/">
+						<div class="textbox">
+							<h4>纳农网站</h4>
+							<p>PSD 转 HTML</p>
+							<div class="button"><a href="pages/2016-10-20/index.html" class="swipebox">VIEW</a></div>
+						</div>
+					<!--</a>-->
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<!--<a href="images/p1.jpg" class="swipebox">-->
+						<img src="picture/20160823.png" class="img-responsive" alt="/">
+						<div class="textbox">
+							<h4>大象贵金属</h4>
+							<p>仿页</p>
+							<div class="button"><a href="pages/2016-8-23/page1.html" class="swipebox">VIEW</a></div>
+						</div>
+					<!--</a>-->
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<!--<a href="images/p1.jpg" class="swipebox">-->
+						<img src="picture/20160923.png" class="img-responsive" alt="/">
+						<div class="textbox">
+							<h4>国际教育</h4>
+							<p>PSD 转 HTML</p>
+							<div class="button"><a href="pages/2016-9-23/index.html" class="swipebox">VIEW</a></div>
+						</div>
+					<!--</a>-->
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<!--<a href="images/p1.jpg" class="swipebox">-->
+						<img src="picture/20160918.png" class="img-responsive" alt="/">
+						<div class="textbox">
+							<h4>西塘品牌策划</h4>
+							<p>PSD 转 HTML</p>
+							<div class="button"><a href="pages/2016-9-18/index.html" class="swipebox">VIEW</a></div>
+						</div>
+					<!--</a>-->
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<!--<a href="images/p1.jpg" class="swipebox">-->
+					<img src="picture/2016-10-26-wap.png" class="img-responsive" alt="/">
+					<div class="textbox">
+						<h4>纳农网站手机站</h4>
+						<p>PSD 转 HTML</p>
+						<div class="button"><a href="pages/2016-10-20-wap/index.html" class="swipebox">VIEW</a></div>
+					</div>
+					<!--</a>-->
+				</div>
+
+				<div class="clearfix"> </div>
+			</div>
+			<a href="http://zbquan.applinzi.com" class="gallery-grids-morelink">查看更多</a>
+			<div style="margin-top:40px;height: 60px;"></div>
+		</div>
+
+		<h3>DEMO / 案例</h3>
+		<div class="strip text-center"><img src="picture/port.png" alt=" "/></div>
+
+		<div class="gallery-grids">
+			<div class="top-gallery">
+				<div class="col-md-4 gallery-grid gallery1">
+					<img src="picture/demo1.png" class="img-responsive" alt="/">
+					<div class="textbox">
+						<h4>搜索大全</h4>
+						<p>Vuejs、Vue-resource</p>
+						<div class="button"><a href="demo/360Search" class="swipebox">VIEW</a></div>
+					</div>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<img src="picture/demo2.png" class="img-responsive" alt="/">
+					<div class="textbox">
+						<h4>银行家算法</h4>
+						<p>VueJs</p>
+						<div class="button"><a href="demo/bank" class="swipebox">VIEW</a></div>
+					</div>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<img src="picture/demo3.png" class="img-responsive" alt="/">
+					<div class="textbox">
+						<h4>酷狗音乐WebApp</h4>
+						<p>Vue全家桶</p>
+						<div class="button"><a href="demo/kugouApp" class="swipebox">VIEW</a></div>
+					</div>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<img src="picture/demo4.png" class="img-responsive" alt="/">
+					<div class="textbox">
+						<h4>中北圈</h4>
+						<p>mui</p>
+						<div class="button"><a href="demo/zbQuanWap" class="swipebox">VIEW</a></div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<!--<a href="http://zbquan.applinzi.com" class="gallery-grids-morelink">查看更多</a>-->
+			<div style="margin-top:40px;height: 60px;"></div>
+		</div>
+	</div>
+</div>
+<!--//portfolio-->
+<!--process-->
+<div class="process text-center" id="process" style="overflow: hidden">
+	<div class="container">
+		<h3>PROCESS / 流程</h3>
+		<div class="strip text-center"><img src="picture/pro.png" alt=" "/></div>
+		<div class="process-girds">
+			<div class="col-md-2 process-pad">
+				<div class="process-gird">
+					<div class="process-imagea"></div>
+					<p>IDEA</p>
+					<p>创意</p>
+					<img src="picture/6.png" alt=""/>
+				</div>
+			</div>
+			<div class="col-md-2 process-pad">
+				<div class="process-gird">
+					<div class="process-imageb"></div>
+					<p>CONCEPT</p>
+					<p>概念</p>
+					<img class="pro-imga" src="picture/6.png" alt=""/>
+				</div>
+			</div>
+			<div class="col-md-2 process-pad">
+				<div class="process-gird">
+					<div class="process-imagec"></div>
+					<p>DESIGN</p>
+					<p>设计</p>
+					<img class="pro-img" src="picture/6.png" alt=""/>
+				</div>
+			</div>
+			<div class="col-md-2 process-pad">
+				<div class="process-gird">
+					<div class="process-imaged"></div>
+					<p>DEVELOP</p>
+					<p>开发</p>
+					<img class="pro-imgb" src="picture/6.png" alt=""/>
+				</div>
+			</div>
+			<div class="col-md-2 process-pad">
+				<div class="process-gird">
+					<div class="process-imagee"></div>
+					<p>TEST</p>
+					<p>测试</p>
+					<img src="picture/6.png" alt=""/>
+				</div>
+			</div>
+			<div class="col-md-2 process-pad">
+				<div class="process-gird">
+					<div class="process-imagef"></div>
+					<p>LAUNCH</p>
+					<p>上线</p>
+
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--//process-->
+<!--<div class="process-back"></div>-->
+<!--testimonials-->
+<!--<div class="testimonials" id="testimonial">-->
+	<!--<div class="container">-->
+		<!--<h3>TESTIMONIAL</h3>-->
+		<!--<div class="strip text-center"><img src="picture/test.png" alt=" "/></div>-->
+			<!--&lt;!&ndash; responsiveslides &ndash;&gt;-->
+					<!--<script src="js/responsiveslides.min.js"></script>-->
+						<!--<script>-->
+							<!--// You can also use "$(window).load(function() {"-->
+							<!--$(function () {-->
+							 <!--// Slideshow 4-->
+							<!--$("#slider3").responsiveSlides({-->
+								<!--auto: true,-->
+								<!--pager: false,-->
+								<!--nav: true,-->
+								<!--speed: 500,-->
+								<!--namespace: "callbacks",-->
+								<!--before: function () {-->
+							<!--$('.events').append("<li>before event fired.</li>");-->
+							<!--},-->
+							<!--after: function () {-->
+								<!--$('.events').append("<li>after event fired.</li>");-->
+								<!--}-->
+								<!--});-->
+								<!--});-->
+						<!--</script>-->
+			<!--&lt;!&ndash; responsiveslides &ndash;&gt;-->
+			<!--<div  id="top" class="callbacks_container">-->
+					<!--<ul class="rslides" id="slider3">-->
+						<!--<li>-->
+							<!--<div class="test-banner">-->
+								<!--<img class="quoa" src="picture/quo2.png" alt=""/>-->
+								<!--<div class="test-left">-->
+									<!--<img src="picture/7.png" alt=""/>-->
+								<!--</div>-->
+								<!--<div class="test-right">-->
+									<!--<p>However unreal it may seem, we are connected, -->
+									<!--you and I. We're on the same curve, just on opposite ends.</p>-->
+									<!--<h4>Sam L. J. - Pulp Fiction</h4>-->
+								<!--</div>-->
+								<!--<div class="clearfix"></div>-->
+								<!--<img class="quo" src="picture/quo1.png" alt=""/>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="test-banner">-->
+								<!--<img class="quoa" src="picture/quo2.png" alt=""/>-->
+								<!--<div class="test-left">-->
+									<!--<img src="picture/eee.png" alt=""/>-->
+								<!--</div>-->
+								<!--<div class="test-right">-->
+									<!--<p>However unreal it may seem, we are connected, -->
+									<!--you and I. We're on the same curve, just on opposite ends.</p>-->
+									<!--<h4>Sam L. J. - Pulp Fiction</h4>-->
+								<!--</div>-->
+								<!--<div class="clearfix"></div>-->
+								<!--<img class="quo" src="picture/quo1.png" alt=""/>-->
+							<!--</div>-->
+						<!--</li>-->
+					<!--</ul>-->
+			<!--</div>-->
+			<!---->
+	<!--</div>-->
+<!--</div>-->
+<!--testimonials-->
+<!--clients-->
+<!--<div class="clients text-center">-->
+	<!--<div class="container">-->
+		<!--<h4>Clients</h4>-->
+		<!--<div class="strip-line"></div>-->
+		<!--<div class="client-grids">-->
+			<!--<div class="col-md-4 cl-grid">-->
+				<!--<div class="client-grid">-->
+					<!--<img src="picture/10.png" alt=""/>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="col-md-4 cl-grid">-->
+				<!--<div class="client-grid">-->
+					<!--<img src="picture/11.png" alt=""/>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="col-md-4 cl-grid">-->
+				<!--<div class="client-grid">-->
+					<!--<img src="picture/12.png" alt=""/>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="clearfix"></div>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+<!--clients-->
+<!--<div class="client-back"></div>-->
+<!--blog-->
+<div class="blog" id="blog" style="overflow: hidden">
+	<div class="container">
+		<div class="blog-info text-center">
+			<h3>BLOG / 博客</h3>
+			<div class="strip text-center"><img src="picture/blog.png" alt=" "/></div>
+		</div>
+		<div class="blog-grids">
+			<div class="col-md-4 blog-text-info">
+				<div class="blog-grid">
+					<a href="#" class="blog-img-link"><img src="picture/blog1.jpg" alt=""/></a>
+					<div class="blog-text">
+						<a href="single.html">Nature is lethal but it doesn't hold a candle to man.</a>
+						<div class="stripa"></div>
+						<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria 
+						and viruses differently than mine. You don't get sick, I do.</p>
+					</div>
+				
+					<div class="blog-para">
+							<ul>
+								<li class="blog-para-read">3 Comments</li>
+								<li class="blog-para-comment">8 Share</li>
+							</ul>
+					</div>
+					<div class="blog-pos">
+
+					</div>
+					<div class="blog-pos-content"><span class="blog-pos-day">5</span><span class="blog-pos-month">May</span></div>
+
+				</div>
+			</div>
+			<div class="col-md-4 blog-text-info">
+				<div class="blog-grid">
+					<a href="#" class="blog-img-link"><img src="picture/blog2.jpg" alt=""/></a>
+					<div class="blog-text">
+						<a href="single.html">Nature is lethal but it doesn't hold a candle to man.</a>
+						<div class="stripa"></div>
+						<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria
+							and viruses differently than mine. You don't get sick, I do.</p>
+					</div>
+
+					<div class="blog-para">
+						<ul>
+							<li class="blog-para-read">3 Comments</li>
+							<li class="blog-para-comment">8 Share</li>
+						</ul>
+					</div>
+					<div class="blog-pos">
+
+					</div>
+					<div class="blog-pos-content"><span class="blog-pos-day">5</span><span class="blog-pos-month">May</span></div>
+				</div>
+			</div>
+			<div class="col-md-4 blog-text-info">
+				<div class="blog-grid">
+					<a href="#" class="blog-img-link"><img src="picture/blog3.png" alt=""/></a>
+					<div class="blog-text">
+						<a href="single.html">Nature is lethal but it doesn't hold a candle to man.</a>
+						<div class="stripa"></div>
+						<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria
+							and viruses differently than mine. You don't get sick, I do.</p>
+					</div>
+
+					<div class="blog-para">
+						<ul>
+							<li class="blog-para-read">3 Comments</li>
+							<li class="blog-para-comment">8 Share</li>
+						</ul>
+					</div>
+					<div class="blog-pos">
+
+					</div>
+					<div class="blog-pos-content"><span class="blog-pos-day">5</span><span class="blog-pos-month">May</span></div>
+				</div>
+			</div>
+			<div class="col-md-4 blog-text-info">
+				<div class="blog-grid">
+					<a href="#" class="blog-img-link"><img src="picture/blog4.png" alt=""/></a>
+					<div class="blog-text">
+						<a href="single.html">Nature is lethal but it doesn't hold a candle to man.</a>
+						<div class="stripa"></div>
+						<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria
+							and viruses differently than mine. You don't get sick, I do.</p>
+					</div>
+
+					<div class="blog-para">
+						<ul>
+							<li class="blog-para-read">3 Comments</li>
+							<li class="blog-para-comment">8 Share</li>
+						</ul>
+					</div>
+					<div class="blog-pos">
+
+					</div>
+					<div class="blog-pos-content"><span class="blog-pos-day">5</span><span class="blog-pos-month">May</span></div>
+
+				</div>
+			</div>
+			<div class="col-md-4 blog-text-info">
+				<div class="blog-grid">
+					<a href="#" class="blog-img-link"><img src="picture/blog5.jpg" alt=""/></a>
+					<div class="blog-text">
+						<a href="single.html">Nature is lethal but it doesn't hold a candle to man.</a>
+						<div class="stripa"></div>
+						<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria
+							and viruses differently than mine. You don't get sick, I do.</p>
+					</div>
+
+					<div class="blog-para">
+						<ul>
+							<li class="blog-para-read">3 Comments</li>
+							<li class="blog-para-comment">8 Share</li>
+						</ul>
+					</div>
+					<div class="blog-pos">
+
+					</div>
+					<div class="blog-pos-content"><span class="blog-pos-day">5</span><span class="blog-pos-month">May</span></div>
+				</div>
+			</div>
+			<div class="col-md-4 blog-text-info">
+				<div class="blog-grid">
+					<a href="#" class="blog-img-link"><img src="picture/blog6.jpg" alt=""/></a>
+					<div class="blog-text">
+						<a href="single.html">Nature is lethal but it doesn't hold a candle to man.</a>
+						<div class="stripa"></div>
+						<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria
+							and viruses differently than mine. You don't get sick, I do.</p>
+					</div>
+
+					<div class="blog-para">
+						<ul>
+							<li class="blog-para-read">3 Comments</li>
+							<li class="blog-para-comment">8 Share</li>
+						</ul>
+					</div>
+					<div class="blog-pos">
+
+					</div>
+					<div class="blog-pos-content"><span class="blog-pos-day">5</span><span class="blog-pos-month">May</span></div>
+				</div>
+			</div>
+
+			<div class="clearfix"></div>
+		</div>
+		<a href="http://www.cnblogs.com/smartXiang/" class="blog-more-link">查看更多</a>
+	</div>
+</div>
+<script>
+	$(function(){
+		function setBlogPos(){
+			var c=document.body.clientWidth;
+			var $blogImg=$('.blog-grid img');
+
+			var $blogPos=$('.blog-pos');
+			var $blogPosContent=$('.blog-pos-content');
+
+
+			var image=new Image();
+			image.src=$blogImg.eq(0).attr("src");
+			var imgInter=setInterval(function(){
+				if(image.complete){
+					var imgHeight=$blogImg.eq(0).height();
+					if(c>768){
+						$blogPos.css({'top':imgHeight-30});
+						$blogPosContent.css({'top':imgHeight-40});
+					}else if(c<=768&&c>641){
+						$blogPos.css({'top':imgHeight-24});
+						$blogPosContent.css({'top':imgHeight-34});
+					}else if(c<=640&&c>481){
+						$blogPos.css({'top':imgHeight-21});
+						$blogPosContent.css({'top':imgHeight-32});
+					}else if(c<=480&&c>321){
+						$blogPos.css({'top':imgHeight-19});
+						$blogPosContent.css({'top':imgHeight-32});
+					}else if(c<=320){
+						$blogPos.css({'top':imgHeight-19});
+						$blogPosContent.css({'top':imgHeight-32});
+					}
+					clearInterval(imgInter);
+				}
+			})
+
+
+		}
+
+		setBlogPos();
+//		setTimeout(setBlogPos,2000);
+
+		$(window).resize(function(){
+			setBlogPos();
+		});
+	})
+</script>
+<!--//blog-->
+<div class="contact-back"></div>
+<!--contact-->
+<div class="contact" id="contact" style="overflow: hidden">
+	<div class="container">
+		<div class="contact-info text-center">
+			<h3>CONTACT / 联系</h3>
+			<div class="strip text-center"><img src="picture/con1.png" alt=" "/></div>
+		</div>
+		<div class="contact-grids">
+			<div class="contact-left" style="text-align: center;">
+				<h3>Say Hi to Me</h3>
+				<div class="stripb"></div>
+				<ul>
+					<li>山西省中北大学 </li>
+
+					<li style="margin-top: 0px;font-weight: 600">TEL:15835134145</li>
+					<li STYLE="font-weight: 600">EMAIL:lavyun@163.com</li>
+					<li style="font-weight: 600;margin-top: 0px;"><a href="http://www.cnblogs.com/smartXiang/">博客园:SmartXiang</a></li>
+					<li style="font-weight: 600;margin-top: 0px;"><a href="https://github.com/lavyun">Github:lavyun</a></li>
+					<!--<li><a href="#">www.</a></li>-->
+				</ul>
+			</div>
+			<!-- <div class="col-md-7 contact-right">
+				<h3>Drop Me A Line</h3>
+				<div class="stripb"></div>
+				<form>
+					<input type="text" placeholder="姓名" required="">
+					<input type="text" placeholder="联系电话" required="">
+					<textarea type="text"  required="" placeholder="在此输入留言..."></textarea>
+					<input type="submit" value="SEND" onclick="alert('留言功能暂未写好 O.O')">
+				</form>
+			</div> -->
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+
+<!--//contact-->
+<div class="footer-top"></div>
+<!--resume-->
+<div class="resume text-center">
+
+	<div class="container">
+		<div class="strip text-center><a href="#"><img src="picture/down.png" alt=" "/></a></div>
+		<div class="down" style="margin-bottom: 40px;"><a href="javascript:;" onclick="alert('并没有简历，将来会有的 O.O')">Download My Resume</a></div>
+					<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="js/uyan.js"></script>
+<!-- UY END -->
+	</div>
+</div>
+<!--//resume-->
+
+<!--footer-->
+<div class="footer">
+	<div class="container">
+		<p>&copy; 2016 高翔&nbsp;<a href="javascript:;">山西-中北大学-计算机与控制工程学院-网络工程&nbsp;</a>
+			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260541599'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260541599%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+		</p>
+	</div>
+
+</div>
+<!--//footer-->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+
+
+//			banner toggle
+			var bannerFlag=0;
+			var banenrTime=setInterval(function(){
+				bannerFlag++;
+				var flag=bannerFlag%3;
+				var url='./images/banner'+flag+'.png';
+				$('.banner').animate({'opacity':'0'},0).css({'background':'url('images/bbcaf5e26d1148b9ba6106ea1469a6f8.gif') no-repeat 0px 0px',"backgroundSize":"cover"}).animate({'opacity':'1'},1500);
+
+			},8000);
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+<script src="js/blogrequest.js"></script>
+
+</body>
+</html>
