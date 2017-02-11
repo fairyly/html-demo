@@ -1,0 +1,109 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfz7 edit_common" id="edit_common">
+        <div class="editfz7_con"> 
+          <div class="editfz7_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/fz7up1.jpg">
+          </div>
+          <div class="editfz7_conbg2"></div>
+          <div class="editfz7_up1">
+                  <div class="editfz7_up11">
+                      <div class="editfz7_fileInput">
+                            <input type="file" capture="camera" name="editfz7_upfile" id="editfz7_upfile" style="display:none" class="editfz7_upfile" onchange="document.getElementById('editfz7_upfileResult').innerHTML=this.value;"/>
+                            <input class="editfz7_upFileBtn" id="editfz7_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfz7_upfile').click();" />
+                      </div>
+                  </div>
+          </div>
+          <div class="editfz7_con1">
+                <p contenteditable="true">微友团队诚邀你的加盟</p>
+          </div>
+          <div class="editfz7_con2">
+                <p contenteditable="true">任何现状都是在考验我们的心理素质！</p>
+                <p contenteditable="true">任何市场也都是在遵循商业的自然法则！</p>
+                <p contenteditable="true">适者生存，优胜劣汰！一想二干三成功，一</p>
+                <p contenteditable="true">等二看三落空， 等三年，一成不变， 干三</p>
+                <p contenteditable="true">年，风光无限！赢在行动，输在犹豫！错过</p>
+                <p contenteditable="true">的不只是机遇！</p>
+          </div>
+          <div class="editfz7_con3">
+                <p contenteditable="true"><span>微信：WX888888</span><span>电话：18888888888</span></p>
+          </div>
+          
+        </div>
+        <div class="shengchengfz7">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图招商第七个页面结束 -->
+     
+     <script type="text/javascript">
+        $("#editfz7_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editfz7_conbg1 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")");
+          }
+        });
+    $("#editfz7_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);    
+        if (objUrl) {
+          $(".editfz7_con2 img").attr("src", objUrl);
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengfz7").click(function(){
+                
+                $(".shengchengfz7").hide();
+                $(".editfz7_up1").hide();
+                $(".editfz7_up2").hide();
+                $(".editfz7_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfz7_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                            
+                            $(".editfz7").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图招商第七个页面结束
+     </script>
+<include file="poster:footer" />

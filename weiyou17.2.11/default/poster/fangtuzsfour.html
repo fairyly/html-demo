@@ -1,0 +1,111 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfz4 edit_common" id="edit_common">
+        <div class="editfz4_con"> 
+          <div class="editfz4_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/fz4up1.jpg">
+          </div>
+          <div class="editfz4_conbg2"></div>
+          <div class="editfz4_up1">
+                  <div class="editfz4_up11">
+                      <div class="editfz4_fileInput">
+                            <input type="file" capture="camera" name="editfz4_upfile" id="editfz4_upfile" style="display:none" class="editfz4_upfile" onchange="document.getElementById('editfz4_upfileResult').innerHTML=this.value;"/>
+                            <input class="editfz4_upFileBtn" id="editfz4_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfz4_upfile').click();" />
+                      </div>
+                  </div>
+          </div>
+          <div class="editfz4_con1">
+                <p contenteditable="true">零基础培训</p>
+          </div>
+          <div class="editfz4_con2">
+                    <p contenteditable="true">培训课程：</p>
+                    <p contenteditable="true">1、零基础使用课程</p>
+                    <p contenteditable="true">2、快速上手，即学即用</p>
+                    <p contenteditable="true">3、让你转钱更容易</p>
+                    <p contenteditable="true">4、让你玩转微商更简单</p>
+          </div>
+          <div class="editfz4_con3">
+                    <p contenteditable="true">微友资深讲师：李老师</p>
+                    <p contenteditable="true">微友团队创始人</p>
+          </div>
+          
+        </div>
+        <div class="shengchengfz4 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图招商第四个页面结束 -->
+     
+     <script type="text/javascript">
+        $("#editfz4_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editfz4_conbg1 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")"); 
+          }
+        });
+    $("#editfz4_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+            
+        if (objUrl) {
+          $(".editfz4_con3 img").attr("src", objUrl);
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfz4").click(function(){
+                
+                $(".shengchengfz4").hide();
+                $(".editfz4_up1").hide();
+                $(".editfz4_up2").hide();
+                $(".editfz4_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfz4_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                         
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                             
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                             
+                            $(".editfz4").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图招商第四个页面结束
+     </script>
+<include file="poster:footer" />

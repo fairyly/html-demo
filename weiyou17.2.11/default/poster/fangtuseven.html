@@ -1,0 +1,117 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editf7 edit_common" id="edit_common">
+        <div class="editf7_con"> 
+          <div class="editf7_conbg1">
+            <img src="__PUBLIC__/poster/images/f7up1.jpg">
+          </div>
+          <div class="editf7_conbg2">
+            <div class="editf7_up1">
+                        <div class="editf7_up11">
+                            <div class="editf7_fileInput">
+                                  <input type="file" capture="camera" name="editf7_upfile" id="editf7_upfile" style="display:none" class="editf7_upfile" onchange="document.getElementById('editf7_upfileResult').innerHTML=this.value;"/>
+                                  <input class="editf7_upFileBtn" id="editf7_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf7_upfile').click();" />
+                            </div>
+                        </div>
+            </div> 
+            <div class="editf7_con1">
+                  <p contenteditable="true">微信:wx88888888 </p>
+            </div>
+            <div class="editf7_con2">
+                  <p contenteditable="true">微友团队欢迎你的加入</p>
+            </div>
+            <div class="editf7_con3">
+                  <div class="editf7_con3pic" id="editmove">
+                      <img src="__PUBLIC__/poster/images/f7up2.jpg">
+                  </div>
+                  <div class="editf7_up2">
+                      <div class="editf7_up22">
+                          <div class="editf7_fileInput2 left">
+                                <input type="file" capture="camera" name="editf7_upfile2" id="editf7_upfile2" style="display:none" class="editf7_upfile2" onchange="document.getElementById('editf7_upfileResult2').innerHTML=this.value;"/>
+                                <input class="editf7_upFileBtn2" id="editf7_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editf7_upfile2').click();" />
+                          </div>
+                      </div>
+                </div> 
+            </div>
+            
+          </div>
+        </div>
+        <div class="shengchengf7 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第七个页面结束 -->
+     
+     <script type="text/javascript">
+        $("#editf7_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+         $(".editf7_conbg1 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")");
+          }
+        });
+    $("#editf7_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+            
+        if (objUrl) {
+          $(".editf7_con3pic img").attr("src", objUrl);
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengf7").click(function(){
+                
+                $(".shengchengf7").hide();
+                // $(".edit3").show();
+                $(".editf7_up1").hide();
+                $(".editf7_up2").hide();
+                $(".editf7_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf7_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                         
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".editf7").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第七个页面结束
+     </script>
+<include file="poster:footer" />

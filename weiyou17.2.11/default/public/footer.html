@@ -1,0 +1,81 @@
+﻿
+        <div class="footer_center">
+            <div class="footer">
+                <!-- <a id="tishi" href="http://www.lzytsy.com/message.html?openid={$_SESSION['user']['openid']}"> -->
+                <a href="{:U('poster/index')}">
+                    <span class="iconfont">&#xe968;</span>
+                    <span>
+                        海报
+                    </span>
+                </a>
+                <a href="http://mp.weixin.qq.com/mp/homepage?__biz=MjM5MDQzMzg2MA==&hid=4&sn=80e2cd205818d4dbf2803129e3b8caa8">
+                    <span class="iconfont">&#xe631;</span>
+                    <span>
+                        培训
+                    </span>
+                </a>
+                <a href="{:U('index/index')}">
+                    <span class="iconfont">&#xe60d;</span>
+                    <span>
+                        微友
+                    </span>
+                </a>
+                <!-- <a href="{:U('user/vip')}">
+                    <span>
+                        VIP
+                    </span>
+                </a> -->
+                <a href="{:U('brand/index')}">
+                    <span class="iconfont">&#xe63f;</span>
+                    <span>
+                        货源
+                    </span>
+                </a>
+                <a href="{:U('user/index')}">
+                    <span class="iconfont">&#xe677;</span>
+                    <span>
+                        我
+                    </span>
+                </a>
+            </div>
+        </div>
+        <script>
+		fromid='{$_SESSION['user']['openid']}';
+            $(function() {
+				var id=2;
+				var model_name="{$Think.MODULE_NAME}";
+				var action_name="{$Think.ACTION_NAME}";
+				if(model_name=='user'){
+					if(action_name=='vip'){
+						id=2;
+					}else{
+						id=4;
+					}
+				}
+				if(model_name=='card'){
+                    if(action_name=='group_lists' || action_name == 'detail' ){
+                        id=0;
+                    }else{
+                        id=1;
+                    }
+
+					
+				}
+                if(model_name=='brand'){
+                    id=3;                    
+                }
+				//选中
+				check_status(id);
+            })
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "//hm.baidu.com/hm.js?c9734d9409ca75dbd1591214caf51074";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+
+        </script>
+		<script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/tishi.js"></script>
+    </body>
+</html>

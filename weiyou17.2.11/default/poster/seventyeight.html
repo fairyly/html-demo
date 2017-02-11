@@ -1,0 +1,94 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit78 edit_common" id="edit_common">
+        <div class="edit78_con">
+          <div class="edit78_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/m78up.jpg" alt="uppic">
+          </div>
+          <div class="edit78_conbg2"></div>
+          <div class="edit78_con1">
+             <p contenteditable="true">圣诞巨惠 感恩回馈</p>
+             <p contenteditable="true">输/在/犹/豫/赢/在/行/动</p>
+             <p contenteditable="true">微信:wx88888888     QQ:88888888</p>
+             <p contenteditable="true">微友家族祝贺大家圣诞快乐</p>
+          </div>
+          <div class="edit78_up1"> 
+                <div class="edit78_up11">
+                    <div class="edit78_fileInput left">
+                          <input type="file" capture="camera" name="edit78_upfile" id="edit78_upfile" style="display:none" class="edit78_upfile" onchange="document.getElementById('edit78_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit78_upFileBtn" id="edit78_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit78_upfile').click();"/>
+                    </div>
+                </div>
+          </div>
+         
+        </div>
+        <div class="shengcheng78 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第七十八个页面结束 -->
+     <script type="text/javascript">
+        $("#edit78_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit78_conbg11 img").attr("src", objUrl);
+            }
+        });
+        $("#edit78_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit78_con4 img").attr("src", objUrl);
+            }
+        });
+         //建立一个可存取到该file的url
+        function getObjectURL(file){
+	        var url = null; 
+	        if (window.createObjectURL!=undefined) { // basic
+	          url = window.createObjectURL(file);
+	        } else if (window.URL!=undefined) { // mozilla(firefox)
+	          url = window.URL.createObjectURL(file);
+	        } else if (window.webkitURL!=undefined) { // webkit or chrome
+	          url = window.webkitURL.createObjectURL(file);
+	        }
+	        return url;
+	    }
+        $(".shengcheng78").click(function(){
+                
+                $(".shengcheng78").hide();
+                $(".edit78_up1").hide();
+                $(".edit78_up2").hide();
+                $(".edit78_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit78_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base78图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit78").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第七十八个页面结束
+     </script>
+<include file="poster:footer" />

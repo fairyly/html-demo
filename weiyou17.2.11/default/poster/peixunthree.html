@@ -1,0 +1,112 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editp3 edit_common" id="edit_common">
+        <div class="editp3_con">
+            <div class="editp3_conbg">
+              <div class="editp3_con1"> 
+                  <div class="editp3_con1pic">
+                  </div>
+                  <div class="editp3_con1txt">
+                       <p contenteditable="true">微商基础培训</p>
+                       <p contenteditable="true">微友课堂开讲啦</p>
+                  </div>
+                  <div class="editp3_con1pic2">
+                        <img src="__PUBLIC__/poster/images/mpup2.jpg"/>
+                  </div>
+                  <div class="editp3_up1">
+                      <div class="editp3_up11">
+                          <div class="editp3_fileInput left">
+                                <input type="file" capture="camera" name="editp3_upfile" id="editp3_upfile" style="display:none" class="editp3_upfile" onchange="document.getElementById('editp3_upfileResult').innerHTML=this.value;"/>
+                                <input class="editp3_upFileBtn" id="editp3_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editp3_upfile').click();" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="editp3_con1btn">
+                      <div class="editp3_con1btn1">
+                          <p contenteditable="true">玩赚全民微商运营</p>
+                          <p contenteditable="true">零基础使用课程</p>
+                      </div>
+                  </div>
+                  <div class="editp3_con1txt2">
+                         <p contenteditable="true">微友学堂，火热报名</p>
+                  </div>
+              </div>
+              <div class="editp3_con2">
+                  <div class="editp3_con21">
+                  </div><div class="editp3_con22">
+                      <p contenteditable="true">Q Q ：88888888</p>
+                      <p contenteditable="true">微信：WX888888</p>
+                      <p contenteditable="true">电话：18888888888</p>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="shengchengp3 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 培训第三个页面结束 -->
+    
+<script type="text/javascript">
+  
+  $("#editp3_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editp3_con1pic2 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")");
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengp3").click(function(){
+                
+                $(".shengchengp3").hide();
+                // $(".edit3").show();
+                $(".editp3_up1").hide();
+                $(".editp3_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editp3_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editp3").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //培训第三个页面结束
+</script>
+<include file="poster:footer" />

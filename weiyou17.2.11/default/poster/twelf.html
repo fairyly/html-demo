@@ -1,0 +1,205 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit16 edit_common" id="edit_common">
+        <div class="edit16_con"> 
+          <div class="edit16_con1">
+             <div class="edit16_con1tit"><p contenteditable="true">微友品牌团队</p></div>
+             <div class="edit16_con1p">
+               <p contenteditable="true">没有行动，懒惰就会生根发芽!没有梦想，堕落就会生根发芽!</p>
+               <p contenteditable="true">时间越长，根就越深!</p>
+               <p contenteditable="true">到时候想站起来是件很困难的事!所以，为了很好的站着，</p>
+               <p contenteditable="true">就不要停下你的脚步!越努力越幸运</p>
+             </div>
+          </div>
+          <div class="edit16_con2">
+              <div class="edit16_con21pic" id="editmovede">
+                    <img src="__PUBLIC__/poster/images/m9up1.jpg"/>
+              </div>
+              <div class="edit16_up1"> 
+                  <div class="edit16_up11">
+                      <div class="edit16_fileInput left">
+                            <input type="file" capture="camera" name="edit16_upfile" id="edit16_upfile" style="display:none" class="edit16_upfile" onchange="document.getElementById('edit16_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit16_upFileBtn" id="edit16_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit16_upfile').click();" />
+                      </div>
+                  </div>
+              </div>
+              <div class="edit16_con22pic" id="editmovetwode">
+                    <img src="__PUBLIC__/poster/images/m9up2.jpg"/>
+              </div>
+              <div class="edit16_up12"> 
+                  <div class="edit16_up112">
+                      <div class="edit16_fileInput12 left">
+                            <input type="file" capture="camera" name="edit16_upfile12" id="edit16_upfile12" style="display:none" class="edit16_upfile12" onchange="document.getElementById('edit16_upfileResult12').innerHTML=this.value;"/>
+                            <input class="edit16_upFileBtn12" id="edit16_upfileResult12" type="button" value="上传图片" onclick="document.getElementById('edit16_upfile12').click();" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="edit16_con3">
+              <div class="edit16_con31"> 
+                  <div class="edit16_con31txt">
+                    <p contenteditable="true">我是微友我自豪</p>
+                  </div> 
+              </div>
+          </div>  
+          <div class="edit16_con4">
+                <div class="edit16_con44pic">
+                   <img src="__PUBLIC__/poster/images/mpup2.jpg">
+                </div>
+                <div class="edit16_up2">
+                    <div class="edit16_up22">
+                        <div class="edit16_fileInput2 left">
+                              <input type="file" capture="camera" name="edit16_upfile2" id="edit16_upfile2" style="display:none" class="edit16_upfile2" onchange="document.getElementById('edit16_upfileResult2').innerHTML=this.value;"/>
+                              <input class="edit16_upFileBtn2" id="edit16_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit16_upfile2').click();" />
+                        </div>
+                    </div>
+                  </div>
+              </div>  
+        </div>
+        <div class="shengcheng16 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十三个页面结束 -->
+    <script type="text/javascript">
+       // 获取节点
+      var block16 = document.getElementById("editmovede");
+      var oW16,oH66;
+      // 绑定touchstart事件
+      block16.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW16 = touches.clientX - block16.offsetLeft;
+       oH16 = touches.clientY - block16.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block16.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW16;
+       var oTop = touches.clientY - oH16;
+       // if(oLeft < 0) {//去掉这部分可以让自由拖放不限制
+       //  oLeft = 0;//改过-150
+       // }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+       // }
+       block16.style.left = oLeft + "px";
+       block16.style.top = oTop + "px";
+      },false);
+       
+      block16.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+     <script type="text/javascript">
+       // 获取节点
+      var block162 = document.getElementById("editmovetwode");
+      var oW162,oH162;
+      // 绑定touchstart事件
+      block162.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW162 = touches.clientX - block162.offsetLeft;
+       oH162 = touches.clientY - block162.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block162.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW162;
+       var oTop = touches.clientY - oH162;
+       // if(oLeft < 0) {//去掉这部分可以让自由拖放不限制
+       //  oLeft = 0;//改过-150
+       // }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+       // }
+       block162.style.left = oLeft + "px";
+       block162.style.top = oTop + "px";
+      },false);
+       
+      block162.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+    <script type="text/javascript">
+        $("#edit16_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+          $(".edit16_con21pic img").attr("src", objUrl);
+        }
+      });
+        $("#edit16_upfile12").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".edit16_con22pic img").attr("src", objUrl);
+        }
+      });
+        $("#edit16_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".edit16_con44pic img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng16").click(function(){
+                
+                $(".shengcheng16").hide();
+                $(".edit16_up1").hide();
+                $(".edit16_up12").hide();
+                $(".edit16_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                $(".edit16_con").css("background","url(__PUBLIC__/poster/images/m9bg.jpg)");
+                $(".edit16_con").css("background-size","100% 100%");
+                html2canvas($(".edit16_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit16").hide();
+                        }
+                });
+        });
+    //第十六个页面结束
+    </script>
+    <include file="poster:footer" />

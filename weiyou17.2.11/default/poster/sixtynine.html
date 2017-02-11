@@ -1,0 +1,94 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit69 edit_common" id="edit_common">
+        <div class="edit69_con">
+          <div class="edit69_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/m69up1.jpg" alt="uppic">
+          </div>
+          <div class="edit69_conbg2"></div>
+          <div class="edit69_con1">
+             <p contenteditable="true">—预售好货提前抢购—</p>
+             <p contenteditable="true">价格  礼品  都已备好</p>
+             <p contenteditable="true">就等你来</p>
+          </div>
+         
+          <div class="edit69_up1"> 
+                <div class="edit69_up11">
+                    <div class="edit69_fileInput left">
+                          <input type="file" capture="camera" name="edit69_upfile" id="edit69_upfile" style="display:none" class="edit69_upfile" onchange="document.getElementById('edit69_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit69_upFileBtn" id="edit69_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit69_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          
+        </div>
+        <div class="shengcheng69 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第六十九个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#edit69_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit69_conbg11 img").attr("src", objUrl);
+            }
+        });
+         //建立一个可存取到该file的url
+        function getObjectURL(file){
+	        var url = null; 
+	        if (window.createObjectURL!=undefined) { // basic
+	          url = window.createObjectURL(file);
+	        } else if (window.URL!=undefined) { // mozilla(firefox)
+	          url = window.URL.createObjectURL(file);
+	        } else if (window.webkitURL!=undefined) { // webkit or chrome
+	          url = window.webkitURL.createObjectURL(file);
+	        }
+	        return url;
+	    }
+        $(".shengcheng69").click(function(){
+                
+                $(".shengcheng69").hide();
+                $(".edit69_up1").hide();
+                $(".edit69_up2").hide();
+                $(".edit69_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit69_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base69图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                   var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit69").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第六十九个页面结束
+     </script>
+<include file="poster:footer" />

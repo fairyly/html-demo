@@ -1,0 +1,118 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editpzi edit_common" id="edit_common">
+        <div class="editpzi_con"> 
+          <div class="editpzi_con1">
+             <div class="editpzi_con1txt">
+               <p contenteditable="true">想学习视频营销</p>
+               <p contenteditable="true">我有制作方法 你有执行力</p>
+               <p contenteditable="true">还有什么要犹豫！</p>
+               <p contenteditable="true">赶快加入红领巾联盟</p>
+             </div>
+          </div>
+          <div class="editpzi_con2">
+              <div class="editpzi_con21pic" id="editmove">
+                    <img src="__PUBLIC__/poster/images/pziup1.jpg"/>
+              </div>
+              <div class="editpzi_up1"> 
+                  <div class="editpzi_up11">
+                      <div class="editpzi_fileInput left">
+                            <input type="file" capture="camera" name="editpzi_upfile" id="editpzi_upfile" style="display:none" class="editpzi_upfile" onchange="document.getElementById('editpzi_upfileResult').innerHTML=this.value;"/>
+                            <input class="editpzi_upFileBtn" id="editpzi_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editpzi_upfile').click();" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="editpzi_con3">
+              <div class="editpzi_con31">
+                <div class="editpzi_con31pic1">
+                      <img src="__PUBLIC__/poster/images/mpup2.jpg">
+                      <p>关注扫一扫</p>
+                  </div><div class="editpzi_con31pic">
+                      <img src="__PUBLIC__/poster/images/pziup2.png">
+                      <p>关注红领巾联盟</p>
+                  </div>
+                  <div class="editpzi_up2">
+                      <div class="editpzi_up22">
+                          <div class="editpzi_fileInput2 left">
+                                <input type="file" capture="camera" name="editpzi_upfile2" id="editpzi_upfile2" style="display:none" class="editpzi_upfile2" onchange="document.getElementById('editpzi_upfileResult2').innerHTML=this.value;"/>
+                                <input class="editpzi_upFileBtn2" id="editpzi_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editpzi_upfile2').click();" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengpzi shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 培训紫色页面结束 -->
+    
+    <script type="text/javascript">    
+        $("#editpzi_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editpzi_con21pic img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")");
+          }
+        });
+    $("#editpzi_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".editpzi_con31pic1 img").attr("src", objUrl);
+        }
+      });    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengpzi").click(function(){
+                
+                $(".shengchengpzi").hide();
+                $(".editpzi_up1").hide();
+                $(".editpzi_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editpzi_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                var src=data;
+                                $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editpzi").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //培训紫色页面结束
+    </script>
+    <include file="poster:footer" />

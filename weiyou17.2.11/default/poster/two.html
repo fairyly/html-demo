@@ -1,0 +1,98 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+        <div class="edit2 edit_common" id="edit_common">
+            <div class="img2">
+                <div class="mm2" id="editmove">
+                    <img src="__PUBLIC__/poster/images/mm1.jpg"/>
+                </div>
+                <div class="up3">
+                    <div class="up33">
+                        <div class="fileInput3">
+                              <input type="file" capture="camera" name="upfile3" id="upfile3" style="display:none" class="upfile3" onchange="document.getElementById('upfileResult3').innerHTML=this.value;"/>
+                              <input class="upFileBtn3" id="upfileResult3" type="button" value="上传图片" onclick="document.getElementById('upfile3').click();" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img22">
+                <div class="mm22">
+                    <img src="__PUBLIC__/poster/images/mm2.jpg" style="width:10rem;height:10rem"/>
+                    <p style="font-size:1.2rem">扫一扫加我微信</p>
+                </div>
+                <div class="up4">
+                    <div class="up44">
+                        <div class="fileInput4">
+                              <input type="file" capture="camera" name="upfile4" id="upfile4" style="display:none" class="upfile4" onchange="document.getElementById('upfileResult4').innerHTML=this.value;"/>
+                              <input class="upFileBtn4" id="upfileResult4" type="button" value="上传图片" onclick="document.getElementById('upfile4').click();" />
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div><!-- edit2结束 -->
+        <div class="shengcheng2 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>
+     </div>   
+     <!-- 第二个页面结束 -->
+     <script type="text/javascript">
+            $("#upfile3").change(function(){
+                var objUrl = getObjectURL(this.files[0]);
+                if (objUrl) {
+                    $(".mm2 img").attr("src", objUrl);
+                }
+            });
+            $("#upfile4").change(function(){
+                var objUrl = getObjectURL(this.files[0]);
+                if (objUrl) {
+                    $(".mm22 img").attr("src", objUrl) ;
+                }
+            });
+             //建立一个可存取到该file的url
+            function getObjectURL(file) {
+                var url = null; 
+                if (window.createObjectURL!=undefined) { // basic
+                    url = window.createObjectURL(file);
+                } else if (window.URL!=undefined) { // mozilla(firefox)
+                    url = window.URL.createObjectURL(file);
+                } else if (window.webkitURL!=undefined) { // webkit or chrome
+                    url = window.webkitURL.createObjectURL(file);
+                }
+                return url;
+            }
+            $(".shengcheng2").click(function(){    
+                $(".shengcheng2").hide();
+                $(".up3").hide();
+                $(".up4").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                html2canvas($(".edit2"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                            $.ajax({  
+                                type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                                data : {data:dataUrl},  
+                                // timeout : 60000,  
+                                success : function(data){  
+                                    var src=data;
+                                    $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                    $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                                }  
+                            });
+                            $(".edit2").hide();
+                        }
+                });
+
+            });
+            //生成第二个页面结束
+     </script>
+    <include file="poster:footer" />
