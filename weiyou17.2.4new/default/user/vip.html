@@ -1,0 +1,184 @@
+﻿<include file="public:header" />
+<script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/jweixin-1.0.0.js"></script>
+<script>
+    //调用微信JS api 支付
+    function jsApiCall(data) {
+        WeixinJSBridge.invoke('getBrandWCPayRequest', {
+            "appId": data.appId,
+            "timeStamp": data.timeStamp,
+            "nonceStr": data.nonceStr,
+            "package": data.package,
+            "signType": data.signType,
+            "paySign": data.paySign
+        },
+        function(res) {
+            WeixinJSBridge.log(res.err_msg);
+            //alert('支付错误提示：'+'=='+res.err_code+'=='+res.err_desc+'=='+res.err_msg);
+            if (res.err_msg == 'ok') {
+                window.location.href = "/index.php/user-index.html";
+            } else {
+                window.location.reload();
+            }
+        });
+    }
+    function callpay(val) {
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        } else {
+            $.post("{:U('user/vip')}", {
+                type: val
+            },
+            function(result) {
+                if (result.status == 0) {
+                    alert(result.msg);
+                } else {
+                    jsApiCall(result.data);
+                }
+            })
+        }
+    }
+    $(function() {
+        $('.pays').click(function() {
+            var $val = $(this).attr('data');
+            callpay($val);
+            $(this).die();
+        })
+
+    })
+</script>
+<style>
+    .header>a:first-child>span{background:none;}
+</style>
+<div class="header">
+    <a href="javascript:history.back()">
+        <span>
+        </span>
+    </a>
+    <a>
+        VIP特权
+    </a>
+    <a>
+    </a>
+</div>
+<div id="main">
+    <div class="vip_content">
+        <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/banner_vip_golden_no_year.jpg" />
+        <p>
+            微友VIP六大特权
+        </p>
+        <div class="vip_small_c">
+            <!-- <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/121_04.jpg" />
+            <h3>
+                VIP直播培训
+            </h3>
+            <p>
+                每周二、周四、周六红点VIP课堂
+            </p> -->
+            <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/121_07.jpg" />
+            <h3>
+                 300倍加速
+            </h3>
+            <p>
+                 普通会员24小时发布一次，VIP会员24小时发布300次.(5分钟一次)
+            </p>
+            <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/121_09.jpg" />
+            <h3>
+                身份名牌
+            </h3>
+            <p>
+                VIP身份名牌-我的身份，如影随行
+            </p>
+            <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/121_12.jpg" />
+            <h3>
+                红色昵称
+            </h3>
+            <p>
+                尊贵红色 与众不同
+            </p>
+            <!-- 
+            <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/121_12.jpg" />
+            <h3>
+                直播培训
+            </h3>
+            <p>
+                微哥偕同知名微商大咖，实战精英为大家做微商直播培训
+            </p> -->
+            <!-- <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/121_14.jpg" />
+            <h3>
+                推广社区
+            </h3>
+            <p>
+                推广产品，招收代理，交流学习...尽在VIP专属推广社区
+            </p> -->
+            <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/121_17.jpg" />
+            <h3>
+                直播培训
+            </h3>
+            <p>
+                微哥携弟子班为大家做专属社群直播培训
+            </p>
+            <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/121_15.jpg" />
+            <h3>
+                高端人脉群
+            </h3>
+            <p>
+                加入“千万俱乐部”获取高端人脉资源，高端微商培训
+            </p>
+            <img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/121_18.jpg" />
+            <h3>
+                货源发布
+            </h3>
+            <p>
+                发布货源招代理，百万微商首选你
+            </p>
+        </div>
+        <div class="vip_content_huiyuan">
+            <!--年会员-->
+            <a class="pays" data="2" href="javascript:void(0)" style="background:url(http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/5_38.png) center center no-repeat;">
+            </a>
+            <!--月会员-->
+            <a class="pays" data="1" href="javascript:void(0)" style="background:url(http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/5_03.png) center center no-repeat;">
+            </a>
+            <!-- <div style="margin-top:15px;">
+                <span class="double-two">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“VIP会员特权”：1、发布“货源”招代理，百万微商首选你。2、受邀加入“千万微商俱乐部”：这里都是销售额过千万的微商，这里每个人背后都是一个微商军团。俱乐部的资源价值千万；微哥携弟子班也会在群里给大家培训“微商不传之秘笈”，支付成功后专属客服会主动联系您。</span>
+            </div> -->
+            <!--免费会员-->
+            <!-- <if condition="$free_vip neq '1'">
+                <a id="codes" href="/index.php/oauth-code.html" style="background:url(http://weiyounew.oss-cn-hangzhou.aliyuncs.com/img/5_06.png) center center no-repeat;">
+                </a>
+            </if>
+            <h3>
+                先看说明:
+            </h3>
+            <span>
+                点击"免费开通VIP月会员"按钮，会生成您的专属"二维码推广图片"长按图片"保存图片"到手机，然后把图片发给好友即可！轻松邀请18位好友关注("个人中心"查看统计)，一个月的VIP特权Duang的就自动开通了。
+            </span>
+            <span>
+                只有一次机会，二维码有效期为7天，立刻行动！
+            </span> -->
+        </div>
+        <div class="vip_conten_footer">
+            <p>
+                电话 :
+                <span>
+                    400-678-1776
+                </span>
+            </p>
+            <p>
+                微信 :
+                <span>
+                    15803800800
+                </span>
+            </p>
+            <span>
+                邦瑞信息科技有限公司版权所有
+            </span>
+        </div>
+    </div>
+</div>
+<include file="public:footer" />

@@ -1,0 +1,40 @@
+﻿*{margin: 0;padding: 0;font-family: microsoft yahei;}
+html{font-size: 12px !important;}
+body{background-color: #2D2D2D;padding: 0;margin: 0;}
+.poster-type{position: fixed;top: 0;left: 0;width: 25%;overflow: auto; margin-top: 4rem;}
+.poster-type ul li{list-style: none;color: #666;text-align: center;padding: 1rem 0.5rem;margin: 0.5rem 0}
+.poster-type ul li.active{background: #bb1140;color: #fff;border-radius: 0 2rem 2rem 0}
+.poster-list{float: left;width: 73%;margin-left: 28%;overflow: auto; margin-top: 4rem; }
+.poster-list div{float: left;width: 50%;margin-bottom: 1rem;}
+.poster-list div img{width: 90%;margin: 0 auto;}
+.left2 {margin-left: 20rem;}
+
+a{text-decoration:none;}
+a:link{text-decoration: none;}
+a��hover{text-decoration: underline;}
+a:visited{text-decoration: none;} 
+.li1{color:#ccc;}
+.muen .sy{float: right;margin-right: 1rem;}
+.muen .sy a{color: #ccc;}
+.top a:visited{color:#fff;}
+.list-inline{margin: 0.6rem 0;}
+.list-inline li{margin-left: 1rem;padding: 0;}
+.logo{margin-top: 3rem;}
+.logo img{width: 100%;}
+.left2{margin-left: 10rem;}
+hr{margin-top: -0.5rem;width: 90%;text-align: center;}
+.poster-type-index{width:100%;overflow-x:auto;overflow-y:hidden;}
+.poster-type-index ul{margin: 0 1rem;width: 45rem;}
+.poster-type-index li{list-style: none;float: left;margin: 0.3rem 0.5rem 0.3rem 0;}
+.poster-type-index a{text-decoration: none;float:left;text-align:center;color:#666;padding: 0.5rem;border-radius: 0.3rem;}
+.poster-type-index a:hover{background-color: #FFF5EC;}
+.poster-type-index li a{display:inline-block;padding: 0.5rem 1rem;background: #fff;}
+.poster-list-index{width:100%;overflow-x:auto;overflow-y:hidden;}
+.poster-list-index ul{margin-left: 1rem;}
+.poster-list-index li{list-style: none;float: left;width: 10rem;height: 17rem;overflow: hidden; margin-right: 1rem;}
+.poster-list-index li a img{width: 100%;}
+
+.nav{background: #000;position: fixed;top: 0;width: 100%;}
+.nav li{width: 50%;float: left;text-align: center;padding: 0.5rem 0;}
+.nav li a{color: #999;padding: 0.2rem 0;display: inline-block;}
+.nav li a.active{color: #fff;border-bottom: solid 2px #fff;}

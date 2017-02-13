@@ -1,0 +1,53 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editqt2">
+        <div class="editqt2_con">
+              <div class="editqt2_con1"> 
+                  <p contenteditable="true">马大哈，我喜欢你</p>
+              </div>
+        </div>
+        <div class="shengchengqt2">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“文字”生成趣图</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 趣图第二个页面结束 -->
+     
+     <script type="text/javascript">
+           $(".shengchengqt2").click(function(){
+                
+                $(".shengchengqt2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editqt2_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editqt2").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //趣图第二个页面结束
+     </script>
+<include file="poster:footer" />

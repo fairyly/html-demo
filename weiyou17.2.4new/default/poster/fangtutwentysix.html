@@ -1,0 +1,127 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editf26">
+        <div class="editf26_con"> 
+          <div class="editf26_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/f26up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editf26_conbg12">
+            <div class="editf26_conbg12img">
+              <div class="editf26_conbg12move"  id="editmovetwo">
+                 <img src="__PUBLIC__/poster/images/f26up2.jpg" alt="uppic"/>
+              </div>
+             
+            </div>
+            
+          </div>
+          <div class="editf26_conbg2"></div>
+          <div class="editf26_up1">
+              <div class="editf26_up11">
+                  <div class="editf26_fileInput">
+                        <input type="file" capture="camera" name="editf26_upfile" id="editf26_upfile" style="display:none" class="editf26_upfile" onchange="document.getElementById('editf26_upfileResult').innerHTML=this.value;"/>
+                        <input class="editf26_upFileBtn" id="editf26_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf26_upfile').click();" />
+                  </div>
+              </div>
+          </div> 
+          <div class="editf26_con1">
+                <p contenteditable="true">红领巾联盟时尚美甲店</p>
+          </div>
+          <div class="editf26_con2">
+                <p contenteditable="true">时尚美甲店</p>
+          </div>
+          <div class="editf26_con3">
+                <p contenteditable="true">手部护理专家     打造专属你的华丽指尖</p>
+          </div>
+          <div class="editf26_con4">
+                <p contenteditable="true">世界尽在你的</p>
+                <p contenteditable="true">指尖舞动</p>
+          </div>
+          <div class="editf26_con5">
+                <p contenteditable="true">劲爆惊喜等你</p>
+                <p contenteditable="true">双十一提前享</p>
+          </div>
+          <div class="editf26_con6">
+                <p contenteditable="true">源自大自然的天然甲油</p>
+          </div>
+          <div class="editf26_up2">
+                <div class="editf26_up22">
+                    <div class="editf26_fileInput2 left">
+                          <input type="file" capture="camera" name="editf26_upfile2" id="editf26_upfile2" style="display:none" class="editf26_upfile2" onchange="document.getElementById('editf26_upfileResult2').innerHTML=this.value;"/>
+                          <input class="editf26_upFileBtn2" id="editf26_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editf26_upfile2').click();" />
+                    </div>
+                </div>
+          </div> 
+          
+        </div>
+        <div class="shengchengf26">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第二十六个页面结束 -->
+     <script type="text/javascript">
+        $("#editf26_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editf26_conbg1 img").attr("src", objUrl);
+          }
+        });
+      $("#editf26_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);  
+        if (objUrl) {
+          $(".editf26_conbg12 img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengf26").click(function(){
+                
+                $(".shengchengf26").hide();
+                $(".editf26_up1").hide();
+                $(".editf26_up2").hide();
+                $(".editf26_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf26_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editf26").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第二十六个页面结束
+     </script>
+<include file="poster:footer" />

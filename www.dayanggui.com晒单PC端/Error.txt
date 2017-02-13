@@ -1,0 +1,5 @@
+﻿文件下载网址  =>  文件保存路径
+http://mm.bst.126.net/images/product/productIcons_f83917f.png?v=20150113  =>  E:\工具\www.dayanggui.com\images\producticons_f83917f.png
+http://mm.bst.126.net/images/cart/steps_8_5579acc.png  =>  E:\工具\www.dayanggui.com\images\steps_8_5579acc.png
+http://mm.bst.126.net/images/actTags2.png?647f46de034f09e72e1a3fee8904193e  =>  E:\工具\www.dayanggui.com\images\acttags2.png
+http://mm.bst.126.net/images/signs.png?205fc2cede04d592690e780138269042  =>  E:\工具\www.dayanggui.com\images\signs.png

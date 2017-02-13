@@ -1,0 +1,109 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editf17">
+        <div class="editf17_con"> 
+          <div class="editf17_conbg1">
+            <img src="__PUBLIC__/poster/images/f17up1.jpg">
+          </div>
+          <div class="editf17_conbg2">
+            <div class="editf17_up1">
+                <div class="editf17_up11">
+                    <div class="editf17_fileInput">
+                          <input type="file" capture="camera" name="editf17_upfile" id="editf17_upfile" style="display:none" class="editf17_upfile" onchange="document.getElementById('editf17_upfileResult').innerHTML=this.value;"/>
+                          <input class="editf17_upFileBtn" id="editf17_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf17_upfile').click();" />
+                    </div>
+                </div>
+            </div> 
+            <div class="editf17_con1">
+                  <p contenteditable="true">王某某</p>
+                  <p contenteditable="true">微友首席讲师</p>
+                  <p contenteditable="true">微友团队创始人</p>
+                  <p contenteditable="true">微商实战讲师</p>
+                  <p contenteditable="true">家族核心成员过百</p>
+                  <p contenteditable="true">荣获万人好评</p>
+                  <p contenteditable="true">加入我们你不会选错</p>
+            </div>
+            <div class="editf17_con2">
+                  <img src="__PUBLIC__/poster/images/mpup2.jpg"/>
+            </div>
+            <div class="editf17_up2">
+                  <div class="editf17_up22">
+                      <div class="editf17_fileInput2 left">
+                            <input type="file" capture="camera" name="editf17_upfile2" id="editf17_upfile2" style="display:none" class="editf17_upfile2" onchange="document.getElementById('editf17_upfileResult2').innerHTML=this.value;"/>
+                            <input class="editf17_upFileBtn2" id="editf17_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editf17_upfile2').click();" />
+                      </div>
+                  </div>
+            </div> 
+          </div>
+        </div>
+        <div class="shengchengf17">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第十七个页面结束 -->
+     <script type="text/javascript">
+        $("#editf17_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editf17_conbg1 img").attr("src", objUrl);
+          }
+        });
+    $("#editf17_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".editf17_con2 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengf17").click(function(){
+                
+                $(".shengchengf17").hide();
+                $(".editf17_up1").hide();
+                $(".editf17_up2").hide();
+                $(".editf17_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf17_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editf17").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第十七个页面结束
+     </script>
+<include file="poster:footer" />

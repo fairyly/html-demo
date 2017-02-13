@@ -1,0 +1,93 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfm16">
+        <div class="editfm16_con"> 
+          <div class="editfm16_conbg1" id="editmove">
+               <img src="__PUBLIC__/poster/images/fm16up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editfm16_conbg2"></div>
+          <div class="editfm16_con1">
+                <p contenteditable="true">微友团队金牌讲师—王某某</p>
+          </div>
+		      <div class="editfm16_con2">
+                <p contenteditable="true">世界500强互联网营销主管  微商成交女神</p>
+                <p contenteditable="true">视频营销及制作资深导师    90后大学生创业典范</p>
+                <p contenteditable="true">红领巾战队视频商学院合伙人  微友团队资深金牌讲师</p>
+          </div>
+          <div class="editfm16_con3">
+                <p contenteditable="true">微信:wx88888888  QQ:88888888</p>
+          </div>
+          
+          <div class="editfm16_up1">
+              <div class="editfm16_up11">
+                  <div class="editfm16_fileInput">
+                        <input type="file" capture="camera" name="editfm16_upfile" id="editfm16_upfile" style="display:none" class="editfm16_upfile" onchange="document.getElementById('editfm16_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfm16_upFileBtn" id="editfm16_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfm16_upfile').click();" />
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengfm16">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--封面第十六个页面结束 -->
+     <script type="text/javascript">
+        $("#editfm16_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+         $(".editfm16_conbg1 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfm16").click(function(){
+                
+                $(".shengchengfm16").hide();
+                $(".editfm16_up1").hide();
+                $(".editfm16_up2").hide();
+                $(".editfm16_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfm16_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfm16").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //封面图第十六个页面结束
+     </script>
+<include file="poster:footer" />

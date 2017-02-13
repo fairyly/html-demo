@@ -1,0 +1,103 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfp10">
+        <div class="editfp10_con"> 
+          <div class="editfp10_conbg1">
+            <img src="__PUBLIC__/poster/images/fp10up1.jpg">
+          </div>
+          <div class="editfp10_conbg2">
+            <div class="editfp10_up1">
+                <div class="editfp10_up11">
+                    <div class="editfp10_fileInput">
+                          <input type="file" capture="camera" name="editfp10_upfile" id="editfp10_upfile" style="display:none" class="editfp10_upfile" onchange="document.getElementById('editfp10_upfileResult').innerHTML=this.value;"/>
+                          <input class="editfp10_upFileBtn" id="editfp10_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfp10_upfile').click();" />
+                    </div>
+                </div>
+            </div> 
+            <div class="editfp10_con1">
+                  <p contenteditable="true">微友培训课堂开课了</p>
+            </div>
+            <div class="editfp10_con2">
+                  <img src="__PUBLIC__/poster/images/mpup2.jpg"/>
+            </div>
+            <div class="editfp10_up2">
+                  <div class="editfp10_up22">
+                      <div class="editfp10_fileInput2 left">
+                            <input type="file" capture="camera" name="editfp10_upfile2" id="editfp10_upfile2" style="display:none" class="editfp10_upfile2" onchange="document.getElementById('editfp10_upfileResult2').innerHTML=this.value;"/>
+                            <input class="editfp10_upFileBtn2" id="editfp10_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editfp10_upfile2').click();" />
+                      </div>
+                  </div>
+            </div> 
+          </div>
+        </div>
+        <div class="shengchengfp10">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图培训第十个页面结束 -->
+     <script type="text/javascript">
+        $("#editfp10_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editfp10_conbg1 img").attr("src", objUrl);
+          }
+        });
+    $("#editfp10_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);   
+        if (objUrl) {
+          $(".editfp10_con2 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfp10").click(function(){
+                
+                $(".shengchengfp10").hide();
+                $(".editfp10_up1").hide();
+                $(".editfp10_up2").hide();
+                $(".editfp10_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfp10_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfp10").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图培训第十个页面结束
+     </script>
+<include file="poster:footer" />

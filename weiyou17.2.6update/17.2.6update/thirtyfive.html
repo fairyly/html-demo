@@ -1,0 +1,119 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit35">
+        <div class="edit35_con">
+            <div class="edit35_con1pic">
+                    <img src="__PUBLIC__/poster/images/m29up1.png"/>
+            </div>
+            <div class="edit35_conbg">
+              <div class="edit35_con1"> 
+                  <div class="edit35_up1">
+                      <div class="edit35_up11">
+                          <div class="edit35_fileInput left">
+                                <input type="file" capture="camera" name="edit35_upfile" id="edit35_upfile" style="display:none" class="edit35_upfile" onchange="document.getElementById('edit35_upfileResult').innerHTML=this.value;"/>
+                                <input class="edit35_upFileBtn" id="edit35_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit35_upfile').click();" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="edit35_con3">
+                  <div class="edit35_con3pic">
+                    <img src="__PUBLIC__/poster/images/mpup2.jpg"/>
+                  </div>
+                  <div class="edit35_up2">
+                          <div class="edit35_up21">
+                              <div class="edit35_fileInput2 left">
+                                    <input type="file" capture="camera" name="edit35_upfile2" id="edit35_upfile2" style="display:none" class="edit35_upfile2" onchange="document.getElementById('edit35_upfileResult2').innerHTML=this.value;"/>
+                                    <input class="edit35_upFileBtn2" id="edit35_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit35_upfile2').click();" />
+                              </div>
+                          </div>
+                  </div>
+              </div>
+              <div class="edit35_con2">
+                  <div class="edit35_con21">
+                    <p contenteditable="true">—微信—</p>
+                    <p contenteditable="true">WX888888</p>
+                    <p contenteditable="true">—QQ—</p>
+                    <p contenteditable="true">88888888</p>
+                    <p contenteditable="true">—电话—</p>
+                    <p contenteditable="true">18888888888</p>
+                  </div>
+              </div>
+            </div>
+          
+        </div>
+        <div class="shengcheng35">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第三十五页面结束 -->
+    
+      <script type="text/javascript">
+         $("#edit35_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+        console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".edit35_con1pic img").attr("src", objUrl);
+           // $(".edit35_con2").css("background-image", "url("+objUrl+")");
+          }
+        });
+       $("#edit35_upfile2").change(function(){
+          var objUrl = getObjectURL(this.files[0]);
+          if (objUrl) {
+            $(".edit35_con3pic img").attr("src", objUrl);
+          }
+        }); 
+        
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng35").click(function(){
+                
+                $(".shengcheng35").hide();
+                $(".edit35_up1").hide();
+                $(".edit35_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit35_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit35").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第三十五页面结束
+    </script>
+<include file="poster:footer" />
+    

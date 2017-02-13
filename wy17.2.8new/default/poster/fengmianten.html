@@ -1,0 +1,88 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfm10">
+        <div class="editfm10_con"> 
+          <div class="editfm10_conbg1" id="editmove">
+               <img src="__PUBLIC__/poster/images/fm10up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editfm10_conbg2"></div>
+          <div class="editfm10_con1">
+                <p contenteditable="true"> -红领巾联盟创始人- </p>
+                <p contenteditable="true">诚信招商，所有产品一律正品保证</p>
+                <p contenteditable="true">诚招代理，无需代理费，一件代发，专业培训，每周金牌导师</p>
+                <p contenteditable="true">亲自授课，赶快加入我们吧！你还在犹豫什么？</p>
+          </div>
+		      
+          <div class="editfm10_up1">
+              <div class="editfm10_up11">
+                  <div class="editfm10_fileInput">
+                        <input type="file" capture="camera" name="editfm10_upfile" id="editfm10_upfile" style="display:none" class="editfm10_upfile" onchange="document.getElementById('editfm10_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfm10_upFileBtn" id="editfm10_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfm10_upfile').click();" />
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengfm10">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--封面第十个页面结束 -->
+     <script type="text/javascript">
+        $("#editfm10_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+         $(".editfm10_conbg1 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfm10").click(function(){
+                
+                $(".shengchengfm10").hide();
+                $(".editfm10_up1").hide();
+                $(".editfm10_up2").hide();
+                $(".editfm10_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfm10_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfm10").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //封面图第十个页面结束
+     </script>
+<include file="poster:footer" />

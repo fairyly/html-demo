@@ -1,0 +1,134 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit12">
+        <div class="edit12_con"> 
+          <div class="edit12_con1">
+              <div class="edit12_con1pic" id="editmove">
+                <img src="__PUBLIC__/poster/images/mpup22.jpg"/>
+              </div>
+              <div class="edit12_up1">
+                  <div class="edit12_up11">
+                      <div class="edit12_fileInput left">
+                            <input type="file" capture="camera" name="edit12_upfile" id="edit12_upfile" style="display:none" class="edit12_upfile" onchange="document.getElementById('edit12_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit12_upFileBtn" id="edit12_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit12_upfile').click();" />
+                      </div>
+                  </div>
+              </div>  
+          </div>
+          <div class="edit12_con2">
+              <div class="edit12_con21">
+                <div class="edit12_con21txt">
+                    <p contenteditable="true">诚信微商人</p>
+                    <p contenteditable="true">我宣誓</p>
+                </div>
+              </div>
+              <div class="edit12_con22">
+                  <p contenteditable="true">本人作为微商的一份子</p>
+                  <p contenteditable="true">定当恪守以下内容：</p>
+                  <p contenteditable="true">不做假冒伪劣产品</p>
+                  <p contenteditable="true">不坑客 不杀熟</p>
+                  <p contenteditable="true">不做传销赚人头费</p>
+                  <p contenteditable="true">不乱市不欺诈宣传</p>
+                  <p contenteditable="true">......</p>
+                  <p contenteditable="true">用无微不至的服务</p>
+                  <p contenteditable="true">营造良好的诚信环境</p>
+                  <p contenteditable="true">为品质中国贡献自己最大的力量</p>
+              </div><div class="edit12_con23">
+                  <p contenteditable="true">微信：WX888888</p>
+                  <p contenteditable="true">QQ：88888888</p>
+                  <p contenteditable="true">电话：18888888888</p>
+                  <div class="edit12_con2pic" id="edit12_con2img">
+                    <img src="__PUBLIC__/poster/images/mpup2.jpg">
+                  </div>
+                  <div class="edit12_up2">
+                    <div class="edit12_up22">
+                        <div class="edit12_fileInput2 left">
+                              <input type="file" capture="camera" name="edit12_upfile2" id="edit12_upfile2" style="display:none" class="edit12_upfile2" onchange="document.getElementById('edit12_upfileResult2').innerHTML=this.value;"/>
+                              <input class="edit12_upFileBtn2" id="edit12_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit12_upfile2').click();" />
+                        </div>
+                    </div>
+                </div>
+              </div>    
+          </div>  
+        </div>
+        <div class="shengcheng12">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;margin:0 auto;color:black;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十二个页面结束 -->
+    <script type="text/javascript">
+       $("#edit12_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".edit12_con1pic img").attr("src", objUrl) ;
+         
+        }
+      });
+        $("#edit12_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".edit12_con2pic img").attr("src", objUrl) ;
+         
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengcheng12").click(function(){
+                
+                $(".shengcheng12").hide();
+                // $(".edit3").show();
+                $(".edit12_up1").hide();
+                $(".edit12_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit12_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        // width: 720,
+                        // height:1280,
+                        // canvas: canvas,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //document.body.appendChild(canvas);
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".edit12").hide();
+                        }
+                });
+        });
+    //第十二个页面结束
+    </script>
+    <include file="poster:footer" />
+   

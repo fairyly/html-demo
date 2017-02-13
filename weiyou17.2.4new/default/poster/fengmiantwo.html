@@ -1,0 +1,93 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfm2">
+        <div class="editfm2_con"> 
+          <div class="editfm2_conbg1" id="editmove">
+               <img src="__PUBLIC__/poster/images/fm2up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editfm2_conbg2"></div>
+          <div class="editfm2_con1">
+                <p contenteditable="true">微友金牌代理</p>
+                <p contenteditable="true">“白手起家带你创业”</p>
+          </div>
+		      <div class="editfm2_con2">
+                <p contenteditable="true">专职互联网微商四年</p>
+                <p contenteditable="true">创业实战经验导师</p>
+                <p contenteditable="true">视频营销及制作资深导师</p>
+                <p contenteditable="true">90后大学生创业典</p>
+                <p contenteditable="true">微信：WX88888888</p>
+          </div>
+          
+          <div class="editfm2_up1">
+              <div class="editfm2_up11">
+                  <div class="editfm2_fileInput">
+                        <input type="file" capture="camera" name="editfm2_upfile" id="editfm2_upfile" style="display:none" class="editfm2_upfile" onchange="document.getElementById('editfm2_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfm2_upFileBtn" id="editfm2_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfm2_upfile').click();" />
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengfm2">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--封面第二个页面结束 -->
+     <script type="text/javascript">
+        $("#editfm2_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+         $(".editfm2_conbg1 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfm2").click(function(){
+                
+                $(".shengchengfm2").hide();
+                $(".editfm2_up1").hide();
+                $(".editfm2_up2").hide();
+                $(".editfm2_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfm2_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfm2").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //封面图第二个页面结束
+     </script>
+<include file="poster:footer" />

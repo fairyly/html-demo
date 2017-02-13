@@ -1,0 +1,100 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    </div> 
+    <div class="edit85">
+        <div class="edit85_con">
+    			<div class="edit85_conbg11" id="editmove">
+    			     <img src="__PUBLIC__/poster/images/m85up1.jpg" alt="uppic"/>
+    			</div>
+    			<div class="edit85_conbg2"></div>
+          <div class="edit85_con1">
+      				<p contenteditable="true">新年特惠</p>
+         	</div>
+          <div class="edit85_con2">
+              <p contenteditable="true">新年的钟声已经敲响，为了迎接新的一年的到来，</p>
+              <p contenteditable="true">元旦期间，凡是进店消费的朋友将获得，小店送出</p>
+              <p contenteditable="true">的精美礼品，数量有限，先到先得。</p>
+          </div>
+          <div class="edit85_con3">
+              <p contenteditable="true">微信:wx88888888 QQ:88888888 电话:18888888888</p>
+          </div>
+        	<div class="edit85_up1"> 
+              <div class="edit85_up11">
+                  <div class="edit85_fileInput left">
+                        <input type="file" capture="camera" name="edit85_upfile" id="edit85_upfile" style="display:none" class="edit85_upfile" onchange="document.getElementById('edit85_upfileResult').innerHTML=this.value;"/>
+                        <input class="edit85_upFileBtn" id="edit85_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit85_upfile').click();"/>
+                  </div>
+              </div>
+        	</div>
+         	
+        </div>
+        <div class="shengcheng85">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第八十五个页面结束 -->
+     <script type="text/javascript">
+        $("#edit85_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit85_conbg11 img").attr("src", objUrl);
+            }
+        });
+        $("#edit85_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit85_con2 img").attr("src", objUrl);
+            }
+        });
+         //建立一个可存取到该file的url
+        function getObjectURL(file){
+	        var url = null; 
+	        if (window.createObjectURL!=undefined) { // basic
+	          url = window.createObjectURL(file);
+	        } else if (window.URL!=undefined) { // mozilla(firefox)
+	          url = window.URL.createObjectURL(file);
+	        } else if (window.webkitURL!=undefined) { // webkit or chrome
+	          url = window.webkitURL.createObjectURL(file);
+	        }
+	        return url;
+	    }
+        $(".shengcheng85").click(function(){
+                
+                $(".shengcheng85").hide();
+                $(".edit85_up1").hide();
+                $(".edit85_up2").hide();
+                $(".edit85_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit85_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base85图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit85").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第八十五个页面结束
+     </script>
+<include file="poster:footer" />

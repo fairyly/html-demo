@@ -1,0 +1,144 @@
+<include file="poster:header" />
+    <meta name="viewport" content="width=640,user-scalable=no">
+   
+    <div class="edit23">
+        <div class="edit23_con"> 
+          <div class="edit23_con1">
+              <div class="edit23_con1txt">
+                    <p contenteditable="true">从0到100万</p>
+                    <p contenteditable="true">我的微商</p>
+                    <p contenteditable="true">——<span>之路</span></p>
+              </div>
+              <div class="edit23_con1pic">
+                  <img src="__PUBLIC__/poster/images/mpup2.jpg">
+              </div>
+              <div class="edit23_up1"> 
+                  <div class="edit23_up11">
+                      <div class="edit23_fileInput left">
+                            <input type="file" capture="camera" name="edit23_upfile" id="edit23_upfile" style="display:none" class="edit23_upfile" onchange="document.getElementById('edit23_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit23_upFileBtn" id="edit23_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit23_upfile').click();" />
+                      </div>
+                  </div>
+              </div>   
+          </div>
+          <div class="edit23_con2">
+              <div class="edit23_con21"> 
+                  <div class="edit23_con21pic">
+                      <img src="__PUBLIC__/poster/images/m17up1.jpg" id="editmoveimg">
+                  </div> 
+                  <div class="edit23_con21txt">
+                      <p contenteditable="true">微信：WX888888</p>
+                      <p contenteditable="true">电话：18888888888</p>
+                  </div>
+                   <div class="edit23_up2" >
+                      <div class="edit23_up22">
+                          <div class="edit23_fileInput2 left">
+                                <input type="file" capture="camera" name="edit23_upfile2" id="edit23_upfile2" style="display:none" class="edit23_upfile2" onchange="document.getElementById('edit23_upfileResult2').innerHTML=this.value;"/>
+                                <input class="edit23_upFileBtn2" id="edit23_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit23_upfile2').click();" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>  
+        </div>
+        <div class="shengcheng23">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十三个页面结束 -->
+     <script type="text/javascript">
+        $("#edit23_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".edit23_con1pic img").attr("src", objUrl);
+        }
+      });
+    
+        $("#edit23_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);  
+        if (objUrl) {
+          $(".edit23_con21pic img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng23").click(function(){
+                
+                $(".shengcheng23").hide();
+                $(".edit23_up1").hide();
+                $(".edit23_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit23_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit23").hide();
+                        }
+                });
+        });
+    //第二十三个页面结束
+     </script>
+    <script type="text/javascript">
+     //获取节点
+      var block20 = document.getElementById("editmoveimg");
+      var oW20,oH20;
+      // 绑定touchstart事件
+      block20.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW20 = touches.clientX - block20.offsetLeft;
+       oH20 = touches.clientY - block20.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block20.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW20;
+       var oTop = touches.clientY - oH20;
+       block20.style.transform="translate("+oLeft/20+ "rem,"+oTop/20+"rem)";
+       block20.style.webkitTransform="translate("+oLeft/20+ "rem,"+oTop/20+"rem)";
+      },false);
+       
+      block20.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+     <include file="poster:footer" />

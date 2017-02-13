@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>添加水印</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="添加水印首页">
+    <link rel="stylesheet" type="text/css" href="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/css/ossposter.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/poster/css/addswiper.css">
+    <script src="__PUBLIC__/poster/js/jquery-2.2.3.min.js"></script>
+    <script src="__PUBLIC__/poster/js/touch.min.js"></script>
+    <!-- <script src="__PUBLIC__/poster/js/touch.js"></script> -->
+    <script src="__PUBLIC__/poster/js/htc.js"></script>
+    <script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body style="background: #232323;">
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="javascript:history.back();">返回</a></li>
+                    <li style="width:45%"><a href="">添加水印</a></li>
+                    <li style="width:22%"><a href="{:U('index/index')}">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="watermark">
+        <!-- 第一步：上传图片 -->
+        <div id="add" class="add">
+          <form method="post" action="upload_watermark_pic" enctype="multipart/form-data">
+            <input name="file" type="file" accept="image/*" id="markimg">
+          </form>
+        </div>
+        <!-- 第二步：显示图片 -->
+        <div class="addsteptwo">
+          <div class="markmain" id="markmain" style="padding-bottom: 0px;top: 0px;margin-top: 0rem;">
+            <img id="addpic" src="">
+          </div>
+          <button id="addmark" class="addmark">
+            <span>添加水印</span>
+          </button>
+          <button id="shengchengmark" class="shengchengmark">
+            <span>生成</span>
+          </button>
+        </div>
+         <!-- 第三步：选择水印 -->
+        <ul class="masklist" id="masklist"> 
+                <li data-index="37">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:5.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle038_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 8.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="36">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:1.01335rem;text-align: center;"><img src="__PUBLIC__/poster/images/waterstyle037_bg.png" style="width:10.64rem;height: auto;"></div>
+                          <h3 style="width: 10.491rem;height: 2.635rem;line-height: 2.635rem;left:2.78rem;top: 10.245rem;color:#e81126;text-align:center;">加水印</h3>
+                          <p style="left:2rem;top: 13.801rem;width: 12.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#e81126;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="35">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:2.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle036_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 7.491rem;height: 2.635rem;line-height: 2.635rem;left:4.78rem;top: 6.245rem;color:#000000;text-align:center;">加水印</h3>
+                          <p style="left:2rem;top: 9.801rem;width: 12.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#000000;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="34">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:2.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle035_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 7.491rem;height: 2.635rem;line-height: 2.635rem;left:4.78rem;top: 6.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:2rem;top: 9.801rem;width: 12.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="33">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:0.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle034_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.491rem;height: 2.635rem;line-height: 2.635rem;left:2rem;top: 5.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:2rem;top: 8.801rem;width: 12.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="32">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:3.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle033_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.491rem;height: 2.635rem;line-height: 2.635rem;left:2rem;top: 5.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:2rem;top: 8.801rem;width: 12.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="31">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:3.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle032_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.491rem;height: 2.635rem;line-height: 2.635rem;left:2rem;top: 6.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:2rem;top: 8.801rem;width: 12.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="30">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:3.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle031_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.491rem;height: 2.635rem;line-height: 2.635rem;left:2rem;top: 6.245rem;color:#ffd800;text-align:center;">加水印</h3>
+                          <p style="left:2rem;top: 8.801rem;width: 12.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffd800;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="29">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:7.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle030_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 5.245rem;color:#ffa6af;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffa6af;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="28">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:4.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle029_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 8.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="27">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 12.64rem;top:5.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle028_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.491rem;height: 2.635rem;line-height: 2.635rem;left:2rem;top: 6.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:2rem;top: 8.801rem;width: 12.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="26">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:4.335rem;"><img src="__PUBLIC__/poster/images/waterstyle027_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.491rem;height: 2.635rem;line-height: 2.635rem;left:4rem;top: 6.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:4rem;top: 8.801rem;width: 12.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="25">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:3.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle026_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 8.245rem;color:#ffa6af;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffa6af;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="24">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width:16.64rem;top: 1rem;"><img src="__PUBLIC__/poster/images/waterstyle025_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.697rem;height: 2.6384rem;line-height: 2.6384rem;left: 1.89635rem;top: 6.59855rem;color:#000000;text-align:center;">加水印</h3>
+                          <p style="left: 1.89635rem;top: 9.0695rem;width: 12.6973rem;height: 1.8139rem;line-height: 1.8139rem;color:#000000;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="23">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width:16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle024_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.697rem;height: 2.6384rem;line-height: 2.6384rem;left: 1.89635rem;top: 6.59855rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left: 1.89635rem;top: 9.0695rem;width: 12.6973rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="22">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:3.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle023_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 8.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="21">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:3.1335rem;"><img src="__PUBLIC__/poster/images/waterstyle022_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 8.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="20">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:4.335rem;"><img src="__PUBLIC__/poster/images/waterstyle021_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 8.245rem;color:#ffa6af;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffa6af;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="19">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:2rem;"><img src="__PUBLIC__/poster/images/waterstyle020_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 9.245rem;color:#ffd800;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 11.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffd800;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="18">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:1rem;"><img src="__PUBLIC__/poster/images/waterstyle019_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 9.245rem;color:#ffd800;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 11.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffd800;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="17">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:4.335rem;"><img src="__PUBLIC__/poster/images/waterstyle018_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.491rem;height: 2.635rem;line-height: 2.635rem;left:4rem;top: 8.245rem;color:#ffa6af;text-align:center;">加水印</h3>
+                          <p style="left:2rem;top: 10.801rem;width: 14.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffa6af;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="16">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:4.335rem;"><img src="__PUBLIC__/poster/images/waterstyle017_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 8.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="15">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:4.335rem;"><img src="__PUBLIC__/poster/images/waterstyle016_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 8.245rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="13">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width:16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle014_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.697rem;height: 2.6384rem;line-height: 2.6384rem;left: 1.89635rem;top: 6.59855rem;color:#ffd800;text-align:center;">加水印</h3>
+                          <p style="left: 1.89635rem;top: 9.0695rem;width: 12.6973rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffd800;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="11">
+                        <div class="mod-mark" >
+                          <div style="position:absolute; top:4rem;width:16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle012_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.697rem;height: 2.6384rem;line-height: 2.6384rem;left: 1.89635rem;top: 6.59855rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left: 1.89635rem;top: 9.0695rem;width: 12.6973rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="10">
+                      <div class="mod-mark" >
+                        <div style="position:absolute;top:1rem;width:16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle011_bg.png" style="width:16.64rem;height: auto;"></div>
+                        <h3 style="width: 10.49rem;height: 2.6384rem;line-height: 2.6384rem;left:3rem;top: 5.981355rem;color:#cb68ff;text-align:center;">加水印</h3>
+                        <p style="left:3rem;top:8.515195rem;width: 10.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#cb68ff;text-align:center;">微信：weiyou</p>
+                      </div>
+                </li>
+                <li data-index="9">
+                        <div class="mod-mark" >
+                          <div style="position:absolute; top:1rem;width:16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle010_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.697rem;height: 2.6384rem;line-height: 2.6384rem;left: 1.89635rem;top: 9.59855rem;color:#ffffff;text-align:center;">加水印</h3>
+                          <p style="left: 1.89635rem;top: 12.0695rem;width: 12.6973rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="8">
+                      <div class="mod-mark" >
+                        <div style="position:absolute;top:4.5rem;width:16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle009_bg.png" style="width:16.64rem;height: auto;"></div>
+                        <h3 style="width: 10.49rem;height: 2.6384rem;line-height: 2.6384rem;left:3rem;top: 5.981355rem;color:#ffd800;text-align:center;">加水印</h3>
+                        <p style="left:0rem;top:8.515195rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffd800;text-align:center;">微信：weiyou</p>
+                      </div>
+                </li>
+                <li data-index="0">
+                    <div class="mod-mark">
+                      <div style="position:absolute;top:2rem;width: 16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle001_bg.png" style="width:16.64rem;height: auto;"></div>
+                      <h3 style="width: 10.54rem;height:2.104rem;line-height:2.104rem;left:3rem;top:5.887rem;color:#ffffff;text-align:center;">加水印</h3>
+                      <p style="left:3rem;top:8.0282rem;width:10.34rem;height:1.5134rem;line-height:1.5134rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                    </div>
+                </li>
+            
+                <li data-index="1">
+                    <div class="mod-mark">
+                      <div style="position:absolute;width: 16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle002_bg.png" style="width:16.64rem;height: auto;"></div>
+                      <h3 style="width: 16.54rem;height:2.104rem;line-height:2.104rem;left:0rem;top:7.887rem;color:#ffa6af;text-align:center;">加水印</h3>
+                      <p style="left:0.5rem;top:10.0282rem;width:15.34rem;height:1.5134rem;line-height:1.5134rem;color:#ffa6af;text-align:center;">微信：weiyou</p>
+                    </div>
+                </li>
+                <li data-index="2">
+                    <div class="mod-mark" >
+                      <div style="position:absolute;top:3rem;width: 16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle003_bg.png" style="width:16.64rem;height: auto;"></div>
+                      <h3 style="width: 11.4259rem;height:2.3104rem;line-height:2.3104rem;left:1.45776rem;top:8.6499rem;color:#ffd800;text-align:center;height: auto;">加水印</h3>
+                      <p style="left:1.05776rem;top:10.9991rem;width:12.4259rem;height:1.62134rem;line-height:1.62134rem;color:#ffd800;text-align:center;">微信：weiyou</p>
+                    </div>
+                </li>
+                <li data-index="3">
+                    <div class="mod-mark">
+                      <div style="position:absolute;width: 16.64rem;top:4.24559rem"><img src="__PUBLIC__/poster/images/waterstyle004_bg.png" style="width:16.64rem;height: auto;"></div>
+                      <h3 style="width: 15.94rem;height:2.3104rem;line-height:2.3104rem;left:0rem;top:8.40767rem;color:#ffffff;text-align:center;">加水印</h3>
+                      <p style="left:0rem;top:10.3871rem;width:15.94rem;height:1.62134rem;line-height:1.62134rem;color:#ffffff;text-align:center;">微信：weiyou</p>
+                    </div>
+                </li>
+                <li data-index="4">
+                    <div class="mod-mark">
+                      <div style="position:absolute;top:2rem;width: 16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle005_bg.png" style="width:16.64rem;height: auto;"></div>
+                      <h3 style="width: 13.05326rem;height: 3.63104rem;line-height: 2.63104rem;left: 1.7037rem;top: 7.21rem;color:#e81126;text-align:center;">加水印</h3>
+                      <p style="left: 2.88095rem;top: 10.13767rem;width: 10.7185rem;height: 1.7852rem;line-height: 1.7852rem;color:#e81126;text-align:center;">微信：weiyou</p>
+                    </div>
+                </li>
+                <li data-index="5">
+                        <div class="mod-mark">
+                          <div style="position:absolute;width: 16.64rem;top:4.335rem;"><img src="__PUBLIC__/poster/images/waterstyle006_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 16.491rem;height: 2.635rem;line-height: 2.635rem;left:0rem;top: 8.245rem;color:#ffa6af;text-align:center;">加水印</h3>
+                          <p style="left:0rem;top: 10.801rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffa6af;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="6">
+                        <div class="mod-mark" >
+                          <div style="position:absolute; top:3rem;width:16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle007_bg.png" style="width:16.64rem;height: auto;"></div>
+                          <h3 style="width: 12.697rem;height: 2.6384rem;line-height: 2.6384rem;left: 1.89635rem;top: 6.59855rem;color:#ffd800;text-align:center;">加水印</h3>
+                          <p style="left: 1.89635rem;top: 9.0695rem;width: 12.6973rem;height: 1.8139rem;line-height: 1.8139rem;color:#ffd800;text-align:center;">微信：weiyou</p>
+                        </div>
+                </li>
+                <li data-index="7">
+                      <div class="mod-mark" >
+                        <div style="position:absolute;top:1.5rem;width:16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle008_bg.png" style="width:16.64rem;height: auto;"></div>
+                        <h3 style="width: 16.49rem;height: 2.6384rem;line-height: 2.6384rem;left:0rem;top: 10.51355rem;color:#000000;text-align:center;">加水印</h3>
+                        <p style="left:0rem;top: 12.515195rem;width: 16.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#000000;text-align:center;">微信：weiyou</p>
+                      </div>
+                </li>
+                <li data-index="12">
+                      <div class="mod-mark">
+                        <div style="position:absolute;width:16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle013_bg.png" style="width:16.64rem;height: auto;"></div>
+                        <h3 style="width: 12.49rem;height: 2.6384rem;line-height: 2.6384rem;left:2rem;top: 6.51355rem;color:#000000;text-align:center;">加水印</h3>
+                        <p style="left:1.5rem;top: 9.15195rem;width: 13.49rem;height: 1.8139rem;line-height: 1.8139rem;color:#000000;text-align:center;">微信：weiyou</p>
+                      </div>
+                </li>
+                <li data-index="14">
+                    <div class="mod-mark" >
+                      <div style="position:absolute;width: 16.64rem;"><img src="__PUBLIC__/poster/images/waterstyle015_bg.png" style="width:16.64rem;height: auto;"></div>
+                      <h3 style="width: 13.05326rem;height: 3.63104rem;line-height: 2.63104rem;left: 1.7037rem;top: 6.21rem;color:#cb68ff;text-align:center;">加水印</h3>
+                      <p style="left: 2.88095rem;top: 9.13767rem;width: 10.7185rem;height: 1.7852rem;line-height: 1.7852rem;color:#cb68ff;text-align:center;">微信：weiyou</p>
+                    </div>
+                </li>
+        </ul>
+        <!-- 第四步 编辑水印 -->
+        <div class="addstepfour">
+            <div class="markform" id="markform">
+              <input data-title="title" type="text" class="h3" placeholder="输入店铺名称（必填）">
+              <p class="h3">该水印最多勾选1个联系方式</p>
+              <div class="l focus">
+                <i class="icon"><span>√</span></i> <i class="icon1 wx"></i> <input data-img="wechat" type="text" placeholder="输入微信号"> <i class="icon2"></i>
+              </div>
+              <div class="l">
+                <i class="icon"><span>√</span></i> <i class="icon1 wd"></i> <input data-img="weidian" type="text" placeholder="输入微店号"> <i class="icon2"></i>
+              </div>
+              <div class="l">
+                <i class="icon"><span>√</span></i> <i class="icon1 taobao"></i> <input data-img="taobao" type="text" placeholder="输入淘宝店名"> <i class="icon2"></i>
+              </div>
+              <div class="l">
+                <i class="icon"><span>√</span></i> <i class="icon1 qq"></i> <input data-img="QQ" type="text" placeholder="输入QQ号"> <i class="icon2"></i>
+              </div>
+              <div class="l">
+                <i class="icon"><span>√</span></i> <i class="icon1 sina"></i> <input data-img="weibo" type="text" placeholder="输入微博号"> <i class="icon2"></i>
+              </div>
+              <div style="height: .8rem;"></div>
+            </div>
+            <button id="create-mark" class="create-mark">生成水印</button>
+        </div>
+        <div class="shengchengwater">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div> 
+
+    </div>
+  </div>
+    <!-- 添加水印第一个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src=""/>
+         </div>
+         <!-- <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             
+             <div><h3><a href="{:U('poster/watermark')}">继续生成</a></h3></div>
+         </div> -->
+     </div>
+     <div class="tool" id="tool">
+      <div class="download">
+        <img class="icon" src="__PUBLIC__/poster/images/result-longtap.png"><span>按住图片保存</span>
+        <img id="pic-download-use2" class="pic-download-use" src="">
+      </div>
+      <img class="toolfooter" src="__PUBLIC__/poster/images/result-footer.png">
+    </div>
+    <div id="full-mask" class="full-mask"></div>
+    <div id="full-loading" class="full-loading"></div>
+     <!-- 生成后显示页面结束 -->
+    <script src="__PUBLIC__/poster/js/jquery-ui.min.js"></script>
+    <script src="__PUBLIC__/poster/js/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript">
+     //上传图片 
+      $("#markimg").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+          $("#addpic").attr("src", objUrl);
+          $(".add").hide();
+          $(".addsteptwo").show();
+          }
+        });
+       //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".addmark").click(function(){
+          $(".addsteptwo").hide();
+          $(".masklist").show();
+      });
+      // 选择水印样式和编辑水印的操作
+      var colors;
+      $(".mod-mark").one("click",function(){ 
+          $(".mod-mark").unbind("click");
+          var color1=$(this).children("h3").css("color");
+          color1=RGBToHex(color1);
+          console.log(color1);
+          
+          if(color1=='#FFFFFF'){
+              colors='white';
+          }else if(color1=='#FFD800'){
+              colors='yellow';
+          }else if(color1=='#000000'){
+              colors='black';
+          }else if(color1=='#E81126'){
+              colors='red';
+          }else if(color1=='#FFA6AF'){
+              colors='pink';
+          }else if(color1=='#CB68FF'){
+              colors='purple';
+          }
+          
+          $("#addpic").after(this);
+          $(".addsteptwo").show();
+          $(".mod-mark").css("left","7.905rem");
+          $(".mod-mark").css("top","4.105rem");
+          $(".mod-mark h3").html("输入店铺名称");
+          $(".mod-mark p").html("<img src='__PUBLIC__/poster/images/icons_wechat_"+colors+".png'><span>输入微信号</span>");
+         
+          $(".addstepfour").show();
+          $(".addmark").hide();
+          $(".markmain").css("margin-top","0rem");
+          $(".masklist").hide();
+
+          $(".shengchengmark").show();
+          // $(".markmain").css("margin-top","7rem");
+          // $(".mod-mark div img").css("border","3px solid #333");
+          // $(".mod-mark div").attr("id","markmove");
+          
+      });
+      var ped;
+      $(".markform input.h3").focus(function(){
+          ped=$(this).val();
+          ""==ped && (ped=$(this).attr("placeholder")),
+          $(".mod-mark h3").html(ped);
+      });
+      
+      $(".markform input.h3").keyup(function(){
+          var valh3=$(".markform input.h3").val();
+          $(".mod-mark h3").html(valh3);
+      });
+      $(".markform input.h3").blur(function(){
+          ped=$(this).val();
+          ""==ped && (ped=$(this).attr("placeholder")),
+          $(".mod-mark h3").html(ped);
+      });
+      // 选择联系方式
+      var imgsrcs;
+      $(".l").click(function(){
+          $(this).addClass("focus");
+          $(this).siblings().removeClass("focus");
+          //获取选择的图片路径
+          var imgname=$(this).children("input").attr("data-img");
+          $(".mod-mark p img").attr("src","__PUBLIC__/poster/images/icons_"+imgname+"_"+colors+".png");
+
+          var ped2;
+          ped2=$(this).children('input').val();
+          ""==ped2 && (ped2=$(this).children('input').attr("placeholder")),
+          $(".mod-mark p span").html(ped2);
+          // $(".mod-mark p span").html($(this).children('input').val());
+
+          $(this).children('input').keyup(function(){
+              $(".mod-mark p span").html($(this).val());
+              // console.log($(this).val());
+          });
+          $(this).children('input').blur(function(){
+              ped2=$(this).children('input').val();
+              ""==ped2 && (ped2=$(this).children('input').attr("placeholder")),
+              $(".mod-mark p span").html(ped2);
+          });
+      });
+      //点击生成水印
+      $(".create-mark").click(function(){
+          $(".addstepfour").hide();
+          $(".shengchengmark").show();
+          // $(".markmain").css("margin-top","7rem");
+          $(".mod-mark").addClass("edit");
+          $(".mod-mark").css("top","4.25rem");
+          // $(".edit").css("box-shadow","none");
+          $(".mod-mark").attr("id","markmove");
+          html2canvas($(".mod-mark"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            var dataUrlw = canvas.toDataURL("image/png");
+                            // $.ajax({  
+                            //   type : "POST",  
+                            //   url : '__PUBLIC__/poster/1.php',  
+                            //   data : {data:dataUrlw}, 
+                            //   success : function(data){  
+                            //       var srcw=data;
+                            //       $(".edit p").hide();
+                            //       $(".edit h3").hide();
+                            //       $(".edit div").css("height","16.64rem");
+                            //       $(".edit div img").attr("src",'__PUBLIC__/poster/'+srcw);
+                            //       console.log("已生成");
+                            //   }  
+                            // });
+                            $(".edit p").hide();
+                            $(".edit h3").hide();
+                            $(".edit div img").attr("src",dataUrlw);
+                        }
+          });
+          $( "#markmove" ).draggable();
+          // addLis();
+          addScale();
+          // touchjs();
+      });
+      //点击生成
+      $(".shengchengmark").click(function(){
+                $("body").css("background","none");
+                $(".mod-mark").css("box-shadow","none");
+                $(".mod-mark div img").css("border","none");
+                $(".shengchengmark").hide();
+                $(".header").hide();
+                
+                html2canvas($(".markmain"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            $("body").css("background","#232323");
+                            var dataUrl = canvas.toDataURL("image/jpeg",0.9782);
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",'__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                                  console.log("已请求");
+                              }  
+                            });
+                            $(".addsteptwo").hide();
+                            console.log("已生成");
+                            $(".full-mask").show();
+                            $(".full-loading").show();
+                            var ti=setTimeout(dis,2500);
+                            function dis(){
+                              $(".full-mask").hide();
+                              $(".full-loading").hide();
+                            }
+                        }
+                });
+        });
+    //加水印页面结束
+    function addLis(){
+        //获取节点
+      var water = document.getElementById("markmove");
+      var oW20,oH20;
+      // 绑定touchstart事件
+      water.addEventListener("touchstart", function(e) {
+        console.log(e);
+        var touches = e.touches[0];
+        oW20 = touches.clientX -water.offsetLeft;
+        oH20 = touches.clientY -water.offsetTop;
+       //阻止页面的滑动默认事件
+        document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      water.addEventListener("touchmove", function(e) {
+        var touches = e.touches[0];
+        var oLeft = touches.clientX - oW20;
+        var oTop = touches.clientY - oH20;
+        if(oLeft < -50) {
+          oLeft = -50;
+          console.log(window.innerWidth);
+         }else if(oLeft > document.documentElement.clientWidth-water.offsetWidth) {
+          console.log(document.documentElement.clientWidth-water.offsetWidth);
+          oLeft = document.documentElement.clientWidth-water.offsetWidth;
+         }
+        if(oTop < -50) {
+          oTop = -50;
+         }else if(oTop > 640) {
+          console.log(document.documentElement.clientHeight-water.offsetHeight);
+          oTop = document.documentElement.clientHeight-water.offsetHeight;
+         }
+        water.style.left = oLeft/20 + "rem";
+        water.style.top = oTop/20 + "rem";
+        // water.style.transform="translate("+oLeft/20+ "rem,"+oTop/20+"rem) ";
+        // water.style.webkitTransform="translate("+oLeft/20+ "rem,"+oTop/20+"rem)";
+      },false);
+       
+      water.addEventListener("touchend",function() {
+        document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+        e.preventDefault();
+      }
+    }
+    
+    function addScale(){
+      <!-- 监听手势 缩放-->
+    var initialScale = 1;
+    var currentScale;
+    var angle=0;
+    var totalAngle;
+      var target12= document.getElementById("markmove");
+      // target12.style.webkitTransition = 'all ease 0.05s';
+
+      touch.on('#markmove', 'touchstart', function(ev){  
+          ev.preventDefault();
+      });
+      touch.on('#markmove', 'pinchend rotate', function(ev){
+          currentScale = ev.scale - 1;
+          console.log(currentScale);
+
+          var totalAngle = angle + ev.rotation;
+          // if(ev.fingerStatus === 'end'){
+          //     angle = angle + ev.rotation;
+          // }
+          if(ev.fingerStatus === 'move'){
+            currentScale = initialScale + currentScale;
+            currentScale = currentScale > 3 ? 3 : currentScale;
+            currentScale = currentScale < 0.85 ? 0.85 : currentScale;
+            this.style.webkitTransform = 'scale(' + currentScale + ') rotate3d(0,0,1,' + totalAngle+ 'deg)';
+          }
+          console.log("当前缩放比例为:" + currentScale + ".");
+      });
+
+      touch.on('#markmove', 'pinchend', function(ev){
+          initialScale = currentScale;
+      });
+    }
+    
+    function touchjs(){
+        /** 调用 **/
+        //实例Touch对象
+        var MyTouch = new Touch();
+        //实例TouchSlide
+        var TouchSlide = new MyTouch.TouchSlide({
+            //传入目标元素
+            target: '#markmove'
+        });
+        //调用拖拽
+        TouchSlide.onDrag();
+    }
+    function RGBToHex(rgb){ 
+         var regexp = /[0-9]{0,3}/g;  
+         var re = rgb.match(regexp);//利用正则表达式去掉多余的部分，将rgb中的数字提取
+         var hexColor = "#"; var hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];  
+         for (var i = 0; i < re.length; i++) {
+              var r = null, c = re[i], l = c; 
+              var hexAr = [];
+              while (c > 16){  
+                    r = c % 16;  
+                    c = (c / 16) >> 0; 
+                    hexAr.push(hex[r]);  
+               } hexAr.push(hex[c]);
+               if(l < 16&&l != ""){        
+                   hexAr.push(0)
+               }
+             hexColor += hexAr.reverse().join(''); 
+          }  
+         //alert(hexColor)  
+         return hexColor;  
+      }
+    </script>
+   
+</body>
+</html>

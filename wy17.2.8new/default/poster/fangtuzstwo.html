@@ -1,0 +1,105 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfz2">
+        <div class="editfz2_con"> 
+          <div class="editfz2_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/fz2up1.jpg">
+          </div>
+          <div class="editfz2_up1">
+                    <div class="editfz2_up11">
+                        <div class="editfz2_fileInput">
+                              <input type="file" capture="camera" name="editfz2_upfile" id="editfz2_upfile" style="display:none" class="editfz2_upfile" onchange="document.getElementById('editfz2_upfileResult').innerHTML=this.value;"/>
+                              <input class="editfz2_upFileBtn" id="editfz2_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfz2_upfile').click();" />
+                        </div>
+                    </div>
+          </div>
+          <div class="editfz2_con1">
+                  <p contenteditable="true">微友团队</p>
+          </div>
+          <div class="editfz2_conbg2">
+            <div class="editfz2_con2">
+                  <p contenteditable="true">不要永远做低端的代理商</p>
+                  <p contenteditable="true">天商团队带你<span>逆袭!</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="shengchengfz2">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图招商第二个页面结束 -->
+     
+     <script type="text/javascript">
+        $("#editfz2_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editfz2_conbg1 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")");
+          }
+        });
+    $("#editfz2_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+            
+        if (objUrl) {
+          $(".editfz2_con3 img").attr("src", objUrl);
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfz2").click(function(){
+                
+                $(".shengchengfz2").hide();
+                // $(".edit3").show();
+                $(".editfz2_up1").hide();
+                $(".editfz2_up2").hide();
+                $(".editfz2_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfz2_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                 var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                            
+                            $(".editfz2").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图招商第二个页面结束
+     </script>
+<include file="poster:footer" />

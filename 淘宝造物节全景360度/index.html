@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>淘宝造物节邀请函</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no"/>
+    <!--<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>-->
+    <meta id="WV.Meta.Share.Title" value="淘宝造物节邀请函"/>
+    <meta id="WV.Meta.Share.Image" value="http://zwj360.im20.com.cnhttp://static.im20.com.cn/v1481526134!/show.im20.com.cn/impublic/zwj/images/share.jpg"/>
+    <meta id="WV.Meta.Share.Text" value="造造造造造造造造造造造造造造造造造造造造造造造造"/>
+    <meta id="WV.Meta.Share.Url"
+          value="http://zwj360.im20.com.cn?utm_source=Taobao_Share&utm_medium=Social&utm_campaign=TB_zwj360"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <link rel="stylesheet" href="css/main.css"/>
+
+    <script>
+        function parseUrl() {
+            var _ups = {};
+            var _n1 = window.location.href.indexOf("?");
+            if (_n1 != -1) {
+                var _hash = window.location.href.substr(_n1 + 1);
+                var _n2 = _hash.indexOf("#");
+                if (_n2 != -1)
+                    _hash = _hash.substr(0, _n2);
+                var _a = _hash.split("&");
+                var _len = _a.length;
+                for (var i = 0; i < _len; i++) {
+                    var _a2 = _a[i].split("=");
+                    _ups[_a2[0]] = _a2[1];
+                }
+            }
+            return _ups;
+        }
+        var ups = parseUrl();
+
+        function parseUA() {
+            var u = navigator.userAgent;
+            var u2 = navigator.userAgent.toLowerCase();
+            return { //移动终端浏览器版本信息
+                trident: u.indexOf('Trident') > -1, //IE内核
+                presto: u.indexOf('Presto') > -1, //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, //是否iPad
+                webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+                iosv: u.substr(u.indexOf('iPhone OS') + 9, 3),
+                weixin: u2.match(/MicroMessenger/i) == "micromessenger",
+                taobao: u.indexOf('AliApp(TB') > -1,
+            };
+        }
+        var ua = parseUA();
+
+        if (!ua.mobile) {
+            location.href = './pc.html';
+        }
+
+    </script>
+
+</head>
+
+<body>
+<div id="main">
+    <div id="bg"></div>
+    <div id="three"></div>
+    <div id="card">
+        <div class="bg"></div>
+        <div class="avatar"></div>
+        <p class="title"></p>
+        <p class="info"></p>
+        <div class="btn"></div>
+    </div>
+</div>
+<div id="tip"></div>
+
+<script src="js/zepto.min.js"></script>
+
+<audio id="bgm" src="http://static.im20.com.cn/v1481526134!/show.im20.com.cn/impublic/zwj/sound/bgm.mp3" loop/>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
+
+

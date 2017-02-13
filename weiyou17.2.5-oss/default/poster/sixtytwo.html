@@ -1,0 +1,130 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit62">
+        <div class="edit62_con">
+          <div class="edit62_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/m62up1.jpg" alt="uppic">
+          </div>
+          <div class="edit62_conbg2"></div>
+          <div class="edit62_con1">
+                <p contenteditable="true">的相信自己</p>
+                <p contenteditable="true">女人要永远</p>
+          </div>
+          <div class="edit62_con2">
+                <p contenteditable="true">微友美妆</p>
+          </div>
+          <div class="edit62_con3">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="edit62_con4">
+                <p contenteditable="true">进口材料</p>
+                <p contenteditable="true">清新自然</p>
+                <p contenteditable="true">不尝试，你永远不会知</p>
+                <p contenteditable="true">道自己可以如此迷人</p>
+                <div class="edit62_con41">
+                    <div class="edit62_con42" id="editmovetwo">
+                        <img src="__PUBLIC__/poster/images/m62up2.jpg" alt="uppic"/>
+                    </div>
+                </div>
+          </div>
+          <div class="edit62_up1"> 
+                <div class="edit62_up11">
+                    <div class="edit62_fileInput left">
+                          <input type="file" capture="camera" name="edit62_upfile" id="edit62_upfile" style="display:none" class="edit62_upfile" onchange="document.getElementById('edit62_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit62_upFileBtn" id="edit62_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit62_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="edit62_up2"> 
+                <div class="edit62_up22">
+                    <div class="edit62_fileInput2 left">
+                          <input type="file" capture="camera" name="edit62_upfile2" id="edit62_upfile2" style="display:none" class="edit62_upfile2" onchange="document.getElementById('edit62_upfileResult2').innerHTML=this.value;"/>
+                          <input class="edit62_upFileBtn2" id="edit62_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit62_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="edit62_up3"> 
+                <div class="edit62_up33">
+                    <div class="edit62_fileInput3 left">
+                          <input type="file" capture="camera" name="edit62_upfile3" id="edit62_upfile3" style="display:none" class="edit62_upfile3" onchange="document.getElementById('edit62_upfileResult3').innerHTML=this.value;"/>
+                          <input class="edit62_upFileBtn3" id="edit62_upfileResult3" type="button" value="上传图片" onclick="document.getElementById('edit62_upfile3').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengcheng62">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第六十二个页面结束 -->
+     <script type="text/javascript">
+        $("#edit62_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit62_conbg11 img").attr("src", objUrl);
+            }
+        });  
+        $("#edit62_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit62_con42 img").attr("src", objUrl);
+            }
+        });
+        $("#edit62_upfile3").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit62_con3 img").attr("src", objUrl);
+            }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file){
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng62").click(function(){
+                
+                $(".shengcheng62").hide();
+                $(".edit62_up1").hide();
+                $(".edit62_up2").hide();
+                $(".edit62_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit62_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit62").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第六十二个页面结束
+     </script>
+<include file="poster:footer" />

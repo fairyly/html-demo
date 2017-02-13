@@ -1,0 +1,106 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editz47">
+        <div class="editz47_con">
+          <div class="editz47_conbg11" id="editmove">
+              <img src="__PUBLIC__/poster/images/z47up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editz47_conbg2"></div>
+          <div class="editz47_con1">
+                <p contenteditable="true">微友诚招</p>
+          </div>
+          <div class="editz47_con2">
+                <p contenteditable="true">扫描下方二维码，关注微友，</p>
+                <p contenteditable="true">手把手教你赚钱，就是这么任性</p>
+          </div>
+          <div class="editz47_con3">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="editz47_up1">
+                <div class="editz47_up11">
+                    <div class="editz47_fileInput left">
+                          <input type="file" capture="camera" name="editz47_upfile" id="editz47_upfile" style="display:none" class="editz47_upfile" onchange="document.getElementById('editz47_upfileResult').innerHTML=this.value;"/>
+                          <input class="editz47_upFileBtn" id="editz47_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz47_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="editz47_up2"> 
+                <div class="editz47_up22">
+                    <div class="editz47_fileInput2 left">
+                          <input type="file" capture="camera" name="editz47_upfile2" id="editz47_upfile2" style="display:none" class="editz47_upfile2" onchange="document.getElementById('editz47_upfileResult2').innerHTML=this.value;"/>
+                          <input class="editz47_upFileBtn2" id="editz47_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editz47_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengchengz47">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第四十七个页面结束 -->
+     <script type="text/javascript">
+        $("#editz47_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editz47_conbg11 img").attr("src", objUrl);
+          }
+        });
+      $("#editz47_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".editz47_con3 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengz47").click(function(){
+                
+                $(".shengchengz47").hide();
+                $(".editz47_up1").hide();
+                $(".editz47_up2").hide();
+                $(".editz47_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz47_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editz47").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第四十七个页面结束
+     </script>
+<include file="poster:footer" />

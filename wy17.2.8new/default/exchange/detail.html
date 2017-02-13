@@ -1,0 +1,122 @@
+<include file="public:header" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">   
+<div class="header">
+    <a href="javascript:history.back()">
+        <span>
+        </span>
+    </a>
+    <a href="{:U('user/index')}">
+        兑换中心
+    </a>
+    <a href="{:U('user/index')}">
+        <span></span>
+    </a>
+</div>
+<div class="gd-body">
+        <!-- <div class="ch-head">
+            <div class="ch-headtop">我的积分为</div>
+            <div class="ch-headbot"><span>348</span></div>
+        </div> -->
+        <div class="gd-head">
+            <div class="gd-headimg"><img src="/data/upload/brand/{$goods.img}" alt="gdpic"/></div>
+        </div>
+        <section>
+            <div class="gd-content">
+                <div class="gd-con">
+                    <div class="gd-conname">
+                        <div class="gd-tit">{$goods.name}</div><div class="gd-wxprice">
+                            <p class="wxpr"><img src="__PUBLIC__/sign/images/ch-ico.png" alt="pricon"/><span>&nbsp;<i>{$goods.price}</i></span></p>
+                            <if condition="$goods.show_bef_price eq 1"><p class="underline"><span>原价：{$goods.bef_price}</span></p></if>
+                        </div>
+                    </div>
+                    <div class="gd-cond">
+                        <div class="gd-condetail">
+                            <h1>商品详情</h1>
+                            <p><if condition="$goods.is_virtual eq 1">实物产品<else/>虚拟物品</if>&nbsp;&nbsp;&nbsp;&nbsp;{$goods.intro}</p>
+                            <p>兑换此物品需要{$goods.bef_price}积分</p>
+                        </div>
+                        <div class="gd-conwarn">
+                            <h1>注意事项：</h1>
+                            <p>1.一经兑换无法撤销；</p>
+                            <p>2.兑换后我们将会在3~5个工作日之内寄出；</p>
+                            <p>3.如果兑换的物品为实物产品，请正确填写收货信息；</p>
+                            <p>最终解释权归本公司所有</p>
+                        </div>
+                        
+                    </div>
+                    <div class=" ad-my_conten_form">
+                        <form id="info" action="{:U('user/index')}" method="post">
+                            <if condition="$goods.is_virtual eq 1">
+                                <div class="ad-my_conten_forminfo">
+                                    <p><span>*</span>收货人:</p>
+                                    <input type="text" name="name" requried placeholder="请输入收货人姓名" class="uname"/>
+                                    <p><span>*</span>收货地址：</p>
+                                    <textarea rows="5" name="address" requried placeholder="请输入收货地址"class="uaddress" ></textarea>
+                                    <p><span>*</span>联系电话:</p>
+                                    <input type="text" name="phone" requried placeholder="请输入联系方式" class="uphone"> 
+                                </div> 
+                            </if>
+                            <div class="gd-foot">
+                                <a  class="weui_btn weui_btn_primary quickchange">立即兑换</a><!--href="{:U('exchange/exchange',array('id'=>$goods['id'], 'is_virtual'=>$goods['is_virtual']))}"-->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        <div class="weui_dialog_confirm" id="showdialogbtn">
+            <div class="weui_mask"></div>
+            <div class="weui_dialog">
+                <div class="weui_dialog_hd"><strong class="weui_dialog_title">积分兑换</strong></div>
+                <div class="weui_dialog_bd">您将要兑换{$goods.name}，同时将扣除您<strong>{$goods.price}</strong>积分</div>
+                <div class="weui_dialog_ft">
+                    <a class="weui_btn_dialog default dialogno">取消</a>
+                    <a class="weui_btn_dialog primary dialogyes">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $("#showdialogbtn").hide();
+            $(".quickchange").click(function(){
+                $("#showdialogbtn").show();      
+            });
+            $(".dialogno").click(function(){
+                $("#showdialogbtn").hide();
+            });
+            $(".dialogyes").click(function(){
+                $("#showdialogbtn").hide();
+                var uname=$('.uname').val();
+                var uaddress=$('.uaddress').val();
+                var uphone=$('.uphone').val();
+                console.log(uname+','+uaddress+','+uphone);
+                $.ajax({  
+                          type : "POST",  
+                          url : "{:U('exchange/exchange', array('id'=>$goods['id'], 'is_virtual'=>$goods['is_virtual']))}",
+                          data : {name:uname,address:uaddress,phone:uphone},  
+                          success:function(datas){  
+                            // console.log("ajax已经请求");
+                            // console.log(datas); 
+                            // console.log(datas.length); 
+                            var dd=datas;
+                            console.log(dd); 
+                            if(dd.status==0){
+                                 alert(dd.msg);
+                            }
+                            
+                             // window.location.reload();
+                          },
+                          error:function(){
+                            console.log("ajax获取兑换数据失败！");
+
+                          } 
+                }); 
+            });
+        });
+    </script>
+<script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/myindex.js"></script>
+<include file="public:footer" />

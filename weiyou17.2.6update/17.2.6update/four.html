@@ -1,0 +1,95 @@
+<include file="poster:header" />
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit8">
+        <div class="edit8_con">  
+            <div class="edit8_con3">
+               <div class="edit8_conpic">
+                    <div class="edit8_m3" id="editmove">
+                      <!-- onload="AutoResizeImage(320,460,this)" -->
+                        <img src="__PUBLIC__/poster/images/cxup1.jpg" style="width:100%"/>
+                    </div>
+                    <div class="edit8_up8">
+                        <div class="edit8_up88">
+                            <div class="edit8_fileInput8">
+                                  <input type="file" capture="camera" name="edit8_upfile8" id="edit8_upfile8" style="display:none" class="edit8_upfile8" onchange="document.getElementById('edit8_upfileResult8').innerHTML=this.value;"/>
+                                  <input class="edit8_upFileBtn8" id="edit8_upfileResult8" type="button" value="上传图片" onclick="document.getElementById('edit8_upfile8').click();" />
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>  
+            <div class="edit8_con4">
+               <div class="edit8_con41">
+                <p contenteditable="true">生活是彩色的，生活到处都是美的，</p>
+                <p contenteditable="true">有人说生活是红色的，它温暖、幸福；</p>
+                <p contenteditable="true">只要你有发现美的眼睛</p>
+              </div>
+            </div>
+        </div>
+        <div class="shengcheng8">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第八个页面结束 -->
+    <script type="text/javascript">
+      $("#edit8_upfile8").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+           
+        if (objUrl) {
+          $(".edit8_m3 img").attr("src", objUrl);
+        }
+      });
+        
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng8").click(function(){
+                
+                $(".shengcheng8").hide();
+                $(".edit8_up8").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                $(".edit8_con4").css("background","url(__PUBLIC__/poster/images/cxdiv.jpg)");
+                $(".edit8_con4").css("background-size","100%");
+                html2canvas($(".edit8_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                          });
+                            $(".edit8").hide();
+                        }
+                });
+        });
+ // 第八个页面结束
+    </script>
+    <include file="poster:footer" />
+   

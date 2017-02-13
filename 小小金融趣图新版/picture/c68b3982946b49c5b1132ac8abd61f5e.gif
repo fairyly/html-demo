@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="ui-mobile"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- base href="http://xdycz.weilanghd.com/create/114?wechatUserId=o4m2IuBO_E-kLqZQiCQ58V7sU3c0&expire=1461583636815&signature=ssBUSZzTYsldF4SK6hsDMbkCwL0=" -->
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="/qutu/Public/css/jquery.css?v=2">
+    <script src="/qutu/Public/js/hm.js?v=2"></script><script src="/qutu/Public/js/jquery_002.js?v=2"></script>
+    <script src="/qutu/Public/js/jquery.js?v=2"></script>
+    <script src="/qutu/Public/js/jweixin-1.js?v=2"></script>
+    <script src="/qutu/Public/js/create.js?v=3"></script>
+    <script src="/qutu/Public/js/qrcode.js?v=2"></script>
+   
+</head>
+<body class="ui-mobile-viewport ui-overlay-c"><div style="min-height: 347px;" class="ui-page ui-body-c ui-page-active" tabindex="0" data-url="/create/114?wechatUserId=o4m2IuBO_E-kLqZQiCQ58V7sU3c0&amp;expire=1461583636815&amp;signature=ssBUSZzTYsldF4SK6hsDMbkCwL0=" data-role="page">
+
+
+
+
+    <input type="hidden" value="1" id="pn" />
+<div style="margin: 10pt">
+    <div>
+                                                        
+                
+                                                                                                                                                            
+
+        </if>
+
+        
+        
+                <input id="id"  class="ui-input-text ui-body-c" value=""  type="hidden">
+       
+
+
+
+
+
+        
+
+
+       
+
+
+
+
+
+    </div>
+
+    <input data-disabled="false" id="createButton" class="ui-btn ui-btn-hidden" value="生成海报" type="button">
+
+
+    <div id="result">
+    </div>
+
+
+    <div id="description" style="background-color:#f4e3bc;margin:10 10 10 10">
+
+        
+    </div>
+        <p style="text-align: center">被疯传的拓客强文</p>
+    <ul style="font-size: 13px;margin:18px;padding:0px;float: left">
+    <li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653494981&idx=1&sn=252da962dd9f1fefa3804e3eeb10c4d7&chksm=8428e215b35f6b03b10058fb0b26375317ba91ff2783a7ee8943ba689074247bee72de77afe7#rd" target="_blank" style="text-decoration:none">逾期两个月，痛苦三代人</a></span></li><li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653495036&idx=2&sn=db790ca10209cdc624ec1bc7d448d2b6&chksm=8428e22cb35f6b3a08839296c31f8fc9388ec5ab8cd7fa783c1d2c639fbe48e7fedfbf268f29#rd" target="_blank" style="text-decoration:none">有本事的人，才能负债！</a></span></li><li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653494858&idx=1&sn=729b6039fcea594b73565c714f243b7d&chksm=8428e29ab35f6b8c63abe89b8e4e3fa36d28075e219073b28238477d28bfabb484f02cf00c9a#rd" target="_blank" style="text-decoration:none">借钱，一定要有还钱的素质</a></span></li><li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653494389&idx=2&sn=64b25bbe29fb1478dd6d1926927f65a1#rd" target="_blank" style="text-decoration:none">记住，这5点是贷款的关键！</a></span></li><li ><span><a href="http://mp.weixin.qq.com/s?__biz=MzA4MzUxMjc2Nw==&mid=2653494731&idx=4&sn=f3250fe9e3d80ff7a576e187d65bf746#rd" target="_blank" style="text-decoration:none">信贷员的7种死法，引以为戒</a></span></li>    </ul>
+    <ul style="font-size: 13px;margin:18px;padding:0px;float: right">
+            </ul>
+    <div style="clear:both;"></div>
+    <div style="text-align: center" id="qrcode">
+        <p>分享下面的二维码给朋友制作海报</p>
+        <img style="width: 100%" src="/qutu/Public/images/qr.jpg">
+
+
+    </div>            <div id="author" style="text-align: center;font-color:#d9d9d9">
+
+
+    </div>
+
+
+</div>
+</div>
+
+</div><div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div>
+<div style="display:none;">
+    <script src="http://s95.cnzz.com/stat.php?id=1257423101&web_id=1257423101
+
+" language="JavaScript"></script>
+</div>
+</body></html>

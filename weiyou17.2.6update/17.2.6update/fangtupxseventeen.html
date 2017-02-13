@@ -1,0 +1,96 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfp17">
+        <div class="editfp17_con"> 
+          <div class="editfp17_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/fp17up1.jpg" alt="uppic">
+          </div>
+          <div class="editfp17_conbg2"></div>
+          <div class="editfp17_con1">
+                <p contenteditable="true">王某某</p>
+          </div>
+          <div class="editfp17_con2">
+                <p contenteditable="true">微友培训课堂</p>
+                <p contenteditable="true">首席讲师</p>
+          </div>
+          <div class="editfp17_con3">
+                <p contenteditable="true">玩赚全民微商运营</p>
+                <p contenteditable="true">课程内容：</p>
+                <p contenteditable="true"><span>如何设计昵称</span><span>掌握微信的常用功能</span></p>
+                <p contenteditable="true"><span>高效加好友的办法</span><span>打造高粘性的朋友圈</span></p>
+          </div>
+          <div class="editfp17_up1">
+              <div class="editfp17_up11">
+                  <div class="editfp17_fileInput">
+                        <input type="file" capture="camera" name="editfp17_upfile" id="editfp17_upfile" style="display:none" class="editfp17_upfile" onchange="document.getElementById('editfp17_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfp17_upFileBtn" id="editfp17_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfp17_upfile').click();" />
+                  </div>
+              </div>
+          </div> 
+        </div>
+        <div class="shengchengfp17">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图培训第十七个页面结束 -->
+     <script type="text/javascript">
+        $("#editfp17_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editfp17_conbg1 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfp17").click(function(){
+                
+                $(".shengchengfp17").hide();
+                $(".editfp17_up1").hide();
+                $(".editfp17_up2").hide();
+                $(".editfp17_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfp17_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfp17").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图培训第十七个页面结束
+     </script>
+<include file="poster:footer" />

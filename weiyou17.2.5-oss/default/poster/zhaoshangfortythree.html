@@ -1,0 +1,105 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editz43">
+        <div class="editz43_con">
+          <div class="editz43_conbg11" id="editmove">
+              <img src="__PUBLIC__/poster/images/z43up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editz43_conbg2"></div>
+          <div class="editz43_con1">
+                <p contenteditable="true">亲爱的朋友：</p>
+                <p contenteditable="true">微友团队正式邀请你加入我们</p>
+                <p contenteditable="true">一起实现你的梦想</p>
+          </div>
+          <div class="editz43_con2">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+          </div>
+          <div class="editz43_up1"> 
+                <div class="editz43_up11">
+                    <div class="editz43_fileInput left">
+                          <input type="file" capture="camera" name="editz43_upfile" id="editz43_upfile" style="display:none" class="editz43_upfile" onchange="document.getElementById('editz43_upfileResult').innerHTML=this.value;"/>
+                          <input class="editz43_upFileBtn" id="editz43_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz43_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="editz43_up2"> 
+                <div class="editz43_up22">
+                    <div class="editz43_fileInput2 left">
+                          <input type="file" capture="camera" name="editz43_upfile2" id="editz43_upfile2" style="display:none" class="editz43_upfile2" onchange="document.getElementById('editz43_upfileResult2').innerHTML=this.value;"/>
+                          <input class="editz43_upFileBtn2" id="editz43_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editz43_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengchengz43">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第四十三个页面结束 -->
+     <script type="text/javascript">
+        $("#editz43_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editz43_conbg11 img").attr("src", objUrl);
+          }
+        });
+      $("#editz43_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+            
+        if (objUrl) {
+          $(".editz43_con2 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengz43").click(function(){
+                
+                $(".shengchengz43").hide();
+                $(".editz43_up1").hide();
+                $(".editz43_up2").hide();
+                $(".editz43_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz43_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editz43").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第四十三个页面结束
+     </script>
+<include file="poster:footer" />

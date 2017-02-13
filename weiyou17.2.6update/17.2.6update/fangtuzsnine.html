@@ -1,0 +1,101 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfz9">
+        <div class="editfz9_con"> 
+          <div class="editfz9_conbg1">
+            <img src="__PUBLIC__/poster/images/fz9up1.jpg">
+          </div>
+          <div class="editfz9_conbg2">
+            <div class="editfz9_up1">
+                <div class="editfz9_up11">
+                    <div class="editfz9_fileInput">
+                          <input type="file" capture="camera" name="editfz9_upfile" id="editfz9_upfile" style="display:none" class="editfz9_upfile" onchange="document.getElementById('editfz9_upfileResult').innerHTML=this.value;"/>
+                          <input class="editfz9_upFileBtn" id="editfz9_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfz9_upfile').click();" />
+                    </div>
+                </div>
+            </div> 
+            <div class="editfz9_con1">
+                  <p contenteditable="true">微友诚招代理</p>
+            </div>
+            <div class="editfz9_con2">
+                  <p contenteditable="true">无需代理费，无库存、无压力接受一件代发，团队</p>
+                  <p contenteditable="true">资源共享，强大的产品资料培训。客源培训、代理</p>
+                  <p contenteditable="true">有公司合同保障，请带着一颗肯努力肯坚持肯付出</p>
+                  <p contenteditable="true">的心态来挑战欢迎你的加入</p>
+            </div>
+          </div>
+        </div>
+        <div class="shengchengfz9">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图招商第九个页面结束 -->
+     
+     <script type="text/javascript">
+        $("#editfz9_upfile").change(function(){
+          var objUrl = getObjectURL(this.files[0]);
+          console.log("objUrl = "+objUrl);
+          if (objUrl) {
+           $(".editfz9_conbg1 img").attr("src", objUrl);
+            }
+        });
+       $("#editfz9_upfile2").change(function(){
+          var objUrl = getObjectURL(this.files[0]);
+              
+          if (objUrl) {
+            $(".editfz9_con2 img").attr("src", objUrl);
+          }
+        });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengfz9").click(function(){
+                
+                $(".shengchengfz9").hide();
+                $(".editfz9_up1").hide();
+                $(".editfz9_up2").hide();
+                $(".editfz9_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfz9_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfz9").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图招商第九个页面结束
+     </script>
+<include file="poster:footer" />

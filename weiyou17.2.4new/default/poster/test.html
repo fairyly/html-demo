@@ -1,0 +1,116 @@
+<include file="poster:header" />
+        <div class="edit1">
+            <div class="img1">
+                <div class="m1" id="editmove">
+                  <!-- onload="AutoResizeImage(500,480,this)"按照比例显示 -->
+                    <img src="__PUBLIC__/poster/images/m1.jpg" style="width:100%;max-width:640px" id="img1"/>
+                </div>
+                <div class="up1">
+                    <div class="up11">
+                        <div class="fileInput left">
+                              <input type="file" capture="camera" name="upfile" id="upfile" style="display:none" class="upfile" onchange="document.getElementById('upfileResult').innerHTML=this.value;"/>
+                              <input class="upFileBtn" id="upfileResult" type="button" value="上传图片" onclick="document.getElementById('upfile').click();" />
+                        </div>
+                        <!-- <img src="__PUBLIC__/poster/images/upload.png" style="width:60px;height:60px;"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="bg1">
+                <div class="titl" style="width:100%;margin: -40px auto;">
+                    <div class="title1">
+                        <!-- contenteditable="true" -->
+                        <p style="font-size:1.2rem;text-align:center;"><input class="input1" id="p1" type="text" maxlength="3" value="红领巾" style="border:0px;background:rgba(255,255,255,0);text-align:center;"/></p>
+                        <h2 id="p2" contenteditable="true" style="width:100%;height:3rem;line-height:3rem;margin: 0px auto;overflow: hidden;font-size:2.5rem;font-weight:bold">红领巾联盟商店</h2>
+                        <p id="p3" contenteditable="true" style="width:83%;overflow:hidden;margin:2px auto;font-size:0.5rem;border-top:1px solid #000;padding-top:2px;">HONGLINGJIN LIANMENG SHOP</p>
+                    </div>
+                </div>  
+                <div class="content1">
+                    <p id="p4" style="font-size:1rem;color:#fe86a0">微信</p>
+                    <p id="p5" contenteditable="true" style="width:100%;overflow:hidden;">wx888888</p>
+                    <p id="p6" style="font-size:1rem;color:#fe86a0">QQ</p>
+                    <p id="p7" contenteditable="true" style="width:100%;overflow:hidden;">88888888</p>
+                    <p id="p8" style="font-size:1rem;color:#fe86a0">电话</p>
+                    <p id="p9" contenteditable="true" style="width:100%;overflow:hidden;">18888888888</p>
+                </div>
+                <div class="img11">
+                    <div class="m2" style="text-align:center">
+                        <img src="__PUBLIC__/poster/images/m2.jpg" style="width:8rem;height:8rem" id="img2" >
+                    </div>
+                    <div class="up2">
+                        <div class="up22">
+                            <div class="fileInput2">
+                              <input type="file" capture="camera" name="upfile2" id="upfile2" style="display:none" class="upfile2" onchange="document.getElementById('upfileResult2').innerHTML=this.value;"/>
+                              <input class="upFileBtn2" id="upfileResult2" type="button" value="上传图片" onclick="document.getElementById('upfile2').click();" />
+                            </div>
+                        </div>
+                        <!-- <img src="images/upload.png" style="width:40px;height:40px;"> -->
+                    </div>
+                </div>
+        </div>
+        <!-- edit1结束 -->
+        <div class="shengcheng">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;margin:0 auto;margin-top:-7px;">修改模板上的“图片”和“文字”生成你的海报</p>
+        </div>
+    </div><!-- first结束 -->
+    <script>
+      $("#upfile").change(function(){
+          var objUrl = getObjectURL(this.files[0]);
+          console.log("objUrl = "+objUrl);
+          if (objUrl) {
+            $(".m1 img").attr("src", objUrl);
+          }
+      });
+      $("#upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+          $(".m2 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+          var url = null; 
+
+          if (window.createObjectURL!=undefined) { // basic
+            url = window.createObjectURL(file);
+          } else if (window.URL!=undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file);
+          } else if (window.webkitURL!=undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file);
+          }
+          return url;
+        }
+      $(".shengcheng").click(function(){
+                
+                $(".shengcheng").hide();
+                $(".up1").hide();
+                $(".up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                html2canvas($(".edit1"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                            $.ajax({  
+                              type : 'post',
+                              url : '__PUBLIC__/poster/1.php',
+                              data : {data:dataUrl},
+                              success : function(data){ 
+                                  var src=data;
+                                  console.log(src);//服务器上保存图片路径，data是返回的文件名。  
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                                }  
+                            });
+                            $(".edit1").hide();
+                        }
+                });
+        });
+    </script>
+    <include file="poster:footer" />

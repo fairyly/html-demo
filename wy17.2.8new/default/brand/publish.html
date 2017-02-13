@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>微友</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/brand/css/publish.css"/>
+<link href="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/css/style.css" rel="stylesheet" />
+<link href="__PUBLIC__/nav/iconfont.css"  rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/brand/css/weui1.1.min.css"/>
+<!-- <script type="text/javascript" src="__PUBLIC__/brand/js/jquery.min.js"></script> -->
+<script src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/js/jquery.js"></script>
+<script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/brand/js/weui.min.js"></script>
+<style>
+    .img-select div.weui-uploader__bd{
+        width: 78%;
+    }
+    .weui-uploader__file{
+        width: 45px;
+        height: 45px;
+    }
+</style>
+<script>
+    $(function(){
+        $.ajax({
+            type: "POST",
+            url: '{:U("brand/check_insert")}',
+            async: false,  
+            cache: false,  
+            contentType: false,  
+            processData: false,  
+            success: function(result){
+                if (result.status==0) {
+                    $('.weui-dialog__bd').html(result.msg);
+                    $('.alterdialog').show();
+                    $('.upclose').show();
+                    $('.redirect').click(function(){
+                         window.location.href=result.data;
+                    });
+                }
+            }
+        })
+    });
+</script>
+</head>
+<body>
+    <div class="header">
+        <a href="javascript:history.back()">
+            
+        </a><a>
+            货源发布
+        </a><a>
+            
+        </a>
+    </div>
+    <div class="publish-tit">
+        <div class="publish-titpic">
+            <img src="__PUBLIC__/brand/images/brand-tit.png" alt="tit"/>
+            <p>货源发布</p>
+        </div>
+    </div>
+    <div class="publish-form">
+       
+        <form class="publish-formcon">
+            <div class="form-tit">
+                <p>产品名称: <span></span></p>
+            </div>
+            <div class="form-text item">
+                <input class="form-proname" placeholder="请输入产品名称(15个文字)"  maxlength="15" required value='{$info.fname}'/>
+            </div>
+            <div class="form-tit">
+                <p>品牌介绍: <span></span></p>
+            </div>
+            <div class="form-text item">
+                <textarea class="form-pdetail" placeholder="请输入内容(200个文字以内)"  maxlength="200" name="" rows="5" required>{$info.fdetail}</textarea>
+                <div class="audio-select" style="display:block">
+                    <img src="__PUBLIC__/brand/images/pic-audio.png" alt="audio"/>
+                </div>
+            </div>
+            <div class="img-select item">
+                <div class="img-show">
+                    <img src="__PUBLIC__/brand/images/pic-thumb.png" alt="imgshow"/>
+                </div>
+                <!-- <div class="img-up">
+                    <input class="up-pic" type="file" capture="camera" accept="image/*,capture=camera" file-upload=""/>
+                    <img src="__PUBLIC__/brand/images/pic-up.png" alt="pic-up"/>
+                </div> -->
+                <input type="hidden" name="status" id="pubstatus" value="{$info.status}">
+                <input type="hidden" name="img" id="image" value="{$info.qcode}">
+                <input type="hidden" name="img" id="image1" value="{$info.uppics1}">
+                <input type="hidden" name="img" id="image2" value="{$info.uppics2}">
+                <input type="hidden" name="img" id="image3" value="{$info.uppics3}">
+                <input type="hidden" name="img" id="image4" value="{$info.qcode}">
+                <input type="hidden" name="img" id="srcopenid" value="{$openid}">
+                <div class="weui-uploader__bd" id="uploaderCustom">
+                    <ul class="weui-uploader__files" id="uploaderCustomFiles">
+                        <li class="weui-uploader__file data1" data-id="100" style="background-image: url('{$info.uppics1}');display:none;">
+                        </li><li class="weui-uploader__file data2" data-id="101" style="background-image: url('{$info.uppics2}');display:none;">
+                        </li><li class="weui-uploader__file data3" data-id="102" style="background-image: url('{$info.uppics3}');display:none;">
+                        </li>
+                    </ul>
+                    <div class="weui-uploader__input-box">
+                        <input id="uploaderCustomInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                    </div>
+                </div>
+            </div>
+            <div class="form-tit">
+                <p class="tit-info">(建议上传三张正方形图片)</p>
+            </div>
+            <div class="form-space item"></div>
+            <div class="form-qrcode">
+                <div class="qrcode-btn">
+                    <button class="up-qrcode">上传二维码</button>
+                    <!-- <input class="up-qrcode" type="file" capture="camera" accept="image/*,capture=camera" file-upload=""/> __PUBLIC__/brand/images/qrcode.jpg-->
+                </div>
+                <div class="qrcode-pic">
+                    <img src="{$info.qcode}" alt="qrcode"/>
+                </div>
+            </div>
+            <div class="form-sub">
+                <a href="javascript:;" class="brand-formsub">
+                        发布
+                </a>
+            </div>
+        </form>
+        <form id="infos" action="{:U('brand/upload')}" method="post" data-ajax="false" method="post" enctype="multipart/form-data" style="display:none;">
+                <input type="file" name="img" id="img" style="display:none;">
+                <input name="types" id="types" style="display:none;" value="{$status}">
+        </form>
+    </div>
+    <div class="publish-note">
+        <div class="publish-notecon">
+            <h3>须知</h3>
+            <p>1：VIP用户才能在此进行发布；</p>
+            <p>2：发布后需要审核，每次修改后都需要重新提交审核，审核时间为一个工作日；</p>
+            <p>3：审核成功后，五分钟可“刷新置顶”一次，置顶的方法为：在不修改之前发布内容的情况下，直接点击发布即可刷新置顶。</p>
+        </div>
+    </div>
+    <div class="popup-container popup-showing active">
+        <div class="popup">
+            <div class="popup-head">
+                <h3 class="popup-title ng-binding">开始录音!</h3>
+            </div>
+            <div class="popup-body">
+                <div class="popup popup-record-voice" style="margin-top:0px;">
+                    <p><img src="__PUBLIC__/brand/images/wx-recording.gif"/></p>
+                    <p class="balanced center">00：<span class="time-seconds"></span></p> 
+                </div>
+            </div>
+            <div class="popup-buttons">
+                <button class="button button-default">以后再说</button>
+                <button class="button button-balanced">说完了</button>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" class="updiolog">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title"></strong></div>
+            <div class="weui-dialog__bd"></div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary upclose">确定</a>
+            </div>
+        </div>
+    </div>
+    <div class="alterdialog" style="display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title"></strong></div>
+            <div class="weui-dialog__bd"></div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:window.history.back();" class="weui-dialog__btn weui-dialog__btn_default reback">返回</a>
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary redirect">确定</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="__PUBLIC__/brand/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $.ajax({  
+                type : "POST",  
+                url : '{:U("voice/getVoice")}', 
+                success : function(d){  
+                    wx.config({
+                        debug: false,
+                        appId: d.data.appId,
+                        timestamp: d.data.timestamp,
+                        nonceStr: d.data.nonceStr,
+                        signature: d.data.signature,
+                        jsApiList: [
+                          'startRecord',
+                          'stopRecord',
+                          'onVoiceRecordEnd',
+                          'translateVoice'
+                        ]
+                    });
+                    wx.ready(function () {
+                    });
+                    wx.error(function(res){
+                    });
+                    wx.checkJsApi({
+                        jsApiList: ['chooseImage'], 
+                        success: function(res) {
+                            
+                        }
+                    });
+                }  
+            }); 
+        // 语音转换
+            var localId;
+            var r;
+            var descrip;
+            var tail;
+            $(".audio-select").click(function(){
+                $(".popup-container").fadeIn();
+                var s=60;
+                $(".time-seconds").text(s);
+                r=setInterval(redu,1000);
+                function redu(){
+                    s--;
+                    $(".time-seconds").text(s);
+                    if (s<10) {
+                        $(".time-seconds").html('0'+s);
+                    }
+                    if (s<0) {
+                        clearInterval(r);
+                        s=0;
+                        $(".time-seconds").text('0'+s);
+                    }
+                    
+                }
+                wx.startRecord();
+                wx.onVoiceRecordEnd({
+                // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+                    complete: function (res) {
+                        localId = res.localId; 
+                        $(".popup-container").fadeOut();
+                        trans(localId);
+                    }
+                });
+            });
+            $(".button-default").click(function(){
+                $(".popup-container").fadeOut();
+                clearInterval(r);
+                wx.stopRecord({
+                    success: function (res) {  
+                    }
+                });
+                $(".time-seconds").html(60);
+            });
+            $(".button-balanced").click(function(){
+                clearInterval(r);
+                $(".popup-container").hide();
+                wx.stopRecord({
+                    success: function (res) {
+                        localId = res.localId;  
+                        trans(localId);
+                    }
+                });
+                $(".time-seconds").html(60);
+            });
+            
+            function trans(localId){
+                wx.translateVoice({
+                    localId: localId, // 需要识别的音频的本地Id，由录音相关接口获得
+                    isShowProgressTips: 1, // 默认为1，显示进度提示
+                    success: function (res) {
+                        var result = res.translateResult;
+                        // alert(res.translateResult); // 语音识别的结果
+                        $('.weui-dialog__bd').html(result);
+                        $('.updiolog').show();
+                        $('.upclose').show();
+                        tail=$(".form-pdetail").val();
+                        $('.upclose').click(function(){
+                            if (typeof(descrip)=="undefined") {
+                                descrip=result;
+                                $(".form-pdetail").val(tail+result);
+                                $('.updiolog').hide();
+                            }else{
+                                $(".form-pdetail").val(tail+result);
+                                $('.updiolog').hide();
+                            }
+                        });
+                    }
+                });
+            }
+        })
+    </script> 
+    <script>
+        var qcode; 
+        var srcopenid;
+        /* 图片上传 */
+        var uploadCustomFileList = [];
+        var uploadFileName=[];
+        var uploadCount=0;
+        
+        $(function(){
+            // 未审核提示
+            srcopenid=$("#srcopenid").val();
+            var pubstatus=$('#pubstatus').val();
+            if (pubstatus==1) {
+                $('.weui-dialog__bd').html("未审核,请等待！");
+                $('.updiolog').show();
+                $('.upclose').hide();
+            }
+            if (pubstatus==''){
+                $('.qrcode-pic img').attr('src','http://weiyounew.oss-cn-hangzhou.aliyuncs.com/images/127.jpg');
+            }
+            var image1=$('#image1').val();
+            var image2=$('#image2').val();
+            var image3=$('#image3').val();
+            var image4=$('#image4').val();
+            if (image1) {
+                $('.data1').show();
+                $(".img-show").hide();
+                var sp1=image1.split('/');
+                uploadCustomFileList.push(sp1[5]);
+                uploadFileName.push(sp1[5]);
+                uploadCount++;
+            }else{
+                $('.data1').hide();
+                return false;
+            }
+            if (image2) {
+                $('.data2').show();
+                var sp2=image2.split('/');
+                uploadCustomFileList.push(sp2[5]);
+                uploadFileName.push(sp2[5]);
+                uploadCount++;
+            }else{
+                 $('.data2').hide();
+            }
+            if (image3) {
+                $('.data3').show();
+                var sp3=image3.split('/');
+                uploadCustomFileList.push(sp3[5]);
+                uploadFileName.push(sp3[5]);
+                uploadCount++;
+            }else{
+                 $('.data3').hide();
+            }
+            console.log(image4);
+            if (image4) {
+                qcode=$('.qrcode-pic img').attr('src');
+            }else{
+                $('.qrcode-pic img').attr('src','__PUBLIC__/brand/images/qrcode.jpg');
+            }
+
+        });
+        // 这里是简单的调用，其余api请参考文档
+        weui.uploader('#uploaderCustom', {
+            url: '{:U("brand/upload",array("status"=>1))}',
+            auto: false,
+            type:'file',
+            onQueued: function onQueued() {
+                uploadCustomFileList.push(this);
+                
+                $(".img-show").hide();
+                this.upload();
+                var upf=eval('(' + this.xhr.response+ ')');
+            },
+            onBeforeQueued: function onBeforeQueued(files) {
+                if (["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0) {
+                    weui.alert('请上传jpg/png/gif图片');
+                    return false;
+                }
+                if (this.size > 1024* 1024) {
+                    weui.alert('请上传不超过1M的图片');
+                    return false;
+                }
+                if (files.length > 3) {
+                    // 防止一下子选中过多文件
+                    weui.alert('最多只能上传3张图片，请重新选择');
+                    return false;
+                }
+                if (uploadCount + 1 > 3) {
+                    weui.alert('最多只能上传3张图片');
+                    return false;
+                }
+                ++uploadCount;
+            },
+             onSuccess: function (ret) {
+               var upfilename=eval('(' + this.xhr.response+ ')');
+               uploadFileName.push(upfilename.data);
+               // return true; // 阻止默认行为，不使用默认的成功态
+            },
+            onError: function(err){
+               console.log(this, err);
+               var upfilename=eval('(' + this.xhr.response+ ')');
+               console.log(upfilename.msg);
+               var c=this.id;
+               if (upfilename.status==0) {
+                    $('.weui-dialog__bd').html(upfilename.msg);
+                    $('.updiolog').show();
+                    $('.upclose').show();
+                    $('.upclose').click(function(){
+                        // window.location.href='/user-vip.html';
+                        $('.updiolog').hide();
+                    });
+                    $('#d'+c+'').hide();
+                    uploadCount--;
+                    return false;
+               }else{
+                    var lengs=upfilename.data.split('/')[5].length;
+                    console.log(upfilename.data.split('/')[5]+lengs);
+                    var filesrc=upfilename.data.split('/')[5].substring(0,lengs);
+                    // console.log(filesrc);
+                    uploadFileName.push(filesrc);
+                    // console.log(uploadFileName);
+                    // console.log(this.id);
+                    $('#d'+c+'').css('background-image', 'url('+upfilename.data+')');
+               }
+               // return true; // 阻止默认行为，不使用默认的失败态
+            }
+        });
+        // 缩略图预览
+        document.querySelector('#uploaderCustomFiles').addEventListener('click', function(e){
+            var target = e.target;
+            while(!target.classList.contains('weui-uploader__file') && target){
+                target = target.parentNode;
+            }
+            if(!target) return;
+
+            var url = target.getAttribute('style') || '';
+            var id = target.getAttribute('data-id');
+            // console.log(id);
+            if(url){
+                
+                url = url.match(/url\((.*?)\)/)[1];
+                // console.log(url);
+            }
+            var gallery = weui.gallery(url, {
+                onDelete: function(){
+                    weui.confirm('确定删除该图片？', function(){
+                        var ind=0;
+                        if (url) {
+                            var sp=url.split('/');
+                            var lp=url.split('/')[5].length;
+                            var u=url.split('/')[5].substring(0,lp);
+                            var v0=uploadFileName[0];
+                            var v1=uploadFileName[1];
+                            var v2=uploadFileName[2];
+                            if(v0==u){
+                                ind=0;
+                            }else if(v1==u){
+                                ind=1;
+                            }else if(v2==u) {
+                                ind=2;
+                            }
+                            uploadCustomFileList.splice(ind, 1);
+                            uploadFileName.splice(ind, 1);
+                            uploadCount--;
+                            target.remove();
+                            gallery.hide();
+                        }else{
+                            uploadCount--;
+                            target.remove();
+                            gallery.hide();
+                        }
+                        
+                    });
+                }
+            });
+        });
+       
+         
+        var status="{$status}"; 
+        $('.up-qrcode').click(function(){
+            $('#img').click();return false;
+        })
+        $('.qrcode-pic').click(function(){
+            $('#img').click();return false;
+        })
+        $("#img").change(function(){
+            infosubmit();
+            return false;
+        });
+        function infosubmit(){
+            var formData = new FormData($("#infos")[0]);  
+            $.ajax({
+                type: "POST",
+                url: '{:U("brand/upload",array("status"=>2))}',
+                data:formData,
+                dataType:'json', 
+                async: false,  
+                cache: false,  
+                contentType: false,  
+                processData: false,  
+                success: function(result){
+                    qcode=result.data;
+                    if (result.status==0) {
+                        $('.weui-dialog__bd').html(result.msg);
+                        $('.updiolog').show();
+                        $('.upclose').show();
+                    }else{
+                        $(".qrcode-pic img").attr("src", qcode);
+                        $('#image').val(qcode);
+                    }
+                }
+            });
+        }
+        // 关闭消息
+        $('.upclose').click(function(){
+            $('.updiolog').hide();
+        });
+    </script>
+    <!-- 发布 -->
+    <script>
+        $('.brand-formsub').click(function(){
+            var fname=$(".form-proname").val();
+            var fdetail=$(".form-pdetail").val();
+            if(fname==''|| fdetail==''){
+                $('.weui-dialog__bd').html("产品名称或内容不能为空！");
+                $('.updiolog').show();
+                $('.upclose').show();
+                return false;
+            };
+            // console.log(uploadFileName);
+            var uppics1=uploadFileName[0];
+            var uppics2;
+            var uppics3;
+            if(uploadFileName[0]){
+                uppics1=uploadFileName[0];
+            }else{
+                uppics1='';
+                $('.weui-dialog__bd').html("请上传产品图片！");
+                $('.updiolog').show();
+                $('.upclose').show();
+                return false;
+            }
+            if(uploadFileName[1]==undefined){
+                uppics2='';
+                $('.weui-dialog__bd').html("请上传第二张产品图片！");
+                $('.updiolog').show();
+                $('.upclose').show();
+                return false;
+            }else{
+                uppics2=uploadFileName[1];
+            }
+            if(uploadFileName[2]==undefined){
+                uppics3='';
+                $('.weui-dialog__bd').html("请上传第三张产品图片！");
+                $('.updiolog').show();
+                $('.upclose').show();
+                return false;
+            }else{
+                uppics3=uploadFileName[2];
+            }
+            var image=$('#image').val();
+            if(image==''){
+                $('.weui-dialog__bd').html("请先上传二维码！");
+                $('.updiolog').show();
+                $('.upclose').show();
+                return false;
+            }
+            // console.log(uppics1+','+uppics2+','+uppics3)
+            $.ajax({  
+                type : "POST",  
+                url : '{:U("brand/insert")}', 
+                data:{fname:fname,fdetail:fdetail,uppics1:uppics1,uppics2:uppics2,uppics3:uppics3,qcode:qcode},
+                success : function(data){  
+                    console.log(data);
+                    if (data.status==1) {
+                        $('.weui-dialog__bd').html(data.msg);
+                        $('.updiolog').show();
+                        $('.upclose').show();
+                        $('.upclose').click(function(){
+                             window.location.href=data.data;
+                        });
+                    }else{
+                        $('.weui-dialog__bd').html(data.msg);
+                        $('.updiolog').show();
+                        $('.upclose').show();
+                        $('.upclose').click(function(){
+                             window.location.href=data.data;
+                        });
+                    }
+                },
+                error:function(){
+                    console.log("请求失败");
+                }
+            });      
+        });
+    </script>
+    <script>
+
+    //统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?b568cb6c867797e8aaf3d0759e396fa1";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();  
+    </script>
+
+<include file="public:footer" />

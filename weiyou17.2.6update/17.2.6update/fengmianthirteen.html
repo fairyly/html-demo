@@ -1,0 +1,99 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfm13">
+        <div class="editfm13_con"> 
+          <div class="editfm13_conbg1" id="editmove">
+               <img src="__PUBLIC__/poster/images/fm13up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editfm13_conbg2"></div>
+          <div class="editfm13_con1">
+                <p contenteditable="true">微友团队电商模式领航者</p>
+          </div>
+		      <div class="editfm13_con2">
+                <p contenteditable="true">微友</p>
+                <p contenteditable="true">团队</p>
+          </div>
+          <div class="editfm13_con3">
+                <p contenteditable="true">服务至上 </p>
+                <p contenteditable="true">满意为止 </p>
+                <p contenteditable="true">正品保证</p>
+                <p contenteditable="true">独具匠心</p>
+          </div>
+          <div class="editfm13_con4">
+                <p contenteditable="true">微信:wx88888888   QQ:88888888</p>
+                <p contenteditable="true">全国最专业的微商团队</p>
+          </div>
+          
+          <div class="editfm13_up1">
+              <div class="editfm13_up11">
+                  <div class="editfm13_fileInput">
+                        <input type="file" capture="camera" name="editfm13_upfile" id="editfm13_upfile" style="display:none" class="editfm13_upfile" onchange="document.getElementById('editfm13_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfm13_upFileBtn" id="editfm13_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfm13_upfile').click();" />
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengfm13">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--封面第十三个页面结束 -->
+     <script type="text/javascript">
+        $("#editfm13_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+         $(".editfm13_conbg1 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfm13").click(function(){
+                
+                $(".shengchengfm13").hide();
+                $(".editfm13_up1").hide();
+                $(".editfm13_up2").hide();
+                $(".editfm13_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfm13_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfm13").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //封面图第十三个页面结束
+     </script>
+<include file="poster:footer" />

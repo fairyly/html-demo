@@ -1,0 +1,104 @@
+<include file="public:header" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">   
+<div class="header">
+    <a href="javascript:history.back()">
+        <span>
+        </span>
+    </a>
+    <a href="{:U('user/index')}">
+        个人中心
+    </a>
+    <a href="{:U('user/index')}">
+        <span></span>
+    </a>
+</div>
+<div class="exchange">
+    <div class="exchangeshow">
+        <div class="exchangehead">
+            <p>积分兑换</p>
+           <!--  <p>积分：<span>20</span></p> -->
+        </div>
+        <div class="exchangecon">
+            <div class="exchangevip"><span>您的当前积分为：<i>{$score}</i></span><img src="__PUBLIC__/sign/images/exchange.png"></div>
+            <div class="exchangevip_des">
+                <p><font color="#888">600积分兑换一个月VIP</font></p>
+            </div>
+            <div class="exchangevip_btn">
+                <a class="weui_btn weui_btn_primary" >立即兑换</a>
+            </div>
+        </div>
+        <div class="exchangerules">
+            <article class="weui_article">
+                <section>
+                    <section>
+                        <h3>最新积分规则：</h3>
+                        <p>1.获取积分有两种方式：<a href="{:U('sign/index')}">签到</a>、<a href="{:U('card/lists')}">加好友</a>;</p>
+                        <p>2.首次签到当天获取<strong>10</strong>个积分，连续签到每天获取<strong>20</strong>个积分;</p>
+                        <p>3.通过微友达人秀长按扫描二维码添加好友获取<strong>2</strong>积分/人，每人每天最多获取<strong>20</strong>个积分，重复添加不计算;</p>
+                        <p>4.积分用途：兑换VIP-每<strong>600</strong>积分可以兑换一个月VIP，兑换礼品(随后上线...)。</p>
+                        <p>本规则最终解释权归本公司所有</p>
+                    </section>
+                </section>
+            </article>
+        </div>
+    </div>
+    <!-- 弹出对话框 -->
+    <div class="weui_dialog_confirm" id="showdialogbtn">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title">积分兑换VIP</strong></div>
+            <div class="weui_dialog_bd">您将要兑换一个月VIP，同时将扣除您<strong>600</strong>积分</div>
+            <div class="weui_dialog_ft">
+                <a class="weui_btn_dialog default dialogno">取消</a>
+                <a class="weui_btn_dialog primary dialogyes">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("#showdialogbtn").hide();
+        $(".exchangevip_btn a").click(function(){
+            $("#showdialogbtn").show();      
+        });
+        $(".dialogno").click(function(){
+            $("#showdialogbtn").hide();
+        });
+        $(".dialogyes").click(function(){
+            $("#showdialogbtn").hide();
+            $.ajax({  
+                          type : "POST",  
+                          url : "{:U('sign/scoreExchangeVIP')}",
+                          // data : {y:year,m:month},  
+                          success:function(datas){  
+                            console.log("ajax已经请求");
+                            console.log(datas); 
+                            console.log(datas.length); 
+                            var dd=eval('('+datas+')');
+                            console.log(dd); 
+                            if(dd.data==1){
+                                 alert("您已成功兑换一个月VIP！");
+                            }
+                            if(dd.data==2){
+                                alert("您的积分不够，请赚取积分后再试！");
+                            }
+                            if(dd.data==0){
+                                alert("您已经是VIP了，请在VIP到期之后再试！");
+                            }
+                            if(dd.data==3){
+                                alert("参数错误！");
+                            }
+                             window.location.reload();
+                          },
+                          error:function(){
+                            console.log("ajax获取兑换数据失败！");
+
+                          } 
+            }); 
+        });
+    });
+</script>
+<script src="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/js/myindex.js"></script>
+<include file="public:footer" />

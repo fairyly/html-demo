@@ -1,0 +1,151 @@
+﻿b,strong {
+  font-weight: 700
+}
+
+body {
+  min-width: 1090px;
+  background: #f3f3f3
+}
+a{
+  color:#333;
+}
+
+.main{
+  width:1090px;
+  margin:0 auto;
+  position:relative;
+}
+.main *{
+  box-sizing:border-box;
+}
+.w-tit1 {
+  font-size: 23px;
+  color: #333;
+  line-height: 40px;
+  margin: 34px 0 0;
+  border-bottom:3px solid #092980;
+}
+.w-tit1 .big {
+  font-size: 30px;
+  font-weight: 700;
+  border-bottom:8px solid #092980;
+  display:inline-block;
+  padding-bottom:15px;
+  vertical-align: top;
+}
+.w-tit1 em{
+  font-weight:700;
+  font-size:30px;
+  display:inline-block;
+  height:40px;
+  overflow:hidden;
+  padding:0 10px;
+  vertical-align: top;
+  vertical-align: middle\9;
+  margin-top: -5px\9;
+}
+.w-tit1 i{
+  display:inline-block;
+  vertical-align: middle;
+  line-height:45px;
+}
+
+.masonry_ul{
+  position: relative;
+  min-height:500px;
+  padding:15px;
+  background:#f8f8f8;
+}
+.masonry_ul li{
+  background:#fff;
+  border:1px solid #ddd;
+  width:320px;
+  overflow:hidden;
+  margin:15px;
+  float:left;
+  border-radius:5px;
+}
+.masonry_ul li .a_img{
+  display:block;
+  width:100%;
+  position:relative;
+}
+
+.masonry_ul li .a_img img{
+  width:100%;
+}
+.masonry_ul li .a_img:hover img{
+  opacity:0.9;
+}
+.masonry_ul li .a_img span{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 40px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  opacity: 0.8;
+  font-size: 17px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+.masonry_ul .li_head{
+  height:58px;
+  background:#383838;
+  color:#fff;
+  padding:5px 10px;
+  line-height:48px;
+  font-size:14px;
+  position:relative;
+}
+.masonry_ul .li_head .li_head_sj{
+  display:block;
+  width:22px;
+  height:14px;
+  position:absolute;
+  left:21px;
+  bottom:-14px;
+  background:url(../images/share_li.png) 0 0 no-repeat;
+}
+.masonry_ul .li_head span{
+  width:48px;
+  height:48px;
+  display:inline-block;
+  border:2px solid #7d7d7d;
+  border-radius:50%;
+  overflow:hidden;
+  background:#fff;
+  margin-right:10px;
+  vertical-align:middle;
+}
+.masonry_ul .li_head span img{
+  width:100%;
+  border-radius:50%;
+  display:block;
+}
+.masonry_ul .li_a{
+  padding:20px 10px 0px;
+  font-size:14px;
+}
+.masonry_ul .li_a a{
+  color:#51B8F1;
+
+}
+.masonry_ul .li_main{
+  padding:10px 10px 20px;
+  font-size:14px;
+}
+
+.scroll-tip{
+  height:56px;
+  border:1px solid #ddd;
+  background:#f6f6f6;
+  text-align: center;
+  line-height:54px;
+  color:#999;
+  margin-top:70px;
+  font-size:16px;
+  font-weight:700;
+}
