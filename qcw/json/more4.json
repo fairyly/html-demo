@@ -1,0 +1,36 @@
+{
+    "lists":[
+        {
+            "pic":"images/4.jpg",
+             "link":"index_4.html"
+        },
+        {
+            "pic":"images/5.jpg",
+            "link":"index_5.html"
+        },
+        {
+            "pic":"images/6.jpg",
+            "link":"index_6.html"
+        },
+        {
+            "pic":"images/7.jpg",
+            "link":"index_7.html" 
+        },
+         {
+            "pic":"images/4.jpg",
+             "link":"index_7.html"
+        },
+        {
+            "pic":"images/5.jpg",
+            "link":"index_5.html"
+        },
+        {
+            "pic":"images/6.jpg",
+            "link":"index_6.html"
+        },
+        {
+            "pic":"images/7.jpg",
+            "link":"index_7.html" 
+        }
+    ]
+}

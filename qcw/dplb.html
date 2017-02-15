@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店铺列表</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="yhq" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+<link rel="stylesheet" type="text/css" href="css/dropload.css">
+<script src="js/jquery-3.0.0.min.js"></script>
+<style>
+    /*{font-size:62.5%;font-family:"Microsoft YaHei",Arial; overflow-x:hidden; overflow-y:auto;}*/
+    
+</style>
+<script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px'; //设置根字体大小
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+</script>
+</head>
+ 
+<body>
+   <header>
+   		<div class="index_head">
+   			<div class="index_serch">
+   				<div class="index_serchcon">
+   					<span class="iconfont s1">&#xe602;</span><input type="text" placeholder="寻找待售宝贝"><span class="iconfont s2">&#xe617;</span>
+   				</div>
+   			</div>
+   		</div>
+   </header>
+   <!-- 顶部头结束 -->
+   <section>
+        <div class="dplb_head">
+            <div class="dplb_headtit">
+              <div class="dplb_headtit1">
+                  <span></span><span class="dplb_headpz">店铺类别<em class="iconfont">&#xe62a;</em></span><span class="dplb_headxy">信誉选择<em class="iconfont">&#xe62a;</em></span><span class="dplb_headdq">地区选择<em class="iconfont">&#xe62a;</em></span><a href="">查看所有分类</a>
+              </div>
+              <div class="dplb_fenlei">
+                <ul>
+                  <li>
+                    <div>
+                       <span>全部店铺</span>
+                    </div>
+                  </li><li>
+                    <div><span>狗狗店铺</span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>猫咪店铺</span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>小宠店铺</span><span class="iconfont">&#xe62d;</span></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="dplb_fenleixy">
+                <ul>
+                  <li>
+                    <div>
+                       <span>全部信誉</span>
+                    </div>
+                  </li><li>
+                    <div><span>信誉 <img src="images/xinyu.png"></span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>信誉 <img src="images/xinyu.png"><img src="images/xinyu.png"></span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>信誉 <img src="images/xinyu.png"><img src="images/xinyu.png"><img src="images/xinyu.png"></span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>信誉 <img src="images/xinyu.png"><img src="images/xinyu.png"><img src="images/xinyu.png"><img src="images/xinyu.png"></span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>信誉 <img src="images/xinyu.png"><img src="images/xinyu.png"><img src="images/xinyu.png"><img src="images/xinyu.png"><img src="images/xinyu.png"></span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>信誉 <img src="images/xinyuguan.png"></span><span class="iconfont">&#xe62d;</span></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="dplb_fenleidq">
+                <ul>
+                  <li>
+                    <div>
+                       <span>全部地区</span>
+                    </div>
+                  </li><li>
+                    <div><span>北京 </span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>上海</span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>天津</span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>重庆</span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>广东</span><span class="iconfont">&#xe62d;</span></div>
+                  </li><li>
+                    <div><span>四川</span><span class="iconfont">&#xe62d;</span></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        <div class="dplb_con">
+               <div class="list3"><ul></ul></div> <!-- ajax用 -->
+              <!--  <ul>
+                  <li>
+                    <a href="#">
+                      <div class="dplb_conl">
+                        <img src="images/rabt1.jpg">
+                        <p>支持担保交易</p>
+                      </div><div class="dplb_conr">
+                        <p>蠢萌兔兔小店</p>
+                        <p><img src="images/xinyu.png" class="xinyu"/><img src="images/xinyu.png" class="xinyu"/><img src="images/xinyu.png" class="xinyu"/><img src="images/xinyu.png" class="xinyu"/><img src="images/xinyu.png" class="xinyu"/></p>
+                        <p>经营类目：<span>小宠</span></p>
+                        <p>地址：<span>安徽淮安</span></p>
+                        <p>电话：<span>18765436789</span></p>
+                        <p><input type="button" value="进入店铺"/></p>
+                      </div>
+                    </a>
+                  </li><li>
+                    <a href="#">
+                     <div class="dplb_conl">
+                        <img src="images/rabt1.jpg">
+                        <p>支持担保交易</p>
+                      </div><div class="dplb_conr">
+                        <p>蠢萌兔兔小店</p>
+                        <p class="dpxy"><img src="images/xinyu.png" class="xinyu"/><img src="images/xinyu.png" class="xinyu"/><img src="images/xinyu.png" class="xinyu"/><img src="images/xinyu.png" class="xinyu"/><img src="images/xinyu.png" class="xinyu"/></p>
+                        <p>经营类目：<span>小宠</span></p>
+                        <p>地址：<span>安徽淮安</span></p>
+                        <p>电话：<span>18765436789</span></p>
+                        <p><input type="button" value="进入店铺"/></p>
+                      </div>
+                    </a>
+                  </li>
+                </ul> -->
+            </div>
+   </section>
+  <script type="text/javascript" src="js/dropload.min.js"></script>
+  <script type="text/javascript">
+      $(function(){
+                var counter = 0;
+                // 每页展示4个
+                var num = 4;
+                var pageStart = 0,pageEnd = 0;
+
+                // dropload
+                $('.dplb_con').dropload({
+                    scrollArea : window,
+                    loadDownFn : function(me){
+                        console.log("ajax开始");
+                        $.ajax({
+                            type: 'GET',
+                            url: 'json/dplb.json',
+                            dataType: 'json',
+                            success: function(data){
+                                var result = '';
+                                counter++;
+                                pageEnd = num * counter;
+                                pageStart = pageEnd - num;
+                                console.log("ajax请求成功");
+                                for(var i = pageStart; i < pageEnd; i++){
+                                    result +='<li>'+'<a href="'+data.lists[i].link+'">'+'<div class="dplb_conl">'
+                                    +'<img src="'+data.lists[i].pic+'" alt=""/>'
+                                    +'<p>'+data.lists[i].pcon1+'</p>'+'</div>'+'<div class="dplb_conr">'
+                                    +'<p>'+data.lists[i].pcon2+'</p>'
+                                    +'<p>'
+                                    +'<img class="xinyu" src="'+data.lists[i].pic2+'" alt=""/>'
+                                    +'<img class="xinyu" src="'+data.lists[i].pic2+'" alt=""/>'
+                                    +'<img class="xinyu" src="'+data.lists[i].pic2+'" alt=""/>'
+                                    +'<img class="xinyu" src="'+data.lists[i].pic2+'" alt=""/>'
+                                    +'<img class="xinyu" src="'+data.lists[i].pic2+'" alt=""/>'
+                                    +'</p>'+'<p>'+data.lists[i].pcon3+'<span>'+data.lists[i].scon1+'</span>'+'</p>'
+                                    +'<p>'+data.lists[i].pcon4+'<span>'+data.lists[i].scon2+'</span>'+'</p>'
+                                    +'<p>'+data.lists[i].pcon5+'<span>'+data.lists[i].scon3+'</span>'+'</p>'
+                                    +'</div>'
+                                    +'</a>'+'</li>';
+                                    if((i + 1) >= data.lists.length){
+                                        // 锁定
+                                        me.lock();
+                                        // 无数据
+                                        me.noData();
+                                        break;
+                                    }
+                                }
+                                // 为了测试，延迟1秒加载
+                                setTimeout(function(){
+                                    $('.list3 ul').append(result);
+                                    // 每次数据加载完，必须重置
+                                    me.resetload();
+                                },1000);
+                            },
+                            error: function(xhr, type){
+                                // alert('Ajax error!');
+                                console.log("请求失败");
+                                // 即使加载出错，也得重置
+                                me.resetload();
+                            }
+                        });
+                    }
+                });
+            // 第一块加载结束
+            //点击按钮出现js部分
+            $(".dplb_headpz").click(function(){
+                $(".dplb_fenlei").show();
+                $(".dplb_fenleixy").hide();
+                $(".dplb_fenleidq").hide();  
+                $(".dplb_headpz em").html("&#xe628;");
+                
+                $(".dplb_headtit1 span:nth-child(2)").css("border-bottom","3px solid #FB9600");
+                $(".dplb_headtit1 span:nth-child(3)").css("border-bottom","none");
+                $(".dplb_headtit1 span:nth-child(4)").css("border-bottom","none");
+            });
+
+            $(".dplb_headxy").click(function(){
+                $(".dplb_fenlei").hide();
+                $(".dplb_fenleixy").show();
+                $(".dplb_fenleidq").hide();
+                $(".dplb_headxy em").html("&#xe628;");
+                $(".dplb_headtit1 span:nth-child(3)").css("border-bottom","3px solid #FB9600");
+                 $(".dplb_headtit1 span:nth-child(2)").css("border-bottom","none");
+                $(".dplb_headtit1 span:nth-child(4)").css("border-bottom","none");
+            });
+            $(".dplb_headdq").click(function(){
+                $(".dplb_fenlei").hide();
+                $(".dplb_fenleixy").hide();
+                $(".dplb_fenleidq").show();
+                $(".dplb_headdq em").html("&#xe628;");
+                $(".dplb_headtit1 span:nth-child(4)").css("border-bottom","3px solid #FB9600");
+                 $(".dplb_headtit1 span:nth-child(2)").css("border-bottom","none");
+                $(".dplb_headtit1 span:nth-child(3)").css("border-bottom","none");
+            });
+
+            $(".dplb_fenlei ul li").not(":first").click(function(){
+                $(".dplb_fenlei").hide();
+                $(".dplb_headpz em").html("&#xe62a;");
+            });
+            $(".dplb_fenleixy ul li").not(":first").click(function(){
+                $(".dplb_fenleixy").hide();
+                $(".dplb_headxy em").html("&#xe62a;");
+            });
+            $(".dplb_fenleidq ul li").not(":first").click(function(){
+                $(".dplb_fenleidq").hide();
+                $(".dplb_headdq em").html("&#xe62a;");
+            });
+    });
+  </script>
+</body>
+</html>
