@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注册页</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="yhq" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+<style>
+    /*{font-size:62.5%;font-family:"Microsoft YaHei",Arial; overflow-x:hidden; overflow-y:auto;}*/
+    
+</style>
+<script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px'; //设置根字体大小
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+</script>
+</head>
+<body>
+	<header>
+		<div class="reg_head">
+			<div class="reg_headl">
+				<a href="javascript:history.back();"><img src="images/reg.png" /></a>
+			</div><div class="reg_headr">注册</div>
+		</div>
+	</header>
+	<section>
+		<div class="reg_con">
+			<div class="reg_consjh">
+				<span>手 机</span><input type="text" placeholder="请输入手机号码"/>
+			</div>
+			<div class="reg_conyzm">
+				<span>验证码</span><input type="text" placeholder="请输入验证码"/>
+			</div>
+			<div class="reg_consbd">
+				<span>获取不到验证码？</span>
+			</div>
+			<div class="reg_connext">
+				<input type="submit" value="下一步" />
+			</div>
+		</div>
+	</section>
+	
+</body>
+</html>

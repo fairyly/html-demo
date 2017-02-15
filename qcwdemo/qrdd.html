@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>确认订单</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="yhq" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+<style>
+    /*{font-size:62.5%;font-family:"Microsoft YaHei",Arial; overflow-x:hidden; overflow-y:auto;}*/
+    
+</style>
+<script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px'; //设置根字体大小
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+</script>
+</head>
+<body>
+	<header>
+		<div class="qrdd_head">
+			<div class="qrdd_headl">
+				<a href="index.html"><img src="images/reg.png" /></a>
+			</div><div class="qrdd_headr">确认订单</div>
+		</div>
+	</header>
+	<section>
+		<div class="qrdd_con">
+			<div class="qrdd_conshr">
+				<span>收货人：</span><input type="text" />
+			</div>
+			<div class="qrdd_contel">
+				<span>电 话：</span><input type="text" />
+			</div>
+			<div class="qrdd_conaddr">
+				<span class="iconfont">&#xe621; </span><span>地 址：</span><textarea ></textarea>
+			</div>
+			<div class="kong"></div>
+			<div class="qrdd_consp">
+				<div class="qrdd_condm">
+					<span class="iconfont">&#xe622; </span><span>上海赤道名犬</span>
+				</div>
+				<div class="qrdd_conspcon">
+					<div class="qrdd_conspcon1">
+						<div class="qrdd_conspconpic">
+							<img src="images/cwbk1.jpg">
+						</div><div class="qrdd_conspconshow">
+							<p>墨西哥纯种吉娃娃幼犬 纯种吉娃娃幼犬待售...</p>
+							<p>价格：<span>￥1000.00</span> <span>X1</span></p>
+						</div>
+					</div>
+				</div>
+				<div class="qrdd_conspps">
+					<span>配送方式</span><span>商家包邮</span>
+				</div>
+				<div class="qrdd_consply">
+					<div class="qrdd_consply_con">
+						<span>买家留言：</span><input type="text" placeholder="选填"/>
+					</div>
+					
+				</div>
+				<div class="qrdd_consphj">
+					<p>共<span>1</span>件商品 合计：<span>￥1000.00</span></p>
+				</div>
+			</div>
+			<div class="qrdd_contjdd">
+				<div class="qrdd_contjddcon">
+					<span>合计：</span> <span>￥1000.00</span><a href="myorder.html"><input  type="button" value="提交订单"/></a>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	
+</body>
+</html>
