@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>宠物百科</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="yhq" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
+<link rel="stylesheet" type="text/css" href="css/dropload.css">
+<script src="js/jquery-3.0.0.min.js"></script>
+<style>
+    /*{font-size:62.5%;font-family:"Microsoft YaHei",Arial; overflow-x:hidden; overflow-y:auto;}*/
+    
+</style>
+<script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px'; //设置根字体大小
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+</script>
+</head>
+ 
+<body>
+   <header>
+   		<div class="index_head">
+   			<div class="index_serch">
+   				<div class="index_serchcon">
+   					<span class="iconfont s1">&#xe602;</span><input type="text" placeholder="寻找待售宝贝"><span class="iconfont s2">&#xe617;</span>
+   				</div>
+   			</div>
+   		</div>
+   </header>
+   <!-- 顶部头结束 -->
+   <section>
+       <div class="cwbkmore">
+            <div class="con_cwbkmoretit">
+              <div class="con_cwbkmoretit1">
+                  <span>宠物百科</span><a href="">查看所有分类</a>
+              </div>
+            </div>
+            <div class="cwbkmore_con">
+              <div class="list1"></div>
+               <!--  <ul>
+                    <li>
+                      <a href="#">
+                          <div class="cwbkmore_con1">
+                              <p>.【大白熊的寿命】大白熊可以或多少年？</p>
+                              <span>作者：桔梗 2016-04-26</span>
+                          </div><div class="cwbkmore_con2">
+                              <img src="images/cwbk1.jpg">
+                          </div>  
+                      </a>
+                    </li>
+                    
+                </ul> -->
+            </div>
+       </div>
+   </section>
+  <script type="text/javascript" src="js/dropload.min.js"></script>
+  <script type="text/javascript">
+      $(function(){
+                var counter = 0;
+                // 每页展示4个
+                var num = 4;
+                var pageStart = 0,pageEnd = 0;
+
+                // dropload
+                $('.cwbkmore_con').dropload({
+                    scrollArea : window,
+                    loadDownFn : function(me){
+                        console.log("ajax开始");
+                        $.ajax({
+                            type: 'GET',
+                            url: 'json/cwbk.json',
+                            dataType: 'json',
+                            success: function(data){
+                                var result = '';
+                                counter++;
+                                pageEnd = num * counter;
+                                pageStart = pageEnd - num;
+                                console.log("ajax请求成功");
+                                for(var i = pageStart; i < pageEnd; i++){
+                                    result +=   '<ul>'+'<li>'+'<a href="'+data.lists[i].link+'">'
+                                              +'<div class="cwbkmore_con1">'+'<p>'+data.lists[i].pcon+'</p>'
+                                                    +'<span>'+data.lists[i].pzz+'</span>'
+                                                    +'</div>'+'<div class="cwbkmore_con2">'+'<img src="'+data.lists[i].pic+'" alt=""/>'+'</div>'
+                                                +'</a>'+'</li>'+'</ul>';
+                                    if((i + 1) >= data.lists.length){
+                                        // 锁定
+                                        me.lock();
+                                        // 无数据
+                                        me.noData();
+                                        break;
+                                    }
+                                }
+                                // 为了测试，延迟1秒加载
+                                setTimeout(function(){
+                                    $('.list1').append(result);
+                                    // 每次数据加载完，必须重置
+                                    me.resetload();
+                                },1000);
+                            },
+                            error: function(xhr, type){
+                                // alert('Ajax error!');
+                                console.log("请求失败");
+                                // 即使加载出错，也得重置
+                                me.resetload();
+                            }
+                        });
+                    }
+                });
+            // 第一块加载结束
+            
+            });
+  </script>
+</body>
+</html>
