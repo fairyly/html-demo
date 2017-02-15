@@ -1,0 +1,111 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit3 edit_common" id="edit_common">
+        <p style="width:100%;height:15px"></p>
+        <div class="img3">
+            <div class="m3" id="editmove">
+                <img src="__PUBLIC__/poster/images/mmm1.jpg" style="width:100%"/>
+            </div>
+            <div class="up5">
+                <div class="up55">
+                    <div class="fileInput5">
+                          <input type="file" capture="camera" name="upfile5" id="upfile5" style="display:none" class="upfile5" onchange="document.getElementById('upfileResult5').innerHTML=this.value;"/>
+                          <input class="upFileBtn5" id="upfileResult5" type="button" value="上传图片" onclick="document.getElementById('upfile5').click();" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content3">
+          <div style="width:100%;height:2.5rem;margin:0px auto;position:relative;background-image:url(__PUBLIC__/poster/images/mmm21.jpg);background-repeat:no-repeat;background-size:100%" >
+                <div style="width:100%;height:2.5rem;margin:2px auto;color:#f41da8;line-height:2.5rem;font-weight:bold;position:absolute;top: -0.28rem;font-size: 1.8rem;text-align:center" contenteditable="true">红领巾联盟的小店</div>
+          </div>
+            <div class="con32">
+                <img src="__PUBLIC__/poster/images/mmm2.jpg"/>
+            </div>
+            <div class="con33">
+                 <img src="__PUBLIC__/poster/images/mm2.jpg"/>
+                <p>扫一扫关注我</p>
+            </div>
+            <div class="up6">
+                <div class="up66">
+                    <div class="fileInput6">
+                          <input type="file" capture="camera" name="upfile6" id="upfile6" style="display:none" class="upfile6" onchange="document.getElementById('upfileResult6').innerHTML=this.value;"/>
+                          <input class="upFileBtn6" id="upfileResult6" type="button" value="上传图片" onclick="document.getElementById('upfile6').click();"/>
+                    </div>
+                </div>
+            </div>
+            <div class="con34">
+                <img src="__PUBLIC__/poster/images/mmm3.jpg" style="width:100%"/>
+            </div>
+        </div>
+        <div class="shengcheng3 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>
+    </div>
+    <!-- 第三个页面结束 -->
+  </div> 
+  <script type="text/javascript">
+       $("#upfile5").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+          $(".m3 img").attr("src", objUrl);
+        }
+      });
+         $("#upfile6").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+          $(".con33 img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng3").click(function(){
+                
+                $(".shengcheng3").hide();
+                $(".up5").hide();
+                $(".up6").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                html2canvas($(".edit3"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php', 
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                          });
+                          $(".edit3").hide();
+                        }
+                });
+        });
+        //生成第三个页面结束
+  </script>
+   <include file="poster:footer" />

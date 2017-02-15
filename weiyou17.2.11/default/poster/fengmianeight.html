@@ -1,0 +1,99 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfm8 edit_common" id="edit_common">
+        <div class="editfm8_con"> 
+          <div class="editfm8_conbg1" id="editmove">
+               <img src="__PUBLIC__/poster/images/fm8up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editfm8_conbg2"></div>
+          <div class="editfm8_con1">
+                <p contenteditable="true">微友创始人:王某某</p>
+          </div>
+		      <div class="editfm8_con2">
+                <p contenteditable="true">红领巾团队</p>
+                <p contenteditable="true">诚招各级代理商</p>
+          </div>
+          <div class="editfm8_con3">
+                <p contenteditable="true">微商专用朋友圈名片</p>
+                <p contenteditable="true">最资深的微商品牌历史</p>
+                <p contenteditable="true">最大的微商培训机构</p>
+                <p contenteditable="true">最优越的微商货源品牌</p>
+                <p contenteditable="true">最系统的团队管理体系</p>
+          </div>
+          <div class="editfm8_con4">
+                <p contenteditable="true">微信:wx88888888 </p>
+                <p contenteditable="true">QQ:88888888</p>
+          </div>
+          <div class="editfm8_up1">
+              <div class="editfm8_up11">
+                  <div class="editfm8_fileInput">
+                        <input type="file" capture="camera" name="editfm8_upfile" id="editfm8_upfile" style="display:none" class="editfm8_upfile" onchange="document.getElementById('editfm8_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfm8_upFileBtn" id="editfm8_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfm8_upfile').click();" />
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengfm8 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--封面第八个页面结束 -->
+     <script type="text/javascript">
+        $("#editfm8_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+         $(".editfm8_conbg1 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfm8").click(function(){
+                
+                $(".shengchengfm8").hide();
+                $(".editfm8_up1").hide();
+                $(".editfm8_up2").hide();
+                $(".editfm8_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfm8_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfm8").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //封面图第八个页面结束
+     </script>
+<include file="poster:footer" />

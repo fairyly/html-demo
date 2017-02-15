@@ -1,0 +1,132 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit11 edit_common" id="edit_common">
+        <div class="edit11_con"> 
+          <div class="edit11_con1">
+              <div class="edit11_con1pic" id="editmove">
+                <img src="__PUBLIC__/poster/images/mpup11.jpg"/>
+              </div>
+              <div class="edit11_up1">
+                  <div class="edit11_up11">
+                      <div class="edit11_fileInput left">
+                            <input type="file" capture="camera" name="edit11_upfile" id="edit11_upfile" style="display:none" class="edit11_upfile" onchange="document.getElementById('edit11_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit11_upFileBtn" id="edit11_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit11_upfile').click();" />
+                      </div>
+                  </div>
+              </div>  
+          </div>
+          <div class="edit11_con2">
+            <div class="edit11_con21">
+                <div class="edit11_con21txt">
+                    <p contenteditable="true">创业梦想就是</p>
+                    <p contenteditable="true">需要坚持奋斗</p>
+                </div>
+                <div class="edit11_con21wz">
+                    <p contenteditable="true">微信：WX888888</p>
+                    <p contenteditable="true">Q Q ：88888888</p>
+                    <p contenteditable="true">电话：18888888888</p>
+                </div>
+                <div class="edit11_con21pic" id="editmove">
+                    <img src="__PUBLIC__/poster/images/mpup2.jpg"/>
+                </div>
+                <div class="edit11_up2">
+                    <div class="edit11_up22">
+                        <div class="edit11_fileInput2 left">
+                              <input type="file" capture="camera" name="edit11_upfile2" id="edit11_upfile2" style="display:none" class="edit11_upfile2" onchange="document.getElementById('edit11_upfileResult2').innerHTML=this.value;"/>
+                              <input class="edit11_upFileBtn2" id="edit11_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit11_upfile2').click();" />
+                        </div>
+                    </div>
+                </div>
+            </div><div class="edit11_con22">
+                  <div class="edit11_con22pic" id="edit11_con22img">
+                  </div>
+                  <div class="edit11_con22wz">
+                      <p contenteditable="true">你可以拉黑我</p>
+                      <p contenteditable="true">但却抹黑不了</p>
+                      <p contenteditable="true">我对梦想的坚持</p>
+                      <p contenteditable="true">你可以删除我</p>
+                      <p contenteditable="true">但是删除不了</p>
+                      <p contenteditable="true">我奋斗的心</p>
+                  </div>
+            </div>
+             
+          </div>  
+        </div>
+        <div class="shengcheng11 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十一个页面结束 -->
+    <script type="text/javascript">
+        $("#edit11_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".edit11_con1pic img").attr("src", objUrl);
+        }
+      });
+        $("#edit11_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".edit11_con21pic img").attr("src", objUrl);
+        }
+      });
+         $("#edit11_upfile3").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".edit11_con22pic img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng11").click(function(){
+                
+                $(".shengcheng11").hide();
+                $(".edit11_up1").hide();
+                $(".edit11_up2").hide();
+                $(".edit11_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                $(".edit11_con2").css("background","url(__PUBLIC__/poster/images/mpbg12.png)");
+                $(".edit11_con2").css("background-size","100%");
+                html2canvas($(".edit11_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                          });
+                            $(".edit11").hide();
+                        }
+                });
+        });
+ //    //第十一个页面结束
+    </script>
+    <include file="poster:footer" />

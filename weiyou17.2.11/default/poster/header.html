@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <link rel="stylesheet" type="text/css" href="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/css/ossposter.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/poster/css/addswiper.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/poster/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/poster/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/poster/css/dropload.css">
+    <script src="__PUBLIC__/poster/js/jquery-2.2.3.min.js"></script>
+    <script src="__PUBLIC__/poster/js/swiper.min.js"></script>
+    <script src="__PUBLIC__/poster/js/touch.min.js"></script>
+    <script src="__PUBLIC__/poster/js/edit_1.js"></script>
+    <script src="__PUBLIC__/poster/js/htc.js"></script>
+    <script src="__PUBLIC__/poster/js/dropload.min.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+   
+</head>
+<body>
+    <div class="first">
+        <div class="header">
+            <nav>
+                <div class="nav">
+                    <ul>
+                        <li style="width:28%"><a href="javascript:history.back();">返回</a></li>
+                        <li style="width:45%"><a href="">微友海报</a></li>
+                        <li style="width:22%"><a href="{:U('index/index')}">首页</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>

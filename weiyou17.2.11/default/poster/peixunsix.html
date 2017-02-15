@@ -1,0 +1,100 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editp6 edit_common" id="edit_common">
+        <div class="editp6_con">
+            <div class="editp6_conbg">
+              <div class="editp6_con1">
+                  <div class="editp6_con1txt">
+                       <p contenteditable="true">0基础使用课程</p>
+                       <p contenteditable="true"><span>现在报名了</span></p>
+                       <p contenteditable="true">微商实战运营课程</p>
+                       <p contenteditable="true">如何设计昵称/用户的分组管理/微店的推广策略/微画报的</p>
+                       <p contenteditable="true">制作/售后服务和客户管理/掌握微信常用功能</p>
+                  </div>
+              </div>
+              <div class="editp6_con2">
+                  <div class="editp6_con21" >
+                      <img src="__PUBLIC__/poster/images/mpup2.jpg">
+                      <p>请扫描二维码</p>
+                  </div>
+                  <div class="editp6_up1">
+                      <div class="editp6_up11">
+                          <div class="editp6_fileInput left">
+                                <input type="file" capture="camera" name="editp6_upfile" id="editp6_upfile" style="display:none" class="editp6_upfile" onchange="document.getElementById('editp6_upfileResult').innerHTML=this.value;"/>
+                                <input class="editp6_upFileBtn" id="editp6_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editp6_upfile').click();" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="editp6_con2txt">
+                       <p contenteditable="true">微 友 基 础 培 训 课 程</p>
+                   </div>
+              </div>
+            </div>
+        </div>
+        <div class="shengchengp6 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 培训第六个页面结束 -->
+    
+     <script type="text/javascript">
+       $("#editp6_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editp6_con21 img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")");
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengp6").click(function(){
+                
+                $(".shengchengp6").hide();
+                $(".editp6_up1").hide();
+                // $(".editp4_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editp6_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editp6").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //培训第六个页面结束
+     </script>
+<include file="poster:footer" />

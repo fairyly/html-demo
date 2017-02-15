@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" href="http://weiyoustyle.oss-cn-hangzhou.aliyuncs.com/css/newposterindex.css">
+    <script src="__PUBLIC__/poster/js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div>
+    <ul class="poster-nav">
+      <li><a href="{:U('poster/index')}" class="active">推荐</a></li>
+      <li><a href="{:U('poster/more')}">更多</a></li>
+      <li><a href="{:U('poster/watermark')}">加水印</a></li>
+    </ul>
+  </div>
+  <div class="poste-banner">
+    <a href="javascript:;"><img src="http://weiyounew.oss-cn-hangzhou.aliyuncs.com/images/logo.jpg"></a>
+  </div>
+  <div class="muen">
+    <ul class="list-inline">
+      <li class="sy"><a href="{:U('poster/more')}">所有标签 &gt;</a></li>
+      <li class="li1">微商都在用</li>
+    </ul>
+  </div>
+  <div class="poster-type-index">
+    <ul>
+        <li onclick="location.href='{:U('poster/morefm')}';">
+          <a>封面</a>
+        </li><li onclick="location.href='{:U('poster/more')}';">
+          <a>名片</a>
+        </li><li onclick="location.href='{:U('poster/morepx')}';">
+          <a>培训</a>
+        </li><li onclick="location.href='{:U('poster/morezs')}';">
+          <a>招商</a>
+        </li><li onclick="location.href='{:U('poster/moreqt')}';">
+          <a>趣图</a>
+        </li><li onclick="location.href='{:U('poster/morefm')}';">
+          <a>1:1海报</a>
+        </li>
+    </ul>
+  </div>
+  <div class="poster-tit">
+    <ul class="list-inline">
+      <li class="li1">最新海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;" class="poster-new">
+        <li>
+          <a href="{:U('poster/eightysix')}">
+            <img src="__PUBLIC__/poster/images/86.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/eightyfive')}">
+            <img src="__PUBLIC__/poster/images/85.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/eightyfour')}">
+            <img src="__PUBLIC__/poster/images/84.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/eightythree')}">
+            <img src="__PUBLIC__/poster/images/83.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/eightytwo')}">
+            <img src="__PUBLIC__/poster/images/82.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/eightyone')}">
+            <img src="__PUBLIC__/poster/images/81.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/peixunthirtyeight')}">
+            <img src="__PUBLIC__/poster/images/px38.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/zhaoshangfortyeight')}">
+            <img src="__PUBLIC__/poster/images/zs48.jpg"  alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/peixunthirtyseven')}">
+            <img src="__PUBLIC__/poster/images/px37.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/seventyseven')}">
+            <img src="__PUBLIC__/poster/images/77.jpg" alt="pic"/>
+          </a>
+        </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline">
+      <li class="li1">名片海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;" class="poster-display">
+       <!--  <li><a href="{:U('poster/seventynine')}"><img src="__PUBLIC__/poster/images/79.jpg" alt="pic"/></a></li>
+        <li><a href="{:U('poster/seventyeight')}"><img src="__PUBLIC__/poster/images/78.jpg"/></a></li>
+        <li><a href="{:U('poster/seventyseven')}"><img src="__PUBLIC__/poster/images/77.jpg"/></a></li> -->
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline">
+      <li class="li1">培训海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;" class="poster-train">
+        <!-- <li><a href="{:U('poster/peixunthirtynine')}"><img src="__PUBLIC__/poster/images/px39.jpg" alt="pic"/></a></li>
+        <li><a href="{:U('poster/peixunthirtyeight')}"><img src="__PUBLIC__/poster/images/px38.jpg"/></a></li>
+        <li><a href="{:U('poster/peixunthirtyseven')}"><img src="__PUBLIC__/poster/images/px37.jpg"/></a></li> -->
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline">
+      <li class="li1">招商海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;" class="poster-business">
+       <!-- <li><a href="{:U('poster/zhaoshangfifty')}"><img src="__PUBLIC__/poster/images/zs50.jpg" alt="pic"/></a></li> 
+        <li><a href="{:U('poster/zhaoshangfortynine')}"><img src="__PUBLIC__/poster/images/zs49.jpg"></a></li>
+        <li><a href="{:U('poster/zhaoshangfortyeight')}"><img src="__PUBLIC__/poster/images/zs48.jpg"></a></li> -->
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline">
+      <li class="li1">1:1方形海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;">
+        <li class="fang">
+          <a href="{:U('poster/fangtuthirtyfive')}">
+            <img src="__PUBLIC__/poster/images/ft35.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuthirtyfour')}">
+            <img src="__PUBLIC__/poster/images/ft34.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuthirtythree')}">
+            <img src="__PUBLIC__/poster/images/ft33.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuthirtytwo')}">
+            <img src="__PUBLIC__/poster/images/ft32.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtupxseventeen')}">
+            <img src="__PUBLIC__/poster/images/ftp17.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtupxsixteen')}">
+            <img src="__PUBLIC__/poster/images/ftp16.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtupxfifteen')}">
+            <img src="__PUBLIC__/poster/images/ftp15.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuzsnineteen')}">
+            <img src="__PUBLIC__/poster/images/ftz19.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuzseighteen')}">
+            <img src="__PUBLIC__/poster/images/ftz18.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuzsseventeen')}">
+            <img src="__PUBLIC__/poster/images/ftz17.jpg" alt="pic"/>
+          </a>
+        </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline" id="tagmore">
+      <li class="li1 tagmore"><a href="{:U('poster/more')}">更多海报模板<img src="__PUBLIC__/poster/images/tagmore.png" alt="tagmore"></a></li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-mask">
+    <div class="poster-maskinner">
+       <img src="__PUBLIC__/poster/images/loading.gif" alt="load"/>
+      <p>Loading......</p>
+    </div>
+  </div>
+  <script>
+    $(function(){
+          $.ajax({
+                type: 'GET',
+                url: '__PUBLIC__/poster/json/more1.json',
+                dataType: 'json',
+                success: function(data){
+                    var result = '';
+                    for(var i = 1; i < 13; i++){
+                        result +=
+                           '<li><a href="'+data.lists[i].link+'">'
+                                +'<img src="__PUBLIC__/poster/'+data.lists[i].pic+'" alt="pic">'
+                            +'</a></li>';
+                    }
+                    setTimeout(function(){
+                        $('.poster-display').append(result);
+                    },100);
+                },
+                error: function(xhr, type){
+                    // alert('Ajax error!');
+                    console.log("请求失败");
+                }
+          });
+          $.ajax({
+                type: 'GET',
+                url: '__PUBLIC__/poster/json/more2.json',
+                dataType: 'json',
+                success: function(data){
+                    var result = '';
+                    for(var i = 1; i < 13; i++){
+                        result +=
+                           '<li><a href="'+data.lists[i].link+'">'
+                                +'<img src="__PUBLIC__/poster/'+data.lists[i].pic+'" alt="pic">'
+                            +'</a></li>';
+                    }
+                    setTimeout(function(){
+                        $('.poster-train').append(result);
+                    },100);
+                },
+                error: function(xhr, type){
+                    // alert('Ajax error!');
+                    console.log("请求失败");
+                }
+          });
+          $.ajax({
+                type: 'GET',
+                url: '__PUBLIC__/poster/json/more3.json',
+                dataType: 'json',
+                success: function(data){
+                    var result = '';
+                    for(var i = 1; i < 13; i++){
+                        result +=
+                           '<li><a href="'+data.lists[i].link+'">'
+                                +'<img src="__PUBLIC__/poster/'+data.lists[i].pic+'" alt="pic">'
+                            +'</a></li>';
+                    }
+                    setTimeout(function(){
+                        $('.poster-business').append(result);
+                    },100);
+                },
+                error: function(xhr, type){
+                    // alert('Ajax error!');
+                    console.log("请求失败");
+                }
+          });
+          setTimeout(function(){
+                $('.poster-mask').fadeOut();
+          },1500);
+    })
+  </script>
+</body>
+</html>
