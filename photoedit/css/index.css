@@ -1,0 +1,164 @@
+*{
+	margin:0;
+	padding: 0;
+}
+.header{
+	width: 100%;
+	height: 30px;
+	background-color: #ADADAD;
+	
+	
+}
+a{
+	text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.nav li{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.nav a{
+	color: #323132;
+	font-size: 20px;
+	
+}
+.container{
+	width: 100%;
+	/*height: 480px;*/
+	background-color: #000000;
+	position: relative;
+}
+.picview{
+	width: 320px;
+	height: 360px;
+	background-color: #D7D7D7;
+	margin:0px auto;
+	
+}
+.btnfunction{
+	width: 100%;
+	height: 76px;
+	background-color: #323232;
+}
+.indexbtn{
+	width: 355px;
+	height: 60px;
+	line-height:20px;
+	margin:0px auto;
+	padding-top:5px; 
+}
+.edit,.effect,.text,.paster{
+	margin:0;
+	padding: 0;
+	width: 25%;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	color: #ffffff;
+}
+.wordbtn{
+	height: 30px;
+}
+.neirong{
+	width:50%;
+	height:30px;
+	color:#ffffff;
+	background-color:#323232;
+	border:0px;
+}
+.yangshi{
+	width:50%;
+	height:30px;
+	border:0px;
+	color:#ffffff;
+	background-color:#000000;
+}
+.active{
+	width:50%;
+	height:30px;
+	color:#ffffff;
+	border:0px;
+	background-color: #323232;
+}
+.neironginput{
+	width: 100%;
+	height: 30px;
+	
+	text-align: center;
+
+}
+.nrinput{
+
+	width: 200px;
+	height: 30px;
+	margin: 0px auto;
+	border: 1px solid #000000;
+	border-radius: 6px;
+	font-size: 30px;
+	color:#ffffff;
+	background-color: #000000;
+}
+.slecyangshi li{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 10px;
+	cursor: pointer;
+	list-style: none;
+}
+
+.sanjiao1{
+	position: absolute;
+	top: 0px;
+	left: 62px;
+	width: 0px;
+	height: 0px;
+	border-width: 10px;
+	border-style:  solid dashed dashed dashed; 
+	border-color:  white transparent transparent transparent; 
+}
+.sanjiao2{
+	position: absolute;
+	top: 64px;
+	left: 211px;
+	width: 0px;
+	height: 0px;
+	border-width: 10px;
+	border-style:  solid dashed dashed dashed; 
+	border-color:  white transparent transparent transparent; 
+}
+
+
+
+
+
+
+
+.selcet{
+	width: 100%;
+	height: 40px;
+	background-color: green;
+}
+
+.footer{
+	width: 100%;
+	height: 40px;
+	background-color:#ADADAD; 
+}
+.build{
+	margin:0px auto;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	letter-spacing:10px;
+	text-align: center;
+}
+.build a{
+    color: #323132;
+}

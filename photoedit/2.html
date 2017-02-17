@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<!-- <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/idangerous.swiper.css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+<script src="js/idangerous.swiper.js"></script>
+  -->
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+</head>
+<body>
+       <img id="upic" src="" alt="">
+</body>
+<script type="text/javascript">
+	$(function(){
+       $("#upic").attr("src",window.location.href.split('?')[1]);
+       console.log($("img").css("width"));
+       console.log($("img").css("height"));
+	});
+</script>
+</html>

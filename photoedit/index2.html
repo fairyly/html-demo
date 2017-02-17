@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit',function(){  //放在中间
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<!-- <script src="js/jquery.mobile-1.4.5.min.js"></script> -->
+</head>
+<body>
+	<div class="header">
+		<nav>
+			<div class="nav">
+				<ul>
+					<li style="width:28%"><a href="">返回</a></li>
+					<li style="width:45%"><a href="">微商海报</a></li>
+					<li style="width:22%"><a href="">首页</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+    
+	<div class="container">
+		<article>
+			<p style="width:100%;height:10px;"></p>
+			<div class="picview">
+				<div style="margin:0px auto;text-align:center">
+					<img src="" alt="" id="upic" style="width:66%;height:100%;">
+				</div>
+			</div>
+            <p style="width:100%;height:10px;"></p>
+			<div class="btnfunction">
+				<div class="indexbtn">
+					<div class="edit">
+						<input style="width:50px;height:30px" type="button" value="" class="btnedit"/>
+						<p>编辑</p>
+					</div><div class="effect">
+						<input style="width:50px;height:30px" type="button" value="" class="btneffc"/>
+						<p>特效</p>
+					</div><div class="text">
+						<input style="width:50px;height:30px" type="button" value="" class="btnwd"/>
+						<p>文字</p>
+					</div><div class="paster">
+						<input style="width:50px;height:30px" type="button" value="" class="btnpas"/>
+						<p>贴纸</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="selcet">
+				
+			</div>
+	    </article>
+	</div>
+
+	<div class="footer">
+		<footer>
+			<div class="build"><span><a href="">生成</span></a></div>
+		</footer>
+	</div>
+
+<script type="text/javascript">
+	$(function(){
+       $("#upic").attr("src",window.location.href.split('?')[1]);
+       console.log($("img").css("width"));
+       console.log($("img").css("height"));
+	});
+</script>
+
+</body>
+</html>
