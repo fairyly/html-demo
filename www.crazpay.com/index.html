@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>校开花</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="x-ua-compatible" content="chrome=1, ie=edge">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link href="css/index-2da4451f29.css" rel="stylesheet" type="text/css" />
+    <link href="css/header-f2f60f98b7.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="index-head hidden">
+        <div class="header">
+            <a>
+                <li class="header-logo"></li>
+            </a>
+            <li class="header-item">
+                <a style="color:#43B9EB;" href="index.html">首页</a>
+            </li>
+            <li class="header-item">
+                <a href="user.html">用户</a>
+            </li>
+            <li class="header-item">
+                <a href="customer.html">商户</a>
+            </li>
+            <div class="download">
+                <img src="picture/phone_1_03-d909b2bbd8.png" />
+                <span class="download-phone">下载
+                        <div class="main-code">
+                            <p>扫一扫，</p>
+                            <p>选择最Young生活方式</p>
+                            <img src="picture/qr_code_03-0b1e16dbd1.jpg">
+                        </div>  
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="top-banner">
+        <!--<div class="header" style="height: 61px;"></div>-->
+        <div class="header">
+            <a>
+                <div class="header-logo"></div>
+            </a>
+            <li class="header-item">
+                <a style="color:#43B9EB;" href="index.html">首页</a>
+            </li>
+            <li class="header-item">
+                <a href="user.html">用户</a>
+            </li>
+            <li class="header-item">
+                <a href="customer.html">商户</a>
+            </li>
+            <div class="download hidden">
+                <img src="picture/phone_03-9d9222f067.png" />
+                <span>下载
+                        <div class="main-code">
+                            <p>扫一扫，</p>
+                            <p>选择最Young生活方式</p>
+                            <img src="picture/qr_code_03-0b1e16dbd1.jpg">
+                        </div>  
+                    </span>
+            </div>
+        </div>
+        <div class="banner clearfix">
+            <div class="right">
+                <i class="top-logo"></i>
+                <i class="top-code"></i>
+                <span class="right-section">
+                        <a class="icon-tips"></a>
+                        <a class="icon ios"></a>
+                        <a class="icon az"></a>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="back-img back-one"></div>
+    <div class="content-one">
+        <div class="content-center">
+            <div class="left-img"></div>
+            <div class="right-section">
+                <a class="icon-tips"></a>
+                <p>吃喝玩乐</p>
+                <p>一切尽在掌握</p>
+                <a class="more link-tip">了解更多></a>
+            </div>
+        </div>
+    </div>
+    <div class="back-img back-two"></div>
+    <div class="content-two">
+        <div class="content-center">
+            <div class="left-section">
+                <a class="icon-tips"></a>
+                <p>吃喝玩乐</p>
+                <p>一切尽在掌握</p>
+                <a class="more link-tip">了解更多></a>
+            </div>
+            <div class="right-img"></div>
+        </div>
+    </div>
+    <div class="back-img back-three"></div>
+    <div class="content-three">
+        <div class="content-center">
+            <img src="picture/index-content-3-3ab2031948.png" class="left-img" />
+            <div class="right-section">
+                <p>好的APP</p>
+                <p>一个就够了</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="main">
+            <div class="liner">
+                <i></i>
+                <ul>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="help.html">帮助</a></li>
+                    <li>联系我们</li>
+                    <li>加入我们</li>
+                </ul>
+            </div>
+            <div class="bottom">
+                <span class="wx-icon j-wxcode">
+                        <div class="wx-mark-code foot-hover-black hidden j-wxcode-div">
+                            <p>校园生活，消费开花！</p>
+                            <p>校开花服务号： crazpay</p>
+                            <i class="wx-code"></i>
+                            <div class="triangle-down"></div>
+                        </div>
+                    </span>
+                <span>Copyright @ 2016 All Rights Reserved 杭州积信网络科技有限公司    浙ICP &nbsp;备15009597号 -1</span>
+            </div>
+        </div>
+    </div>
+    <!--return-top -->
+    <div id="return-top">
+        <img src="picture/btn_top-ed01abfeae.png" />
+    </div>
+</body>
+<script type="text/javascript" src="js/jquery-5419c718e4.min.js"></script>
+<script type="text/javascript">
+window.onscroll = function() {
+    var top = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    //          console.log(top);
+    //返回顶部图标的隐藏和显示判断
+    if (top > 0) {
+        $("#return-top").css("display", "block");
+    } else {
+        $("#return-top").css("display", "none");
+    }
+    //
+    if (top >= 980) {
+        $(".index-head").removeClass("hidden");
+    } else {
+        $(".index-head").addClass("hidden");
+    }
+}
+//底部二维码
+    $(".j-wxcode").on("mouseenter", function() {
+        $(".j-wxcode-div").show();
+    }).on("mouseout", function() {
+        $(".j-wxcode-div").hide();
+    });
+    //鼠标滑过download的样式设置
+    $(".download-phone").on("mouseenter",function() {
+        $(this).children(".main-code").show();
+    }).on("mouseout",function() {
+        $(this).children(".main-code").hide();
+    });
+//返回顶部
+$("#return-top").click(function() {
+    $("body,html").animate({
+        scrollTop: 0
+    }, 500);
+});
+</script>
+
+</html>

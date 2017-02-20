@@ -15,7 +15,7 @@
       * [CSS3 照片墙](https://fairyly.github.io/html-demo/css3_effects/photowall/demo.html)
       * [](https://fairyly.github.io/css3_effects/nav-slide/nav-slide.html/CSS3侧滑导航)
       * [按钮波纹](https://fairyly.github.io/html-demo/按钮波纹/demo.html)
-      
+      * [canvas effect](https://fairyly.github.io/html-demo/testcavas.html)
 * [地址选择](https://fairyly.github.io/html-demo/address/newAddress.html)
 
 * [多文件上传](https://fairyly.github.io/html-demo/multupload/index.html)  
