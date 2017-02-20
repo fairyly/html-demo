@@ -1,0 +1,53 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editqt33 edit_common" id="edit_common">
+        <div class="editqt33_con">
+              <div class="editqt33_con1"> 
+                  <p contenteditable="true">马大哈  喜欢你没道理</p>
+              </div>
+        </div>
+        <div class="shengchengqt33 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 趣图第三十三页面结束 -->
+    
+     <script type="text/javascript">
+           $(".shengchengqt33").click(function(){
+                
+                $(".shengchengqt33").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editqt33_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editqt33").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //趣图第三十三个页面结束
+     </script>
+<include file="poster:footer" />

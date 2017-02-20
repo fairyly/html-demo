@@ -1,0 +1,106 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfm5 edit_common" id="edit_common">
+        <div class="editfm5_con"> 
+          <div class="editfm5_conbg1" id="editmove">
+               <img src="__PUBLIC__/poster/images/fm5up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editfm5_conbg2"></div>
+          <div class="editfm5_con1">
+                <p contenteditable="true">世界500强互联网营销主管</p>
+                <p contenteditable="true">微商成交女神</p>
+                <p contenteditable="true">视频营销及制作资深导师</p>
+                <p contenteditable="true">90后大学生创业典范</p>
+                <p contenteditable="true">红领巾战队视频商学院合伙人</p>
+                <p contenteditable="true">微友团队资深金牌讲师</p>
+          </div>
+		      <div class="editfm5_con2">
+                <p contenteditable="true">微信：WX88888888</p>
+                <p contenteditable="true">QQ:88888888</p>
+                <p contenteditable="true">电话：18888888888</p>
+          </div>
+          <div class="editfm5_con3">
+                <p contenteditable="true">微友电商团队</p>
+          </div>
+          <div class="editfm5_con4">
+                <p contenteditable="true">微友团队总代理</p>
+          </div>
+          <div class="editfm5_con5">
+                <p contenteditable="true">提供新人系统培训</p>
+          </div>
+          <div class="editfm5_con6">
+                <p contenteditable="true">诚招各级微信实体代理商</p>
+          </div>
+          <div class="editfm5_up1">
+              <div class="editfm5_up11">
+                  <div class="editfm5_fileInput">
+                        <input type="file" capture="camera" name="editfm5_upfile" id="editfm5_upfile" style="display:none" class="editfm5_upfile" onchange="document.getElementById('editfm5_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfm5_upFileBtn" id="editfm5_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfm5_upfile').click();" />
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengfm5 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--封面第五个页面结束 -->
+     <script type="text/javascript">
+        $("#editfm5_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+         $(".editfm5_conbg1 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfm5").click(function(){
+                
+                $(".shengchengfm5").hide();
+                $(".editfm5_up1").hide();
+                $(".editfm5_up2").hide();
+                $(".editfm5_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfm5_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfm5").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //封面图第五个页面结束
+     </script>
+<include file="poster:footer" />

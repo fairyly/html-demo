@@ -1,0 +1,56 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editqt36 edit_common" id="edit_common">
+        <div class="editqt36_con">
+              <div class="editqt36_con1"> 
+                  <p contenteditable="true">啦啦啦</p>
+              </div>
+              <div class="editqt36_con2"> 
+                  <p contenteditable="true">全球总会长</p>
+              </div>
+        </div>
+        <div class="shengchengqt36 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 趣图第三十六页面结束 -->
+    
+     <script type="text/javascript">
+           $(".shengchengqt36").click(function(){
+                
+                $(".shengchengqt36").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editqt36_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editqt36").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //趣图第三十六个页面结束
+     </script>
+<include file="poster:footer" />

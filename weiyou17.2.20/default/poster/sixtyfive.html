@@ -1,0 +1,113 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="edit65 edit_common" id="edit_common">
+        <div class="edit65_con">
+          <div class="edit65_conbg11" id="editmove">
+            <img src="__PUBLIC__/poster/images/m65up1.jpg" alt="uppic">
+          </div>
+          <div class="edit65_conbg2"></div>
+          <div class="edit65_con1">
+                <p contenteditable="true">忙碌却快乐</p>
+                <p contenteditable="true">精彩的生活自己掌握</p>
+          </div>
+          <div class="edit65_con2">
+                <p contenteditable="true">——我是王某某</p>
+          </div>
+          <div class="edit65_con3">
+                <p contenteditable="true">我是微商</p>
+                <p contenteditable="true">我为微商代言</p>
+          </div>
+          <div class="edit65_con4">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+                <p>扫一扫关注我们</p>
+          </div>
+          <div class="edit65_con5">
+                <p contenteditable="true"><span>走出去</span><span>发现自己</span><span>改变自己</span><span>享受自己的人生</span></p>
+          </div>
+          <div class="edit65_up1"> 
+                <div class="edit65_up11">
+                    <div class="edit65_fileInput left">
+                          <input type="file" capture="camera" name="edit65_upfile" id="edit65_upfile" style="display:none" class="edit65_upfile" onchange="document.getElementById('edit65_upfileResult').innerHTML=this.value;"/>
+                          <input class="edit65_upFileBtn" id="edit65_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit65_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="edit65_up2"> 
+                <div class="edit65_up22">
+                    <div class="edit65_fileInput2 left">
+                          <input type="file" capture="camera" name="edit65_upfile2" id="edit65_upfile2" style="display:none" class="edit65_upfile2" onchange="document.getElementById('edit65_upfileResult2').innerHTML=this.value;"/>
+                          <input class="edit65_upFileBtn2" id="edit65_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit65_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengcheng65 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第六十五个页面结束 -->
+     <script type="text/javascript">
+        $("#edit65_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit65_conbg11 img").attr("src", objUrl);
+            }
+        });
+         $("#edit65_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit65_con4 img").attr("src", objUrl);
+            }
+        });
+         //建立一个可存取到该file的url
+        function getObjectURL(file){
+	        var url = null; 
+	        if (window.createObjectURL!=undefined) { // basic
+	          url = window.createObjectURL(file);
+	        } else if (window.URL!=undefined) { // mozilla(firefox)
+	          url = window.URL.createObjectURL(file);
+	        } else if (window.webkitURL!=undefined) { // webkit or chrome
+	          url = window.webkitURL.createObjectURL(file);
+	        }
+	        return url;
+	    }
+        $(".shengcheng65").click(function(){
+                
+                $(".shengcheng65").hide();
+                $(".edit65_up1").hide();
+                $(".edit65_up2").hide();
+                $(".edit65_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit65_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base65图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".edit65").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第六十五个页面结束
+     </script>
+<include file="poster:footer" />

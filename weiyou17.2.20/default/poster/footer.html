@@ -1,0 +1,161 @@
+<!-- 第一个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src=""/>
+         </div>
+         <!-- <p style="width:100%;text-align:center;margin-top: 10px;">长按屏幕上的图片保存到手机</p>
+         <div class="conshengcheng">
+            
+             <div><h3><a href="{:U('poster/index')}">继续生成</a></h3></div>
+         </div> -->
+     </div>
+     <div class="tool" id="tool">
+    <div class="download">
+      <img class="icon" src="__PUBLIC__/poster/images/result-longtap.png"><span>按住图片保存</span>
+      <img id="pic-download-use2" class="pic-download-use" src="">
+    </div>
+    <img class="toolfooter" src="__PUBLIC__/poster/images/result-footer.png">
+  </div>
+     <!-- 生成后显示页面结束 -->
+     <!-- 改变生成图片后背景 -->
+     <script type="text/javascript">
+     $(function(){
+        $('html').css('background-color','#e2e2e2');
+     })
+     </script>
+     <!-- 改变生成图片后背景 -->
+     <!-- 添加touch事件 -->
+    <script type="text/javascript">
+       // 获取节点
+      var block = document.getElementById("editmove");
+      var oW,oH;
+      // 绑定touchstart事件
+      block.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW = touches.clientX - block.offsetLeft;
+       oH = touches.clientY - block.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW;
+       var oTop = touches.clientY - oH;
+       // if(oLeft < 0) {//去掉这部分可以让自由拖放不限制
+       //  oLeft = 0;//改过-150
+       // }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+       // }
+       block.style.left = oLeft + "px";
+       block.style.top = oTop + "px";
+      },false);
+       
+      block.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+    <!-- 拖动--> 
+    <!-- 监听手势 缩放-->
+    <script type="text/javascript">
+            var target1 = document.getElementById("editmove");
+            // target1.style.webkitTransition = 'all ease 0.05s';
+
+            touch.on('#editmove', 'touchstart', function(ev){
+                ev.preventDefault();
+            });
+
+            var initialScale = 1;
+            var currentScale;
+
+            touch.on('#editmove', 'pinchend', function(ev){
+                currentScale = ev.scale - 1;
+                console.log(currentScale);
+                currentScale = initialScale + currentScale;
+                // currentScale = currentScale > 2 ? 2 : currentScale;//去掉这部分可以让自由缩放没有最大最小限制
+                // currentScale = currentScale < 1 ? 0.5 : currentScale;
+                this.style.webkitTransform = 'scale(' + currentScale + ')';
+                console.log("当前缩放比例为:" + currentScale + ".");
+            });
+
+            touch.on('#editmove', 'pinchend', function(ev){
+                initialScale = currentScale;
+            });
+    </script>
+     <script type="text/javascript">
+       // 获取节点
+      var block2 = document.getElementById("editmovetwo");
+      var oW2,oH2;
+      // 绑定touchstart事件
+      block2.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW2 = touches.clientX - block2.offsetLeft;
+       oH2 = touches.clientY - block2.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block2.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft2 = touches.clientX - oW2;
+       var oTop2 = touches.clientY - oH2;
+       // if(oLeft < 0) {//去掉这部分可以让自由拖放不限制
+       //  oLeft = 0;//改过-150
+       // }else if(oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+       // }
+       block2.style.left = oLeft2 + "px";
+       block2.style.top = oTop2 + "px";
+      },false);
+       
+      block2.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+    <!-- 拖动--> 
+    <!-- 监听手势 缩放-->
+    <script type="text/javascript">
+            var target2 = document.getElementById("editmovetwo");
+            // target2.style.webkitTransition = 'all ease 0.05s';
+
+            touch.on('#editmovetwo', 'touchstart', function(ev){
+                ev.preventDefault();
+            });
+
+            var initialScale2 = 1;
+            var currentScale2;
+
+            touch.on('#editmovetwo', 'pinchend', function(ev){
+                currentScale2 = ev.scale - 1;
+                console.log(currentScale2);
+                currentScale2 = initialScale2 + currentScale2;
+                // currentScale = currentScale > 2 ? 2 : currentScale;//去掉这部分可以让自由缩放没有最大最小限制
+                // currentScale = currentScale < 1 ? 0.5 : currentScale;
+                this.style.webkitTransform = 'scale(' + currentScale2 + ')';
+                console.log("当前缩放比例为:" + currentScale2 + ".");
+            });
+
+            touch.on('#editmovetwo', 'pinchend', function(ev){
+                initialScale2 = currentScale2;
+            });
+    </script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?c9734d9409ca75dbd1591214caf51074";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+</body>
+</html>

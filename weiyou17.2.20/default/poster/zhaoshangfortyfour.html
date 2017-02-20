@@ -1,0 +1,115 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editz44 edit_common" id="edit_common">
+        <div class="editz44_con">
+          <div class="editz44_conbg11" id="editmove">
+              <img src="__PUBLIC__/poster/images/z44up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editz44_conbg2"></div>
+          <div class="editz44_con1">
+                <p contenteditable="true">梦想就是要坚持不懈</p>
+          </div>
+          <div class="editz44_con2">
+                <p contenteditable="true">我的身体不会飞没关系</p>
+                <p contenteditable="true">但是我的梦想行</p>
+          </div>
+          <div class="editz44_con3">
+                <p contenteditable="true">微友团队给你实现梦想的机会</p>
+          </div>
+          <div class="editz44_con4">
+                <p contenteditable="true">诚招</p>
+                <p contenteditable="true">代理</p>
+                <p contenteditable="true">欢迎加入我们</p>
+          </div>
+          <div class="editz44_con5">
+                <img src="__PUBLIC__/poster/images/mpup2.jpg" alt="qrcode"/>
+                <p>微信:wx88888888</p>
+          </div>
+          <div class="editz44_up1"> 
+                <div class="editz44_up11">
+                    <div class="editz44_fileInput left">
+                          <input type="file" capture="camera" name="editz44_upfile" id="editz44_upfile" style="display:none" class="editz44_upfile" onchange="document.getElementById('editz44_upfileResult').innerHTML=this.value;"/>
+                          <input class="editz44_upFileBtn" id="editz44_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz44_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+          <div class="editz44_up2"> 
+                <div class="editz44_up22">
+                    <div class="editz44_fileInput2 left">
+                          <input type="file" capture="camera" name="editz44_upfile2" id="editz44_upfile2" style="display:none" class="editz44_upfile2" onchange="document.getElementById('editz44_upfileResult2').innerHTML=this.value;"/>
+                          <input class="editz44_upFileBtn2" id="editz44_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editz44_upfile2').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengchengz44 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第四十四个页面结束 -->
+     <script type="text/javascript">
+        $("#editz44_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editz44_conbg11 img").attr("src", objUrl);
+          }
+        });
+      $("#editz44_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".editz44_con5 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengz44").click(function(){
+                
+                $(".shengchengz44").hide();
+                $(".editz44_up1").hide();
+                $(".editz44_up2").hide();
+                $(".editz44_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz44_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editz44").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第四十四个页面结束
+     </script>
+<include file="poster:footer" />

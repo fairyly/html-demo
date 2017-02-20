@@ -1,0 +1,96 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editp38 edit_common" id="edit_common">
+        <div class="editp38_con">
+          <div class="editp38_conbg11" id="editmove">
+              <img src="__PUBLIC__/poster/images/p38up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editp38_conbg2"></div>
+          <div class="editp38_con1">
+                <p contenteditable="true">微友课堂</p>
+                <p contenteditable="true">开课了</p>
+          </div>
+          <div class="editp38_con2">
+                <p contenteditable="true">经典微商培训课堂</p>
+                <p contenteditable="true">全民微商运营</p>
+                <p contenteditable="true">课程内容</p>
+                <p contenteditable="true">你的微店如何持续被人关注？</p>
+                <p contenteditable="true">怎么引导粉丝转发你的产品？</p>
+                <p contenteditable="true">推广信息如何在短时间内被上万人浏览？</p>
+                <p contenteditable="true">微信:wx88888888</p>
+                <p contenteditable="true">电话:18888888888</p>
+          </div>
+          <div class="editp38_up1"> 
+                <div class="editp38_up11">
+                    <div class="editp38_fileInput left">
+                          <input type="file" capture="camera" name="editp38_upfile" id="editp38_upfile" style="display:none" class="editp38_upfile" onchange="document.getElementById('editp38_upfileResult').innerHTML=this.value;"/>
+                          <input class="editp38_upFileBtn" id="editp38_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editp38_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+        <div class="shengchengp38 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 培训第三十八个页面结束 -->
+     <script type="text/javascript">
+        $("#editp38_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editp38_conbg11 img").attr("src", objUrl);
+          }
+        });
+       
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengp38").click(function(){
+                
+                $(".shengchengp38").hide();
+                $(".editp38_up1").hide();
+                $(".editp38_up2").hide();
+                $(".editp38_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editp38_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editp38").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //培训第三十八个页面结束
+     </script>
+<include file="poster:footer" />

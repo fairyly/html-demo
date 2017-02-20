@@ -1,0 +1,100 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editfp8 edit_common" id="edit_common">
+        <div class="editfp8_con"> 
+          <div class="editfp8_conbg1" id="editmove">
+            <img src="__PUBLIC__/poster/images/fp8up1.jpg"/>
+          </div>
+          <div class="editfp8_conbg2"></div>
+            <div class="editfp8_up1">
+                <div class="editfp8_up11">
+                    <div class="editfp8_fileInput">
+                          <input type="file" capture="camera" name="editfp8_upfile" id="editfp8_upfile" style="display:none" class="editfp8_upfile" onchange="document.getElementById('editfp8_upfileResult').innerHTML=this.value;"/>
+                          <input class="editfp8_upFileBtn" id="editfp8_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfp8_upfile').click();" />
+                    </div>
+                </div>
+            </div> 
+            <div class="editfp8_con1">
+                  <p contenteditable="true">微友天团</p>
+            </div>
+            <div class="editfp8_con2">
+                  <p contenteditable="true">想做微商？而你还在犹豫</p>
+                  <p contenteditable="true">加入天商团队，共创辉煌未来</p>
+                  <p contenteditable="true">现在加入一点都不算晚</p>
+                  <p contenteditable="true">资深讲师，一对一培训</p>
+                  <p contenteditable="true">微信:wx88888888</p>
+            </div>
+          
+        </div>
+        <div class="shengchengfp8 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图培训第八个页面结束 -->
+    
+     <script type="text/javascript">
+        $("#editfp8_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editfp8_conbg1 img").attr("src", objUrl);
+          }
+        });
+    $("#editfp8_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);  
+        if (objUrl) {
+          $(".editfp8_con2 img").attr("src", objUrl);
+        }
+      });   
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengfp8").click(function(){
+                
+                $(".shengchengfp8").hide();
+                $(".editfp8_up1").hide();
+                $(".editfp8_up2").hide();
+                $(".editfp8_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfp8_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editfp8").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图培训第八个页面结束
+     </script>
+<include file="poster:footer" />

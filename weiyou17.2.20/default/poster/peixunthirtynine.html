@@ -1,0 +1,97 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editp39 edit_common" id="edit_common">
+        <div class="editp39_con">
+          <div class="editp39_conbg11" id="editmove">
+              <img src="__PUBLIC__/poster/images/p39up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editp39_conbg2"></div>
+          <div class="editp39_con1">
+                <p contenteditable="true">微友课堂</p>
+          </div>
+          <div class="editp39_con2">
+                <p contenteditable="true">零基础课程培训</p>
+                <p contenteditable="true">王某某 微友金牌讲师</p>
+          </div>
+          <div class="editp39_con3">
+                <p contenteditable="true">手把手教你做赚钱的微商</p>
+          </div>
+          <div class="editp39_con4">
+                <p contenteditable="true">每晚/20点</p>
+                <p contenteditable="true">我们等着你来</p>
+          </div>
+          <div class="editp39_up1"> 
+                <div class="editp39_up11">
+                    <div class="editp39_fileInput left">
+                          <input type="file" capture="camera" name="editp39_upfile" id="editp39_upfile" style="display:none" class="editp39_upfile" onchange="document.getElementById('editp39_upfileResult').innerHTML=this.value;"/>
+                          <input class="editp39_upFileBtn" id="editp39_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editp39_upfile').click();" />
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="shengchengp39 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 培训第三十九个页面结束 -->
+     <script type="text/javascript">
+        $("#editp39_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editp39_conbg11 img").attr("src", objUrl);
+          }
+        });
+       
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengp39").click(function(){
+                
+                $(".shengchengp39").hide();
+                $(".editp39_up1").hide();
+                $(".editp39_up2").hide();
+                $(".editp39_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editp39_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editp39").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //培训第三十九个页面结束
+     </script>
+<include file="poster:footer" />

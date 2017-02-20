@@ -1,0 +1,62 @@
+<include file="poster:header" />
+<meta name="viewport" content="width=640,user-scalable=no">
+    <div class="editqt11 edit_common" id="edit_common">
+        <div class="editqt11_con">
+              <div class="editqt11_con1"> 
+                  <p contenteditable="true">马大哈</p>
+              </div>
+              <div class="editqt11_con2"> 
+                  <p contenteditable="true"><span></span><span></span><span></span></p>
+              </div>
+        </div>
+        <div class="shengchengqt11 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 趣图第十一个页面结束 -->
+    
+     <script type="text/javascript">
+           $(".shengchengqt11").click(function(){
+                
+                $(".shengchengqt11").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                var now= new Date();
+                var year=now.getFullYear();
+                var month=now.getMonth()+1;
+                var date=now.getDate();
+                console.log(year+","+month+","+date);
+                $(".editqt11_con2 p span:eq(0)").text(year);
+                $(".editqt11_con2 p span:eq(1)").text(month);
+                $(".editqt11_con2 p span:eq(2)").text(date);
+                html2canvas($(".editqt11_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });
+                            $(".editqt11").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //趣图第十一个页面结束
+     </script>
+<include file="poster:footer" />

@@ -1,0 +1,121 @@
+<include file="poster:header" />
+    <meta name="viewport" content="width=640,user-scalable=no">
+   
+    <div class="edit19 edit_common" id="edit_common">
+        <div class="edit19_con"> 
+          <div class="edit19_con1">
+              <div class="edit19_con1pic" id="editmove">
+                    <img src="__PUBLIC__/poster/images/m13up1.jpg"/>
+              </div><div class="edit19_con1text">
+                  <div><p contenteditable="true">微友团队的 创始人</p></div>
+                  <div><p contenteditable="true">王一一，90后兼职微商一年，从零入门到培训团队的首席讲师</p></div>
+              </div>
+              <div class="edit19_up1"> 
+                  <div class="edit19_up11">
+                      <div class="edit19_fileInput left">
+                            <input type="file" capture="camera" name="edit19_upfile" id="edit19_upfile" style="display:none" class="edit19_upfile" onchange="document.getElementById('edit19_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit19_upFileBtn" id="edit19_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit19_upfile').click();" />
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+          <div class="edit19_con2">
+            <div class="edit19_con2_in">
+                <div class="edit19_con21">
+                  <div class="edit19_con21pic">
+                     <img src="__PUBLIC__/poster/images/mpup2.jpg">
+                  </div><div class="edit19_con22"> 
+                  <div class="edit19_con22txt">
+                    <p contenteditable="true">微信：WX888888</p>
+                    <p contenteditable="true">Q Q ：88888888</p>
+                    <p contenteditable="true">电话：18888888888</p>
+                  </div> 
+                </div> 
+                  <div class="edit19_up2">
+                      <div class="edit19_up22">
+                          <div class="edit19_fileInput2 left">
+                                <input type="file" capture="camera" name="edit19_upfile2" id="edit19_upfile2" style="display:none" class="edit19_upfile2" onchange="document.getElementById('edit19_upfileResult2').innerHTML=this.value;"/>
+                                <input class="edit19_upFileBtn2" id="edit19_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit19_upfile2').click();" />
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>  
+          </div>    
+        </div>
+        <div class="shengcheng19 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十九个页面结束 -->
+    <script type="text/javascript">
+      $("#edit19_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+          $(".edit19_con1pic img").attr("src", objUrl);
+        }
+      });
+    
+        $("#edit19_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+          $(".edit19_con21pic img").attr("src", objUrl);
+        }
+      });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengcheng19").click(function(){
+                
+                $(".shengcheng19").hide();
+                $(".edit19_up1").hide();
+                $(".edit19_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit19_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            $(".tool").show();
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '__PUBLIC__/poster/1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;
+                                  $(".baocunimg img").attr("src", '__PUBLIC__/poster/'+src);
+                                  $(".pic-download-use").attr("src", '__PUBLIC__/poster/'+src);
+                              }  
+                            });  
+                            
+                            $(".edit19").hide();
+                        }
+                });
+        });
+    //第十九个页面结束
+    </script>
+    <include file="poster:footer" />
+     
