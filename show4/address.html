@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>详情</title>
+<link rel="stylesheet" href="css/ch.css" />
+<link rel="stylesheet" href="font/iconfont.css" />
+<link rel="stylesheet" href="css/weui.min.css" />
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script type="text/javascript">
+    // var docEl = document.documentElement,
+    //     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    //     recalc = function() {
+    //         docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+    //     };
+    // window.addEventListener(resizeEvt, recalc, false);
+    // document.addEventListener('DOMContentLoaded', recalc, false);
+</script>
+<style type="text/css">
+	#allmap {width: 100%;height: 500px;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ivEjjkQd9rsP7TEbgqK1vTxX1ABSeFov"></script>
+</head>
+<body>
+	<div class="ad-body">
+		<div class="ad-head">
+			<div class="ad-headl">
+				<p>您兑换的物品为：<span class="ad-headlname">T-STAR手机防护衣</span></p>
+				<span class="ad-headlnum">兑换此物品需要600积分</span>
+			</div>
+			<div class="ad-headr"><img src="images/ch-pic3.jpg" alt="pic"/></div>
+		</div>
+		<section>
+			<div class="ad-content">
+				<form>
+					<div class="ad-conform">
+						<h1>填写收货信息</h1>
+						<p>收货人：</p>
+						<input type="text" class="ad-username" required />
+						<p>收货地址：</p>
+						<!-- <input type="text" class="ad-useradd" required /> -->
+						<textarea required></textarea>
+						<p>联系电话：</p>
+						<input type="number" class="ad-usertel" required />
+					</div>
+					<div class="ad-submit">
+							<a class="weui_btn weui_btn_primary">提交</a>
+						</div>
+				</form>
+			</div>
+		</section>
+		<div id="allmap"></div>
+	</div>
+	<script>        
+	     // 百度地图API功能
+	var map = new BMap.Map("allmap");    // 创建Map实例
+	map.centerAndZoom(new BMap.Point(113.667312,34.752792), 11);  // 初始化地图,设置中心点坐标和地图级别
+	map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+	map.setCurrentCity("郑州");          // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放 
+	</script>
+</body>
+</html>

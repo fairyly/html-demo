@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>品牌大世界</title>
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="font/iconfont.css" />
+<link rel="stylesheet" href="css/swiper.min.css" />
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script type="text/javascript" src="js/swiper.min.js" ></script>
+<script type="text/javascript" src="js/pics.js" ></script>
+<script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    <style>
+        i{
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+	<header>
+		<div class="index_head"> 
+			<!-- 焦点图-->
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide"><a href=""><img src="images/banner_1.jpg"></a></div>
+			        <div class="swiper-slide"><a href=""><img src="images/banner_2.jpg"></a></div>
+			        <div class="swiper-slide"><a href=""><img src="images/banner_3.jpg"></a></div>
+                    <div class="swiper-slide"><a href=""><img src="images/banner_4.jpg"></a></div>
+			    </div>
+			    <!-- 分页器 -->
+			   <!--  <div class="swiper-pagination"></div> -->
+			</div>
+		</div>
+	</header>
+    <!-- 头部焦点图结束 --><!-- style="max-width:640px;margin:0px auto" -->
+    <section>
+    	<!-- 首页展示-->
+    	<div class="content">
+            <!-- <div class="con_title">
+                <div class="con_title_con">最新</div>
+            </div> -->
+            <div class="con_main" id="marqueeBox">
+                <div>
+                    <div>
+                        <div class="con_main_con">
+                           
+                                <div class="con_main_head">
+                                    <div class="shopicon"><img src="images/shop_icon.jpg"/></div><div class="describe">
+                                        <p>品牌名称1</p>
+                                    </div>
+                                    <div class="des_detail">
+
+                                        <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                         <a href=""><span>查看详情</span></a>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                           
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                   <div>
+                        <div class="con_main_con">
+                            
+                                <div class="con_main_head">
+                                    <div class="describe">
+                                        <p>品牌名称2<a href=""><span>查看详情</span></a></p>
+                                       <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                            
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                   <div>
+                        <div class="con_main_con">
+                            
+                                <div class="con_main_head">
+                                    <div class="describe">
+                                       <p>品牌名称3<a href=""><span>查看详情</span></a></p>
+                                        <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                            
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                    <div>
+                        <div class="con_main_con">
+                            
+                                <div class="con_main_head">
+                                    <div class="describe">
+                                       <p>品牌名称4<a href=""><span>查看详情</span></a></p>
+                                        <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                            
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                   <div>
+                        <div class="con_main_con">
+                           
+                                <div class="con_main_head">
+                                    <div class="describe">
+                                        <p>品牌名称5<a href=""><span>查看详情</span></a></p>
+                                        <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                            
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                   <div>
+                        <div class="con_main_con">
+                            
+                                <div class="con_main_head">
+                                    <div class="describe">
+                                        <p>品牌名称6<a href=""><span>查看详情</span></a></p>
+                                        <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                               <!--  <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                            
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                    <div>
+                        <div class="con_main_con">
+                            
+                                <div class="con_main_head">
+                                    <div class="describe">
+                                       <p>品牌名称7<a href=""><span>查看详情</span></a></p>
+                                        <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                               <!--  <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                            
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                    <div>
+                        <div class="con_main_con">
+                            
+                                <div class="con_main_head">
+                                    <div class="describe">
+                                       <p>品牌名称8<a href=""><span>查看详情</span></a></p>
+                                        <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                               <!--  <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                            
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                    <div>
+                        <div class="con_main_con">
+                            
+                                <div class="con_main_head">
+                                    <div class="describe">
+                                        <p>品牌名称9<a href=""><span>查看详情</span></a></p>
+                                        <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                               <!--  <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                            
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                    <div>
+                        <div class="con_main_con">
+                            
+                                <div class="con_main_head">
+                                    <div class="describe">
+                                        <p>品牌名称10<a href=""><span>查看详情</span></a></p>
+                                        <span style="font-size:0.8rem;color: #797676;margin-top: 0px;width: 13rem;padding-bottom:5px;display: block;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">品牌简介品牌简介品牌简介</span>
+                                    </div>
+                                </div>
+                                <div class="con_main_pic">
+                                    <div class="pics">
+                                        <div class="pics_l"><img src="images/sj_pic1.jpg" alt="shoppic"/></div><div class="pics_c"><img src="images/sj_pic2.jpg" alt="shoppic"/></div><div class="pics_r"><img src="images/sj_pic3.jpg" alt="shoppic"/></div>
+                                    </div>
+                                </div>
+                               <!--  <div class="con_main_foot">
+                                    <div class="zancount"><i class="icon iconfont">&#xe625</i><span>30</span></div><div class="shuaxin">已刷新</div><div class="ping"><i class="icon iconfont">&#xe606</i><span>1300</span></div>
+                                </div> -->
+                            
+                        </div>
+                        <div class="con_space"></div>
+                   </div>
+                    
+                </div>
+                <!-- 商家的一块展示区结束 -->
+                
+                 <!-- 第三块结束 -->
+            </div>
+            <div class="con_foot">
+                <div class="con_foot_div">
+                    <div class="foot_divl">
+                        <button>< 上一页</button>
+                    </div><div class="foot_divc"><span>1</span>/<span>7</span></div><div class="foot_divr">
+                        <button>下一页 ></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <div class="tanpic">
+        <div class="cunpic">
+            <div class="changepic"><img src=""></div>
+            <span class="tanpic_close"><img src="images/disclose.png"></span>
+
+        </div>
+    </div> -->
+    <div class="tanpic" style="width:375px;height:667px;">
+        <div class="swiper-con" style="width:375px;height:667px;position: fixed;left: 0;top: 0; bottom: 0;right: 0;background-color: rgba(0,0,0,0.66);z-index: 999;display: table-cell;text-align: center;vertical-align: middle;">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <i></i><img src="images/ch-pic1.jpg" style="width: 80%;vertical-align: middle;">
+                </div>
+                <div class="swiper-slide">
+                    <i></i><img src="images/ch-pic2.jpg" style="width: 80%;vertical-align: middle;">
+                </div>
+                <div class="swiper-slide">
+                    <i></i><img src="images/ch-pic3.jpg" style="width: 80%;vertical-align: middle;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 展示区域结束 -->
+    <script>        
+	  var mySwiper = new Swiper ('.swiper-container', {
+	    direction: 'horizontal',
+	    autoplay : 5000,
+        // loop : true,
+        autoplayDisableOnInteraction:false,
+	    // 分页器
+	    // pagination: '.swiper-pagination',
+	   
+	  })
+      var mySwipers = new Swiper ('.swiper-con', {
+        direction: 'horizontal',
+        autoplay : 5000,
+        loop : true,
+        autoplayDisableOnInteraction:false,
+        // 分页器
+        // pagination: '.swiper-pagination',
+       
+      })          
+	</script>
+     <script> 
+        // var mySwiper = new Swiper('.con_main',{
+        //     direction : 'vertical',
+        //     height: 400,
+        //     autoplay : 5000,
+        //     slidesPerView : 2,
+        //     loop : true,
+        //     autoplayDisableOnInteraction:false,
+        //  })
+    </script>
+    <script type="text/javascript">
+     // var area = document.getElementById('marqueeBox');
+     // var iliHeight = 165;//单行滚动的高度
+     // var speed = 100;//滚动的速度
+     // var time;
+     // var delay= 5000;
+     // area.scrollTop=0;
+     // area.innerHTML+=area.innerHTML;//克隆一份一样的内容
+     // function startScroll(){
+     //     time=setInterval("scrollUp()",speed);
+     //     area.scrollTop++;
+     //     }
+     // function scrollUp(){
+     //     if(area.scrollTop % iliHeight==0){
+     //         clearInterval(time);
+     //         setTimeout(startScroll,delay);
+     //         }else{
+     //             area.scrollTop++;
+     //             if(area.scrollTop >= area.scrollHeight/2){
+     //                 area.scrollTop =0;
+     //                 }
+     //             }
+     //     }
+     //     setTimeout(startScroll,delay);
+     </script>
+</body>
+</html>

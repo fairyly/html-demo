@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>货源发布</title>
+<link rel="stylesheet" type="text/css" href="css/bpublish.css">
+<link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/1.1.0/weui.min.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/weui.min.js"></script>
+<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+<style type="text/css">
+    .img-select div.weui-uploader__bd{
+        width: 78%;
+    }
+    .weui-uploader__file{
+        width: 45px;
+        height: 45px;
+    }
+</style>
+</head>
+<body>
+	<div class="header">
+        <a href="javascript:history.back()">
+           
+        </a><a>
+            已受理
+        </a><a>
+            
+        </a>
+    </div>
+    <div class="publish-tit">
+        <div class="publish-titpic">
+            <img src="images/brand-tit.png" alt="tit"/>
+            <p>货源发布</p>
+        </div>
+    </div>
+    <div class="publish-form">
+        
+        <form class="publish-formcon">
+            <div class="form-tit">
+                <p>产品名称:</p>
+            </div>
+            <div class="form-text item">
+                <input class="form-proname" placeholder="请输入产品名称"  required/>
+            </div>
+            <div class="form-tit">
+                <p>品牌介绍:</p>
+            </div>
+            <div class="form-text item">
+                <textarea placeholder="请输入内容" name="" rows="5" required></textarea>
+                <div class="audio-select">
+                    <img src="images/pic-audio.png" alt="audio"/>
+                </div>
+            </div>
+            <div class="img-select item">
+                <div class="img-show">
+                    <img src="images/pic-thumb.png" alt="imgshow"/>
+                </div>
+                <div class="weui-uploader__bd" id="uploaderCustom">
+                    <ul class="weui-uploader__files" id="uploaderCustomFiles"></ul>
+                    <div class="weui-uploader__input-box">
+                        <input id="uploaderCustomInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                    </div>
+                </div>
+            </div>
+            <div class="form-space item"></div>
+            <div class="form-qrcode">
+                <div class="qrcode-btn">
+                    <button>上传二维码</button>
+                    <input class="up-qrcode" type="file" capture="camera" accept="image/*,capture=camera" file-upload=""/>
+                </div>
+                <div class="qrcode-pic">
+                    <img src="images/qrcode.jpg" alt="qrcode"/>
+                </div>
+            </div>
+            <div class="form-sub">
+                <a href="javascript:;" class="brand-formsub">
+                        发布
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="publish-note">
+        <div class="publish-notecon">
+            <h3>须知</h3>
+            <p>1、请如实填写关于货源的有关信息。</p>
+            <p>2、提交成功后请记住你的代理号，以便您查询受理情况。</p>
+            <p>3、我们将会安排工作人员在24小时内与你联系，请保持手机畅通</p>
+        </div>
+    </div>
+    <div class="popup-container popup-showing active">
+        <div class="popup">
+            <div class="popup-head">
+                <h3 class="popup-title ng-binding">开始录音!</h3>
+            </div>
+            <div class="popup-body">
+                <div class="popup popup-record-voice" style="margin-top:0px;">
+                    <p><img src="images/wx-recording.gif"/></p>
+                    <p class="balanced center">00：<span class="time-seconds">60</span></p> 
+                </div>
+            </div>
+            <div class="popup-buttons">
+                <button class="button button-default">以后再说</button>
+                <button class="button button-balanced">说完了</button>
+            </div>
+        </div>
+    </div> 
+    
+    <script type="text/javascript">
+         $.ajax({  
+            type : "POST",  
+            url : '', 
+            success : function(data){  
+                // console.log(data);
+                wx.config({
+                    debug: false,
+                    appId: 'wxc5184614dbf459cb',
+                    timestamp:100825411 ,
+                    nonceStr: '',
+                    signature: '',
+                    jsApiList: [
+                      'startRecord',
+                      'stopRecord',
+                      'onVoiceRecordEnd',
+                      'translateVoice'
+                    ]
+                });
+                wx.ready(function () {
+                });
+            }  
+        });      
+        
+    </script>   
+    <script type="text/javascript">
+    var localId;
+    var r;
+    $(".audio-select").click(function(){
+        $(".popup-container").fadeIn();
+        var s=$(".time-seconds").text();
+        // $(".time-seconds").text($(".time-seconds").val());
+        r=setInterval(redu,1000);
+        function redu(){
+            s--;
+            if (s<0) {
+                clearInterval(r);
+                s=0;
+            };
+            $(".time-seconds").text(s);
+
+        }
+        wx.startRecord();
+        wx.onVoiceRecordEnd({
+        // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+            complete: function (res) {
+                localId = res.localId; 
+                console.log(localId );
+            }
+        });
+    });
+    $(".button-default").click(function(){
+         $(".popup-container").fadeOut();
+         clearInterval(r);
+         $(".time-seconds").html(60);
+    });
+    $(".button-balanced").click(function(){
+        wx.stopRecord({
+            success: function (res) {
+                localId = res.localId;
+                console.log(localId);
+            }
+        });
+        wx.translateVoice({
+            localId: 'localId', // 需要识别的音频的本地Id，由录音相关接口获得
+            isShowProgressTips: 1, // 默认为1，显示进度提示
+            success: function (res) {
+                alert(res.translateResult); // 语音识别的结果
+            }
+        });
+        // $(".popup-container").fadeOut();
+    });
+    /* 图片手动上传 */
+    var uploadCustomFileList = [];
+    var uploadCount=0;
+    // 这里是简单的调用，其余api请参考文档
+    weui.uploader('#uploaderCustom', {
+        url: '',
+        auto: false,
+        type: 'base64',
+        onQueued: function onQueued() {
+            uploadCustomFileList.push(this);
+            $(".img-show").hide();
+            $("li.weui-uploader__file").addClass('upfile'+uploadCount);
+            //$("li.weui-uploader__file").append('<input id="up'+uploadCount+'" type="file" accept="image/*"/>');
+            this.upload();
+        },
+        onBeforeQueued: function onBeforeQueued(files) {
+            if (["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0) {
+                weui.alert('请上传图片');
+                return false;
+            }
+            if (this.size > 500* 1024) {
+                weui.alert('请上传不超过500KB的图片');
+                return false;
+            }
+            if (files.length > 3) {
+                // 防止一下子选中过多文件
+                weui.alert('最多只能上传3张图片，请重新选择');
+                return false;
+            }
+            if (uploadCount + 1 > 3) {
+                weui.alert('最多只能上传3张图片');
+                return false;
+            }
+
+            ++uploadCount;
+        },
+    });
+
+    // 手动上传按钮
+    $("#uploaderCustomBtn").on('click', function () {
+        uploadCustomFileList.forEach(function (file) {
+            file.upload();
+        });
+    });
+    // 缩略图预览
+        document.querySelector('#uploaderCustomFiles').addEventListener('click', function(e){
+            var target = e.target;
+            while(!target.classList.contains('weui-ujavascript:;ploader__file') && target){
+                target = target.parentNode;
+            }
+            if(!target) return;
+
+            var url = target.getAttribute('style') || '';
+            var id = target.getAttribute('data-id');
+
+            if(url){
+                
+                url = url.match(/url\((.*?)\)/)[1];
+                console.log(url);
+                $('.weui-gallery__img').css('background-image', 'url('+url+')');
+            }
+            var gallery = weui.gallery(url, {
+                onDelete: function(){
+                    weui.confirm('确定删除该图片？', function(){
+                        var index;
+                        for (var i = 0, len = uploadCustomFileList.length; i < len; ++i) {
+                            var file = uploadCustomFileList[i];
+                            if(file.id == id){
+                                index = i;
+                                break;
+                            }
+                        }
+                        if(index) uploadCustomFileList.splice(index, 1);
+                        uploadCount--;
+                        target.remove();
+                        gallery.hide();
+                    });
+                }
+            });
+        });
+    $(".up-qrcode").change(function(){
+        // var objUrl = getObjectURL(this.files[0]);
+        // if (objUrl) {
+        //    $(".qrcode-pic img").attr("src", objUrl);
+        // }
+        var reader = new FileReader();
+        reader.onload = function(e){
+            var dataURL=this.result;
+            $(".qrcode-pic img").attr("src", dataURL);
+        }
+        reader.readAsDataURL(this.files[0]);
+    });   
+
+    $("#up1").change(function(){
+       
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $('.upfile1').css("background-image", "url("+objUrl+")");
+        }
+
+
+        
+        
+    });
+     //建立一个可存取到该file的url
+    function getObjectURL(file){
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    } 
+    </script>
+    
+    <script>
+        $('.brand-formsub').click(function(){
+            var formData = new FormData($(".publish-formcon")[0]);
+            console.log(formData);
+            $.ajax({  
+                type : "POST",  
+                url : '', 
+                data:formData,
+                success : function(data){  
+                    console.log(data);
+                }  
+            });      
+        });
+    </script>
+</body>
+</html>

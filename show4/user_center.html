@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">    
+    <meta http-equiv="cleartype" content="on">
+    <meta name="referrer" content="always">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<style>
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        body {
+            color: #333;
+            background-color: #eee;
+            -webkit-backface-visibility: hidden;
+        }
+        .container {
+            background-color: #f8f8f8;
+        }
+        .container .content {
+            zoom: 1;
+        }
+        .content {
+            margin: 0 auto;
+        }
+        .content-body {
+            position: relative;
+            z-index: 10;
+        }
+        .custom-level {
+            width: 100%;
+            min-height: 100px;
+            overflow: hidden;
+            position: relative;
+            background-image: #f8f8f8;
+            background-size: 6px 6px;
+        }
+        .custom-level-img {
+            max-width: 100%;
+            max-height: 500px;
+            display: block;
+            margin: auto;
+        }
+        .order-related {
+            margin-bottom: 12px;
+        }
+        .order-related .uc-order.list-horizon {
+            padding: 10px 0;
+        }
+        .order-related .uc-order {
+            width: 100%;
+            padding: 10px 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background: #fff;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        .order-related .uc-order.list-horizon>li {
+            display: inline-block;
+            width: 20%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            float: left;
+        }
+        .order-related .uc-order.list-horizon .link-topay {
+            background-image: url(images/uc/order_list/icon_topay@2x.png);
+        }
+        .order-related .uc-order.list-horizon .link {
+            display: block;
+            padding: 42px 0 10px;
+            background-size: 24px 24px;
+            background-repeat: no-repeat;
+            background-position: center 12px;
+        }
+        .link:link, .link:hover, .link:visited, .link:active {
+            color: #07d;
+        }
+        .relative {
+            position: relative;
+        }
+        a {
+            color: #333;
+            background: transparent;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .order-related .uc-order.list-horizon .title-info {
+            text-align: center;
+            line-height: 20px;
+        }
+        .order-related .uc-order p {
+            line-height: 20px;
+        }
+        .font-size-12 {
+            font-size: 12px !important;
+        }
+        .c-black {
+            color: #333 !important;
+        }
+        .clearfix:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+        .block.block-list {
+            margin: 0;
+            padding: 0;
+            padding-left: 10px;
+            list-style: none;
+            font-size: 14px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .block {
+            -webkit-border-image: url(images/border-line-2.png) 2 stretch;
+            -moz-border-image: url(images/border-line-2.png) 2 stretch;
+            border-image: url(images/border-line-2.png) 2 stretch;
+            border-top: 2px solid #e5e5e5;
+            border-bottom: 2px solid #e5e5e5;
+            overflow: hidden;
+            margin: 10px 0;
+            background-color: #fff;
+            display: block;
+            position: relative;
+            font-size: 14px;
+        }
+        .order-related .block.block-list.list-vertical>a.link {
+            padding-left: 38px;
+            padding-right: 28px;
+        }
+        .block-list>.block-item:first-child {
+            border-top: 0px none;
+        }
+        .block-list>.block-item {
+            padding: 10px 10px 10px 0;
+        }
+        .block-item {
+            position: relative;
+            display: block;
+            padding: 10px;
+            line-height: 1.5;
+            border: 0;
+            -webkit-border-image: url(images/border-line-2.png) 2 stretch;
+            -moz-border-image: url(images/border-line-2.png) 2 stretch;
+            border-image: url(images/border-line-2.png) 2 stretch;
+            border-top: 2px solid #e5e5e5;
+            overflow: hidden;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-order::before {
+            background-position: 3px 4px;
+        }
+        .order-related .block.block-list.list-vertical>a.link::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 5px;
+            width: 25px;
+            height: 25px;
+            background-image: url(images/uc_icon.png);
+            background-repeat: no-repeat;
+            background-size: 18px 218px;
+        }
+        .block p {
+            overflow: hidden;
+        }
+        .block p {
+            overflow: hidden;
+        }
+        .font-size-14 {
+            font-size: 14px !important;
+        }
+        .c-black {
+            color: #333 !important;
+        }
+        .order-related .block.block-list.list-vertical>a.link p::after {
+            content: '';
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-top: 2px solid #cbc9cc;
+            border-right: 2px solid #cbc9cc;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: 16px;
+            right: 12px;
+        }
+        .block.block-list+.block.block-list {
+            margin-top: 12px;
+        }
+        .block.block-list {
+            margin: 0;
+            padding: 0;
+            padding-left: 10px;
+            list-style: none;
+            font-size: 14px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-record::before {
+            background-position: 3px -18px;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-backs::before {
+            background-position: 3px -41px;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-wish::before {
+            background-position: 3px -63px;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-saler-center::before {
+            background-image: url(images/sale_new@2x.png);
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-saler-center::before {
+            /*background-image: url(images/sale_new.png);*/
+            background-size: 19px 18px;
+            left: 6px;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-pointsstore::before {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAnFBMV…pQMd7mZYkLAFApJVNQtOXOdQiMHzSvUeSb9xWY7/H0C/YH+lAx6LUq3XwAAAAASUVORK5CYII=);
+            background-size: 18px 18px;
+            background-position: center center;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-gift::before {
+            background-position: 3px -108px;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-coupon::before {
+            background-position: 3px -130px;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-promocode::before {
+            background-position: 3px -153px;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-present::before {
+            background-position: 3px -176px;
+        }
+        .order-related .block.block-list.list-vertical>a.link.ico-manage::before {
+            background-position: 3px -198px;
+        }
+    </style>
+</head>
+<body class=" ">
+    
+<div class="container " style="min-height: 743px;">
+    <div class="header">     
+    </div>
+           
+    <div class="content ">
+        <div class="content-body">
+            <div class="custom-level">
+                <img class="custom-level-img js-lazy " data-src="https://img.yzcdn.cn/upload_files/2015/07/27/FqmgcSbVlCkdUOR7IzE2qxTu1IqF.jpg" src="https://img.yzcdn.cn/upload_files/2015/07/27/FqmgcSbVlCkdUOR7IzE2qxTu1IqF.jpg" style="display: block;">
+                
+            </div>
+        </div>
+                    
+        <div class="order-related">
+            <ul class="uc-order list-horizon clearfix">
+                <li>
+                    <a class="link clearfix relative link-topay" href="https://h5.youzan.comorderss/topay" target="_blank">
+                        <p class="title-info c-black font-size-12">待付款</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="link clearfix relative link-totuan" href="https://h5.youzan.comorderss/totuan" target="_blank">
+                        <p class="title-info c-black font-size-12">待接单</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="link clearfix relative link-tosend" href="https://h5.youzan.comorderss/tosend" target="_blank">
+                        <p class="title-info c-black font-size-12">待发货</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="link clearfix relative link-send" href="https://h5.youzan.comorderss/send" target="_blank">
+                        <p class="title-info c-black font-size-12">已发货</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="link clearfix relative link-sign" href="https://h5.youzan.comorderss/sign" target="_blank">
+                        <p class="title-info c-black font-size-12">已完成</p>
+                    </a>
+                </li>
+            </ul>
+            <div class="block block-list list-vertical">
+                <a class="block-item link clearfix ico-order" href="https://h5.youzan.comorderss/all" target="_blank">
+                    <p class="title-info c-black font-size-14">全部订单</p>
+                </a>
+            </div>
+
+            <div class="block block-list list-vertical">
+                <a class="block-item link clearfix ico-record" href="https://h5.youzan.comtradess/5174760?source=weixin11&amp;spm=cmkteleven0" target="_blank">
+                    <p class="title-info c-black font-size-14">我的购物记录</p>
+                </a>
+                <a class="block-item link clearfix ico-backs" href="https://h5.youzan.combackss/5174760?source=weixin11&amp;spm=cmkteleven0" target="_blank">
+                    <p class="title-info c-black font-size-14">我的返现</p>
+                </a>
+        
+                <a class="block-item link clearfix ico-wish" href="https://trade.koudaitong.com/wxpay/wish?kdt_id=5174760&amp;spm=cmkteleven0" target="_blank">
+                    <p class="title-info c-black font-size-14">我的心愿单</p>
+                </a>
+    	    </div>
+            <div class="block block-list list-vertical">
+                <a class="block-item link clearfix ico-saler-center" href="https://h5.youzan.comtrades/directseller/center.html" target="_blank">
+                    <p class="title-info c-black font-size-14">销售员中心</p>
+                </a>
+            </div>
+            <div class="block block-list list-vertical">
+                <a class="block-item link clearfix ico-pointsstore" href="https://h5.youzan.comump/psointsstore?kdt_id=5174760" target="_blank">
+                    <p class="title-info c-black font-size-14">我的积分</p>
+                </a>
+                <a class="block-item link clearfix ico-gift" href="https://h5.youzan.comorderss/gift_receive" target="_blank">
+                    <p class="title-info c-black font-size-14">我收到的礼物</p>
+                </a>
+                <a class="block-item link clearfix ico-coupon" href="https://h5.youzan.comcouposns" target="_blank">
+                    <p class="title-info c-black font-size-14">我的优惠券</p>
+                </a>
+                <a class="block-item link clearfix ico-promocode" href="https://h5.youzan.compromoscodes" target="_blank">
+                    <p class="title-info c-black font-size-14">我的优惠码</p>
+                </a>
+                <a class="block-item link clearfix ico-present" href="https://h5.youzan.compresesnts" target="_blank">
+                    <p class="title-info c-black font-size-14">我的赠品</p>
+                </a>
+            </div>
+    
+            <div class="block block-list list-vertical">
+                        <a class="block-item link clearfix ico-manage" href="https://h5.youzan.combuyers/manage" target="_blank">
+                    <p class="title-info c-black font-size-14">管理账号</p>
+                </a>
+            </div>
+        </div>     
+    </div> 
+</div>
+</body>
+</html>

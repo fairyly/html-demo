@@ -1,0 +1,134 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: "Microsoft YaHei";
+}
+.index_head{
+	width: 94%;
+	margin: 0px auto;
+	overflow: hidden;
+}
+.index_head .swiper-container {
+    width: 100%;
+    margin: 0px auto;
+}
+.index_head .swiper-slide{
+	/*text-align: center;*/
+	margin: 0px auto;
+}
+.index_head .swiper-slide img{
+    width:100%;
+}
+/*焦点图结束*/
+.num-head{
+	width: 94%;
+    margin: 0px auto;
+    padding-top: 15px;
+    font-family: "Microsoft Yahei";
+}
+.num-headcon{
+	width: 100%;
+    height: 120px;
+    background-color: #f8f8f8;
+    color: #000000;
+    border-radius: 5px;
+    position: relative;
+}
+.num-headcontop{
+	width: 95%;
+	margin: 0px auto;
+	height: 70px;
+}
+.num-headcontop p{
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+    color: #000000;
+}
+.num-headcontop p span{
+	text-decoration: none;
+    color: #FF9815;
+    /* font-weight: bold; */
+    font-size: 20px;
+}
+.num-headconbody{
+	width:95%;
+	margin: 0px auto;
+}
+.num-container{
+	width: 94%;
+	margin: 0px auto;
+	overflow: hidden;
+	position: relative;
+}
+.num-section{
+	width: 100%;
+	position: relative;
+	display: -webkit-box;
+	display:box;
+	box-orient: horizontal;
+    -webkit-box-orient: horizontal;
+	margin-top: 10px;
+	background: #f8f8f8;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.num-sectionl{
+	-webkit-box-flex:3;
+	box-flex:3;
+	width: 100%;
+}
+.num-sectionl img{
+	width: 100%;
+	margin-top: 3px;
+}
+.num-sectionr{
+	-webkit-box-flex:1;
+	box-flex:1;
+	width: 100%;
+	position: relative;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	padding-left: 10px;
+	display: -webkit-box;
+	display: box;
+	box-orient: vertical;
+    -webkit-box-orient: vertical;
+}
+.num-secrtop,.num-secrbot{
+	-webkit-box-flex:1;
+	box-flex:1;
+}
+.num-secrtop h1{
+	font-size: 15px;
+}
+.num-secrtop p{
+	font-size: 10px;
+	color: #888888;
+}
+.num-secrbot h2{
+	font-size: 12px;
+}
+.num-secrbot h2 span{
+	font-size: 13px;
+	color: #04be02;
+	margin-left: 8px;
+}
+.num-secrbot p{
+	font-size: 10px;
+	color: #888888;
+}
+.nun-secrbtn{
+	position: absolute;
+    width: 85px;
+    height: 33px;
+    background: #04BE02;
+    background-size: 50px 50px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    line-height: 33px;
+}
