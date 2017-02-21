@@ -16,9 +16,9 @@
       * [](https://fairyly.github.io/css3_effects/nav-slide/nav-slide.html/CSS3侧滑导航)
       * [按钮波纹](https://fairyly.github.io/html-demo/按钮波纹/demo.html)
       * [canvas effect](https://fairyly.github.io/html-demo/testcavas.html)
-      
-      * [用户中心](https://fairyly.github.io/html-demo/show4/user_center.html)
-* [地址选择](https://fairyly.github.io/html-demo/address/newAddress.html)
+      * [用户中心](https://fairyly.github.io/html-demo/show4/user_center.html)
+     
+* [地址选择](https://fairyly.github.io/html-demo/address/index.html)
 
 * [多文件上传](https://fairyly.github.io/html-demo/multupload/index.html)  
      (使用jquery.jquery.fileupload.js)本地环境测试图片的url存在了但是出现500错误
