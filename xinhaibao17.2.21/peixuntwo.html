@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="editp2">
+        <div class="editp2_con">
+      <!--     <div class="editp2_kong"></div> -->
+            <div class="editp2_con1pic" id="editp2_con1img">
+                    <img src="images/p2up1.jpg"/>
+            </div>
+            <div class="editp2_conbg">
+              <div class="editp2_con1"> 
+                  <div class="editp2_up1">
+                      <div class="editp2_up11">
+                          <div class="editp2_fileInput left">
+                                <input type="file" capture="camera" name="editp2_upfile" id="editp2_upfile" style="display:none" class="editp2_upfile" onchange="document.getElementById('editp2_upfileResult').innerHTML=this.value;"/>
+                                <input class="editp2_upFileBtn" id="editp2_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editp2_upfile').click();" />
+                          </div>
+                          <!-- <img src="images/upload.png" style="width:60px;height:60px;"> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="editp2_con2">
+                  <div class="editp2_con21">
+                    <p contenteditable="true">微友团队讲师：王老师</p>
+                    <p contenteditable="true">课程主要培训内容</p>
+                  </div>
+                  <div class="editp2_con22">
+                    <p contenteditable="true">微海报的制作</p>
+                    <p contenteditable="true">用户的分组管理</p>
+                    <p contenteditable="true">微店推广策略</p>
+                    <p contenteditable="true">售后服务与客户的管理</p>
+                  </div>
+                  <div class="editp2_con23">
+                    <p contenteditable="true">微友课堂开讲了</p>
+                  </div>
+              </div>
+              <div class="editp2_con3">
+                  <div class="editp2_con3pic" id="editp2_con3img">
+                    <img src="images/mpup2.jpg"/>
+                  </div>
+                  <div class="editp2_up2">
+                          <div class="editp2_up21">
+                              <div class="editp2_fileInput2 left">
+                                    <input type="file" capture="camera" name="editp2_upfile2" id="editp2_upfile2" style="display:none" class="editp2_upfile2" onchange="document.getElementById('editp2_upfileResult2').innerHTML=this.value;"/>
+                                    <input class="editp2_upFileBtn2" id="editp2_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editp2_upfile2').click();" />
+                              </div>
+                              <!-- <img src="images/upload.png" style="width:60px;height:60px;"> -->
+                          </div>
+                  </div>
+              </div>
+            </div>
+          
+        </div>
+        <div class="shengchengp2">
+            <div><h3>生成</h3></div>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第九个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+</body>
+</html>
+
+    

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/dropload.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/dropload.min.js"></script>
+    <script src="js/edit_1.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    <script type="text/javascript">
+    //图片等比例缩小处理
+    function AutoResizeImage(maxWidth,maxHeight,objImg){
+            var img = new Image();
+            img.src = objImg.src;
+            var hRatio;
+            var wRatio;
+            var Ratio = 1;
+            var w = img.width;
+            var h = img.height;
+            wRatio = maxWidth / w;
+            hRatio = maxHeight / h;
+            if (maxWidth ==0 && maxHeight==0){
+                Ratio = 1;
+                }
+                else if (maxWidth==0){//
+                    if (hRatio<1) Ratio = hRatio;
+                       }else if (maxHeight==0){
+                             if (wRatio<1) Ratio = wRatio;
+                             }else if (wRatio<1 || hRatio<1){
+                                   Ratio = (wRatio<=hRatio?wRatio:hRatio);
+                                    }
+            if (Ratio<1){
+                w = w * Ratio;
+                h = h * Ratio;
+                }
+            objImg.height = h;
+            objImg.width = w;
+    }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="#">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="editmore">
+        <div class="muban">
+           
+            <div class="muban3">
+                <div class="list3"></div>
+               <!--  <a href="index_1.html"><img src="images/4.jpg"/></a><a href="index_2.html"><img src="images/5.jpg"/></a><a href="index_3.html"><img src="images/6.jpg"/></a><a href="index_1.html"><img src="images/7.jpg"/> </a><a href=""><img src="images/1.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/2.jpg" style="width:50%;height:250px"/></a><a href=""><img src="images/3.jpg" style="width:50%;height:250px"/></a>-->
+            </div>
+            
+        </div>
+        <div class="bottomnav">
+          <ul><li><a href="http://www.wechatw.com/index.php/index-index.html"><span class="iconfont">&#xe630;</span><p>微友</p></a></li><li><a href="index_more.html"><span class="iconfont">&#xe611;</span><p>名片</p></a></li><li><a href="index_morepx.html"><span class="iconfont">&#xed0d;</span><p>培训</p></a></li><li><a href="index_morezs.html"><span class="iconfont">&#xe74a;</span><p>招商</p></a></li><li><a href="index_moreqt.html"><span class="iconfont">&#xe6ed;</span><p>趣图</p></a></li></ul>
+        </div>
+    </div>
+     <!-- 更多模板页面结束 -->
+     <script type="text/javascript">
+         $(function(){
+             $(".bottomnav li:eq(3) a").css("color","#04be02");
+                var counter = 0;
+                // 每页展示4个
+                var num = 4;
+                var pageStart = 0,pageEnd = 0;
+
+                // dropload
+                $('.muban3').dropload({
+                    scrollArea : window,
+                    loadDownFn : function(me){
+                        console.log("ajax开始");
+                        $.ajax({
+                            type: 'GET',
+                            url: 'json/more3.json',
+                            dataType: 'json',
+                            success: function(data){
+                                var result = '';
+                                counter++;
+                                pageEnd = num * counter;
+                                pageStart = pageEnd - num;
+                                console.log("ajax请求成功");
+                                for(var i = pageStart; i < pageEnd; i++){
+                                    result +=   '<a href="'+data.lists[i].link+'">'
+                                                    +'<img src="'+data.lists[i].pic+'" alt="">'
+                                                +'</a>';
+                                    if((i + 1) >= data.lists.length){
+                                        // 锁定
+                                        me.lock();
+                                        // 无数据
+                                        me.noData();
+                                        break;
+                                    }
+                                }
+                                // 为了测试，延迟1秒加载
+                                setTimeout(function(){
+                                    $('.list3').append(result);
+                                    // 每次数据加载完，必须重置
+                                    me.resetload();
+                                },1000);
+                            },
+                            error: function(xhr, type){
+                                // alert('Ajax error!');
+                                console.log("请求失败");
+                                // 即使加载出错，也得重置
+                                me.resetload();
+                            }
+                        });
+                    }
+                });
+            // 第一块加载结束
+            
+            });
+     </script>
+</body>
+</html>
+

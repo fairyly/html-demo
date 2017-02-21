@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=900,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="edit90 edit_common" id="edit_common">
+        <div class="edit90_con">
+    			<!-- <div class="edit90_conbg11" id="editmove">
+    			     <img src="images/m90up1.jpg" alt="uppic"/>
+    			</div> -->
+    			<div class="edit90_conbg2"></div>
+          <div class="edit90_con1">
+              <img src="images/m90up1.jpg" alt="">
+         	</div>
+          <div class="edit90_con2">
+              <img src="images/m90up2.jpg" alt="">
+          </div>
+          <div class="edit90_con3">
+              <img src="images/mpup2.jpg" alt="">
+              <p>扫一扫关注我们</p>
+          </div>
+        	<div class="edit90_up1"> 
+              <div class="edit90_up11">
+                  <div class="edit90_fileInput left">
+                        <input type="file" capture="camera" name="edit90_upfile" id="edit90_upfile" style="display:none" class="edit90_upfile" onchange="document.getElementById('edit90_upfileResult').innerHTML=this.value;"/>
+                        <input class="edit90_upFileBtn" id="edit90_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit90_upfile').click();"/>
+                  </div>
+              </div>
+        	</div>
+         	<div class="edit90_up2"> 
+              <div class="edit90_up22">
+                  <div class="edit90_fileInput2 left">
+                        <input type="file" capture="camera" name="edit90_upfile2" id="edit90_upfile2" style="display:none" class="edit90_upfile2" onchange="document.getElementById('edit90_upfileResult2').innerHTML=this.value;"/>
+                        <input class="edit90_upFileBtn2" id="edit90_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit90_upfile2').click();"/>
+                  </div>
+              </div>
+          </div>
+          <div class="edit90_up3"> 
+              <div class="edit90_up33">
+                  <div class="edit90_fileInput3 left">
+                        <input type="file" capture="camera" name="edit90_upfile3" id="edit90_upfile3" style="display:none" class="edit90_upfile3" onchange="document.getElementById('edit90_upfileResult3').innerHTML=this.value;"/>
+                        <input class="edit90_upFileBtn3" id="edit90_upfileResult3" type="button" value="上传图片" onclick="document.getElementById('edit90_upfile3').click();"/>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengcheng90 shengcheng_common" id="shengcheng_common">
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div class="edit_create"><h3>完成编辑</h3></div>
+            <div class="spacebtn"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第九十个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#edit90_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit90_conbg11 img").attr("src", objUrl);
+            }
+        });
+        $("#edit90_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $(".edit90_con2 img").attr("src", objUrl);
+            }
+        });
+         //建立一个可存取到该file的url
+        function getObjectURL(file){
+	        var url = null; 
+	        if (window.createObjectURL!=undefined) { // basic
+	          url = window.createObjectURL(file);
+	        } else if (window.URL!=undefined) { // mozilla(firefox)
+	          url = window.URL.createObjectURL(file);
+	        } else if (window.webkitURL!=undefined) { // webkit or chrome
+	          url = window.webkitURL.createObjectURL(file);
+	        }
+	        return url;
+	    }
+        $(".shengcheng90").click(function(){
+                
+                $(".shengcheng90").hide();
+                $(".edit90_up1").hide();
+                $(".edit90_up2").hide();
+                $(".edit90_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit90_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base90图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl}, 
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src);
+                              }  
+                            });
+                            $(".edit90").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第九十个页面结束
+     </script>
+</body>
+</html>

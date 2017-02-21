@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="editz33">
+        <div class="editz33_con"> 
+          <div class="editz33_up1"> 
+                  <div class="editz33_up11">
+                      <div class="editz33_fileInput left">
+                            <input type="file" capture="camera" name="editz33_upfile" id="editz33_upfile" style="display:none" class="editz33_upfile" onchange="document.getElementById('editz33_upfileResult').innerHTML=this.value;"/>
+                            <input class="editz33_upFileBtn" id="editz33_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz33_upfile').click();" />
+                      </div>
+                  </div>
+          </div>   
+          <div class="editz33_con1">
+              <p contenteditable="true">想做微商</p> 
+              <p contenteditable="true">你还在犹豫什么？</p> 
+              <p contenteditable="true">赶快加入微友天团</p> 
+              <p contenteditable="true">1、无库存、无压力、无风险</p>
+              <p contenteditable="true">2、全方位提供图片素材</p>
+              <p contenteditable="true">3、强大的培训及售后服务体系</p>
+          </div>
+        </div>
+        <div class="shengchengz33">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第三十三个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src=""/>
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+    <script type="text/javascript">    
+      $("#editz33_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+            console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         // $(".editz33_con1pic img").attr("src", objUrl);
+           $(".editz33_con").css("background-image", "url("+objUrl+")") ;
+          
+          }
+        });
+     $("#editz33_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".editz33_con81pic img").attr("src", objUrl) ;
+         
+        }
+      });    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengz33").click(function(){
+                
+                $(".shengchengz33").hide();
+                // $(".edit3").show();
+                $(".editz33_up1").hide();
+                $(".editz33_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz33_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        // width: 720,
+                        // height:1280,
+                        // canvas: canvas,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //document.body.appendChild(canvas);
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src) ;
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".editz33").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第三十三个页面结束
+    </script>
+</body>
+</html>

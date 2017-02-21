@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+    <script>     
+      
+    </script>     
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+ <div class="div" style="dispaly:none">
+   <a href="http://www.baidu.com"><img src="images/mpup2.jpg" class="touchcounts" id="1"></a>
+ </div>
+ <div class="div">
+   <img src="images/mpup2.jpg" class="touchcounts" id="target">
+ </div>
+ <div class="div">
+   <img src="images/mpup2.jpg" class="touchcounts">
+ </div>
+ <div class="div">
+   <img src="images/mpup2.jpg" class="touchcounts">
+ </div>
+ <div class="div">
+   <img src="images/mpup2.jpg" class="touchcounts">
+   <span>111111111</span>
+ </div>
+ <script type="text/javascript">
+    var angle = 0;
+    touch.on('#target', 'touchstart', function(ev){
+        ev.startRotate();
+        ev.preventDefault();
+    });
+
+    touch.on('#target', 'rotate', function(ev){
+        var totalAngle = angle + ev.rotation;
+        if(ev.fingerStatus === 'end'){
+            angle = angle + ev.rotation;
+        }
+        this.style.webkitTransform = 'rotate(' + totalAngle + 'deg)';
+    });
+
+ </script>
+  <script>
+    var wAlert = window.alert;  
+    window.alert = function (message) {  
+        try {  
+            var iframe = document.createElement("IFRAME");  
+            iframe.style.display = "none"; 
+            iframe.style.fontWeight="100"; 
+            iframe.setAttribute("src", 'data:text/plain,');  
+            document.documentElement.appendChild(iframe);  
+            var alertFrame = window.frames[0];  
+            var iwindow = alertFrame.window;  
+            if (iwindow == undefined) {  
+                iwindow = alertFrame.contentWindow;  
+            }  
+            iwindow.alert(message);  
+            iframe.parentNode.removeChild(iframe);  
+        }  
+        catch (exc) {  
+            return wAlert(message);  
+        }  
+    }  
+    </script>
+    <script type="text/javascript">
+      $(function(){
+      $(".div img").click(function(){
+          alert("3秒后请求");
+      });
+      // function request(){
+      //   console.log("3秒后请求");
+      //   
+        // $.ajax({
+              //     type : "POST",  
+              //     url : '1.php',  
+              //     data : {data:dataUrl},  
+              //     success : function(data){  
+              //         var src=data;  
+              //         $(".baocunimg img").attr("src",src) ;
+              //     },
+              //     error:function(){
+              //       console.log("ajax请求失败");
+              //     } 
+              // });
+      //}
+        // var divs = document.getElementsByTagName('div');
+        // console.log(divs);
+        // // divs[divs.length - 1].id
+
+ // var qrcode=document.getElementById('touchcounts');
+        var leave=0;
+        window.onbeforeunload=lev;
+        function lev(){
+          leave=1;
+        console.log(leave);
+        }
+          var qrcode=document.querySelector('.div img');
+         console.log(leave);
+          console.log(qrcode);
+          // console.log(qrcode.length);
+          var mark=0;
+          qrcode.addEventListener("touchstart", function(e){
+            // e.preventDefault();
+              console.log(e);
+             t=setInterval(total,1000);
+          },false);
+          function total(){
+            mark++;
+            console.log(mark);
+          }
+          var wx=$("div span").text();
+          console.log(wx);
+          qrcode.addEventListener("touchend",function() {
+              clearInterval(t);
+              // total();
+              console.log(mark);
+              if(mark>=2){
+                  // alert("发送ajax请求！");
+                  console.log("时间够3秒");
+                  console.log(leave);
+                  mark=0;
+                  // $.ajax({
+              //     type : "POST",  
+              //     url : '1.php',  
+              //     data : {data:dataUrl},  
+              //     success : function(data){  
+              //         var src=data;  
+              //         $(".baocunimg img").attr("src",src) ;
+              //     },
+              //     error:function(){
+              //       console.log("ajax请求失败");
+              //     } 
+              // });
+              }else{
+                console.log("时间不够3秒");
+                alert("未加好友！");
+                mark=0;
+              }
+              
+          });
+      });
+    </script>
+     
+    <script type="text/javascript">
+            // var mark=0;
+            // touch.on('.div img', 'touchstart', function(ev){
+            //     // ev.preventDefault();
+            //      t=setInterval(total,1000);
+            //      // var ids=$(this).attr("id");
+            //      // console.log(ids);
+            // });
+            // function total(){
+            //   mark++;
+            //   console.log(mark);
+            // }
+            // touch.on('.div img', 'touchend', function(ev){
+            //     clearInterval(t);
+            //   // total();
+            //   console.log(mark);
+            //   if(mark>=3){
+            //       alert("发送ajax请求！");
+            //       mark=0;
+            //       // $.ajax({
+            //   //     type : "POST",  
+            //   //     url : '1.php',  
+            //   //     data : {data:dataUrl},  
+            //   //     success : function(data){  
+            //   //         var src=data;  
+            //   //         $(".baocunimg img").attr("src",src) ;
+            //   //     },
+            //   //     error:function(){
+            //   //       console.log("ajax请求失败");
+            //   //     } 
+            //   // });
+            //   }else{
+            //     console.log("时间不够3秒未加好友");
+            //     alert("时间不够3秒未加好友！");
+            //     mark=0;
+            //   }
+            // });
+    </script>
+</body>
+</html>

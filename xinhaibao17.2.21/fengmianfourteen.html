@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="editfm14">
+        <div class="editfm14_con"> 
+          <div class="editfm14_conbg1" id="editmove">
+               <img src="images/fm14up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editfm14_conbg2"></div>
+          <div class="editfm14_con1">
+                <p contenteditable="true">微友团队创始人</p>
+          </div>
+		      <div class="editfm14_con2">
+                <p contenteditable="true">世界500强互联网营销主管</p>
+                <p contenteditable="true">微商成交女神</p>
+                <p contenteditable="true">视频营销及制作资深导师</p>
+                <p contenteditable="true">90后大学生创业典范</p>
+          </div>
+          <div class="editfm14_con3">
+                <p contenteditable="true">一次加盟，终身授权</p>
+                <p contenteditable="true">一件代发，无需囤货</p>
+                <p contenteditable="true">给你真正的零风险投资</p>
+                <p contenteditable="true">微友带你开启微商之路</p>
+          </div>
+          <div class="editfm14_con4">
+                <p contenteditable="true">微信:wx88888888   QQ:88888888</p>
+          </div>
+          
+          <div class="editfm14_up1">
+              <div class="editfm14_up11">
+                  <div class="editfm14_fileInput">
+                        <input type="file" capture="camera" name="editfm14_upfile" id="editfm14_upfile" style="display:none" class="editfm14_upfile" onchange="document.getElementById('editfm14_upfileResult').innerHTML=this.value;"/>
+                        <input class="editfm14_upFileBtn" id="editfm14_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editfm14_upfile').click();" />
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="shengchengfm14">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--封面第十四个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#editfm14_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+         $(".editfm14_conbg1 img").attr("src", objUrl);
+          }
+        });
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengfm14").click(function(){
+                
+                $(".shengchengfm14").hide();
+                $(".editfm14_up1").hide();
+                $(".editfm14_up2").hide();
+                $(".editfm14_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editfm14_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src);
+                              }  
+                            });
+                            $(".editfm14").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //封面图第十四个页面结束
+     </script>
+</body>
+</html>

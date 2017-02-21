@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" href="css/newposterindex.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div>
+    <ul class="poster-nav">
+      <li><a href="{:U('poster/index')}" class="active">推荐</a></li>
+      <li><a href="{:U('poster/more')}">更多</a></li>
+      <li><a href="{:U('poster/watermark')}">加水印</a></li>
+    </ul>
+  </div>
+  <div class="poste-banner">
+    <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="https://jinshuju.net/f/shJrgR">
+                    <img src="images/banner-suggest.jpg" alt="banner"/>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="{:U('poster/watermark')}">
+                    <img src="images/banner-water.jpg" alt="banner"/>
+                  </a>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+    </div>
+  </div>
+  <div class="muen">
+    <ul class="list-inline">
+      <li class="sy"><a href="{:U('poster/more')}">所有标签 &gt;</a></li>
+      <li class="li1">微商都在用</li>
+    </ul>
+  </div>
+  <div class="poster-type-index">
+    <ul>
+        <li onclick="location.href='{:U('poster/morehd')}';">
+          <a>头像</a>
+        </li><li onclick="location.href='{:U('poster/morefm')}';">
+          <a>封面</a>
+        </li><li onclick="location.href='{:U('poster/more')}';">
+          <a>名片</a>
+        </li><li onclick="location.href='{:U('poster/morepx')}';">
+          <a>培训</a>
+        </li><li onclick="location.href='{:U('poster/morezs')}';">
+          <a>招商</a>
+        </li><li onclick="location.href='{:U('poster/moreqt')}';">
+          <a>趣图</a>
+        </li><li onclick="location.href='{:U('poster/morefm')}';">
+          <a>1:1海报</a>
+        </li>
+    </ul>
+  </div>
+  <div class="poster-tit">
+    <ul class="list-inline">
+      <li class="li1">最新海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;" class="poster-new">
+        <li>
+          <a href="{:U('poster/loveOne')}">
+            <img src="images/91.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/loveTwo')}">
+            <img src="images/92.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/loveThree')}">
+            <img src="images/93.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/loveFour')}">
+            <img src="images/94.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/yuanXiaoTwo')}">
+            <img src="images/89.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/yuanXiaoThree')}">
+            <img src="images/88.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/yuanXiaoFour')}">
+            <img src="images/87.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/peixunthirtyeight')}">
+            <img src="images/px38.jpg" alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/zhaoshangfortyeight')}">
+            <img src="images/zs48.jpg"  alt="pic"/>
+          </a>
+        </li><li>
+          <a href="{:U('poster/peixunthirtyseven')}">
+            <img src="images/px37.jpg" alt="pic"/>
+          </a>
+        </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline">
+      <li class="li1">名片海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;" class="poster-display">
+       
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline">
+      <li class="li1">培训海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;" class="poster-train">
+        
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline">
+      <li class="li1">招商海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;" class="poster-business">
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline">
+      <li class="li1">1:1方形海报</li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-list-index">
+    <ul style="width: 4640px;">
+        <li class="fang">
+          <a href="{:U('poster/fangtuthirtyfive')}">
+            <img src="images/ft35.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuthirtyfour')}">
+            <img src="images/ft34.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuthirtythree')}">
+            <img src="images/ft33.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuthirtytwo')}">
+            <img src="images/ft32.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtupxseventeen')}">
+            <img src="images/ftp17.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtupxsixteen')}">
+            <img src="images/ftp16.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtupxfifteen')}">
+            <img src="images/ftp15.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuzsnineteen')}">
+            <img src="images/ftz19.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuzseighteen')}">
+            <img src="images/ftz18.jpg" alt="pic"/>
+          </a>
+        </li><li class="fang">
+          <a href="{:U('poster/fangtuzsseventeen')}">
+            <img src="images/ftz17.jpg" alt="pic"/>
+          </a>
+        </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="list-inline" id="tagmore">
+      <li class="li1 tagmore"><a href="{:U('poster/more')}">更多海报模板<img src="images/tagmore.png" alt="tagmore"></a></li><li>
+      </li>
+    </ul>
+  </div>
+  <div class="poster-mask">
+    <div class="poster-maskinner">
+       <img src="images/loading.gif" alt="load"/>
+      <p>Loading......</p>
+    </div>
+  </div>
+  <script>
+    var mySwiper = new Swiper ('.swiper-container', {
+      direction: 'horizontal',
+      autoplayDisableOnInteraction:false,
+      // autoplay : 5000,
+      // loop : true,
+      // 分页器
+      // pagination: '.swiper-pagination',
+    })  
+    $(function(){
+          $.ajax({
+                type: 'GET',
+                url: 'json/more1.json',
+                dataType: 'json',
+                success: function(data){
+                    var result = '';
+                    for(var i = 1; i < 13; i++){
+                        result +=
+                           '<li><a href="'+data.lists[i].link+'">'
+                                +'<img src="'+data.lists[i].pic+'" alt="pic">'
+                            +'</a></li>';
+                    }
+                    setTimeout(function(){
+                        $('.poster-display').append(result);
+                    },100);
+                },
+                error: function(xhr, type){
+                    // alert('Ajax error!');
+                    console.log("请求失败");
+                }
+          });
+          $.ajax({
+                type: 'GET',
+                url: 'json/more2.json',
+                dataType: 'json',
+                success: function(data){
+                    var result = '';
+                    for(var i = 1; i < 13; i++){
+                        result +=
+                           '<li><a href="'+data.lists[i].link+'">'
+                                +'<img src="'+data.lists[i].pic+'" alt="pic">'
+                            +'</a></li>';
+                    }
+                    setTimeout(function(){
+                        $('.poster-train').append(result);
+                    },100);
+                },
+                error: function(xhr, type){
+                    // alert('Ajax error!');
+                    console.log("请求失败");
+                }
+          });
+          $.ajax({
+                type: 'GET',
+                url: 'json/more3.json',
+                dataType: 'json',
+                success: function(data){
+                    var result = '';
+                    for(var i = 1; i < 13; i++){
+                        result +=
+                           '<li><a href="'+data.lists[i].link+'">'
+                                +'<img src="'+data.lists[i].pic+'" alt="pic">'
+                            +'</a></li>';
+                    }
+                    setTimeout(function(){
+                        $('.poster-business').append(result);
+                    },100);
+                },
+                error: function(xhr, type){
+                    // alert('Ajax error!');
+                    console.log("请求失败");
+                }
+          });
+          setTimeout(function(){
+                $('.poster-mask').fadeOut();
+          },1500);
+    })
+  </script>
+</body>
+</html>

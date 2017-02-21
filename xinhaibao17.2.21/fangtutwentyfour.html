@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="editf24">
+        <div class="editf24_con"> 
+          <div class="editf24_conbg1" id="editmove">
+               <img src="images/f24up1.jpg" alt="uppic"/>
+          </div>
+          <div class="editf24_conbg2"></div>
+          <div class="editf24_up1">
+              <div class="editf24_up11">
+                  <div class="editf24_fileInput">
+                        <input type="file" capture="camera" name="editf24_upfile" id="editf24_upfile" style="display:none" class="editf24_upfile" onchange="document.getElementById('editf24_upfileResult').innerHTML=this.value;"/>
+                        <input class="editf24_upFileBtn" id="editf24_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editf24_upfile').click();" />
+                  </div>
+              </div>
+          </div> 
+          <div class="editf24_con1">
+                <p contenteditable="true">碰触柔软</p>
+                <p contenteditable="true">你能感觉到的温柔呵护</p>
+          </div>
+          <div class="editf24_con2">
+                <p contenteditable="true">柔软亲肤</p>
+                <p contenteditable="true">白搭围巾</p>
+          </div>
+          
+        </div>
+        <div class="shengchengf24">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!--方图第二十四个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#editf24_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        console.log("objUrl = "+objUrl);
+        if (objUrl) {
+         $(".editf24_conbg1 img").attr("src", objUrl);
+          }
+        });
+    $("#editf24_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]);   
+        if (objUrl) {
+          $(".editf24_con2 img").attr("src", objUrl);
+        }
+      });   
+    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+      $(".shengchengf24").click(function(){
+                
+                $(".shengchengf24").hide();
+                $(".editf24_up1").hide();
+                $(".editf24_up2").hide();
+                $(".editf24_up3").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editf24_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl},  
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src);
+                              }  
+                            });
+                            $(".editf24").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //方图第二十四个页面结束
+     </script>
+</body>
+</html>

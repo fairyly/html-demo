@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="edit39">
+        <div class="edit39_con"> 
+          <div class="edit39_conbg1">
+            <img src="images/m33up1.jpg">
+          </div>
+          <div class="edit39_conbg2">
+            <div class="edit39_con1">
+               <div class="edit39_up2">
+                        <div class="edit39_up22">
+                            <div class="edit39_fileInput2 left">
+                                  <input type="file" capture="camera" name="edit39_upfile2" id="edit39_upfile2" style="display:none" class="edit39_upfile2" onchange="document.getElementById('edit39_upfileResult2').innerHTML=this.value;"/>
+                                  <input class="edit39_upFileBtn2" id="edit39_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit39_upfile2').click();" />
+                            </div>
+                        </div>
+                </div> 
+            </div>
+            <div class="edit39_con12">
+                <div class="edit39_con12txt">
+                  <p contenteditable="true">王一一</p>
+                  <p contenteditable="true">微友团队</p>
+                </div><div class="edit39_con12pic">
+                     <img src="images/mpup2.jpg">
+                </div>
+                <div class="edit39_up1"> 
+                    <div class="edit39_up11">
+                        <div class="edit39_fileInput left">
+                              <input type="file" capture="camera" name="edit39_upfile" id="edit39_upfile" style="display:none" class="edit39_upfile" onchange="document.getElementById('edit39_upfileResult').innerHTML=this.value;"/>
+                              <input class="edit39_upFileBtn" id="edit39_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit39_upfile').click();" />
+                        </div>
+                    </div>
+                </div> 
+                <div class="edit39_con13txt">
+                    <p contenteditable="true">星级代理</p>
+                    <p contenteditable="true"><span>微信：wx88888888</span><span>QQ:88888888</span></p>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="shengcheng39">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第三十九个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+        $("#edit39_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+            console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".edit39_con12pic img").attr("src", objUrl);
+           // $(".editp1_con").css("background-image", "url("+objUrl+")") ;
+          
+          }
+        });
+    $("#edit39_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".edit39_conbg1 img").attr("src", objUrl) ;
+         
+        }
+      });    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengcheng39").click(function(){
+                
+                $(".shengcheng39").hide();
+                // $(".edit3").show();
+                $(".edit39_up1").hide();
+                $(".edit39_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".edit39_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        // width: 720,
+                        // height:1280,
+                        // canvas: canvas,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //document.body.appendChild(canvas);
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src) ;
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".edit39").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //第三十九页面结束
+     </script>
+</body>
+</html>

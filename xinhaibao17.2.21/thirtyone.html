@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="edit31">
+        <div class="edit31_con"> 
+          <div class="edit31_con1">
+              <div class="edit31_con1pic" id="editmove">
+                    <img src="images/m25up1.jpg"/>
+              </div>
+              <div class="edit31_up1"> 
+                  <div class="edit31_up11">
+                      <div class="edit31_fileInput left">
+                            <input type="file" capture="camera" name="edit31_upfile" id="edit31_upfile" style="display:none" class="edit31_upfile" onchange="document.getElementById('edit31_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit31_upFileBtn" id="edit31_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit31_upfile').click();" />
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+          <div class="edit31_con2">
+              <div class="edit31_con2text">
+                  <div><p contenteditable="true">微商必备做图神器</p></div>
+                  <div><p contenteditable="true">微友名片模板</p></div>
+              </div>
+              <div class="edit31_con21"> 
+                <div class="edit31_con21txt">
+                  <p contenteditable="true"><span>123582451</span></p>
+                  <p contenteditable="true"><span>12542458741</span></p>
+                  <p contenteditable="true"><span>18888888888</span></p>
+                </div> 
+              </div><div class="edit31_con22">
+                <div class="edit31_con22pic">
+                   <img src="images/mpup2.jpg">
+                </div>
+                <div class="edit31_up2">
+                    <div class="edit31_up22">
+                        <div class="edit31_fileInput2 left">
+                              <input type="file" capture="camera" name="edit31_upfile2" id="edit31_upfile2" style="display:none" class="edit31_upfile2" onchange="document.getElementById('edit31_upfileResult2').innerHTML=this.value;"/>
+                              <input class="edit31_upFileBtn2" id="edit31_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit31_upfile2').click();" />
+                        </div>
+                    </div>
+                  </div>
+              </div>  
+          </div>  
+        </div>
+        <div class="shengcheng31">
+            <div><h3>生成</h3></div>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第三十一个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="" style="width:100%">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <!-- 添加touch事件 -->
+     <script type="text/javascript">
+    //   //获取节点
+      var block14 = document.getElementById("editmove");
+      var oW14,oH14;
+      // 绑定touchstart事件
+      block14.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW14 = touches.clientX - block14.offsetLeft;
+       oH14 = touches.clientY - block14.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block14.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW14;
+       var oTop = touches.clientY - oH14;
+       // if(oLeft < 0) {
+       //  oLeft = 0;
+       // }else if(oLeft > document.documentElement.clientWidth - block2.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block2.offsetWidth);
+       // }
+       block14.style.left = oLeft + "px";
+       block14.style.top = oTop + "px";
+      },false);
+       
+      block14.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+    <!-- 监听手势 缩放-->
+     <script type="text/javascript">
+            // var target14= document.getElementById("edit14_con1img");
+            // target14.style.webkitTransition = 'all ease 0.05s';
+
+            // touch.on('#edit14_con1img', 'touchstart', function(ev){
+            //     ev.preventDefault();
+            // });
+
+            // var initialScale = 1;
+            // var currentScale;
+
+            // touch.on('#edit14_con1img', 'pinchend', function(ev){
+            //     currentScale = ev.scale - 1;
+            //     console.log(currentScale);
+            //     currentScale = initialScale + currentScale;
+            //     // currentScale = currentScale > 2 ? 2 : currentScale;
+            //     // currentScale = currentScale < 1 ? 0.5 : currentScale;
+            //     this.style.webkitTransform = 'scale(' + currentScale + ')';
+            //     console.log("当前缩放比例为:" + currentScale + ".");
+            // });
+
+            // touch.on('#edit14_con1img', 'pinchend', function(ev){
+            //     initialScale = currentScale;
+            // });
+    </script>
+</body>
+</html>

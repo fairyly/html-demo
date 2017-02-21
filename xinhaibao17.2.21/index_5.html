@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+    <script type="text/javascript">
+    //图片等比例缩小处理
+    function AutoResizeImage(maxWidth,maxHeight,objImg){
+            var img = new Image();
+            img.src = objImg.src;
+            var hRatio;
+            var wRatio;
+            var Ratio = 1;
+            var w = img.width;
+            var h = img.height;
+            wRatio = maxWidth / w;
+            hRatio = maxHeight / h;
+            if (maxWidth ==0 && maxHeight==0){
+                Ratio = 1;
+                }
+                else if (maxWidth==0){//
+                    if (hRatio<1) Ratio = hRatio;
+                       }else if (maxHeight==0){
+                             if (wRatio<1) Ratio = wRatio;
+                             }else if (wRatio<1 || hRatio<1){
+                                   Ratio = (wRatio<=hRatio?wRatio:hRatio);
+                                    }
+            if (Ratio<1){
+                w = w * Ratio;
+                h = h * Ratio;
+                }
+            objImg.height = h;
+            objImg.width = w;
+    }
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+        
+    <div class="edit5">
+        <div class="edit5_con">  
+            <div class="edit5_con3">
+               <div class="edit5_conpic">
+                    <div class="edit5_m3" id="edit5_m3">
+                      <!-- onload="AutoResizeImage(320,460,this)" -->
+                        <img src="images/dwup2.png" style="width:80%"/>
+                    </div>
+                    <div class="edit5_up8">
+                        <div class="edit5_up88">
+                            <div class="edit5_fileInput8">
+                                  <input type="file" capture="camera" name="edit5_upfile8" id="edit5_upfile8" style="display:none" class="edit5_upfile8" onchange="document.getElementById('edit5_upfileResult8').innerHTML=this.value;"/>
+                                  <input class="edit5_upFileBtn8" id="edit5_upfileResult8" type="button" value="上传图片" onclick="document.getElementById('edit5_upfile8').click();" />
+                            </div>
+                            <!-- <img src="images/upload.png" style="width:60px;height:60px;"> -->
+                        </div>
+                    </div>
+               </div>
+            </div>  
+            <div class="edit5_con4">
+               <div class="edit5_con41"><p contenteditable="true">传统佳节 满满都是礼</p></div>
+            </div>
+        </div>
+        <div class="shengcheng5">
+            <div><h3>生成</h3></div>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第五个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="" style="width:100%">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+</body>
+</html>
+<!-- 添加touch事件 -->
+
+    <script type="text/javascript">
+      //获取节点
+      var block5 = document.getElementById("edit5_m3");
+      var oW5,oH5;
+      // 绑定touchstart事件
+      block5.addEventListener("touchstart", function(e) {
+       console.log(e);
+       var touches = e.touches[0];
+       oW5 = touches.clientX - block5.offsetLeft;
+       oH5 = touches.clientY - block5.offsetTop;
+       //阻止页面的滑动默认事件
+       document.addEventListener("touchmove",defaultEvent,false);
+      },false)
+     
+      block5.addEventListener("touchmove", function(e) {
+       var touches = e.touches[0];
+       var oLeft = touches.clientX - oW5;
+       var oTop = touches.clientY - oH5;
+       // if(oLeft < 0) {
+       //  oLeft = 0;
+       // }else if(oLeft > document.documentElement.clientWidth - block2.offsetWidth) {
+       //  oLeft = (document.documentElement.clientWidth - block2.offsetWidth);
+       // }
+       block5.style.left = oLeft + "px";
+       block5.style.top = oTop + "px";
+      },false);
+       
+      block5.addEventListener("touchend",function() {
+       document.removeEventListener("touchmove",defaultEvent,false);
+      },false);
+      function defaultEvent(e) {
+       e.preventDefault();
+      }
+    </script>
+    
+    <!-- 拖动-->
+    <!-- 监听手势 缩放-->
+    
+    <script type="text/javascript">
+            var target5 = document.getElementById("edit5_m3");
+            target5.style.webkitTransition = 'all ease 0.05s';
+
+            touch.on('#edit5_m3', 'touchstart', function(ev){
+                ev.preventDefault();
+            });
+
+            var initialScale = 1;
+            var currentScale;
+
+            touch.on('#edit5_m3', 'pinchend', function(ev){
+                currentScale = ev.scale - 1;
+                console.log(currentScale);
+                currentScale = initialScale + currentScale;
+                // currentScale = currentScale > 2 ? 2 : currentScale;
+                // currentScale = currentScale < 1 ? 0.5 : currentScale;
+                this.style.webkitTransform = 'scale(' + currentScale + ')';
+                console.log("当前缩放比例为:" + currentScale + ".");
+            });
+
+            touch.on('#edit5_m3', 'pinchend', function(ev){
+                initialScale = currentScale;
+            });
+    </script>
+   

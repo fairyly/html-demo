@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="edit16">
+        <div class="edit16_con"> 
+          <div class="edit16_con1">
+             <div class="edit16_con1tit"><p contenteditable="true">微友品牌团队</p></div>
+             <div class="edit16_con1p">
+               <p contenteditable="true">没有行动，懒惰就会生根发芽!没有梦想，堕落就会生根发芽!</p>
+               <p contenteditable="true">时间越长，根就越深!</p>
+               <p contenteditable="true">到时候想站起来是件很困难的事!所以，为了很好的站着，</p>
+               <p contenteditable="true">就不要停下你的脚步!越努力越幸运</p>
+             </div>
+          </div>
+          <div class="edit16_con2">
+              <div class="edit16_con21pic" id="edit16_con21img">
+                    <img src="images/m9up1.jpg"/>
+              </div>
+              <div class="edit16_up1"> 
+                  <div class="edit16_up11">
+                      <div class="edit16_fileInput left">
+                            <input type="file" capture="camera" name="edit16_upfile" id="edit16_upfile" style="display:none" class="edit16_upfile" onchange="document.getElementById('edit16_upfileResult').innerHTML=this.value;"/>
+                            <input class="edit16_upFileBtn" id="edit16_upfileResult" type="button" value="上传图片" onclick="document.getElementById('edit16_upfile').click();" />
+                      </div>
+                  </div>
+              </div>
+              <div class="edit16_con22pic" id="edit16_con22img">
+                    <img src="images/m9up2.jpg"/>
+              </div>
+              <div class="edit16_up12"> 
+                  <div class="edit16_up112">
+                      <div class="edit16_fileInput12 left">
+                            <input type="file" capture="camera" name="edit16_upfile12" id="edit16_upfile12" style="display:none" class="edit16_upfile12" onchange="document.getElementById('edit16_upfileResult12').innerHTML=this.value;"/>
+                            <input class="edit16_upFileBtn12" id="edit16_upfileResult12" type="button" value="上传图片" onclick="document.getElementById('edit16_upfile12').click();" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="edit16_con3">
+              <div class="edit16_con31"> 
+                  <div class="edit16_con31txt">
+                    <p contenteditable="true">我是微友我自豪</p>
+                  </div> 
+              </div>
+          </div>  
+          <div class="edit16_con4">
+                <div class="edit16_con44pic">
+                   <img src="images/mpup2.jpg">
+                </div>
+                <div class="edit16_up2">
+                    <div class="edit16_up22">
+                        <div class="edit16_fileInput2 left">
+                              <input type="file" capture="camera" name="edit16_upfile2" id="edit16_upfile2" style="display:none" class="edit16_upfile2" onchange="document.getElementById('edit16_upfileResult2').innerHTML=this.value;"/>
+                              <input class="edit16_upFileBtn2" id="edit16_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('edit16_upfile2').click();" />
+                        </div>
+                    </div>
+                  </div>
+              </div>  
+        </div>
+        <div class="shengcheng16">
+            <div><h3>生成</h3></div>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 第十三个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src="" style="width:100%">
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+     <script type="text/javascript">
+          
+     </script>
+</body>
+</html>

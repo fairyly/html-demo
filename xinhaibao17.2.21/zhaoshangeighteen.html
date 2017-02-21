@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海报首页</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="海报首页">
+    <link rel="stylesheet" type="text/css" href="css/addswiper.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/edit_1.js"></script>
+    <script src="js/touch.min.js"></script>
+    <script src="js/htc.js"></script>
+   <script type="text/javascript">
+        var docEl = document.documentElement,
+            //总来的来就是监听当然窗口的变化，一旦有变化就需要重新设置根字体的值
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                //设置根字体大小
+                docEl.style.fontSize = 10 * (docEl.clientWidth / 320) + 'px';
+            };
+        //绑定浏览器缩放与加载时间
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    </script>
+</head>
+<body>
+  <div class="first">
+    <div class="header">
+        <nav>
+            <div class="nav">
+                <ul>
+                    <li style="width:28%"><a href="index.html">返回</a></li>
+                    <li style="width:45%"><a href="">微商海报</a></li>
+                    <li style="width:22%"><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <div class="editz18">
+        <div class="editz18_con"> 
+          
+          <div class="editz18_conleft">   
+                <div class="editz18_con1">
+                    <div class="editz18_con1txt">
+                                <p contenteditable="true">招代理</p>
+                                <p contenteditable="true">你只有很努力</p>
+                                <p contenteditable="true">才能看上去毫不费力气</p>   
+                    </div> 
+                    <div class="editz18_con12txt">
+                                <p contenteditable="true">招募须知：</p>
+                                <p contenteditable="true">无需代理费，无库</p>
+                                <p contenteditable="true">存、无压力接受一</p>
+                                <p contenteditable="true">件代发，团队资源</p>
+                                <p contenteditable="true">共享，强大的产品</p>
+                                <p contenteditable="true">资料培训。客源培</p>
+                                <p contenteditable="true">训、代理有公司合</p>
+                                <p contenteditable="true">同保障，请带着一</p>
+                                <p contenteditable="true">颗肯努力肯坚持肯</p>
+                                <p contenteditable="true">付出的心态来挑战</p>
+                                <p contenteditable="true">欢迎你的加入</p>
+                    </div>   
+                </div>
+                <div class="editz18_con2">
+                    <div class="editz18_con21"> 
+                        <div class="editz18_con21pic">
+                             <img src="images/mpup2.jpg">
+                        </div> 
+                        <div class="editz18_up2" >
+                            <div class="editz18_up22">
+                                <div class="editz18_fileInput2 left">
+                                      <input type="file" capture="camera" name="editz18_upfile2" id="editz18_upfile2" style="display:none" class="editz18_upfile2" onchange="document.getElementById('editz18_upfileResult2').innerHTML=this.value;"/>
+                                      <input class="editz18_upFileBtn2" id="editz18_upfileResult2" type="button" value="上传图片" onclick="document.getElementById('editz18_upfile2').click();" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div><div class="editz18_conright">
+                <div class="editz18_conrightpic" id="editmove">
+                    <img src="images/z18up1.jpg">
+                </div>
+                <div class="editz18_up1"> 
+                  <div class="editz18_up11">
+                      <div class="editz18_fileInput left">
+                            <input type="file" capture="camera" name="editz18_upfile" id="editz18_upfile" style="display:none" class="editz18_upfile" onchange="document.getElementById('editz18_upfileResult').innerHTML=this.value;"/>
+                            <input class="editz18_upFileBtn" id="editz18_upfileResult" type="button" value="上传图片" onclick="document.getElementById('editz18_upfile').click();" />
+                      </div>
+                </div>
+          </div>
+          </div>
+        </div>
+        <div class="shengchengz18">
+            <div><h3>生成</h3></div>
+            <p id="desnote" style="text-align:center;">修改模板上的“图片”和“文字”生成你的海报</p>
+            <div style="background-color:#ffffff"></div>
+        </div>  
+    </div>
+  </div>
+    <!-- 招商第十八个页面结束 -->
+     <div class="baocun" style="display:none">
+         <div class="baocunimg">
+             <img src=""/>
+         </div>
+         <p style="width:100%;text-align:center;margin-top: 10px;">长按图片保存到手机</p>
+         <div class="conshengcheng">
+             <!-- <div><h3>继续生成</h3></div> -->
+             <div><h3><a href="index.html">继续生成</a></h3></div>
+         </div>
+     </div>
+     <!-- 生成后显示页面结束 -->
+    <script type="text/javascript">    
+      $("#editz18_upfile").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+            console.log("objUrl = "+objUrl) ;
+        if (objUrl) {
+         $(".editz18_conrightpic img").attr("src", objUrl);
+           // $(".editz18_con").css("background-image", "url("+objUrl+")") ;
+          
+          }
+        });
+     $("#editz18_upfile2").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+            
+        if (objUrl) {
+          $(".editz18_con21pic img").attr("src", objUrl) ;
+         
+        }
+      });    
+         //建立一个可存取到该file的url
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      $(".shengchengz18").click(function(){
+                
+                $(".shengchengz18").hide();
+                // $(".edit3").show();
+                $(".editz18_up1").hide();
+                $(".editz18_up2").hide();
+                $(".header").hide();
+                $("body").css("background","none");
+                
+                html2canvas($(".editz18_con"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        // width: 720,
+                        // height:1280,
+                        // canvas: canvas,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //document.body.appendChild(canvas);
+                            //生成base64图片数据
+                            $(".header").show();
+                            $(".baocun").show();
+                            
+                            var dataUrl = canvas.toDataURL("image/png");
+                             $.ajax({  
+                              type : "POST",  
+                              url : '1.php',  
+                              data : {data:dataUrl},  
+                              // timeout : 60000,  
+                              success : function(data){  
+                                  var src=data;  
+                                  $(".baocunimg img").attr("src",src) ;
+                              }  
+                            });  
+                            // $(".baocunimg img").attr("src",dataUrl) ;
+                            $(".editz18").hide();
+                            console.log("已生成");
+                        }
+                });
+        });
+    //招商第十八个页面结束
+    </script>
+</body>
+</html>
