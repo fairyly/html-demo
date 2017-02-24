@@ -1,0 +1,330 @@
+/*首页*/
+*{
+	margin:0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.index_content{
+	width: 100%;
+	height: 100%;
+	background: url(../images/indexbg.jpg) no-repeat;
+	background-size: 100%;
+	background-position: 50%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.index_btn{
+	position: absolute;
+	top: 60%;
+	left: 0;
+	width: 100%;
+}
+.index_btn a{
+	display: block;
+	width: 60%;
+	height: 2rem;
+	margin: 0px auto;
+	line-height: 2rem;
+	text-align: center;
+	font-size: 15px;
+	color: #ffffff;
+	background-color: #1aad19;
+	border: none;
+	border-radius: 5px;
+    box-shadow: 0px 1px 2px #282314;
+    -webkit-box-shadow: 0px 1px 3px #282314;
+}
+a.index_fangwei,a.index_apply{
+	margin-bottom: 1rem;
+}
+.index_info{
+	width: 100%;
+	margin-top: 1rem;
+	font-size: 13px;
+	color: #9c9a9a;
+	text-align: center;
+}
+/*登录*/
+div.index_login{
+	background: url(../images/loginbg.jpg) no-repeat;
+	background-size: 100%;
+	background-position: 50%;
+}
+.index_form{
+	text-align: center;
+	/*top: 64%;*/
+}
+.index_form_content{
+	position: relative;
+}
+.index_form_input{
+	width: 60%;
+	height: 2rem;
+	line-height: 2rem;
+    margin: 0px auto;
+    background-color: #a69790;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #292321;
+    -webkit-box-shadow: 1px 1px 3px #292321;
+}
+
+div.index_form_uname{
+	background-image:url(../images/login_username.png);
+	background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 5px center;
+}
+.utext input{
+	width: 87%;
+	height: 2rem;
+	line-height: 2rem;
+	float: right;
+	border: none;
+	font-size: 15px;
+	color: #f3f2f2;
+	background-color: #a69790;
+	border-radius: 5px;
+}
+.utext input::-webkit-input-placeholder{
+	color: #f3f2f2;
+}
+/*修改密码*/
+div.index_form_upass{
+	background-image:url(../images/login_userpass.png);
+	background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 4px center;
+}
+input.sub{
+	background-color: #1aad19;
+	color: #ffffff;
+	margin-top: 10px;
+}
+.header{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background-color: #1aad19;
+	color: #ffffff;
+	font-size: 16px;
+}
+.modpass{
+	margin-top: 20px;
+}
+.form_mod .form_newpass{
+	background-color:#ffffff;
+}
+.form_newpass input{
+    width: 95%;
+    height: 2rem;
+    line-height: 2rem;
+    float: right;
+    border: none;
+    font-size: 15px;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+.form_newpass input::-webkit-input-placeholder{
+	color: #000000;
+}
+/*用户中心*/
+.us_body{
+	background-color: #f2f3f5;
+}
+.us_content{
+	width: 100%;
+	position: relative;
+}
+.us_info{
+	width: 100%;
+	height: 9rem;
+	position: relative;
+	background: url(../images/usercenterbg.jpg) no-repeat;
+	background-size: 100%;
+}
+.us_headphoto{
+	width: 5rem;
+	position: absolute;
+	top: 1.5rem;
+	left: 3rem;
+}
+.us_headphoto img{
+	width: 5rem;
+}
+.us_infos{
+	position: absolute;
+	top: 1.5rem;
+	left: 9rem;
+}
+.us_infos .us_p{
+	font-size: 13px;
+	color: #ffffff;
+	height: 1.25rem;
+	line-height: 1.25rem;
+}
+.us_infos .us_rank{
+	width: 90px;
+	color: #b10318;
+	text-align: center;
+	background: #312314;
+	border-radius: 15px;
+}
+.us_wx,.us_tel{
+	font-size: 12px;
+}
+.us_menu{
+	position: relative;
+	width: 100%;
+	margin-bottom: 80px;
+}
+..block.block-list+.block.block-list {
+    margin-top: 11px;
+}
+.block.block-list {
+    margin: 0;
+    padding: 0;
+    /*padding-left: 10px;*/
+    list-style: none;
+    font-size: 14px;
+    margin-top: 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.order-related .block.block-list.list-vertical>a.link {
+    padding-left: 38px;
+    padding-right: 28px;
+}
+.block-list>.block-item:first-child {
+    border-top: 1px solid #d2d2d2;
+}
+.block-list>.block-item {
+    padding: 10px 10px 10px 38px;
+}
+.link:link, .link:hover, .link:visited, .link:active {
+    
+}
+.block p {
+	font-size: 14px;
+	color: #000000;
+    overflow: hidden;
+}
+.block-item{
+    position: relative;
+    display: block;
+    padding: 10px;
+    line-height: 1.5;
+    border: 0;
+    background-color: #ffffff;
+    border-top: 1px solid #d2d2d2;
+    overflow: hidden;
+}
+a.link.ico-update{
+	border-bottom: 1px solid #d2d2d2;
+}
+a.link.ico-modpass{
+	border-bottom: 1px solid #d2d2d2;
+}
+a.link.ico-uprank::before {
+    background-position: 0px 0px;
+    background-size: cover;
+}
+a.link.ico-daili::before {
+    background-position: 0px -30px;
+    background-size: cover;
+}
+a.link.ico-update::before {
+    background-position: 0px -60px;
+    background-size: cover;
+}
+a.link.ico-order::before {
+    background-position: 0px -89px;
+    background-size: cover;
+}
+a.link.ico-modpass::before {
+    background-position: 0px -118px;
+    background-size: cover;
+}
+a.link::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    width: 25px;
+    height: 26px;
+    background-image: url(../images/usercenterico.png);
+    background-repeat: no-repeat;
+    background-size: 32px 185px;
+}
+a.link p::after{
+	content: '';
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 16px;
+    right: 8px;
+    background-image: url(../images/right_ico.png);
+    background-repeat: no-repeat;
+    background-size: 8px;
+}
+.user_layout a{
+	display: block;
+    width: 60%;
+    height: 2rem;
+    margin: 0px auto;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1aad19;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px #282314;
+    -webkit-box-shadow: 0px 1px 3px #282314;
+}
+.us_company{
+	margin-bottom: 2rem;
+}
+/*查询*/
+.index_check{
+	background: url(../images/checkbg.jpg) no-repeat;
+	background-size: 100%;
+	background-position: 50%;
+}
+div.check_content{
+	text-align: center;
+	top: 48%;
+}
+a.check_btn{
+	margin-top: 7rem;
+}
+.check_input input{
+	width: 85%;
+	height: 2rem;
+	line-height: 2rem;
+	margin: 0px auto;
+	border: none;
+	background-color: #ffffff;
+	font-size: 14px;
+	color: #000000;
+	border-radius: 5px;
+}
+.check_input p{
+	width: 85%;
+	height: 2rem;
+	line-height: 2rem;
+	margin: 0px auto;
+	text-align: left;
+	font-size: 0.8em;
+	color: #edebeb;
+}
