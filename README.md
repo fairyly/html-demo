@@ -22,6 +22,8 @@
      
 * [地址选择](https://fairyly.github.io/html-demo/address/index.html)
 
+[x] [地址选择](https://fairyly.github.io/html-demo/address/index.html)
+
 * [多文件上传](https://fairyly.github.io/html-demo/multupload/index.html)  
      (使用jquery.jquery.fileupload.js)本地环境测试图片的url存在了但是出现500错误
      ```
