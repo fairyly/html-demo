@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="keyword" content="什么网站">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="网站做什么">
+<title>无标题文档</title>
+	<link rel="stylesheet" href="css/index1.css">
+    <link rel="stylesheet" href="css/weui1.1.min.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/weui.min.js"></script>
+</head>
+
+<body>
+	<form method="post" enctype="multipart/form-data">
+            <div class="main_content_top">
+                <p class="competent_tip">此“*”为必填选项</p>
+                <p>姓名<i>*</i></p>
+                <input type="text" name="name" class="u_name" placeholder="请输入您的姓名" data-index="0">
+                <span class="yanzheng"><i>&nbsp;</i>请填写正确的姓名</span>
+                <p>手机号<i>*</i></p>
+                <input type="text" name="phonenum" class="u_tel" placeholder="请输入您的手机号" data-index="1">
+                <span class="yanzheng"><i></i>请填写正确的手机号</span>
+                <p>微信号<i>*</i></p>
+                <input type="text" name="wechatnum" class="u_wx" placeholder="请输入您的微信号" data-index="2">
+                <span class="yanzheng"><i></i>请填写正确的微信号</span>
+                <p>身份证号<i>*</i></p>
+                <input type="text" name="idnum" class="u_idnum" placeholder="请输入您的身份证号" data-index="3">
+                <span class="yanzheng"><i></i>请填写正确的身份证号</span>
+                <p>收货地址<i>*</i></p>
+                <input type="text" name="applyadd" class="u_address" placeholder="请输入您的收货地址" data-index="4">
+                <span class="yanzheng"><i></i>请填写正确的收货地址</span>
+            </div>
+
+            <div class="main_content_bottom">
+                <span>注：（乱填写上级，与打款截图不一致者不审核）</span>
+                <p>上级姓名<i>*</i></p>
+                <input type="text" name="fname" class="u_upname bg_gray" placeholder="请输入您的上级姓名" data-index="5">
+                <span>注：(请输入上级真实姓名，关系授权真假）</span>
+                <span class="yanzheng"><i></i>请填写正确的上级姓名</span>
+                <p>上级授权号<i>*</i></p>
+                <input type="text" name="fwechatnum" class="u_upnum bg_gray" placeholder="请输入您的上级授权号" data-index="6">
+                <span class="yanzheng"><i></i>请填写正确的上级授权号</span>
+                <span>注：（请确认上级已办理授权，否则无法办理）</span>
+                <!-- <p>选择对接助理<i>*</i></p>
+                <select name="people" class="select_agent bg_gray">
+                    <option value="0" selected="selected">请选择</option>
+                    <option value="4">泡沫</option>
+                    <option value="5">耀支</option>
+                    <option value="7">小雪</option>
+                    <option value="8">玲玲</option>
+                    <option value="9">芦兰</option>
+                </select>
+                <span>注：（请联系上级确认对接助理）</span> -->
+                <p>打款截图<i>*</i></p>
+                <div class="up_img">
+                    <div class="tu">
+                        <div class="weui-uploader__bd" id="uploaderCustom">
+                            <ul class="weui-uploader__files" id="uploaderCustomFiles">
+                               <!--  <li class="weui-uploader__file data1" data-id="100" style="background-image: url('');display:none;">
+                                </li><li class="weui-uploader__file data2" data-id="101" style="background-image: url('');display:none;">
+                                </li><li class="weui-uploader__file data3" data-id="102" style="background-image: url('');display:none;">
+                                </li> -->
+                            </ul>
+                            <div class="weui-uploader__input-box">
+                                <input id="uploaderCustomInput" class="weui-uploader__input" type="file" multiple="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uptit">请选择上传图片(最多5个),每张1MB以内</div>
+                    <span class="yanzheng"><i></i>请选择打款截图</span>
+                </div>
+                <span>微信 "钱包" 点击右上角有 "交易记录" ;支付宝左上角 "帐单" 可查询交易记录</span>
+                <p>备注</p><input type="text" name="content" class="u_topic bg_gray" placeholder="请输入您的备注">
+                <input type="submit" class="submit apply_submit" value="提 交">
+            </div>
+        </form>
+        <div style="display: none;" class="updiolog">
+                <div class="weui-mask"></div>
+                <div class="weui-dialog">
+                    <div class="weui-dialog__hd"><strong class="weui-dialog__title"></strong></div>
+                    <div class="weui-dialog__bd"></div>
+                    <div class="weui-dialog__ft">
+                        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary upclose">确定</a>
+                    </div>
+                </div>
+        </div>
+        
+        <script>
+        $('.apply_submit').click(function(){
+        	for(var i=0;i<$('input[type=text]').length-1;i++){
+        	
+        	if (!$($('input[type=text]')[i]).val()) {
+        			var tip=$($('input[type=text]')[i]).attr('placeholder').split('请输入您的')[1];
+        			$('.weui-dialog__bd').html(tip+"不能为空！");
+                    $('.updiolog').show();
+                    $('.upclose').show();
+        			return false;
+        	}
+        }
+        });
+        
+        </script>
+</body>
+</html>
