@@ -18,6 +18,7 @@
       * [canvas effect](https://fairyly.github.io/html-demo/testcavas.html)
       * [用户中心](https://fairyly.github.io/html-demo/show4/user_center.html)
       * [x] [form验证](https://fairyly.github.io/html-demo/formvalidate)
+      * [form验证](https://fairyly.github.io/html-demo/formvalidate)
      
 * [地址选择](https://fairyly.github.io/html-demo/address/index.html)
 
