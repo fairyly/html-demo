@@ -131,36 +131,37 @@ $('input').focus(function(){
 ```
 1:　对象转化为数组：
  
-　　var arr = [ ];
- 　　for ( var i in data ){
+　　var arr = [ ];  
+ 　　for ( var i in data ){  
          　　 var str = i + “=“ + data[ i ]// i 就代表 data 里面的 user pass 等等 而data[ i ] 就代表 userName    12121 就是 i 所对应的值；
-          　　arr.push( str );
+          　　arr.push( str );  
 　　}
-　　这样就会得到 arr  =  [ user = userName, pass = 12121 ];
+　　这样就会得到 arr  =  [ user = userName, pass = 12121 ];  
 　　
-　2:数组转化为字符串:
+　2:数组转化为字符串:  
 　　
-　　两种方法：
-　　　　1：arr.join( “&”)//意思是用&f符代替“ ， ”然后把数组变成字符串连接；          这时候 arr 里面的内容就是 user = tangcaiye&pass = 12121
-　　　　2： 比如：
-　　　　　　var arr = [1,2];
-　　　　　　var str = JSON.stringify(arr);//这样也能转化为字符串但现在还是数组的形式不过类型已经是字符串了；
-　　　　　　var arr2 = JSON.parse(str);//这样就是把字符串解析 其实就是把外面的中括号去掉；
+　　两种方法：  
+　　　　1：arr.join( “&”)//意思是用&f符代替“ ， ”然后把数组变成字符串连接；  
+               这时候 arr 里面的内容就是 user = tangcaiye&pass = 12121
+　　　　2： 比如：  
+　　　　　　var arr = [1,2];  
+　　　　　　var str = JSON.stringify(arr);//这样也能转化为字符串但现在还是数组的形式不过类型已经是字符串了；  
+　　　　　　var arr2 = JSON.parse(str);//这样就是把字符串解析 其实就是把外面的中括号去掉；  
  
-　　　　前后台交互的：
-　　　　后台接收的时候只能接收字符串类型的；
-　　　　如果前台要传递一个数组就必须先把数组进行stringify( )的操作再进行传递；
-　　　　而后台返回给前台的也是字符串简称json串；这时需要解析一下就需要 JSON.parse( );操作完了再用；
+　　　　前后台交互的：  
+　　　　后台接收的时候只能接收字符串类型的；  
+　　　　如果前台要传递一个数组就必须先把数组进行stringify( )的操作再进行传递；  
+　　　　而后台返回给前台的也是字符串简称json串；这时需要解析一下就需要 JSON.parse( );操作完了再用；  
  
-　3：字符串转化为数组：
+　3：字符串转化为数组：  
 　　
-　　例如：
-　　有个这样的 ： url = “login.php?user=“+user.value+”&pass=“+pass.value;
+　　例如：  
+　　有个这样的 ： url = “login.php?user=“+user.value+”&pass=“+pass.value;  
  
-　　那我想要得到login.php就是这样写：var urlArr = url.split(“?”);
+　　那我想要得到login.php就是这样写：var urlArr = url.split(“?”);  
  
-　　上面那个意思就是以？为分割点把这个字符串劈开变成一个数组的两部分；
+　　上面那个意思就是以？为分割点把这个字符串劈开变成一个数组的两部分；  
  
-　　那么 aa = urlArr[0];此时 aa 就等于 login.php;
-　　bb = urlArr[1];此时bb 就等于 后面那一坨
+　　那么 aa = urlArr[0];此时 aa 就等于 login.php;  
+　　bb = urlArr[1];此时bb 就等于 后面那一坨  
 ```
