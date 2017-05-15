@@ -166,7 +166,20 @@ $('input').focus(function(){
 　　bb = urlArr[1];此时bb 就等于 后面那一坨  
 ```
 
+## 火狐和ie和谷歌浏览器 在new Date().toLocaleString(),返回结果差异：
 
+     火狐：
+     new Date().toLocaleString()
+     "2017/5/15 下午5:48:01"
+     
+     ie edge
+     "2017年5月15日 17:49:29"
+     
+     谷歌
+    "2017-5-15 17:50:57"
+    
+    
+    
 ## 开源协议
 
 
