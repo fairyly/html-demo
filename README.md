@@ -238,3 +238,17 @@ MPL是The Mozilla Public License的简写，是1998年初Netscape的 Mozilla小�
 而在MPL（1.1版本）许可证中，对源代码的定义是:“源代码指的是对作品进行修改最优先择取的形式，它包括:所有模块的所有源程序，加上有关的接口的定义，加上控制可执行作品的安装和编译的‘原本’（原文为‘Script’），或者不是与初始源代码显著不同的源代码就是被源代码贡献者选择的从公共领域可以得到的程序代码。”
 ◆ MPL许可证第3条有专门的一款是关于对源代码修改进行描述的规定，就是要求所有再发布者都得有一个专门的文件就对源代码程序修改的时间和修改的方式有描述。
 ```
+
+## 获取指定cookie方法
+
+```
+function getCookie(name){
+             var strCookie=document.cookie;
+             var arrCookie=strCookie.split("; ");
+             for(var i=0;i<arrCookie.length;i++){
+                   var arr=arrCookie[i].split("=");
+                   if(arr[0]==name)return arr[1];
+             }
+             return "";
+}
+```
