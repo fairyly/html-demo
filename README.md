@@ -256,6 +256,7 @@ MPL是The Mozilla Public License的简写，是1998年初Netscape的 Mozilla小�
 
 >>>
 
+.......................................
 
 ## 浏览器通知
 
@@ -292,10 +293,12 @@ MPL是The Mozilla Public License的简写，是1998年初Netscape的 Mozilla小�
          isShine = true;
      };
 ```
+***
 
-  2.使用HTML5 Notification API开启浏览器桌面提醒
+2.使用HTML5 Notification API开启浏览器桌面提醒
 
-```
+
+```javascript
 window.addEventListener("load", function(){
     if(Notification && Notification.permission !== "granted"){
         Notification.requestPermission(function(status){
