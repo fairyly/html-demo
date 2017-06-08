@@ -252,3 +252,98 @@ function getCookie(name){
              return "";
 }
 ```
+
+
+## 浏览器通知
+
+ 1.传统做法
+ 
+```
+var titleInit = document.title, isShine = true;
+
+setInterval(function() {
+    var title = document.title;
+    if (isShine == true) {
+        if (/新/.test(title) == false) {
+            document.title = '【你有新消息】';    
+        } else {
+            document.title = '【　　　　　】';
+        }
+    } else {
+        document.title = titleInit;
+    }
+}, 500);
+
+window.onfocus = function() {
+    isShine = false;
+};
+window.onblur = function() {
+    isShine = true;
+};
+
+// for IE
+document.onfocusin = function() {
+    isShine = false;
+};
+document.onfocusout = function() {
+    isShine = true;
+};
+```
+
+2.使用HTML5 Notification API开启浏览器桌面提醒
+
+```
+window.addEventListener("load", function(){
+    if(Notification && Notification.permission !== "granted"){
+        Notification.requestPermission(function(status){
+            if(Notification.permission !== status){
+                Notification.permission = status;
+            }
+        });
+    }
+    var button = document.getElementsByTagName("button")[0];
+    button.addEventListener("click", function(){
+        var t = new Date().toLocaleString();
+        var options={
+            dir: "ltr",
+            lang: "utf-8",
+            icon: "http://ihuster.com/static/avatar/m_default.png",
+            body: "你好呀，欢迎留言交流呀"
+        };
+        if(Notification && Notification.permission === "granted"){
+            var n = new Notification("HUSTecho: "+ t, options);    
+            n.onshow = function(){
+                console.log("You got me!");
+            };
+            n.onclick = function() {
+                alert("You clicked me!");
+                window.location = "/";
+            };
+            n.onclose = function(){
+                console.log("notification closed!");
+            };        
+            n.onerror = function() {
+                console.log("An error accured");
+            }            
+        }else if(Notification && Notification.permission !== "denied") {
+            Notification.requestPermission(function(status){
+                if(Notification.permission !== status){
+                    Notification.permission = status;
+                }
+
+                if(status === "granted"){
+                    for(var i = 0; i < 3; i++){
+                        var n = new Notification("Hi! " + i, {
+                            tag: "Beyoung",
+                            icon: "http://ihuster.com/static/avatar/b_default.png",
+                            body: "你好呀，我是第" + i +"条消息啦！"
+                        });
+                    }
+                }
+            });
+        }else{
+            alert("Hi!");
+        }
+    });
+});
+```
