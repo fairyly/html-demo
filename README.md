@@ -32,7 +32,8 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
       * [](https://fairyly.github.io/css3_effects/nav-slide/nav-slide.html/CSS3侧滑导航)  
       * [按钮波纹](https://fairyly.github.io/html-demo/按钮波纹/demo.html)  
       * [canvas effect](https://fairyly.github.io/html-demo/testcavas.html)  
-      * [用户中心](https://fairyly.github.io/html-demo/show4/user_center.html)  
+      * [用户中心](https://fairyly.github.io/html-demo/show4/user_center.html) 
+      
       
       * [form验证](https://fairyly.github.io/html-demo/formvalidate)  
      
