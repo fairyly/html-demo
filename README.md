@@ -1,3 +1,11 @@
+![Build Status](https://travis-ci.org/ttsvetko/HTML5-Desktop-Notifications.svg?branch=master)
+[![CircleCI](https://circleci.com/gh/ttsvetko/HTML5-Desktop-Notifications/tree/master.svg?style=svg)](https://circleci.com/gh/ttsvetko/HTML5-Desktop-Notifications/tree/master)
+[![npm version](https://img.shields.io/npm/v/axios.svg?style=flat-square)](https://www.npmjs.org/package/axios)
+[![build status](https://img.shields.io/travis/mzabriskie/axios.svg?style=flat-square)](https://travis-ci.org/mzabriskie/axios)
+[![code coverage](https://img.shields.io/coveralls/mzabriskie/axios.svg?style=flat-square)](https://coveralls.io/r/mzabriskie/axios)
+[![npm downloads](https://img.shields.io/npm/dm/axios.svg?style=flat-square)](http://npm-stat.com/charts.html?package=axios)
+[![gitter chat](https://img.shields.io/gitter/room/mzabriskie/axios.svg?style=flat-square)](https://gitter.im/mzabriskie/axios)
+
 # webpagemodule
 一些模板页面和效果
 
