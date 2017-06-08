@@ -375,3 +375,9 @@ window.addEventListener("load", function(){
 });
 
 ```
+
+# TODO
+- [ ] Home page - documentation & demo
+- [x] [IE] Add support for event listeners
+- [ ] [IE] Implement actions as a thumbBar buttons
+- [ ] Add Support for Service Workers
