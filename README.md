@@ -375,6 +375,11 @@ window.addEventListener("load", function(){
 });
 
 ```
+# html email template
+
+所有的CSS规则，最好都采用行内样式。因为放置在网页头部的样式，很可能会被客户端删除。客户端对CSS规则的支持情况，请看
+
+[email CSS规则](https://www.campaignmonitor.com/css/)
 
 # TODO
 - [ ] Home page - documentation & demo
