@@ -394,6 +394,22 @@ window.addEventListener("load", function(){
 - https://github.com/crocodilejs/node-email-templates
 - https://mjml.io/
 
+# Design Resources
+
+
+## Free Pictures
+
+- http://www.pngpix.com/
+- https://pixabay.com/
+- https://stocksnap.io/
+- https://unsplash.com/
+- http://gratisography.com/
+- https://morguefile.com/
+- http://www.imagesource.com/
+- http://www.freeimages.co.uk/
+- https://www.pexels.com/
+- http://www.freedigitalphotos.net/
+
 # TODO
 - [ ] Home page - documentation & demo
 - [x] [IE] Add support for event listeners
