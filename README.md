@@ -393,6 +393,7 @@ window.addEventListener("load", function(){
 - https://github.com/InterNations/antwort
 - https://github.com/crocodilejs/node-email-templates
 - https://mjml.io/
+- https://www.npmjs.com/package/gulp-inline-css #建议使用gulp生成（常用）
 
 # Design Resources
 
