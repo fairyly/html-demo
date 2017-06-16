@@ -431,19 +431,52 @@ window.addEventListener("load", function(){
         line-height: 1;
     }
     div{
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 400;
+        font-family: Microsoft YaHei,微软雅黑,Arial,sans-serif;
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
         line-height: 1;
     }
-    .img-box {
+    div{
+        font-family: PingFangSC,FZLTXHK,arial,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+}
+    }
+    img{
+        border: 0;
+    }
+    img{
+        border: none;
+    }
+    .handle-img{
+        padding: 0px;
+        text-align: center;
+        color: #3e3e3e;
+        width: 1070px;
+        height: 525px;
+        margin: 0 auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 400;
+        font-family: Microsoft YaHei,微软雅黑,Arial,sans-serif;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        line-height: 1;
+    }
+    .handle-img .img-box{
         zoom: 1;
         width: 500px;
         height: 500px;
+        margin: 0px auto;
         background-color: #e4e4e4;
         text-align: center;
         position: relative;
         overflow: hidden;
     }
-    .img-box::after {
+    .handle-img .img-box .span-i {
         clear: both;
         content: ".";
         display: block;
@@ -451,7 +484,7 @@ window.addEventListener("load", function(){
         visibility: hidden;
         overflow: hidden;
     }
-    #face-img {
+    .handle-img .img-box #face-img{
         max-width: 100%;
         max-height: 100%;
         display: inline-block;
@@ -469,7 +502,7 @@ window.addEventListener("load", function(){
         outline: 2px solid #4aabe8;
         z-index: 100;
     }
-    .img-box::after {
+    .handle-img .img-box .span-i{
         content: "";
         width: 1px;
         height: 100%;
@@ -480,7 +513,7 @@ window.addEventListener("load", function(){
 </style>
 <div class="handle-img">
     <div class="img-box">
-        <img id="face-img" alt="demo" src="images/f-dd1.jpg"/>
+        <img id="face-img" alt="demo" src="images/f-dd1.jpg"/><i class='span-i'></i>
         <div class="drawFaceBorder" style="position: absolute;width:500px; height:272px; top:50%; left:50%; margin-left:-250px; margin-top:-136px;">
             <div class="landmarkBox" style="transform: rotateZ(-9.522574deg); width:49.50045413260672px; height:49.50045413260672px; left:368.30154405086284px; top:123.97820163487738px;"></div>
             <div class="landmarkBox" style="transform: rotateZ(28.714148deg); width:46.32152588555858px; height:46.32152588555858px; left:201.6348773841962px; top:37.23887375113533px;"></div>
