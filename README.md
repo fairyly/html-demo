@@ -577,4 +577,8 @@ window.addEventListener("load", function(){
     </div>
 
 ```
+#  input[file]标签的accept=”image/*”属性响应很慢的解决办法
 
+`
+<inputtype="file"accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
+`
