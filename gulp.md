@@ -1,4 +1,4 @@
-# Gulp config
+# Gulp config (修改源码方案不利于维护)
 
 ## gulp自动化添加版本号
 - 1. 修改js和css文件
@@ -162,5 +162,109 @@ function _getManifestData(file, opts) {
     }
     return data;
 }
+```
+# 不修改源码 修改版本号
+
+```
+//引入gulp和gulp插件
+  var gulp = require('gulp'),  
+  runSequence = require('run-sequence'),   
+  rev = require('gulp-rev'),    
+  revCollector = require('gulp-rev-collector'),
+  bump = require('gulp-bump'),
+  clean = require('gulp-clean');
+  var gutil   = require('gulp-util');
+  var through = require('through2');
+  var path    = require('path');
+
+  // var getHashes = function() {
+  //   var hashes = {};
+
+  //   // Note that we're not emitting the files here... this consumer effectively
+  //   // stores the rev hashes then swallows the entire pipeline.
+  //   var collect = function(file, enc, cb) {
+  //     if (file.revHash) {
+  //       var l = file.revOrigPath.split('\\');
+  //       // console.log(l[l.length-1]);
+  //       hashes[l[l.length-1]] = l[l.length-1]+"?v="+file.revHash;
+  //     }
+  //     // console.log(hashes);
+  //     return cb();
+  //   };
+
+  //   // Once the stream is finished, we'll emit a single "hashes.json" file...
+  //   var emit = function(cb) {
+  //     var file = new gutil.File({
+  //       // base: path.join(__dirname, 'app'),
+  //       // cwd:  __dirname,
+  //       path: path.join(__dirname, '/hashes.json')
+  //     });
+
+  //     console.log(file);
+
+  //     file.contents = new Buffer(JSON.stringify(hashes));
+  //     this.push(file);
+
+  //     return cb();
+  //   };
+
+  //   return through.obj(collect, emit);
+  // };
+  
+
+//定义css、js文件路径，是本地css,js文件的路径，可自行配置
+  var cssUrl = 'app/views/css/*.css',   
+  jsUrl = 'app/views/js/*.js';
+
+
+// CSS生成文件hash编码并生成 rev-manifest.json文件名对照映射
+  gulp.task('revCss', function(){   
+    return gulp.src(cssUrl)        
+   .pipe(rev())
+   .pipe(gulp.dest('app/css/'))
+   .pipe(rev.manifest())       
+   .pipe(gulp.dest('app/rev/css'));
+  });
+
+// js生成文件hash编码并生成 rev-manifest.json文件名对照映射
+  gulp.task('revJs', function(){    
+    return gulp.src(jsUrl)        
+   .pipe(rev())
+   .pipe(gulp.dest('app/js/'))
+   .pipe(rev.manifest())      
+   .pipe(gulp.dest('app/rev/js'));
+  });
+
+// gulp.task('up',function() {
+//   gulp.src('app/rev/css/rev-manifest.json')
+//     .pipe(bump())
+//     .pipe(gulp.dest('rev/'));
+// })
+
+gulp.task('cleanfile', function() {  
+    return gulp.src(['app/js/*.js','app/css/*.css'])
+    .pipe(clean({force: true}));
+});
+
+ //Html更换css、js文件版本
+   gulp.task('revHtml', function () {    
+   return gulp.src(['app/rev/**/*.json', 'app/views/*.html'])  /*/views是本地html文件的路径，可自行配置*/        
+  .pipe(revCollector({
+        replaceReved: true
+  }))        
+  .pipe(gulp.dest('app/'));  /*Html更换css、js文件版本,views也是和本地html文件的路径一致*/
+ });
+
+//开发构建
+  gulp.task('dev', function (done) {   
+  condition = false;   
+  runSequence( 
+  ['cleanfile'],
+  ['revCss'],
+  ['revJs'],    
+  ['revHtml'],        
+  done);});
+  gulp.task('default', ['dev']);
+  
 ```
 
