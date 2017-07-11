@@ -1,6 +1,7 @@
 # 竖向swiper
 
 ```
+<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
 .swiper-box {
     width: 85px;
     height:500px;
