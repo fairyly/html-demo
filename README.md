@@ -598,3 +598,45 @@ window.addEventListener("load", function(){
     如果之前访问过页面，那就会有保存有本地缓存，那么由于访问的还是缓存文件，不会出现问题。
     但如果是新用户，那么就会访问到新的资源文件，很有可能导致页面错乱
     
+
+## 解决 HTML 元素换行导致的编辑器空白问题
+
+  一般发生在 inline-block 元素上，
+  
+  * 1.第一种方法：把元素写在一行，这样的有个局限性，如果内容很多就不好了;
+  
+    `<ul><li>Item content</li><li>Item content</li><li>Item content</li></ul>`
+    
+  * 2.第二种方法：相对很好的方法，就是在 inline-block 元素的父级元素上设置 ** font-size：0 **;
+  
+    ul {font-size: 0;}
+    
+  * 3.第三种方法：是在 inline-block 元素间加注释代码 <!-- -->;
+  
+  <ul>
+        <li>Item content</li><!--
+     --><li>Item content</li><!--
+     --><li>Item content</li>
+  </ul>
+  
+  * 4. 第四种方法：设置间距;
+  
+  li {
+	margin-left: -4px;
+  }
+  
+  * 5. 第五种方法：改变元素的写法
+  <ul>
+	<li>Item content</li
+    ><li>Item content</li
+    ><li>Item content</li>
+  </ul>
+  或者：
+  <ul>
+	<li>
+    Item content
+    </li><li>
+    Item content
+    </li><li>
+    Item content</li>
+  </ul>
