@@ -603,15 +603,15 @@ window.addEventListener("load", function(){
 
   一般发生在 inline-block 元素上，
   
-  * 1.第一种方法：把元素写在一行，这样的有个局限性，如果内容很多就不好了;
+* 1.第一种方法：把元素写在一行，这样的有个局限性，如果内容很多就不好了;
   
     `<ul><li>Item content</li><li>Item content</li><li>Item content</li></ul>`
     
-  * 2.第二种方法：相对很好的方法，就是在 inline-block 元素的父级元素上设置 ** font-size：0 **;
+* 2.第二种方法：相对很好的方法，就是在 inline-block 元素的父级元素上设置 ** font-size：0 **;
   
     ul {font-size: 0;}
     
-  * 3.第三种方法：是在 inline-block 元素间加注释代码 <!-- -->;
+* 3.第三种方法：是在 inline-block 元素间加注释代码 <!-- -->;
   
   <ul>
         <li>Item content</li><!--
@@ -619,21 +619,22 @@ window.addEventListener("load", function(){
      --><li>Item content</li>
   </ul>
   
-  * 4. 第四种方法：设置间距;
+* 4. 第四种方法：设置间距;
   
   li {
 	margin-left: -4px;
   }
   
-  * 5. 第五种方法：改变元素的写法
+* 5. 第五种方法：改变元素的写法
+  
   <ul>
-	<li>Item content</li
+    <li>Item content</li
     ><li>Item content</li
     ><li>Item content</li>
   </ul>
   或者：
   <ul>
-	<li>
+    <li>
     Item content
     </li><li>
     Item content
