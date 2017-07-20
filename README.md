@@ -14,6 +14,11 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 [![Browser Matrix](https://saucelabs.com/open_sauce/build_matrix/axios.svg)](https://saucelabs.com/u/axios)
 
+
+# ECMAScript
+* [es6](http://es6.ruanyifeng.com/)
+* [es2018](https://tc39.github.io/ecma262/)
+
 # webpagemodule
 一些模板页面和效果
 
