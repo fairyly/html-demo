@@ -648,7 +648,7 @@ window.addEventListener("load", function(){
   </ul>
 
 
-* Safari 3D变换会忽略z-index问题解决
+## Safari 3D变换会忽略z-index问题解决
 
 ```
 方法1：
