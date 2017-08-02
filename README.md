@@ -646,3 +646,19 @@ window.addEventListener("load", function(){
     </li><li>
     Item content</li>
   </ul>
+
+
+* Safari 3D变换会忽略z-index问题解决
+
+```
+方法1：
+父级，任意父级，非body级别，设置overflow:hidden可恢复和其他浏览器一样的渲染。
+
+方法2：
+
+我们的红色条子在z轴位置0处，对不对，所以才从图片的中心穿过。而z轴是我们眼睛看屏幕这条轴，在z轴的值越大，就离用户的眼睛越近；值越小，里用户眼睛越小。所谓近大远小（如果指定了视角perspective），就是这么回事。
+所以，我们要想让红色条子覆盖在图片上，只要设置一个足够大的translateZ值就可以，如100px：
+transform: translateZ(100px)
+
+原文：by zhangxinxu from http://www.zhangxinxu.com/wordpress/?p=5569
+```
