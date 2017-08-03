@@ -662,3 +662,16 @@ transform: translateZ(100px)
 
 原文：by zhangxinxu from http://www.zhangxinxu.com/wordpress/?p=5569
 ```
+## 设置边框渐变
+
+```
+border: 2px double #00c5f4;
+border-image: -webkit-linear-gradient(left top,#01d6da,#506ee6) 2 stretch;
+border-image: -moz-linear-gradient(left top,#01d6da,#506ee6) 2 stretch;
+border-image: -o-linear-gradient(left top,#01d6da,#506ee6) 2 stretch;
+border-image: -ms-linear-gradient(left top,#01d6da,#506ee6) 2 stretch;
+border-image: linear-gradient(left top,#01d6da,#506ee6) 2 stretch;
+width: 960px;
+height: 954px;
+border-top: 0;
+```
