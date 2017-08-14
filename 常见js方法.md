@@ -1092,6 +1092,30 @@ function backTop(btnId) {
     }
 };
 backTop('goTop');
+
+//返回顶部
+    
+    function togg(){
+        var min_height = 500;
+        var s = $(window).scrollTop(); 
+        //当窗口的滚动条的垂直位置大于页面的最小高度时，让返回顶部元素渐现，否则渐隐 
+        if( s > min_height){ 
+            $(".help-gototop").fadeIn(100); 
+        }else{ 
+            $(".help-gototop").fadeOut(200); 
+        };  
+    }
+    togg();
+
+    $(window).scroll(function(){ 
+        togg();
+    }); 
+
+    $(".help-gototop").on("click",function(){
+        $('html,body').animate({scrollTop:0},700);
+    });
+    
+    
 ```
 - 获得URL中GET参数值
 ```js
@@ -1204,5 +1228,85 @@ function transform(tranvalue) {
         return "0元";
     }
     return str;
+}
+```
+- 鼠标滚动跟随导航
+```
+$(document).on('scroll', function () {
+active_doc_nav();
+});
+set_sidebar_height();
+$(window).resize(function () {
+set_sidebar_height();
+});
+
+$(document).on('click', '.page-menu li a', function () {
+set_doc_active($(this));
+});
+
+function set_sidebar_height() {
+$('.sidebar').height($(window).height() - 150);
+}
+
+function active_doc_nav() {
+var n = $('.anchor').length;
+for (var i = 0; i < n; i++) {
+    var top = ele_window_top($('.anchor').eq(i));
+    var curNav = $('.page-menu li:eq(' + i + ') a');
+    if (i == (n - 1)) {
+	if (top <= 0) {
+	    set_doc_active(curNav);
+	}
+    } else {
+	var nTop = ele_window_top($('.anchor').eq(i + 1));
+	if (top <= 0 && nTop > 0) {
+	    set_doc_active(curNav);
+	    break;
+	}
+    }
+}
+}
+
+function set_doc_active(o) {
+$('.page-menu li a').removeClass('active');
+o.addClass('active');
+}
+
+function ele_window_top(ele) {
+var eTop = ele.offset().top;
+return eTop - $(window).scrollTop();
+}
+```
+
+- 文件上传
+
+```
+//使用FileReader
+$('.file-img').on('change',function(){
+	/*var objUrl = getObjectURL(this.files[0]);
+	if (objUrl) {
+		$(".re-img img").attr("src", objUrl);
+    }*/
+    var reader = new FileReader();
+	reader.onload = function(e){
+	    var dataURL=this.result;
+	    $(".re-img img").attr("src", dataURL);
+	}
+	reader.readAsDataURL(this.files[0]);
+
+});
+
+//使用blob
+ //建立一个可存取到该file的url
+function getObjectURL(file){
+	var url = null; 
+	if (window.createObjectURL!=undefined) { // basic
+	  url = window.createObjectURL(file);
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+	  url = window.URL.createObjectURL(file);
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+	  url = window.webkitURL.createObjectURL(file);
+	}
+	return url;
 }
 ```
