@@ -1357,6 +1357,8 @@ document.onpaste = function(e){
 	e.preventDefault();
 };
 
+
+//解除屏蔽
 chrome浏览器按F12（打开谷歌浏览器的开发者工具）
 
 点击Console
