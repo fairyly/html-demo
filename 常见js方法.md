@@ -1345,4 +1345,23 @@ document.oncontextmenu = function(e){
 document.onselectstart = function(e){
 	e.preventDefault();
 };
+
+//禁用copy
+document.oncopy = function(e){
+	e.preventDefault();
+};
+document.oncut = function(e){
+	e.preventDefault();
+};
+document.onpaste = function(e){
+	e.preventDefault();
+};
+
+chrome浏览器按F12（打开谷歌浏览器的开发者工具）
+
+点击Console
+
+然后按F5 刷新下网页，（根据测试必须刷新下网页等下插入代码才能生效）
+document.oncontextmenu=document.onselectstart=document.body.onselectstart=document.oncopy=document.body.oncopy=""
+
 ```
