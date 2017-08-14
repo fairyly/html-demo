@@ -1,6 +1,6 @@
 # 常见js方法
 
-
+```
 
           _____                    _____                    _____                    _____          
          /\    \                  /\    \                  /\    \                  /\    \         
@@ -24,6 +24,8 @@
         \::/    /                \::/    /                \:|   |                  \::/    /        
          \/____/                  \/____/                  \|___|                   \/____/       
 	 
+```
+# 标题
 
 ```
 // 时间戳转换
@@ -1257,50 +1259,49 @@ function transform(tranvalue) {
 ```
 - 鼠标滚动跟随导航
 ```
-$(document).on('scroll', function () {
-active_doc_nav();
-});
-set_sidebar_height();
-$(window).resize(function () {
-set_sidebar_height();
-});
+$(window).scroll(function(){ 
+        active_docfloat_nav();
+    }); 
 
-$(document).on('click', '.page-menu li a', function () {
-set_doc_active($(this));
-});
-
-function set_sidebar_height() {
-$('.sidebar').height($(window).height() - 150);
-}
-
-function active_doc_nav() {
-var n = $('.anchor').length;
-for (var i = 0; i < n; i++) {
-    var top = ele_window_top($('.anchor').eq(i));
-    var curNav = $('.page-menu li:eq(' + i + ') a');
-    if (i == (n - 1)) {
-	if (top <= 0) {
-	    set_doc_active(curNav);
-	}
-    } else {
-	var nTop = ele_window_top($('.anchor').eq(i + 1));
-	if (top <= 0 && nTop > 0) {
-	    set_doc_active(curNav);
-	    break;
-	}
+    function active_docfloat_nav() {
+        var n = $('.h1-line').length;
+        
+        for (var i = 0; i < n; i++) {
+            var top = ele_window_top($('.h1-line').eq(i));
+            var curNav = $('.float-r li:eq(' + i + ') a');
+            
+            if (i == (n - 1)) {
+                if (20< top <= 0) {
+                    set_docnav_active(curNav);
+                }
+            } else {
+                var nTop = ele_window_top($('.h1-line').eq(i + 1));
+                if (top > 20||top <= 0 && nTop > 0) {
+                    set_docnav_active(curNav);
+                    break;
+                }
+            }
+        }
     }
-}
-}
 
-function set_doc_active(o) {
-$('.page-menu li a').removeClass('active');
-o.addClass('active');
-}
+    $(document).on('click', '.float-r li a', function (e) {
+        set_docnav_active($(this));
+        $(window).scrollTop($($(this).attr('href')).offset().top);
+        // console.log($($(this).attr('href')).offset().top);
+        e.preventDefault();
+    })
 
-function ele_window_top(ele) {
-var eTop = ele.offset().top;
-return eTop - $(window).scrollTop();
-}
+    function set_docnav_active(o) {
+        $('.float-r li a').removeClass('active');
+        o.addClass('active');
+    }
+
+    function ele_window_top(ele) {
+        var eTop = ele.offset().top;
+        
+        return eTop - $(window).scrollTop();
+    }
+
 ```
 
 - 文件上传
@@ -1334,4 +1335,14 @@ function getObjectURL(file){
 	}
 	return url;
 }
+```
+
+- 屏蔽选择文字和右键
+```
+document.oncontextmenu = function(e){
+	e.preventDefault();
+};
+document.onselectstart = function(e){
+	e.preventDefault();
+};
 ```
