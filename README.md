@@ -675,3 +675,9 @@ width: 960px;
 height: 954px;
 border-top: 0;
 ```
+
+## 设置子元素中 input 只读属性
+
+```
+document.getElementsByClassName('el-date-editor')[0].children[1].setAttribute('readonly','true');
+```
