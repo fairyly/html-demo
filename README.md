@@ -2,7 +2,7 @@
 html-demo
 
 
-身份证号查询：[开始查询](https://fairyly.github.io/html-demo/id.html)
+## 身份证号查询：[开始查询](https://fairyly.github.io/html-demo/id.html)
 
 常见的算法问题：
 
