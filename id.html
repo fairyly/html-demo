@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>php_learn</title>
+    <!-- <link rel="preload" href="js/retina.js" as="script"> -->
+    
+</head>
+<body id="bd" style="display: block;">
+<script> var target = document.getElementById('bd').style.display = 'block';</script>
+<script language="javascript" type="text/javascript">
+if(top.location!=self.location)top.location=self.location;
+</script>
+
+<div class="logo"></div>
+
+
+<script type="text/javascript" language="javascript">
+
+function keyDown() {
+var keycode = event.keyCode;
+if (keycode == 13) ser();
+
+}
+document.onkeydown = keyDown;
+
+
+function ser() {
+$(document).ready(function() {
+
+    $.ajax({
+        //type: "get",+$("#num")[0].value
+        url: "search/idcard.aspx?num=" + $("#num")[0].value,
+        beforeSend: function(XMLHttpRequest) {
+            $("#result1").html("请稍候，正在查询..");
+        },
+        success: function(data, textStatus) {
+            $("#result1").html(data);
+        },
+        error: function() {
+            $("#result1").html("对不起，网络错误，请稍候重试！");
+        }
+    });
+});
+
+
+}
+
+</script>
+
+<div>
+    <div class="mod_1b mod_lifebig">
+        <div class="mod_search_outer pt40">
+            <form onsubmit="return false;">
+            <div class="mod_search_inner clearfix">
+                <input style=" height:32px;" class="num" type="text" name="userid" id="userid" maxlength="100" value="请输入身份证号（15位或18位）" onfocus="if(this.value == '请输入身份证号（15位或18位）'){this.value='';;}" onblur="if(this.value == ''){this.value='请输入身份证号（15位或18位）';}">
+                <span class="btn_wr"><input type="submit" value="查 询" class="btn" onclick="this.value = '查询中..';searchCard();"></span>
+            </div>
+            </form>
+        </div>
+        <div class="num_area num_area_bg">
+            <div id="error" style="display: block; color: red; font-size: 14px;">身份证信息有误</div>
+            
+            <div class="mod_search_think" style="" id="info">
+                <p>号 码： <strong id="code"></strong> <a href="http://www.idcard123.com/haoma/shenfenzheng/120111197405177183" id="searchCode" target="_blank"></a></p>
+                <p>地 区： <strong id="diqu"></strong></p>
+                <p>生 日： <strong id="shengri"></strong></p>
+                <p>性 别： <strong id="xingbie"></strong></p>
+                <br>
+            </div>
+            <div class="mod_search_think" style="display:none;" id="e_info">
+                <p>你查询的是： <strong id="e_e_code"></strong> <font color="#FD5151">(最后一位校验码错误)</font></p>
+                <p>　正确号码： <strong id="e_code"></strong> <a href="" id="e_searchCode"></a></p>
+                <p>　　　地区： <strong id="e_diqu"></strong></p>
+                <p>　　　生日： <strong id="e_shengri"></strong></p>
+                <p>　　　性别： <strong id="e_xingbie"></strong></p>
+            </div>
+        </div>
+
+        <div class="num_area" style="display:none">
+            <h4>身份证号码前6位查询</h4>
+            <div class="num_area_sl">
+                <select id="province" name="province" style="float:none;">
+                    <option value="">--请选择--</option><option value="110000">北京市</option><option value="120000">天津市</option><option value="130000">河北省</option><option value="140000">山西省</option><option value="150000">内蒙古自治区</option><option value="210000">辽宁省</option><option value="220000">吉林省</option><option value="230000">黑龙江省</option><option value="310000">上海市</option><option value="320000">江苏省</option><option value="330000">浙江省</option><option value="340000">安徽省</option><option value="350000">福建省</option><option value="360000">江西省</option><option value="370000">山东省</option><option value="410000">河南省</option><option value="420000">湖北省</option><option value="430000">湖南省</option><option value="440000">广东省</option><option value="450000">广西壮族自治区</option><option value="460000">海南省</option><option value="500000">重庆市</option><option value="510000">四川省</option><option value="520000">贵州省</option><option value="530000">云南省</option><option value="540000">西藏自治区</option><option value="610000">陕西省</option><option value="620000">甘肃省</option><option value="630000">青海省</option><option value="640000">宁夏回族自治区</option><option value="650000">新疆维吾尔自治区</option><option value="710000">台湾省(886)</option><option value="810000">香港特别行政区(852)</option><option value="820000">澳门特别行政区(853)</option>
+                </select>
+                <span>省</span>
+                <select id="city" name="city" style="float:none;">&gt;
+      
+                <option value="">--请选择--</option></select>
+                <span>市</span>
+                <select id="region" name="region" style="float:none;">&gt;
+      
+                <option value="">--请选择--</option></select>
+                <span>区</span>
+            </div>
+            <p class="num_area_six">对应的身份证前6位是：<strong class="cYellow" id="identity"></strong></p>
+                            <br>
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+var s = ["province", "city", "region"];
+var opt0 = ["--请选择--|", "--请选择--|", "--请选择--|"];
+function setup() {
+for (i = 0; i < s.length - 1; i++)
+    document.getElementById(s[i]).onchange = new Function("change(" + (i + 1) + ");document.getElementById('identity').innerHTML=this.value");
+change(0);
+document.getElementById(s[2]).onchange = function() { document.getElementById('identity').innerHTML = this.value };
+}
+
+</script>
+
+<br>
+
+<script type="text/javascript" language="javascript">
+
+function keyDown() {
+var keycode = event.keyCode;
+if (keycode == 13) ser();
+
+}
+document.onkeydown = keyDown;
+
+
+function ser() {
+$(document).ready(function() {
+
+    $.ajax({
+        //type: "get",+$("#num")[0].value
+        url: "search/idcard.aspx?num=" + $("#num")[0].value,
+        beforeSend: function(XMLHttpRequest) {
+            $("#result1").html("请稍候，正在查询..");
+        },
+        success: function(data, textStatus) {
+            $("#result1").html(data);
+        },
+        error: function() {
+            $("#result1").html("对不起，网络错误，请稍候重试！");
+        }
+    });
+});
+
+
+}
+
+</script>
+
+<div>
+    <!-- <div class="mod_1b mod_lifebig">
+        <div class="num_area">
+            <h4>身份证号码前6位查询</h4>
+            <div class="num_area_sl">
+                <select id="province" name="province" style="float:none;"> 
+                    <option value="">--请选择--</option><option value="110000">北京市</option><option value="120000">天津市</option><option value="130000">河北省</option><option value="140000">山西省</option><option value="150000">内蒙古自治区</option><option value="210000">辽宁省</option><option value="220000">吉林省</option><option value="230000">黑龙江省</option><option value="310000">上海市</option><option value="320000">江苏省</option><option value="330000">浙江省</option><option value="340000">安徽省</option><option value="350000">福建省</option><option value="360000">江西省</option><option value="370000">山东省</option><option value="410000">河南省</option><option value="420000">湖北省</option><option value="430000">湖南省</option><option value="440000">广东省</option><option value="450000">广西壮族自治区</option><option value="460000">海南省</option><option value="500000">重庆市</option><option value="510000">四川省</option><option value="520000">贵州省</option><option value="530000">云南省</option><option value="540000">西藏自治区</option><option value="610000">陕西省</option><option value="620000">甘肃省</option><option value="630000">青海省</option><option value="640000">宁夏回族自治区</option><option value="650000">新疆维吾尔自治区</option><option value="710000">台湾省(886)</option><option value="810000">香港特别行政区(852)</option><option value="820000">澳门特别行政区(853)</option>
+                </select>
+                <span>省</span>
+                <select id="city" name="city" style="float:none;">&gt;
+      
+                <option value="">--请选择--</option></select>
+                <span>市</span>
+                <select id="region" name="region" style="float:none;">&gt;
+      
+                <option value="">--请选择--</option></select>
+                <span>区</span>
+            </div>
+            <p class="num_area_six">对应的身份证前6位是：<strong class="cYellow" id="identity"></strong></p>
+            <br>
+        </div>
+    </div> -->
+</div>
+
+<script type="text/javascript" src="js/id.js"></script>
+<script type="text/javascript" src="js/shenfenzheng.js"></script>
+<script type="text/javascript">
+var s = ["province", "city", "region"];
+var opt0 = ["--请选择--|", "--请选择--|", "--请选择--|"];
+function setup() {
+for (i = 0; i < s.length - 1; i++)
+    document.getElementById(s[i]).onchange = new Function("change(" + (i + 1) + ");document.getElementById('identity').innerHTML=this.value");
+change(0);
+document.getElementById(s[2]).onchange = function() { document.getElementById('identity').innerHTML = this.value };
+}
+
+</script>
+
+
+</body>
+</html>
