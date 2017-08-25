@@ -2,7 +2,10 @@
 html-demo
 
 
-## 身份证号查询：[开始查询](https://fairyly.github.io/html-demo/id.html)
+## 查询列表
+- 身份证号查询：[开始查询](https://fairyly.github.io/html-demo/id.html)
+- 人脸检测接口: [人脸检测](https://fairyly.github.io/html-demo/facetest.html)
+- 快递查询接口: [快递查询](https://fairyly.github.io/html-demo/kuaidi.html)
 
 常见的算法问题：
 
