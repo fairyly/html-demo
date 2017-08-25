@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title> New Document </title>
+	<meta charset="utf-8">
+	<script src="http://xuan.news.cn/cloudnews/xhcms_2014/js/jquery.min.js"></script>
+</head>
+<body>
+	<form enctype="multipart/form-data" class="upload-form">
+			<div class="trgger-upload">choose a image file:</div>
+			<input type = "file" id = "file" name = "fileImg" class="upload-btn" />
+			<span class="submit-btn">submit</span>
+	</form>
+</body>
+	<script type="text/javascript">
+		var postData = function( form , callback){
+			var formData = new FormData( form );
+			formData.append('api_key','9umCYpVA66zSsdktimDeWQt55NNuFdVl'); // entry your api_key
+			formData.append('api_secret','xdLDu2HP6UUyPBeyW__4xCe0ef4uqY0k'); // entry your api_secret
+			formData.append('image_file', $('#file')[0].files[0]);
+			$.ajax({
+				url: "https://api-cn.faceplusplus.com/facepp/v3/detect",
+				type: "POST",
+				data: formData,    //处理表单数据
+				dataType: 'json',
+				processData: false,
+				contentType: false,
+
+				success: function(data){
+					console.log(data);
+				},
+
+				error: function(data){
+					console.log(data);
+				}
+			})
+		}
+		$(".submit-btn").on("click",function(){
+			postData($(this).parents("form")[0]);
+		})
+	</script>
+</html>
+
