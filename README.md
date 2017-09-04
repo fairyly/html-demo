@@ -716,7 +716,13 @@ document.getElementsByClassName('el-date-editor')[0].children[1].setAttribute('r
 
 ## 对html5 video 原生控件的控制
 
-* 隐藏下载按钮
+* 隐藏下载按钮,最好先设置下浏览器
+
+在Chrome的控制台打开Show user agent shadow DOM查看Chrome隐藏的代码：
+
+打开Chrome控制台（F12）->Settings(F1) -> Preferences -> Elements -> Show user agent shadow DOM
+
+勾上Show user agent shadow DOM。
 
 ```
 video::-internal-media-controls-download-button {
