@@ -35,4 +35,17 @@ video::-webkit-media-controls-panel {
 
 <video muted duration preload controls oncontextmenu="return false;" controlsList="fullscreen nodownload">
 
+
+Usage in HTML:
+
+<video controls controlsList="nofullscreen nodownload noremote foobar"></video>
+Usage in JavaScript:
+
+var video = document.querySelector('video');
+video.controls; // true
+video.controlsList; // "nofullscreen nodownload noremote" - "foobar" not present
+video.controlsList.remove('noremote');
+video.controlsList; // "nofullscreen nodownload" - "noremote" not present
+video.getAttribute('controlsList'); // "nofullscreen nodownload"
+
 ```
