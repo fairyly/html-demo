@@ -8,7 +8,7 @@ Videojs-hls : [https://github.com/videojs/videojs-contrib-hls](https://github.co
 
 http://videojs.com/advanced/
 
-[查看 webkit pseudo] (https://github.com/fairyly/html-demo/blob/gh-pages/webkit-pseudo-elements.md)
+[查看 webkit pseudo](https://github.com/fairyly/html-demo/blob/gh-pages/webkit-pseudo-elements.md)
 
 
 * 隐藏下载按钮,最好先设置下浏览器
