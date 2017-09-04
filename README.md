@@ -713,3 +713,24 @@ border-top: 0;
 ```
 document.getElementsByClassName('el-date-editor')[0].children[1].setAttribute('readonly','true');
 ```
+
+## 对html5 video 原生控件的控制
+
+* 隐藏下载按钮
+
+```
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); /* Adjust as needed */
+}
+
+
+<video muted duration preload controls oncontextmenu="return false;" controlsList="fullscreen nodownload">
+```
