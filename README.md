@@ -20,6 +20,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 [![Browser Matrix](https://saucelabs.com/open_sauce/build_matrix/axios.svg)](https://saucelabs.com/u/axios)
 
 
+ip查询接口：http://ip.taobao.com/service/getIpInfo.php?ip=111.124.116.151
 
 |  模块  |  功能点 	|  功能介绍 | 
 | :----------- | :------: | ------------: | 
