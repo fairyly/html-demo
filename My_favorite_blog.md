@@ -1,14 +1,14 @@
 # My_favorite_blog
 
-* http://blog.csdn.net/zyf837368104[听君“一席](http://blog.csdn.net/zyf837368104)
+* http://blog.csdn.net/zyf837368104   [听君“一席](http://blog.csdn.net/zyf837368104)
 
-* http://www.ruanyifeng.com/blog/[阮一峰](http://www.ruanyifeng.com/blog/)
+* http://www.ruanyifeng.com/blog/    [阮一峰](http://www.ruanyifeng.com/blog/)
 
-* http://www.zhangxinxu.com/[张鑫旭](http://www.zhangxinxu.com/)
+* http://www.zhangxinxu.com/    [张鑫旭](http://www.zhangxinxu.com/)
 
-* https://cnodejs.org/ [CNode](https://cnodejs.org/)
+* https://cnodejs.org/    [CNode](https://cnodejs.org/)
 
-* https://fatesinger.com/77763 [Sublime text 3 3103 注册码](https://fatesinger.com/77763)
+* https://fatesinger.com/77763    [Sublime text 3 3103 注册码](https://fatesinger.com/77763)
   
   ```
   sublime text 3 3103 注册码
