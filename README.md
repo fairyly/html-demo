@@ -741,3 +741,13 @@ video::-webkit-media-controls-panel {
 
 <video muted duration preload controls oncontextmenu="return false;" controlsList="fullscreen nodownload">
 ```
+
+
+## 数据缓存问题
+
+```
+ //不缓存数据方法
+ (function ($) {
+     $.ajaxSetup({ cache: false });
+ })(jQuery);//这样每次请求都会带一个时间戳，相当于不同的请求
+```
