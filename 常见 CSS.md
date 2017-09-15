@@ -1,6 +1,20 @@
 # 常见 CSS方法
 
-### 以下是常用的代码收集，没有任何技术含量，只是填坑的积累。转载请注明出处，谢谢。
+### css hack
+
+```
+  1. _          IE6
+  2. *          IE6/7
+  3. !important IE7/Firefox
+  4. *+         IE7
+  5. \9         IE6/7/8
+  6. \0         IE8
+  7. 条件hack
+      <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]--> IE7以下版本
+      <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]--> IE7
+      <!--[if IE 8]> <html class="no-js lt-ie9"><![endif]--> IE8
+      <!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--> IE8以上
+```
 
 #### 1. css 2.x
 - 文字换行
