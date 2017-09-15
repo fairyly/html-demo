@@ -267,4 +267,6 @@ $ git stash pop
 
 # 生成一个可供发布的压缩包
 $ git archive
+
+author:ruanyifeng
 ```
