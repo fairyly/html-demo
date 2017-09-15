@@ -38,6 +38,9 @@ ip查询接口：http://ip.taobao.com/service/getIpInfo.php?ip=111.124.116.151
 * [es2018](https://tc39.github.io/ecma262/)
 * [JavaScript标准参考教程](http://javascript.ruanyifeng.com/)
 
+#### 跨域请求时候 option 请求
+* [HTTP访问控制（CORS）跨域请求](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
+
 # webpagemodule
 一些模板页面和效果
 
