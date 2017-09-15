@@ -13,8 +13,8 @@
 Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 
-| One    | Two | Three | Four    | Five  | Six 
-| ----   |---  | ---    |  ---   |  ---  |
+| One    | Two | Three | Four    | Five  | Six |
+| ----   |---  | ---    |  ---   |  ---  |---|
 | Span <td colspan=3>triple  <td colspan=2>double
 
 [![Browser Matrix](https://saucelabs.com/open_sauce/build_matrix/axios.svg)](https://saucelabs.com/u/axios)
