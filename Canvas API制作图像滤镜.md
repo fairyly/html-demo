@@ -1,5 +1,7 @@
 # Canvas API制作图像滤镜
 
+* [Canvas API](http://javascript.ruanyifeng.com/htmlapi/canvas.html)
+
 ```
 HTML 5中的Canvas API可以被用于对一幅图像制作一个滤镜。我们所需要做的就是在一个canvas元素中绘制一幅图像,获取该canvas元素中的所有像素,并且对这些像素添加滤镜效果。你可以将添加滤镜效果后的所有像素输出到一个新的canvas元素或原canvas元素中。
 接下来,让我们看一下如何实现这一处理。
