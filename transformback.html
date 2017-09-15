@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+</head>
+<body>
+
+<style>
+    ul {
+        width: 100%;
+        height: 550px;
+        zoom: 1;
+    }
+    .develop-ul li {
+        float: left;
+        position: relative;
+        height: 550px;
+        width: 380px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    ul, li {
+        list-style: none;
+    }
+
+    .develop-ul li .ch-info-wrap {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-perspective: 800px;
+        perspective: 800px;
+        -webkit-transition: all .7s ease-in-out;
+        transition: all .7s ease-in-out;
+    }
+    .develop-ul li .ch-info {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .7s ease-in-out;
+        transition: all .7s ease-in-out;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+    .develop-ul li .develop-div1 {
+        background: url('https://www.juhe.cn/themes/v5/public/images/imgnew/develop.png') 0 -550px no-repeat;
+        color: #01e3ab;
+    }
+
+    .develop-ul li .develop-div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 550px;
+        width: 380px;
+        /* backface-visibility: hidden; */
+        /* -webkit-backface-visibility: hidden; */
+        /* transform: translateX(0); */
+        color: #fff;
+    }
+
+    .develop-ul li .develop-div2 {
+        background: url('https://www.juhe.cn/themes/v5/public/images/imgnew/develop.png') -760px -550px no-repeat;
+    }
+    
+    .develop-ul li .develop-3d {
+        -webkit-transform: rotate3d(0,1,0,180deg);
+        -moz-transform: rotate3d(0,1,0,180deg);
+        -o-transform: rotate3d(0,1,0,180deg);
+        -ms-transform: rotate3d(0,1,0,180deg);
+        transform: rotate3d(0,1,0,180deg);
+    }
+    .develop-ul li:hover .ch-info {
+        -webkit-transform: rotate3d(0,1,0,-180deg);
+        -moz-transform: rotate3d(0,1,0,-180deg);
+        -o-transform: rotate3d(0,1,0,-180deg);
+        -ms-transform: rotate3d(0,1,0,-180deg);
+        transform: rotate3d(0,1,0,-180deg);
+    }
+</style>
+<ul class="develop-ul clearfix">
+                <li>
+                    <div class="ch-info-wrap">
+                        <div class="ch-info">
+                            <div class="develop-div develop-div1">
+                                <h4>微信解决方案</h4>
+                                <a href="/activity/marketing">查看详情</a>
+                            </div>
+                            <div class="develop-div develop-div2 develop-3d">
+                                <p>致力于多样化的微信营销手段，为微信企业客户提供一站式的营销解决方案，自动发送短信；多种激励方式，免采购；无缝对接微信平台，免技术开发成本，帮助微信客户提高日常运营效率，实现公众号粉丝的快速增长。</p>
+                                <a href="/activity/marketing" nslog-type="1409" nslog-params="{&quot;index&quot;:&quot;1&quot;}">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="li2">
+                    <div class="ch-info-wrap">
+                        <div class="ch-info">
+                            <div class="develop-div develop-div3">
+                                <h4>API接口测试</h4>
+                                <a href="/box">登录免费使用</a>
+                            </div>
+                            <div class="develop-div develop-div4 develop-3d">
+                                <p>在线API测试工具，在您申请聚合提供的API后，即可免费使用该工具。通过在线填写各个请求参数的值，测试系统就实时返回参数结果，开发者可以快速验证接口的准确性，有效提升了测试效率，是对于开发者来说一个很友好的工具。</p>
+                                <a href="/box" nslog-type="1409" nslog-params="{&quot;index&quot;:&quot;2&quot;}">登录免费使用</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="ch-info-wrap">
+                        <div class="ch-info">
+                            <div class="develop-div develop-div5">
+                                <h4>数据分析服务</h4>
+                                <a href="javascript:;" target="_self">查看详情</a>
+                            </div>
+                            <div class="develop-div develop-div6 develop-3d">
+                                <p>致力于为用户建立从数据使用到数据分析的一个完整的开发服务生态。依托于大数据的背景，帮助企业用户从非结构化数据中挖掘出用户基础信息数据，用户评价等一系列有价值的数据，并最终通过数据可视化的方式，让企业客户可以直观的观察和分析，解读出有意义的用户商业行为。</p>
+                                <a href="/activity/analysis" target="_blank" nslog-type="1409" nslog-params="{&quot;index&quot;:&quot;3&quot;}">查看详情</a>
+                                <h6>合作伙伴 <span>Taste Analytics - Signals</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+</body>
+</html>
