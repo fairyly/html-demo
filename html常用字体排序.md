@@ -16,6 +16,8 @@
 
 * Stackoverflow: font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
 
+* 阿里云国际版： font-family: Roboto-Regular,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+
 
 ## 中文字体
 
