@@ -43,6 +43,10 @@ ip查询接口：http://ip.taobao.com/service/getIpInfo.php?ip=111.124.116.151
 #### 跨域请求时候 option 请求
 * [HTTP访问控制（CORS）跨域请求](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
 
+### html-css-js代码格式化
+* sublime：HTML-css-js prettify 插件，首先要配置插件的node路径才可以使用，，否则报错，无法使用
+
+
 # webpagemodule
 一些模板页面和效果
 
