@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>close-test</title>
+    <style type="text/css">
+    body {
+        height:100%;
+    }
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    .mask {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 1111;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .contain {
+        width: 500px;
+        height: 500px;
+        margin: 0px auto;
+        background: #e66e34;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<button>打开</button>
+
+<div class="mask">
+    <div class="contain"></div>
+</div>
+
+<script src="js/jquery-3.2.0.min.js"></script>
+<script>
+    $(document).on('mousedown',function(e){
+        if(!$(e.target).is($('.contain')) && $(e.target).parent('.mask').length === 0){
+            $('.mask').css('display','none');
+        }
+    });
+</script>
+</body>
+</html>
