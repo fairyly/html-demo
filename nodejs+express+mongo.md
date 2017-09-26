@@ -7,7 +7,7 @@
   npm i -g express-generator
  （如果想本地安装在和npm同一个目录下，先cd到node_modules目录，再使用npm i express-generator命令，然后再将node_modules目录下的./bin配置到环境变量   path里去）
   测试：
-  express -V 成功的话会显示版本号
+  eexpress --version 成功的话会显示版本号
 * 3. mongodb：这个数据库安装很简单，下载地址http://www.mongodb.org/。安装好了，就在cmd里cd到mongodb安装目录下的bin目录，然后敲命令：
   mongod –dbpath d:\momgodb\data  
   连接后浏览器输入：http://127.0.0.1:27017   
