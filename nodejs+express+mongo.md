@@ -46,3 +46,48 @@
   在views下做几个页面（可以用ejs也可以用html，我就用ejs吧）
   在routes下的index.js配置路由，也就是请求映射处理
   在models下创建一个user.js,作为实体类映射数据库的users集合 
+  
+  
+  
+  
+## express 路由配置
+
+```
+一、为Express添加about路由
+
+1、新建js文件，about.js
+
+2、打开about.js，并输入以下代码：
+
+var express=require('express');
+
+var router=express.Router();
+
+router.get('/',function(req,res,next){
+
+　　res.send('Hello from the about route!');
+
+});
+
+module.exports=router;
+
+2、打开app.js,然后输入以下代码：
+
+var about=require('./routes/about');
+
+app.use('/about',about);
+
+3、在浏览器输入：http://127.0.0.1:3000/about，然后回车，如果显示Hello from the about route!,表示路由配置成功。
+
+二、添加Post路由
+
+1、打开app.js,然后输入以下代码：
+
+app.post('/',function(req,res,next){
+
+　　res.send(req.body);
+
+});
+
+```
+
