@@ -5,7 +5,7 @@
 * 2.安装express
   npm i -g express（旧版本npm i -g express+版本号）
   npm i -g express-generator
- （如果想本地安装在和npm同一个目录下，先cd到node_modules目录，再使用npm i express-generator命令，然后再将node_modules目录下的./bin配置到环境变量path里去）
+ （如果想本地安装在和npm同一个目录下，先cd到node_modules目录，再使用npm i express-generator命令，然后再将node_modules目录下的./bin配置到环境变量   path里去）
   测试：
   express -V 成功的话会显示版本号
 * 3. mongodb：这个数据库安装很简单，下载地址http://www.mongodb.org/。安装好了，就在cmd里cd到mongodb安装目录下的bin目录，然后敲命令：
@@ -18,9 +18,9 @@
 ## 搭建简单的node+express+mongodb项目
 
 * 先在cmd控制台里cd到一个目录下面，记住这你的workspace，然后是用是用express创建一个app项目
-  express hello-world -e （-e表示支持ejs模板引擎，默认是jaden。
-* npm i （这样就会自动将项目需要的依赖modules安装到项目的modules里去了）
-* cd到hello-world目录下，是用命令
+  express hello-world 
+* cd到hello-world目录 npm i （这样就会自动将项目需要的依赖modules安装到项目的modules里去了）
+* 
   npm start 启动项目（也可以是node ./bin/www，旧版本直接node app.js，因为具体要看package.json里的启动配置了）
   我们可以在浏览器地址栏里敲入 http://127.0.0.1:3000/ 这就是你的第一个express创建的node app。
   
