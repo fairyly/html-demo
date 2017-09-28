@@ -25,6 +25,8 @@
          \/____/                  \/____/                  \|___|                   \/____/       
 	 
 ```
+- [javascript 标准教程-阮一峰](http://javascript.ruanyifeng.com/)
+
 # 标题
 
 ```
