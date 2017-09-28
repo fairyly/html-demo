@@ -519,6 +519,161 @@ function isemail(email) {
 
 ```
 
+# js--原型、封装和继承
+
+```
+js–原型
+
+js中所有函数都有一个prototype属性，这个属性默认引用一个原型对象。
+
+例：
+
+function Person(){
+
+}
+
+此时的内存模块图：
+
+这里写图片描述
+
+为这个构造函数定义属性和方法
+
+function Person(name){
+       this.name=name;
+       this.say=function(){
+              console.log("this is a test");
+    }
+}
+
+此时的内存模块图：
+
+这里写图片描述
+
+对象实例化
+
+var p1= new Person("liyanan");
+
+
+
+
+对象实例化过程一般分为三个步骤：
+
+1.创建对象–var p1=new Person(“liyanan”);
+
+2.将p1的内部prop属性指向构造它的函数Person()的prototype。（p1通过prop属性来取得原型链上的原型属性和方法。）
+
+3.将p1作为this去调用构造函数Person()；从而设置成员（即对象的属性和对象方法）并初始化。
+
+js–封装
+
+什么是封装：
+
+封装就是将数据或函数等集合在一个个的单元中。（相当于java，c++中定义了一个类）。
+
+类：将一些具有共同特征的对象集合在一起。例：
+
+function Person(id,name,age){
+       this.id=id;
+       this.name=name;
+       this.age=age;
+}
+
+当我们想要创建人的对象时，如果给人定义一个类，就可以每次我们需要定义“人”这个对象时，直接var val=new Person(),此时val默认就有了id,name,age这些属性了。
+
+为什么要封装：
+
+封装的目的：保护或者防止代码（数据）被我们无意中破坏。如上面例子可以看出，我们对Person这个对象进行了封装，每次定义新的对象时，我们仅对自己这个对象的属性进行操作，不会操作Person这个构类（js定义类，用function定义）。
+
+怎样实现封装：
+
+代码演示如下：
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script type="text/javascript">
+        //属性在构造方法中定义
+            function Person(name,age,friends){
+                this.name=name;
+                this.age=age;
+                this.friends=friends;
+            }
+
+            //将方法定义在原型中
+            Person.prototype={
+                constructor:Person,
+                say:function(){
+                    console.log("my name is :"+this.name+",age is :"+this.age);
+                }
+            };
+
+
+            var p1=new Person("liyanan",13,["lh","jc"]);
+
+            p1.friends.push("ld");
+
+            console.log(p1.friends);
+
+            p1.say();
+
+            var p2=new Person("lyn",13,["lys","lc"]);
+
+            console.log(p2.friends);
+
+            p2.say();
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
+
+
+
+js–继承
+
+继承：
+
+就是子类继承父类的方法和属性。
+
+下面介绍基于组合的继承方式：
+
+代码如下：
+
+function Parent(name){
+     this.name=name;
+     this.friends=["jc","dlj"];
+}
+
+
+Parent.prototype.parentSay=function(){
+      alert(this.name+"----->"+this.friends);
+}
+
+//定义一个子类
+function Son(name,age){
+      this.age=age;
+      Parent.apply(this,[name]);//使用call()或者apply()来继承属性
+}
+
+//使用原型链来实现继承方法
+Son.prototype=new Parent();
+
+Son.prototype.sonSay=function(){
+        alert(this.name+"------>"+this.age);
+}
+
+var s1=new Son("liyanan",13);
+s1.friends.push("lh");
+s1.parentSay();
+s1.sonSay();
+var s2=new Son("lyn",15);
+s2.parentSay();
+s2.sonSay();
+
+```
+
 
 # 收集
 ### 以下是常用的代码收集，没有任何技术含量，只是填坑的积累。转载请注明出处，谢谢。
