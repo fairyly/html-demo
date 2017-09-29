@@ -764,6 +764,7 @@ video::-webkit-media-controls-panel {
 ```
 
 ## 什么是FOUC(文档样式短暂失效)?
+```
    如果使用import方法对CSS进行导入,会导致某些页面在Windows 下的Internet Explorer出现一些奇怪的现象:以无样式显示页面内容的瞬间闪烁,这种现象称之为文    档样式短暂失效(Flash of Unstyled Content),简称为FOUC。
   原因大致为：
    1，使用import方法导入样式表。
@@ -772,6 +773,8 @@ video::-webkit-media-controls-panel {
     其实原理很清楚：当样式表晚于结构性html加载，当加载到此样式表时，页面将停止之前的渲染。此样式表被下载和解析后，将重新渲染页面，也就出现了短暂的花    屏现象。
    解决方法：
   使用LINK标签将样式表放在文档HEAD中。
+  
+```
 
 ## 数据缓存问题
 
