@@ -29,6 +29,46 @@
 
 # 标题
 
+## URL中“#” “？” &“”号的作用
+
+```
+一、#的涵义
+　　#代表网页中的一个位置。其右面的字符，就是该位置的标识符。比如，http://www.example.com/index.html#print就代表网页index.html的print位置。浏览     器读取这个URL后，会自动将print位置滚动至可视区域。
+　　为网页位置指定标识符，有两个方法。一是使用锚点，比如<a name="print"></a>，二是使用id属性，比如<div id="print">。
+  
+二、HTTP请求不包括#
+　　#是用来指导浏览器动作的，对服务器端完全无用。所以，HTTP请求中不包括#。
+比如，访问下面的网址，http://www.example.com/index.html#print，浏览器实际发出的请求是这样的：
+
+GET /index.html HTTP/1.1
+Host: www.example.com
+
+三、#后的字符
+　　在第一个#后面出现的任何字符，都会被浏览器解读为位置标识符。这意味着，这些字符都不会被发送到服务器端。
+比如，下面URL的原意是指定一个颜色值：http://www.example.com/?color=#f00，但是，浏览器实际发出的请求是：
+
+GET /?color= HTTP/1.1
+Host: www.example.com
+
+2. ？
+
+1）连接作用：比如
+
+http://www.xxx.com/Show.asp?id=77&nameid=2905210001&page=1
+2）清除缓存：比如
+
+http://www.xxxxx.com/index.html 
+http://www.xxxxx.com/index.html?test123123
+两个url打开的页面一样，但是后面这个有问号，说明不调用缓存的内容，而认为是一个新地址，重新读取。
+
+回到顶部
+3. &
+
+不同参数的间隔符
+
+
+```
+
 ```
 // 时间戳转换
 function timeStamp2String (time){
