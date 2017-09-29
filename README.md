@@ -738,6 +738,40 @@ video::-webkit-media-controls-panel {
 <video muted duration preload controls oncontextmenu="return false;" controlsList="fullscreen nodownload">
 ```
 
+## 清除浮动
+
+```
+1、 clear：both;
+2、 overflow: hidden; 父级div定义 overflow:hidden
+    原理： BFC （Block Formatting Context）全称是块级格式化上下文，用于对块级元素排版，默认情况下只有根元素（body)一个块级上下文，但是如果一个块级     元素 设置了float:left，overflow:hidden或position:absolute样式，就会为这个块级元素生成一个独立的块圾上下文，就像在window全局作用域内，声明了     一个function就会生成 一个独立的作用域一样，新开僻的BFC像是开僻了一个新的小宇宙，使这个块圾元素内部的排版完全独立隔绝。
+    独立的块级上下文可以包裹浮动流，全部浮动子元素也不会引起容器高度塌陷，也就是说包含块会把浮动元素的高度也计算在内，所以不用清除浮动来撑起高度。
+    
+    该方法清楚浮动的本意
+    overflow：hidden的意思是超出部分去掉，如果父元素height为auto，内部元素浮动，势必会将内部元素全部隐藏，故计算出内部浮动高度顺便清除浮动。
+    
+    如何触发BFC
+
+    根元素
+    loat的值不为none
+    overflow的值不为visible
+    display的值为inline-block、table-cell、table-caption
+    position的值为absolute或fixed
+    display：table也认为可以生成BFC，其实这里的主要原因在于Table会默认生成一个匿名的table-cell，正是这个匿名的table-ccell生成了BFC
+    
+    
+3、
+
+```
+
+## 什么是FOUC(文档样式短暂失效)?
+   如果使用import方法对CSS进行导入,会导致某些页面在Windows 下的Internet Explorer出现一些奇怪的现象:以无样式显示页面内容的瞬间闪烁,这种现象称之为文    档样式短暂失效(Flash of Unstyled Content),简称为FOUC。
+  原因大致为：
+   1，使用import方法导入样式表。
+   2，将样式表放在页面底部
+   3，有几个样式表，放在html结构的不同位置。
+    其实原理很清楚：当样式表晚于结构性html加载，当加载到此样式表时，页面将停止之前的渲染。此样式表被下载和解析后，将重新渲染页面，也就出现了短暂的花    屏现象。
+   解决方法：
+  使用LINK标签将样式表放在文档HEAD中。
 
 ## 数据缓存问题
 
