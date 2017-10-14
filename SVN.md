@@ -1,5 +1,7 @@
 # svn 常见命令
 
+
+* [Subversion 版本控制 [草稿]1.8](http://svnbook.red-bean.com/nightly/zh/svn-book.html#svn.tour.cycle.resolve.diff)
 一般使用 TortoiseSVN
 
 * 常用命令
