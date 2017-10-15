@@ -5,7 +5,7 @@
 
 一般使用 TortoiseSVN
 
-* 常用命令
+* 常用命令:  
   svn update  -- 把仓库上的最新数据同步到本地 的工作副本
 
   svn add file|dir -- 添加文件或整个目录
