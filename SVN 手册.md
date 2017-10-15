@@ -1,11 +1,13 @@
 # svn 常见命令
 
 
-* [Subversion 版本控制 [草稿]1.8](http://svnbook.red-bean.com/nightly/zh/svn-book.html#svn.tour.cycle.resolve.diff)
+* [Subversion 版本控制手册 [草稿]1.8](http://svnbook.red-bean.com/nightly/zh/svn-book.html#svn.tour.cycle.resolve.diff)
 
 一般使用 TortoiseSVN
 
 * 常用命令
+  svn update  -- 把仓库上的最新数据同步到本地 的工作副本
+
   svn add file|dir -- 添加文件或整个目录
 
   svn checkout -- 获取svn代码
