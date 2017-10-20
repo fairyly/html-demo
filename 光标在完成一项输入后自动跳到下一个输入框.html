@@ -1,0 +1,52 @@
+<!DOCTYPE html>  
+<html>  
+  <head>  
+    <title>js24.html</title>  
+      
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">  
+    <meta http-equiv="description" content="this is my page">  
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">  
+      
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->  
+      
+    <!-- 输入完毕之后光标自动移动到下一个框的方法 -->  
+      
+    <script type="text/javascript">  
+      
+    function moveNext(object,index){  
+          
+        if(object.value.length == 4){  
+              
+            document.forms[0].elements[index+1].focus();  
+        }  
+          
+    }  
+      
+    function showResult(){  
+          
+        var f = document.forms[0];  
+        var result="";  
+          
+        for(var i = 0; i<4 ;i++){  
+              
+            result += f.elements[i].value;  
+        }  
+          
+        alert(result);  
+          
+    }  
+    </script>  
+      
+  </head>  
+    
+  <body onload = "document.forms[0].elements[0].focus();">  
+    <form>  
+    <input type = "text" size = 3 maxlength=4 onkeyup = "moveNext(this,0);">-      
+    <input type = "text" size = 3 maxlength=4 onkeyup = "moveNext(this,1);">-   
+    <input type = "text" size = 3 maxlength=4 onkeyup = "moveNext(this,2);">-   
+    <input type = "text" size = 3 maxlength=4 onkeyup = "moveNext(this,3);"><br>  
+      
+    <input type = "button" value = "显示所有" onclick = "showResult();">  
+    </form>   
+  </body>  
+</html>  
