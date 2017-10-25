@@ -77,6 +77,18 @@ http://www.xxxxx.com/index.html?test123123
 ```
 
 ```
+//时差转换
+
+function getGMT8Date() {
+  var d = new Date();
+  var localTime = d.getTime();
+  var localOffset = d.getTimezoneOffset()*60000;
+  var utc = localTime + localOffset;
+  var offset = 8;
+  var gmt8 = utc + (3600000 * offset)
+  return new Date(gmt8)
+}
+
 // 时间戳转换
 function timeStamp2String (time){
     if (!time) {return;}
