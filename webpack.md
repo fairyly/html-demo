@@ -63,3 +63,7 @@ npm install --save-dev webpack@<version>
   }
   可见，经过webpack2打包之后，未使用的export bar会被标记为/* unused harmony export bar */，然后，再经过uglify，未被export的bar定义会被删除。
   ```
+
+
+### 升级指南
+
