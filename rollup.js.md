@@ -40,6 +40,7 @@ import { ajax } from 'utils';
 var query = 'Rollup';
 // call the ajax function
 ajax( 'https://api.example.com?search=' + query ).then( handleResponse );
+```
 
 3.创建一个简单的项目：
   - npm install rollup --global  //全局安装
