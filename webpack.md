@@ -28,21 +28,21 @@ npm install --save-dev webpack@<version>
   ```
   helpers.js
 
-export function foo() {
-    return 'foo';
-}
-export function bar() {
-    return 'bar';
-}
-main.js
+  export function foo() {
+      return 'foo';
+  }
+  export function bar() {
+      return 'bar';
+  }
+  main.js
 
-import {foo} from './helpers';
+  import {foo} from './helpers';
 
-let elem = document.getElementById('output');
-elem.innerHTML = `Output: ${foo()}`;
-helpers.bundle.js (// after webpack)
+  let elem = document.getElementById('output');
+  elem.innerHTML = `Output: ${foo()}`;
+  helpers.bundle.js (// after webpack)
 
-function(module, exports, __webpack_require__) {
+  function(module, exports, __webpack_require__) {
     /* harmony export */ exports["foo"] = foo;
     /* unused harmony export bar */;
 
@@ -52,14 +52,14 @@ function(module, exports, __webpack_require__) {
     function bar() {
         return 'bar';
     }
-}
-helpers.bundle.min.js (// after uglify)
+  }
+  helpers.bundle.min.js (// after uglify)
 
-function (t, n, r) {
+  function (t, n, r) {
     function e() {
         return "foo"
     }
     n.foo = e
-}
-可见，经过webpack2打包之后，未使用的export bar会被标记为/* unused harmony export bar */，然后，再经过uglify，未被export的bar定义会被删除。
+  }
+  可见，经过webpack2打包之后，未使用的export bar会被标记为/* unused harmony export bar */，然后，再经过uglify，未被export的bar定义会被删除。
   ```
