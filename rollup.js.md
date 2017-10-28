@@ -114,3 +114,45 @@ rollup --config rollup.config.dev.js
 rollup --config rollup.config.prod.js
 ```
 5. 使用插件
+  - [Rollup wiki](https://github.com/rollup/rollup/wiki/Plugins)上保留了可用插件列表
+  
+```
+安装rollup-plugin-json作为开发依赖关系：
+
+npm install --save-dev rollup-plugin-json
+（我们正在使用--save-dev而不是--save因为我们的代码实际上不依赖于插件，只有当我们构建捆绑包时）。
+
+更新您的src/main.js文件，以便从您的package.json导入，而不是src/foo.js：
+
+// src/main.js
+import { version } from '../package.json';
+
+export default function () {
+  console.log('version ' + version);
+}
+编辑您的rollup.config.js文件以包含JSON插件：
+
+// rollup.config.js
+import json from 'rollup-plugin-json';
+
+export default {
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs'
+  },
+  plugins: [ json() ]
+};
+运行汇总与npm run build。结果应如下所示：
+
+'use strict';
+
+var version = "1.0.0";
+
+var main = function () {
+  console.log('version ' + version);
+};
+
+module.exports = main;
+（请注意，只有我们实际需要的数据被导入name，devDependencies而其他部分package.json被忽略，那就是动摇的！）
+```
