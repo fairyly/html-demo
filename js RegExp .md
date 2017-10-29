@@ -33,4 +33,8 @@
     var str = " now is the time,this is the tame"
     var pattern = /t\w{2}e/g;
     var newstr = str.replace(pattern,'place'); //用 place 字符串 替换 匹配正则的 字符串部分
+    
+    使用正则表达式搜索 "Runoob" 字符串，且不区分大小写：
+    var str = "Visit Runoob!"; 
+    var n = str.search(/Runoob/i);
   ```
