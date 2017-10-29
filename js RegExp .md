@@ -6,6 +6,7 @@
   - m 执行多行匹配
 
 * 插入特殊字符
+```
   - \' 单引号
   - \" 双引号
   - \\ 反斜杠
@@ -17,6 +18,7 @@
   - \ddd 八进制序列
   - \xdd 十六进制序列
   - \udddd unicode 序列
+```
 
 * 字符串对象共有 4 个方法，可以使用正则表达式：match()、replace()、search() 和 split()
   - String.prototype.match 调用 RegExp.prototype[Symbol.match]
