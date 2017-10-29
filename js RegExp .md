@@ -5,6 +5,19 @@
   - g 执行全局匹配（查找所有匹配而非在找到第一个匹配后停止)
   - m 执行多行匹配
 
+* 插入特殊字符
+  - \' 单引号
+  - \" 双引号
+  - \\ 反斜杠
+  - \b 退格
+  - \f 换页符
+  - \n 换行
+  - \r 回车
+  - \t 水平制表位
+  - \ddd 八进制序列
+  - \xdd 十六进制序列
+  - \udddd unicode 序列
+
 * 字符串对象共有 4 个方法，可以使用正则表达式：match()、replace()、search() 和 split()
   - String.prototype.match 调用 RegExp.prototype[Symbol.match]
   - String.prototype.replace 调用 RegExp.prototype[Symbol.replace]
