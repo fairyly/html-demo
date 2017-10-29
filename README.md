@@ -38,6 +38,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 * [es6](http://es6.ruanyifeng.com/)
 * [es2018](https://tc39.github.io/ecma262/)
 * [JavaScript标准参考教程](http://javascript.ruanyifeng.com/)
+* [MDN JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
 
 * [前端导航网](http://jsdig.com/)
 
