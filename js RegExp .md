@@ -36,5 +36,16 @@
     
     使用正则表达式搜索 "Runoob" 字符串，且不区分大小写：
     var str = "Visit Runoob!"; 
-    var n = str.search(/Runoob/i);
+    var n = str.search(/Runoob/i); // n:返回显示匹配的起始位置
+  ```
+* test() 方法用于检测一个字符串是否匹配某个模式，如果字符串中含有匹配的文本，则返回 true，否则返回 false。
   ```
+    常见写法：
+    var num = 333;
+    var pattern = /^[0-9]$/
+    if(pattern.test(num)){
+      console.log(pattern.test(num))
+    }
+  ```
+* exec() 方法用于检索字符串中的正则表达式的匹配,该函数返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。
+  
