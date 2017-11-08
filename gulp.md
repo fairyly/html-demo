@@ -1,5 +1,7 @@
 # Gulp config (修改源码方案不利于维护)
 
+* 前端构建工具gulp安装: http://blog.csdn.net/leo8729/article/details/48650901
+
 ## gulp自动化添加版本号
 - 1. 修改js和css文件
 - 2. 通过对js,css文件内容进行hash运算，生成一个文件的唯一hash字符串(如果文件修改则hash号会发生变化)
