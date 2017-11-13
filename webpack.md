@@ -11,6 +11,7 @@ npm install --save-dev webpack@<version>
  ```
 
 * [webpack 入门指南精简版](http://mp.weixin.qq.com/s/EKGXYq1okZ_yahYtpbXbsw)
+* [新版webpack 掘金](https://juejin.im/post/5a068c2b5188255851322b8c?utm_medium=fe&utm_source=weixinqun)
 
 
 >>> webpack v1 is deprecated :  v1 版本已经过时了
