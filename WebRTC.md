@@ -22,7 +22,7 @@ var getUserMedia = (navigator.getUserMedia ||
 
 ```
 
-### demo：
+### 获取视频音频设备授权 demo：
 ```
 <!doctype html>
 <html lang="zh-CN">
@@ -55,6 +55,55 @@ var getUserMedia = (navigator.getUserMedia ||
 
 将这段内容保存在一个HTML文件中，放在服务器上。用较新版本的Opera、Firefox、Chrome打开，
 在浏览器弹出询问是否允许访问摄像头和话筒，选同意，浏览器上就会出现摄像头所拍摄到的画面了
+```
+
+### 拍照 demo
+```
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>GetUserMedia实例</title>
+</head>
+<body>
+    <video id="video" autoplay></video>
+    <img src="" id="img" alt=""/>
+    <canvas width="400" height="300"  id="canvas"></canvas>
+</body>
+
+
+<script type="text/javascript">
+    var getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+    var video = document.getElementById("video");
+    var canvas = document.getElementById("canvas");
+    video.addEventListener('click',shotcut,false)
+    var ctx = canvas.getContext("2d");
+    var localMediaStream = null;
+    navigator.getUserMedia({
+        video: true,
+        audio: true
+    }, function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        localMediaStream = stream;
+        video.onloadedmetadata = function(e) {
+            console.log("Label: " + stream.label);
+            console.log("AudioTracks" , stream.getAudioTracks());
+            console.log("VideoTracks" , stream.getVideoTracks());
+        };
+    }, function(e) {
+        console.log('Reeeejected!', e);
+    });
+
+    function shotcut() {
+        if (localMediaStream) {
+            ctx.drawImage(video,0,0)
+            document.getElementById("img").src=canvas.toDataURL("image/png");
+        }
+    }
+</script>
+
+
+</html>
 ```
 
 ### 约束对象（Constraints）  
