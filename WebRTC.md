@@ -6,13 +6,13 @@
 
 实例：使用WebRTC搭建前端视频聊天室——入门篇：https://segmentfault.com/a/1190000000436544
 
-三个接口  
+### 三个接口  
 WebRTC实现了三个API，分别是:  
 * MediaStream：通过MediaStream的API能够通过设备的摄像头及话筒获得视频、音频的同步流
 * RTCPeerConnection：RTCPeerConnection是WebRTC用于构建点对点之间稳定、高效的流传输的组件
 * RTCDataChannel：RTCDataChannel使得浏览器之间（点对点）建立一个高吞吐量、低延时的信道，用于传输任意数据
 
-浏览器兼容性  
+#### 浏览器兼容性  
 由于浏览器实现不同，他们经常会在实现标准版本之前，在方法前面加上前缀，所以一个兼容版本就像这样  
 ```
 var getUserMedia = (navigator.getUserMedia || 
@@ -22,7 +22,7 @@ var getUserMedia = (navigator.getUserMedia ||
 
 ```
 
-demo：
+### demo：
 ```
 <!doctype html>
 <html lang="zh-CN">
@@ -57,7 +57,7 @@ demo：
 在浏览器弹出询问是否允许访问摄像头和话筒，选同意，浏览器上就会出现摄像头所拍摄到的画面了
 ```
 
-约束对象（Constraints）  
+### 约束对象（Constraints）  
 约束对象可以被设置在getUserMedia()和RTCPeerConnection的addStream方法中，这个约束对象是WebRTC用来指定接受什么样的流的，其中可以定义如下属性：  
 * video: 是否接受视频流
 * audio：是否接受音频流
@@ -73,7 +73,7 @@ demo：
 详情见Resolution Constraints in Web Real Time Communications draft-alvestrand-constraints-resolution-00
 
 
-RTCPeerConnection
+### RTCPeerConnection
 
 浏览器兼容  
 还是前缀不同的问题，采用和上面类似的方法：
@@ -181,3 +181,50 @@ socket.onmessage = function(event){
 广播文件：在左下角选定一个文件，点击“发送文件”按钮  
 广播信息：左下角input框输入信息，点击发送  
 可能会出错，注意F12对话框，一般F5能解决  
+
+
+### 配置数据通道  
+网上已经有很多RTCDataChannel的例子了：
+* simpl.info/dc
+* googlechrome.github.io/webrtc/dc1.html(SCTP或者RTP)
+* pubnub.github.io/webrtc(两个PubNub用户)
+
+ps：PubBub是一个实时信息通讯应用开发公司
+
+在这个例子中，浏览器创建了一个对等连接连接到自己。然后在这个对等连接n上创建了一个数据通道，发送了一些消息。最后，消息成功抵达并显示在页面上。
+```
+var peerConnection = new RTCPeerConnection();
+
+//使用信令传输信道创建对等连接
+var dataChannel =
+  peerConnection.createDataChannel("myLabel", dataChannelOptions);
+
+dataChannel.onerror = function (error) {
+  console.log("Data Channel Error:", error);
+};
+
+dataChannel.onmessage = function (event) {
+  console.log("Got Data Channel Message:", event.data);
+};
+
+dataChannel.onopen = function () {
+  dataChannel.send("Hello World!");
+};
+
+dataChannel.onclose = function () {
+  console.log("The Data Channel is Closed");
+};
+dataChannel对象建立在一个已经创建完毕的对等连接之上。它可以创建在信令传输前后。另外，可以赋予一个label来作区分，并提供一系列的配置选项：
+
+var dataChannelOptions = {
+  ordered: false, //不保证到达顺序
+  maxRetransmitTime: 3000, //最大重传时间
+};
+```
+我们可以加入一个maxRetransimits选项（最大重传次数），但maxRetransimitTime或maxRetransimits只能设定一个，不能两个懂事设定。如果想使用UDP的方式，设定maxRetransmits为0，ordered为false。如果想要获取更多信息，请查看RFC 4960（SCTP）和RFC 3758（SCTP部分可靠性）
+* ordered: 数据通道是否保证按序传输数据
+* maxRetrasmitTime：在信息失败前的最大重传时间（强迫进入不可靠模式）
+* maxRetransmits：在信息失败前的最大重传次数（强迫进入不可靠模式）
+* protocol：允许使用一个自协议，但如果协议不支持，将会失败
+* negotiated：如果设为true，将一处对方的数据通道的自动设置，也就是说，将使用相同的id以自己配置的方式与对方建立数据通道
+* id：为数据通道提供一个自己定义的ID
