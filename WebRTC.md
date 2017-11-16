@@ -4,6 +4,9 @@
 * webRTC 官网： https://webrtc.org/
 * demos：https://github.com/webrtc/samples/
 
+学习 webRTC 必读教程：https://www.agora.io/cn/blog/courses-webrtc/
+* WebRTC技术教程：http://www.w3ii.com/zh-CN/webrtc/default.html
+
 * skyRTC demo: https://github.com/LingyuCoder/SkyRTC-demo
 
 实例：使用WebRTC搭建前端视频聊天室——入门篇：https://segmentfault.com/a/1190000000436544
