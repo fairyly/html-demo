@@ -82,6 +82,9 @@ $(function() {
             min : 'dataMin',
             max : 'dataMax',
             top: 0,
+            axisLabel: {//坐标轴刻度标签的相关设置
+              
+            },
             axisLine: {
                 onZero: false,
                 lineStyle: {
