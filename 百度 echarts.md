@@ -24,17 +24,39 @@ $(function() {
     var myChart = echarts.init(document.getElementById('member_info_chart_AGE'));
     var colors = ['#5793f3', '#d14a61', '#675bba'];
     var option_age = {
-        grid : {//网格显示
+         title : {//标题
+            text: '雨量流量关系图',
+            subtext: '数据来自西安兰特水电测控技术有限公司',
+            x: 'center',//显示位置
+            align: 'right'
+        },
+        legend: {//图例组件展现了不同系列的标记(symbol)，颜色和名字
+            data:['流量','降雨量'],
+             x: 'left'//显示位置
+         }, 
+        grid : {//直角坐标系内绘图网格/网格显示
             left : '15%',
             right : '12%',
             top : '15%',
             bottom : '20%'
         },
+        toolbox: {//显示工具栏组件,内置有导出图片，数据视图，动态类型切换，数据区域缩放，重置五个工具
+            show: true,
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                dataView: {readOnly: false},
+                magicType: {type: ['line', 'bar']},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
         tooltip: {
             show: true,//显示提示框
             trigger: 'axis',
             
-            axisPointer: {
+            axisPointer: {//坐标轴指示器
                 type: 'cross',
                 animation: false,
                 // label: {
@@ -54,7 +76,7 @@ $(function() {
                 return '';
             }
         },
-        xAxis : {
+        xAxis : {//直角坐标系 grid 中的 x 轴
             name : '',
             type : 'value',
             min : 'dataMin',
@@ -78,7 +100,7 @@ $(function() {
             },
             data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
         },
-        yAxis : {
+        yAxis : {直角坐标系 grid 中的 y 轴
             top: 0,
             min : 'dataMin',
             max : 'dataMax',
