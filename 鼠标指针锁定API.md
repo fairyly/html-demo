@@ -1,5 +1,7 @@
 # 鼠标指针锁定API
 
+张鑫旭文章: http://www.zhangxinxu.com/wordpress/2017/10/js-api-pointer-lock/
+
 `Pointer Lock API`有哪些具体API名称？
 目前，`Pointer Lock API`共支持3个属性，2个方法和2个事件，分别如下：
 
