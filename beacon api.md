@@ -17,7 +17,8 @@
 2. node 服务：
 
 ```
-var http = require('http');  
+保存为 server.js
+var http = require('http');  
 var fs = require('fs');
 
 http.createServer(function (request, response) {  
@@ -40,3 +41,7 @@ http.createServer(function (request, response) {
 // 终端打印如下信息  
 console.log('Server running at http://127.0.0.1:1337/');
 ```
+在 server.js 目录打开命令窗口 node server.js
+
+在页面跳转时候会受到发送的数据
+
