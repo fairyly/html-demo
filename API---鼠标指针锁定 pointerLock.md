@@ -1,4 +1,4 @@
-# 鼠标指针锁定API
+# 鼠标指针锁定 API
 
 张鑫旭文章: http://www.zhangxinxu.com/wordpress/2017/10/js-api-pointer-lock/
 
