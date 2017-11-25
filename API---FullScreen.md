@@ -2,6 +2,11 @@
 
 阮一峰《JavaScript标准教程》：http://javascript.ruanyifeng.com/htmlapi/fullscreen.html
 
+<ul class="reference-list">
+  <li>David Walsh, <a href="http://davidwalsh.name/fullscreen">Fullscreen API</a></li>
+  <li>David Storey, <a href="http://generatedcontent.org/post/70347573294/is-your-fullscreen-api-code-up-to-date-find-out-how-to">Is your Fullscreen API code up to date? Find out how to make it work the same in modern browsers</a></li>
+</ul>
+
 和鼠标锁定 API 类似
 
 ```
