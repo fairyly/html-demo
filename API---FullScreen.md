@@ -1,5 +1,7 @@
 # FullScreen  API  全屏显示 API
 
+阮一峰《JavaScript标准教程》：http://javascript.ruanyifeng.com/htmlapi/fullscreen.html
+
 和鼠标锁定 API 类似
 
 ```
