@@ -6,6 +6,7 @@
   - 已有全局变量名，这时id属性就不会自动变成全局变量
   - 默认的全局变量名（比如，history、location、navigator等），最好不要设为id属性的名字
 * 以下HTML元素的name属性，也会成为全局变量  。
+```
   - <applet>
   - <area>
   - <embed>
@@ -15,6 +16,7 @@
   - <iframe>
   - <img>
   - <object>
+```
 
 * Form 元素（表单）
 ```
