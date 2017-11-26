@@ -4,7 +4,24 @@
 
 
 方法：
+* 1. Notification.requestPermission():就是让浏览器出现是否允许通知的提示,相当于是请求授权
+  - Notification.requestPermission().then(function(permission) { ... });最近规范上更新的基于promise的语法
+  ```
+    其中granted表示用户允许通知，denied表示用户嫌弃你，default表示用户目前还没有管你。
 
+    Notification.requestPermission().then(function(result) {
+      // result可能是是granted, denied, 或default.
+    });
+  ```
+* 2. Notification.permission[只读] ：表示是否允许通知，值就是上面的granted, denied, 或default.
+* 3. new Notification(title, options)：通过new构造，显示通知。其中title是必须参数，表示通知小框框的标题内容，options是可选参数
+* 4. Notification.close()：关闭通知
+* 5. 事件句柄
+  - Notification.onclick：点击通知，然后
+  - Notification.onerror：通知显示异常
+  - Notification.onclose：通知关闭了
+  - Notification.onshow： 通知显示的时候
+  
 
 ```
 window.addEventListener("load", function(){
