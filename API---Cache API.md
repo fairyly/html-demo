@@ -2,6 +2,8 @@
 
 阮一峰写的 Cache API 介绍： https://github.com/ruanyf/jstutorial/blob/gh-pages/webapp/cache.md
 
+MDN: https://developer.mozilla.org/zh-CN/docs/Web/API/Cache
+
 * 方法
 
 ```
