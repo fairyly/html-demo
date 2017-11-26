@@ -1,5 +1,11 @@
 # 桌面通知 Notification API
 
+张鑫旭博客文章：http://www.zhangxinxu.com/wordpress/2016/07/know-html5-web-notification/
+
+
+方法：
+
+
 ```
 window.addEventListener("load", function(){
     if(Notification && Notification.permission !== "granted"){
@@ -54,4 +60,33 @@ window.addEventListener("load", function(){
         }
     });
 });
+```
+
+
+* 传统的通知
+
+  - 是通过闪烁页面的标题内容来实现，实现原理其实很简单，就是定时器不断修改document.title的值。
+  - 浏览器窗体获得焦点和失去焦点，Chrome和FireFox浏览器是window的onfocus, onblur方法；而IE浏览器则是document的onfocusin, onfocusout方法
+    ```
+      window.onfocus = function() { };
+      window.onblur = function() { };
+
+      // for IE
+      document.onfocusin = function() { };
+      document.onfocusout = function() { };
+    ```
+
+```
+setInterval(function() {
+    var title = document.title;
+    if (isShine == true) {
+        if (/新/.test(title) == false) {
+            document.title = '【你有新消息】';    
+        } else {
+            document.title = '【　　　　　】';
+        }
+    } else {
+        document.title = titleInit;
+    }
+}, 500);
 ```
