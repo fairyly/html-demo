@@ -56,3 +56,33 @@ if ('content' in document.createElement('template')) {
   // 找到另一种方法来添加行到表，因为不支持HTML模板元素。
 }
 ```
+
+# handlebars 模板使用
+
+原理: 先获取对用模板 id html 内容,
+      编译模板的 HTML 内容,
+      向编译后的模板中添加数据,
+      再把整个编译后带数据的内容加入某个容器中,渲染在页面
+```
+<script src="js/handlebars-v4.0.11.js"></script>
+<script id="tpl" type="text/x-handlebars-template">  
+      <div class="demo">  
+          <h1>{{title}}</h1>
+          <p>{{content}}</p>
+      </div>
+    </script>
+    <script>
+      //用jquery获取模板
+      var tpl   =  $("#tpl").html();
+      // //原生方法
+      // var source = document.getElementById('#tpl').innerHTML;
+      //预编译模板
+      var template = Handlebars.compile(tpl);
+      //模拟json数据
+      var context = { title: "zhaoshuai", content: "learn Handlebars"};
+      //匹配json内容
+      var html = template(context);
+      //输入模板
+      $('.demos').html(html);
+    </script>
+```
