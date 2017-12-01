@@ -62,7 +62,7 @@ if ('content' in document.createElement('template')) {
 原理: 先获取对用模板 id html 内容,
       编译模板的 HTML 内容,
       向编译后的模板中添加数据,
-      再把整个编译后带数据的内容加入某个容器中,渲染在页面
+      再把整个编译后带数据的内容加入某个容器的 HTML 中,渲染在页面
 ```
 <script src="js/handlebars-v4.0.11.js"></script>
 <script id="tpl" type="text/x-handlebars-template">  
