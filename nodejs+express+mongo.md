@@ -1,5 +1,7 @@
 # nodejs+express+mongo
 
+博客小结: [nodejs学习小结](https://xianyulaodi.github.io/2017/09/24/nodejs%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/)
+
 * 1.node：先下载安装nodejs，下载地址http://www.nodejs.org/，安装好了之后检查是否在系统环境变量里自动配置好了path，如果没有，
   请把node的安装地址配置到path里去。然后在cmd里敲入node，如果可以，那么这一步ok了，很简单吧
 * 2.安装express
