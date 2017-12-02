@@ -20,7 +20,7 @@
   - 如果添加新文档需要配置 chapters.yml 中的 markdown 文件名,新加自己添加的 markdown 文件名
     需要在 docs 中新建 markdown 文件
   - 新建后运行 loppo 命令,重新生成 HTML 文件即可;
-  - 配置 loppo.yml ,可参考阮一峰原有文档配置,如
+  - 配置 loppo.yml ,可参考阮一峰原有文档配置,如
   
     ```
       dir: docs
