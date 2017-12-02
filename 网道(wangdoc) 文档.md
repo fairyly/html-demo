@@ -3,7 +3,13 @@
 阮一峰 制作
 
 * 阮一峰 github 技术文档源码地址: https://github.com/wangdoc
- - 
+ - Web API 教程: https://github.com/wangdoc/webapi-tutorial
+ - CSS 教程: https://github.com/wangdoc/css-tutorial
+ - Node.js 教程: https://github.com/wangdoc/node-tutorial
+ - Git 教程: https://github.com/wangdoc/git-tutorial
+ - Bash 教程: https://github.com/wangdoc/bash-tutorial
+ - HTML 语言教程: https://github.com/wangdoc/html-tutorial
+ - react 教程: https://github.com/wangdoc/react-tutorial
 
 * loppo (一个非常简单的 markdown 文件生成静态网站) 地址: https://github.com/ruanyf/loppo
   - 使用说明: 
