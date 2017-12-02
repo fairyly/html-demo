@@ -3,9 +3,9 @@
 * 1.node：先下载安装nodejs，下载地址http://www.nodejs.org/，安装好了之后检查是否在系统环境变量里自动配置好了path，如果没有，
   请把node的安装地址配置到path里去。然后在cmd里敲入node，如果可以，那么这一步ok了，很简单吧
 * 2.安装express
-  - npm i -g express（旧版本npm i -g express+版本号）
-  - npm i -g express-generator
- -（如果想本地安装在和npm同一个目录下，先cd到node_modules目录，再使用npm i express-generator命令，然后再将node_modules目录下的./bin配置到环境变量path里去）
+  - npm i -g express（旧版本npm i -g express+版本号）
+  - npm i -g express-generator
+  -（如果想本地安装在和npm同一个目录下，先cd到node_modules目录，再使用npm i express-generator命令，然后再将node_modules目录下的./bin配置到环境变量path里去）
   测试：
   - express --version 成功的话会显示版本号
 * 3. mongodb：这个数据库安装很简单，下载地址http://www.mongodb.org/。安装好了，就在cmd里cd到mongodb安装目录下的bin目录，然后敲命令：
