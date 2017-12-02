@@ -14,6 +14,38 @@
   - 看到网页中内容说明连接成功
   - (可以不要这些--logpath="mongodb安装目录\log\log.txt" --install --serviceName MongoDB --serviceDisplayName MongoDB)
   - 操作完，你会发现，你的电脑的服务里多了一个MongoDB服务，没错，就是它，然后你运行这个服务就行了。
+
+* 模板选择
+
+```  
+  1、创建Node项目
+
+  [Jade模板]
+
+  > express nodeJade
+
+  express创建项目若不显示指定模板，默认使用Jade，以下写法都可以：
+
+  express -jade nodeJade
+
+  express -view=jade nodeJade
+
+  express --view=jade nodeJade （官方推荐写法）
+
+  [EJS模板]
+
+  > express -e nodeEjs
+
+  EJS模板需要显示指定，以下写法都可以：
+
+  express --ejs nodeEjs
+
+  express --view=ejs nodeEjs （官方推荐写法）
+
+  注: express -ejs nodeEjs 或 express -view=ejs nodeEjs 都是错误写法，尽管Jade支持-view这种写法。。。
+
+  所以建议使用最简单的写法或者官方推荐的 "--view=** " 写法
+```
   
 ## 搭建简单的node+express+mongodb项目
 
