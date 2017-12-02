@@ -10,10 +10,10 @@
   - express --version 成功的话会显示版本号
 * 3. mongodb：这个数据库安装很简单，下载地址http://www.mongodb.org/。安装好了，就在cmd里cd到mongodb安装目录下的bin目录，然后敲命令：
   - mongod –dbpath d:\momgodb\data  
-  连接后浏览器输入：http://127.0.0.1:27017   
-  看到网页中内容说明连接成功
-  (可以不要这些--logpath="mongodb安装目录\log\log.txt" --install --serviceName MongoDB --serviceDisplayName MongoDB)
-  操作完，你会发现，你的电脑的服务里多了一个MongoDB服务，没错，就是它，然后你运行这个服务就行了。
+  - 连接后浏览器输入：http://127.0.0.1:27017   
+  - 看到网页中内容说明连接成功
+  - (可以不要这些--logpath="mongodb安装目录\log\log.txt" --install --serviceName MongoDB --serviceDisplayName MongoDB)
+  - 操作完，你会发现，你的电脑的服务里多了一个MongoDB服务，没错，就是它，然后你运行这个服务就行了。
   
 ## 搭建简单的node+express+mongodb项目
 
