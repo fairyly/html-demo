@@ -21,31 +21,31 @@
   express hello-world 
 * cd到hello-world目录 npm i （这样就会自动将项目需要的依赖modules安装到项目的modules里去了）
 * 
-  npm start 启动项目（也可以是node ./bin/www，旧版本直接node app.js，因为具体要看package.json里的启动配置了）
-  我们可以在浏览器地址栏里敲入 http://127.0.0.1:3000/ 这就是你的第一个express创建的node app。
+  - npm start 启动项目（也可以是node ./bin/www，旧版本直接node app.js，因为具体要看package.json里的启动配置了）
+  - 我们可以在浏览器地址栏里敲入 http://127.0.0.1:3000/ 这就是你的第一个express创建的node app。
   
 * 研究下express创建项目
-  你需要了解的项目主要目录为：routes和views，你最好再在项目里新建一个目录叫models（作用后面讲）
-  routes里index.js配置的都是get和post请求的路径映射关系，很简单的哦。
-  views里index.ejs就相当于一个html文件，里面就是一些html标签和<%%>标签，感觉和jsp差不多哦。
-  看起来不错的样子，标准的MVC框架（models里放模型，views里面放展示，routes里面放控制）
+  - 你需要了解的项目主要目录为：routes和views，你最好再在项目里新建一个目录叫models（作用后面讲）
+  - routes里index.js配置的都是get和post请求的路径映射关系，很简单的哦。
+  - views里index.ejs就相当于一个html文件，里面就是一些html标签和<%%>标签，感觉和jsp差不多哦。
+  - 看起来不错的样子，标准的MVC框架（models里放模型，views里面放展示，routes里面放控制）
   
 * cmd命令行里：
-  mongo //进入数据库
-  use hello-world //创建项目数据库
-  db.addUser("shuaige", "123456") //给这个数据库创建了一个叫帅哥的账号，密码123456 （但是我觉得可能我理解的不到位，你也可以不做这个操作）
-  然后，我们就为这个hello-world数据库创建collection（collection就相当于oracle和mysql里的table）
-  db.createCollection("users") //创建一个集合，也就是表
-  db.users.insert({userid: "admin", password: "123456"}) //给users里添加一个文档，也就是一条记录账号admin，密码123456
-  ok，现在检查一下：
-  db.users.find() //如果看到你刚刚添加的文档记录，就ok咯
+  - mongo //进入数据库
+  - use hello-world //创建项目数据库
+  - db.addUser("shuaige", "123456") //给这个数据库创建了一个叫帅哥的账号，密码123456 （但是我觉得可能我理解的不到位，你也可以不做这个操作）
+  - 然后，我们就为这个hello-world数据库创建collection（collection就相当于oracle和mysql里的table）
+  - db.createCollection("users") //创建一个集合，也就是表
+  - db.users.insert({userid: "admin", password: "123456"}) //给users里添加一个文档，也就是一条记录账号admin，密码123456
+  - ok，现在检查一下：
+  - db.users.find() //如果看到你刚刚添加的文档记录，就ok咯
 
   简单的数据库集合以及文档设置好，我们就回到express创建的node项目里，我们需要：   
 
-  在models下创建一个user.js,作为实体类映射数据库的users集合 
-  在views下做几个页面（可以用ejs也可以用html，我就用ejs吧）
-  在routes下的index.js配置路由，也就是请求映射处理
-  在models下创建一个user.js,作为实体类映射数据库的users集合 
+  - 在models下创建一个user.js,作为实体类映射数据库的users集合 
+  - 在views下做几个页面（可以用ejs也可以用html，我就用ejs吧）
+  - 在routes下的index.js配置路由，也就是请求映射处理
+  - 在models下创建一个user.js,作为实体类映射数据库的users集合 
   
   
   
