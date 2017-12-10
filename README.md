@@ -13,4 +13,4 @@
 * 阮一峰ES6 http://es6.ruanyifeng.com/ 
 
 
-
+* book:https://github.com/threerocks/studyFiles/tree/master/%E7%94%B5%E5%AD%90%E4%B9%A6
