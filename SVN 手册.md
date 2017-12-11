@@ -64,3 +64,61 @@
   svn commit -m"add wordpress"
   ```
 
+```
+svn 回退/更新/取消至某个版本命令详解
+
+1. 取消Add/Delete
+
+取消文件
+svn revert 文件名
+取消目录
+svn revert --depth=infinity 目录名
+2. 回退版本
+方法1： 用svn merge
+1) 先 svn up，保证更新到最新的版本，如20；
+2) 然后用 svn log ，查看历史修改，找出要恢复的版本，如10 。如果想要更详细的了解情况，可以使用svn diff -r 10:20 [文件或目录];
+3) 回滚到版本号10：svn merge -r 20:10 [文件或目录]，注意版本号之间的顺序，这个叫反向合并；
+4) 查看当前工作版本中的文件，如test.cpp和版本号10中文件的差别：svn diff -r 10 test.cpp， 有差别则手动改之；
+5) 若无差别，则提交：svn ci -m“back to r 10，xxxxx” [文件或目录]。这时svn库中会生成新的版本，如21。
+方法2: 用svn up
+前2步如方法1，然后直接 svn up -r 10。当前的工作版本就是版本10了。但是注意，这时svn库中并不会生成新的版本，下次svn up之后，还是会回到当前的版本。
+========================
+改动已经被提交（commit）。
+用svn merge命令来进行回滚。
+回滚的操作过程如下：
+1、保证我们拿到的是最新代码：
+svn update
+假设最新版本号是28。
+2、然后找出要回滚的确切版本号：
+svn log
+假设根据svn log日志查出要回滚的版本号是25，此处的something可以是文件、目录或整个项目
+如果想要更详细的了解情况，可以使用svn diff -r 28:25 ""
+3、回滚到版本号25：
+svn merge -r 28:25 ""
+为了保险起见，再次确认回滚的结果：
+svn diff ""
+发现正确无误，提交。
+4、提交回滚：
+svn commit -m "Revert revision from r28 to r25,because of ..."
+提交后版本变成了29。
+将以上操作总结为三条如下：
+1. svn update，svn log，找到最新版本（latest revision）
+2. 找到自己想要回滚的版本号（rollbak revision）
+3. 用svn merge来回滚： svn merge -r : something
+更新至某个版本
+svn update -r 版本号
+svn help update
+update (up): 将版本库的修改合并到工作副本中。
+用法: update [PATH...]
+如果没有指定版本，则将工作副本更新到 HEAD 版本。否则同步到 -r 选项所
+指定的版本。
+每更新一项就输出一行信息，使用首字符来报告执行的动作。这些字符的含义是:
+A 已添加
+D 已删除
+U 已更新
+C 合并冲突
+G 合并成功
+E 已存在
+R 已替换
+第一列字符报告项目本身。
+```
