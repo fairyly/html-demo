@@ -25,3 +25,10 @@
 3. npm start 
 4. 打开浏览器 输入 http://127.0.0.1:3000/ 
 ```
+
+### 学习使用外部模块
+
+npm install express utility --save
+
+
+
