@@ -23,5 +23,5 @@
 1. express 项目名：express testpro
 2. npm i: 安装依赖
 3. npm start 
-
+4. 打开浏览器 输入 http://127.0.0.1:3000/ 
 ```
