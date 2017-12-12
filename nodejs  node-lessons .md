@@ -26,10 +26,12 @@
 4. 打开浏览器 输入 http://127.0.0.1:3000/ 
 ```
 
-### 学习使用外部模块
+### 1，学习使用外部模块
 
 npm install express utility --save
 ```
+var express = require('express');
+var utility = require('utility');
 var router = express.Router();
 
 /* GET home page. */
@@ -53,6 +55,47 @@ router.get('/', function(req, res, next) {
 直接访问 http://localhost:3000/ 会抛错
 
 访问 http://localhost:3000/?q=html 出现 html 的 MD5 值
+```
+### 2，使用 superagent 与 cheerio 完成简单爬虫
+
+目标：当在浏览器中访问 http://localhost:3000/ 时，输出 CNode(https://cnodejs.org/ ) 社区首页的所有帖子标题和链接，以 json 的形式。
+
+superagent(http://visionmedia.github.io/superagent/ ) 是个 http 方面的库，可以发起 get 或 post 请求。
+
+cheerio(https://github.com/cheeriojs/cheerio ) 大家可以理解成一个 Node.js 版的 jquery，用来从网页中以 css selector 取数据，使用方式跟 jquery 一样一样的。
+
+```
+npm install --save superagent
+npm install --save cheerio
+
+//应用的核心逻辑长这样
+
+var superagent = require('superagent');
+var cheerio = require('cheerio');
+app.get('/', function (req, res, next) {
+  // 用 superagent 去抓取 https://cnodejs.org/ 的内容
+  superagent.get('https://cnodejs.org/')
+    .end(function (err, sres) {
+      // 常规的错误处理
+      if (err) {
+        return next(err);
+      }
+      // sres.text 里面存储着网页的 html 内容，将它传给 cheerio.load 之后
+      // 就可以得到一个实现了 jquery 接口的变量，我们习惯性地将它命名为 `$`
+      // 剩下就都是 jquery 的内容了
+      var $ = cheerio.load(sres.text);
+      var items = [];
+      $('#topic_list .topic_title').each(function (idx, element) {
+        var $element = $(element);
+        items.push({
+          title: $element.attr('title'),
+          href: $element.attr('href')
+        });
+      });
+
+      res.send(items);
+    });
+});
 ```
 
 
