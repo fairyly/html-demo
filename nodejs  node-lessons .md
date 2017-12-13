@@ -98,5 +98,64 @@ app.get('/', function (req, res, next) {
 });
 ```
 
+### 3. 使用 eventproxy 控制并发
+
+* https://github.com/JacksonTian/eventproxy
+
+```
+Node.js中url的详解:
+
+var url = require('url');
+var str = 'http://zhufengnodejs:123@github.com:80/2016jsnode?name=zfpx&age=8#top';
+var urlObj = url.parse(str,true); //用于将字符串转成对象
+console.log(urlObj);
+console.log(url.format(urlObj));//用于将对象转成字符串
+/**
+ protocol: 'http:', 协议
+ slashes: true, 是否有//
+ auth: 'zhufengnodejs:123', 用户名和密码
+ host: 'github.com:80', 主机
+ port: '80', 端口
+ hostname: 'github.com',域名
+ hash: '#top', 片断标识符 指向HTML页面某个DOM元素的ID
+ search: '?name=zfpx&age=8', ?+查询字符串
+ query: 'name=zfpx&age=8',查询字符串
+ pathname: '/2016jsnode', 端口号和？中间的那部分
+ path: '/2016jsnode?name=zfpx&age=8', pathname+search
+ href: 'http://zhufengnodejs:123@github.com:80/2016jsnode?name=zfpx&age=8#top' 原始的URL
+ **/
+不要在该奋斗的年纪选择去偷懒，只有度过一段连自己都被感动了的日子，才会变成那个最好的自己.
+```
+```
+var eventproxy = require('eventproxy');
+var superagent = require('superagent');
+var cheerio = require('cheerio');
+// url 模块是 Node.js 标准库里面的
+// http://nodejs.org/api/url.html
+var url = require('url');
+
+var cnodeUrl = 'https://cnodejs.org/';
+
+superagent.get(cnodeUrl)
+  .end(function (err, res) {
+    if (err) {
+      return console.error(err);
+    }
+    var topicUrls = [];
+    var $ = cheerio.load(res.text);
+    // 获取首页所有的链接
+    $('#topic_list .topic_title').each(function (idx, element) {
+      var $element = $(element);
+      // $element.attr('href') 本来的样子是 /topic/542acd7d5d28233425538b04
+      // 我们用 url.resolve 来自动推断出完整 url，变成
+      // https://cnodejs.org/topic/542acd7d5d28233425538b04 的形式
+      // 具体请看 http://nodejs.org/api/url.html#url_url_resolve_from_to 的示例
+      var href = url.resolve(cnodeUrl, $element.attr('href'));
+      topicUrls.push(href);
+    });
+
+    console.log(topicUrls);
+  });
+  ```
 
 
