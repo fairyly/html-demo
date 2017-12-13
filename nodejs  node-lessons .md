@@ -124,7 +124,16 @@ console.log(url.format(urlObj));//用于将对象转成字符串
  path: '/2016jsnode?name=zfpx&age=8', pathname+search
  href: 'http://zhufengnodejs:123@github.com:80/2016jsnode?name=zfpx&age=8#top' 原始的URL
  **/
+ url.resolve(from, to)
+
+给定一个基URL路径，和一个href URL路径，并且象浏览器那样处理他们可以带上锚点
+
+url.resolve('/one/two/three', 'four')         // '/one/two/four'
+url.resolve('http://example.com/', '/one')    // 'http://example.com/one'
+url.resolve('http://example.com/one', '/two') // 'http://example.com/two'
+
 不要在该奋斗的年纪选择去偷懒，只有度过一段连自己都被感动了的日子，才会变成那个最好的自己.
+
 ```
 ```
 var eventproxy = require('eventproxy');
