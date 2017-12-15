@@ -136,7 +136,7 @@
         <p><strong>转载请注明出处：</strong>
             <br>
             <a title="Nodejs学习路线图" href="http://blog.fens.me/nodejs-stage-20/" target="_blank">http://blog.fens.me/nodejs-roadmap/</a></p>
-        <p><img src="http://blog.fens.me/wp-content/uploads/2016/04/pay50.png" alt="打赏作者" width="600" height="400" class="alignnone size-full wp-image-8388"></p>
+        <p></p>
         <div class="clear"></div>
         <p class="inner-meta">This entry was posted in <a href="http://blog.fens.me/category/javascript%e8%af%ad%e8%a8%80%e5%ae%9e%e8%b7%b5/" rel="category tag">Javascript语言实践</a></p>
     </div>
