@@ -131,7 +131,7 @@ Node.js 服务器
         <p><a title="用WebStorm编辑Markdown" href="http://blog.fens.me/webstorm-markdown/" target="_blank">用WebStorm编辑Markdown</a></p>
         <p><a title="30秒制作幻灯片 Cleaver" href="http://blog.fens.me/nodejs-slide-cleaver/" target="_blank">30秒制作幻灯片 Cleaver</a></p>
         <p><a title="图片延迟加载库Layzr" href="http://blog.fens.me/nodejs-layzr/" target="_blank">图片延迟加载库Layzr</a></p>
-        <p><img src="http://blog.fens.me/wp-content/uploads/2016/04/pay50.png" alt="打赏作者" width="600" height="400" class="alignnone size-full wp-image-8388"></p>
+        
         <div class="clear"></div>
     </div>
     <p class="postmetadata">
