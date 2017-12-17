@@ -43,7 +43,7 @@ Tracking.js需要先引入tracking-min.js，然后根据你的需求在选择性
         };
 ```
 
-* JqueryFaceDetection: https://github.com/jaysalvat/jquery.facedetection
+* JqueryFaceDetection: https://github.com/jaysalvat/jquery.facedetection  
   http://facedetection.jaysalvat.com/
 ```
 $(function () {
