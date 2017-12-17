@@ -275,4 +275,74 @@ var concurrencyCount = 0;
 npm install mocha -g
 npm i istanbul -g
 npm i should -g
+
+1.建立我们的 main.js 文件，编写 fibonacci 函数。
+var fibonacci = function (n) {
+  if (typeof n !== 'number') {
+    throw new Error('n should be a Number');
+  }
+  if (n < 0) {
+    throw new Error('n should >= 0');
+  }
+  if (n > 10) {
+    throw new Error('n should <= 10');
+  }
+  if (n === 0) {
+    return 0;
+  }
+  if (n === 1) {
+    return 1;
+  }
+
+  return fibonacci(n-1) + fibonacci(n-2);
+};
+
+ exports.fibonacci = fibonacci;
+ 
+ 在 test/main.test.js 中引用我们的 main.js
+ var main = require('../main');
+var should = require('should');
+
+describe('test/main.test.js', function () {
+  it('should equal 0 when n === 0', function () {
+    main.fibonacci(0).should.equal(0);
+  });
+
+  it('should equal 1 when n === 1', function () {
+    main.fibonacci(1).should.equal(1);
+  });
+
+  it('should equal 55 when n === 10', function () {
+    main.fibonacci(10).should.equal(55);
+  });
+
+  it('should throw when n > 10', function () {
+    (function () {
+      main.fibonacci(11);
+    }).should.throw('n should <= 10');
+  });
+
+  it('should throw when n < 0', function () {
+    (function () {
+      main.fibonacci(-1);
+    }).should.throw('n should >= 0');
+  });
+
+  it('should throw when n isnt Number', function () {
+    (function () {
+      main.fibonacci('呵呵');
+    }).should.throw('n should be a Number');
+  });
+});
+
+直接执行
+
+$ mocha
+
+
+安装一个 istanbul : $ npm i istanbul -g
+
+执行 $ istanbul cover _mocha
+
+这会比直接使用 mocha 多一行覆盖率的输出，
 ```
