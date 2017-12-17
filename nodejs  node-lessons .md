@@ -263,3 +263,16 @@ var concurrencyCount = 0;
         console.log(result);
       });
 ```
+
+
+### 5.测试用例：mocha，should，istanbul
+
+* 学习使用测试框架 mocha : http://mochajs.org/
+* 学习使用断言库 should : https://github.com/tj/should.js
+* 学习使用测试率覆盖工具 istanbul : https://github.com/gotwarlost/istanbul
+* 简单 Makefile 的编写 : http://blog.csdn.net/haoel/article/details/2886
+```
+npm install mocha -g
+npm i istanbul -g
+npm i should -g
+```
