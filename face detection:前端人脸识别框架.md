@@ -1,5 +1,9 @@
 # 前端人脸识别框架
 
+blog: 
+  - http://refined-x.com/2017/09/06/%E7%BA%AF%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-%E6%8F%90%E5%8F%96-%E5%90%88%E6%88%90/
+  - https://www.cnblogs.com/cgy96/p/6149349.html
+
 Tracking.js是使用js封装的一个框架，使用起来需要自己配置许多的东西，略显复杂
 
 JqueryFaceDetection是使用jquery封装的框架，只留下一个接口，比较方便
