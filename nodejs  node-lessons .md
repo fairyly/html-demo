@@ -345,4 +345,5 @@ $ mocha
 执行 $ istanbul cover _mocha
 
 这会比直接使用 mocha 多一行覆盖率的输出，
+不完美的地方就在于 mocha 和 istanbul 版本依赖的问题
 ```
