@@ -27,6 +27,15 @@
 4. 打开浏览器 输入 http://127.0.0.1:3000/ 
 ```
 
+* 大家去装个 nodemon https://github.com/remy/nodemon 。
+```
+$ npm i -g nodemon
+
+这个库是专门调试时候使用的，它会自动检测 node.js 代码的改动，然后帮你自动重启应用。在调试时可以完全用 nodemon 命令代替 node 命令。
+
+$ nodemon app.js 启动我们的应用试试，然后随便改两行代码，就可以看到 nodemon 帮我们重启应用了。
+```
+
 ### 1，学习使用外部模块
 
 npm install express utility --save
