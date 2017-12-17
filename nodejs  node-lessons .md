@@ -347,3 +347,69 @@ $ mocha
 这会比直接使用 mocha 多一行覆盖率的输出，
 不完美的地方就在于 mocha 和 istanbul 版本依赖的问题
 ```
+
+### 6. 浏览器端测试：mocha，chai，phantomjs
+
+* 学习使用测试框架 mocha 进行前端测试 : http://mochajs.org/
+* 了解全栈的断言库 chai: http://chaijs.com/
+* 了解 headless 浏览器 phantomjs: http://phantomjs.org/
+
+```
+首先搭建一个测试原型，用 mocha 自带的脚手架可以自动生成。
+
+cd vendor            # 进入我们的项目文件夹
+npm i -g mocha       # 安装全局的 mocha 命令行工具
+mocha init .         # 生成脚手架
+mocha就会自动帮我们生成一个简单的测试原型, 
+其中 index.html 是单元测试的入口，tests.js 是我们的测试用例文件。
+
+直接在 index.html 插入上述示例的 fibonacci 函数以及断言库 chaijs。
+
+然后在tests.js中写入对应测试用例
+
+var should = chai.should();
+describe('simple test', function () {
+  it('should equal 0 when n === 0', function () {
+    window.fibonacci(0).should.equal(0);
+  });
+});
+
+打开index.html，可以发现测试结果，我们完成了浏览器端的脚本测试
+
+使用mocha-phantomjs帮助我们在命令行运行测试。
+
+首先安装mocha-phantomjs
+
+npm i -g mocha-phantomjs
+然后在 index.html 的页面下加上这段兼容代码
+
+<script>mocha.run()</script>
+改为
+
+<script>
+  if (window.initMochaPhantomJS && window.location.search.indexOf('skip') === -1) {
+    initMochaPhantomJS()
+  }
+  mocha.ui('bdd');
+  expect = chai.expect;
+  
+  mocha.run();
+</script>
+这时候, 我们在命令行中运行
+
+mocha-phantomjs index.html --ssl-protocol=any --ignore-ssl-errors=true
+
+更进一步，我们可以直接在 package.json 的 scripts 中添加 (package.json 通过 npm init 生成，这里不再赘述)
+
+"scripts": {
+  "test": "mocha-phantomjs index.html --ssl-protocol=any --ignore-ssl-errors=true"
+},
+将mocha-phantomjs作为依赖
+
+npm i mocha-phantomjs --save-dev
+直接运行
+
+npm test
+
+
+```
