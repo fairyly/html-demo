@@ -3,6 +3,8 @@
 * http://rap.taobao.org/org/index.do  
   github: https://github.com/thx/RAP
   
+  
+* wiki：https://github.com/thx/RAP/wiki/home_cn
 fairyly
 
 无尘
