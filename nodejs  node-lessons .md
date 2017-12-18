@@ -427,6 +427,8 @@ npm test
 
 ### 7测试用例：supertest
 
+Nodeclub 里面的测试使用的技术跟前面介绍的是一样的，should mocha supertest 那套，应该是很容易看懂的:
+
 nodeclub: test https://github.com/cnodejs/nodeclub/blob/master/test/controllers/topic.test.js
 
 学习 supertest 的使用 (https://github.com/tj/supertest )
