@@ -439,3 +439,25 @@ nodeclub: test https://github.com/cnodejs/nodeclub/blob/master/test/controllers/
 
 API 是一模一样的。superagent 是用来抓取页面用的，  
 而 supertest，是专门用来配合 express （准确来说是所有兼容 connect 的 web 框架）进行集成测试的
+
+
+```
+ request
+   .post('/api/pet')
+   .send({ name: 'Manny', species: 'cat' })
+   .set('X-API-Key', 'foobar')
+   .set('Accept', 'application/json')
+   .then(function(res) {
+      alert('yay got ' + JSON.stringify(res.body));
+   });
+   
+   
+   request
+   .get('/search')
+   .then(function(res) {
+      // res.body, res.headers, res.status
+   })
+   .catch(function(err) {
+      // err.message, err.response
+   });
+```
