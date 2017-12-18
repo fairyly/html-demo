@@ -437,4 +437,5 @@ nodeclub: test https://github.com/cnodejs/nodeclub/blob/master/test/controllers/
 就可以对 app 的 path 路径进行访问了   
 它的 API 参照 superagent 的来就好了：http://visionmedia.github.io/superagent/ 。  
 
-
+API 是一模一样的。superagent 是用来抓取页面用的，  
+而 supertest，是专门用来配合 express （准确来说是所有兼容 connect 的 web 框架）进行集成测试的
