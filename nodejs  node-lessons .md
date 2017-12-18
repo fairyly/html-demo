@@ -490,3 +490,71 @@ supertest.post('create_topic')
   .end(...)
 ```
 这里有个相关讨论：https://github.com/tj/supertest/issues/46
+
+
+### 8 正则表达式
+
+/some/(i/m/g)
+
+* i 的意义是不区分大小写
+* g 的意义是，匹配多个
+* m 的意义是，是 ^ 和 $ 可以匹配每一行的开头。
+
+在 js 中，g flag 会影响 String.prototype.match() 和 RegExp.prototype.exec() 的行为
+
+String.prototype.match() 中，返回数据的格式会不一样，加 g 会返回数组，不加 g 则返回比较详细的信息
+```
+> 'hello hell'.match(/h(.*?)\b/g)
+[ 'hello', 'hell' ]
+```
+
+RegExp.prototype.exec() 中，加 g 之后，如果你的正则不是字面量的正则，而是存储在变量中的话，特么的这个变量就会变得有记忆！！
+```
+> /h(.*?)\b/g.exec('hello hell')
+[ 'hello',
+  'ello',
+  index: 0,
+  input: 'hello hell' ]
+> /h(.*?)\b/g.exec('hello hell')
+[ 'hello',
+  'ello',
+  index: 0,
+  input: 'hello hell' ]
+
+
+> var re = /h(.*?)\b/g;
+undefined
+> re.exec('hello hell')
+[ 'hello',
+  'ello',
+  index: 0,
+  input: 'hello hell' ]
+> re.exec('hello hell')
+[ 'hell',
+  'ell',
+  index: 6,
+  input: 'hello hell' ]
+>
+```
+
+第三，大家知道，. 是不可以匹配 \n 的。如果我们想匹配的数据涉及到了跨行，比如下面这样的。
+```
+var multiline = require('multiline');
+
+var text = multiline.stripIndent(function () {
+/*
+    head
+    ```
+    code code2 .code3```
+    ```
+    foot
+*/
+});
+```
+
+
+### 9 benchmark
+
+https://github.com/bestiejs/benchmark.js
+
+
