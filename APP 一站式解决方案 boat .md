@@ -20,7 +20,7 @@ npm i -g boat-cli
 ```
 如何开发?
 1 全局安装boat-cli
-npm i -g boat-cli --registry=https://registry.npm.taobao.org
+  npm i -g boat-cli --registry=https://registry.npm.taobao.org
 
 2 新用户首次使用执行下面命令生成SSH Key， 配置SSH Key
   boat ssh
@@ -29,8 +29,8 @@ npm i -g boat-cli --registry=https://registry.npm.taobao.org
   该过程只需要执行一次，后续新建应用不需要再重复配置
 
 3 拷贝仓库
-git clone git@code.aliyun.com:t-2503966162-6/myboatapp.git
+  git clone git@code.aliyun.com:t-2503966162-6/myboatapp.git
 
 4 进入仓库目录，使用 SDK 开始开发
-boat dev
+  boat dev
 ```
