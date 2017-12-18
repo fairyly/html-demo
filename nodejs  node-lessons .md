@@ -424,3 +424,17 @@ npm test
 
 
 ```
+
+### 7测试用例：supertest
+
+nodeclub: test https://github.com/cnodejs/nodeclub/blob/master/test/controllers/topic.test.js
+
+学习 supertest 的使用 (https://github.com/tj/supertest )
+
+将使你有一个 app: var app = express();，想对它的 get 啊，post 接口啊之类的进行测试，  
+那么只要把它传给 supertest：var request = require('supertest')(app  
+之后调用 requset.get('/path') 时  
+就可以对 app 的 path 路径进行访问了   
+它的 API 参照 superagent 的来就好了：http://visionmedia.github.io/superagent/ 。  
+
+
