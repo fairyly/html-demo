@@ -559,3 +559,5 @@ var text = multiline.stripIndent(function () {
 https://github.com/bestiejs/benchmark.js
 
 
+
+
