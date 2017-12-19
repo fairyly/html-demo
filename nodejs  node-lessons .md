@@ -559,5 +559,17 @@ var text = multiline.stripIndent(function () {
 https://github.com/bestiejs/benchmark.js
 
 
+### 10  《线上部署：heroku》
+
+详细介绍：https://github.com/fairyly/html-demo/blob/gh-pages/heroku.md
+
+### 11 持续集成平台：travis
+
+学习使用 travis-ci 对项目进行持续集成测试 (https://travis-ci.org/ )：`github授权登录即可`
+
+为什么要使用 travis 这样的平台，是因为它可以让你明白自己的项目在一个“空白环境”中，是否能正确运行；也可以让你知道，用不同的 Node.js 版本运行的话，有没有兼容性问题。
+
+travis 应该是把虚拟机的技术玩得比较好，它每次跑测试时，都会提供一个空白的环境。这个环境只有 Linux 基本的 build-essential 和 wget、git 那些依赖。连 Node.js 的运行时都是现跑现安装的。
+
 
 
