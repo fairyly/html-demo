@@ -590,3 +590,12 @@ script: make test
 
 行覆盖率的那个 badge 是由一个叫 coveralls(https://coveralls.io/ ) 的服务提供的可以试着自己接入
 
+如果你的应用有使用到数据库, 需要在 .travis.yml 中添加一些内容.
+
+以 MongoDB 为例:
+```
+services:
+    mongodb
+```
+其它数据库详细内容参考travis 官方文档:https://docs.travis-ci.com/user/database-setup/
+
