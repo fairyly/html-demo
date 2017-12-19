@@ -571,5 +571,22 @@ https://github.com/bestiejs/benchmark.js
 
 travis 应该是把虚拟机的技术玩得比较好，它每次跑测试时，都会提供一个空白的环境。这个环境只有 Linux 基本的 build-essential 和 wget、git 那些依赖。连 Node.js 的运行时都是现跑现安装的。
 
+需要给出一些配置信息，配置信息以 .travis.yml 文件的形式放在项目根目录，比如一个简单的 .travis.yml。
+```
+language: node_js
+node_js:
+ - '0.8'
+ - '0.10'
+ - '0.11'
 
+script: make test
+```
+这个文件传递的信息是：
+
+* 这是一个 node.js 应用
+* 这个测试需要用 0.8、0.10 以及 0.11 三个版本来跑
+* 跑测试的命令是 make test
+将这个文件添加到项目的根目录下，再 push 上 github，这时候 travis 就会被触发了。
+
+行覆盖率的那个 badge 是由一个叫 coveralls(https://coveralls.io/ ) 的服务提供的可以试着自己接入
 
