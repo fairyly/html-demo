@@ -1,6 +1,7 @@
 # nodejs Node.js 包教不包会 （我的 windows 环境）
 
-脚本性能分析:https://jsperf.com/
+- nodejs 官网: https://nodejs.org/zh-cn/
+- 脚本性能分析:https://jsperf.com/
 
 1.  搭建 node 环境  
     可以按照教程先安装一个 nvm（ https://github.com/creationix/nvm ）或者自己下载安装 node 安装包  
