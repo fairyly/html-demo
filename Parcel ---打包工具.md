@@ -1,6 +1,6 @@
 # Parcel
 
-文档:http://www.css88.com/doc/parcel/getting_started.html
+文档: https://parceljs.org/getting_started.html
 
 github: https://github.com/parcel-bundler/parcel
 官网: https://parceljs.org/
