@@ -10,6 +10,7 @@ koa 是由 Express 原班人马打造的，致力于成为一个更小、更富�
 [深入浅出 Koa](https://github.com/berwin/Blog/issues/8)
   - https://cnodejs.org/topic/56e688a983cbb63b6d120300
   - https://github.com/berwin/Blog/issues/8
+  - https://github.com/berwin/Blog/issues/9
 
 
 ### Koajs 中文文档和资料:
