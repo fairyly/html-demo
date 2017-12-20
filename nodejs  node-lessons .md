@@ -867,5 +867,199 @@ defer.notify('in progress');//控制台打印in progress
 defer.resolve('resolve');   //控制台打印resolve
 defer.reject('reject');		//没有输出。promise的状态只能改变一次
 ```
+* promise的传递
+
+想要读取一个文件的内容，然后把这些内容打印出来
+
+```
+var Q = require('q');
+var fs = require('fs');
+var defer = Q.defer();
+
+/**
+ * 通过defer获得promise
+ * @private
+ */
+function getInputPromise() {
+	return defer.promise;
+}
+
+/**
+ * 当inputPromise状态由未完成变成fulfil时，调用function(fulfilled)
+ * 当inputPromise状态由未完成变成rejected时，调用function(rejected)
+ * 将then返回的promise赋给outputPromise
+ * function(fulfilled)将新的promise赋给outputPromise
+ * 未完成改变为reject
+ * @private
+ */
+var outputPromise = getInputPromise().then(function(fulfilled){
+	var myDefer = Q.defer();
+	fs.readFile('test.txt','utf8',function(err,data){
+		if(!err && data) {
+			myDefer.resolve(data);
+		}
+	});
+	return myDefer.promise;
+},function(rejected){
+	throw new Error('rejected');
+});
+
+/**
+ * 当outputPromise状态由未完成变成fulfil时，调用function(fulfilled)，控制台打印test.txt文件内容。
+ *
+ */
+outputPromise.then(function(fulfilled){
+	console.log(fulfilled);
+},function(rejected){
+	console.log(rejected);
+});
+
+/**
+ * 将inputPromise的状态由未完成变成rejected
+ */
+//defer.reject();
+
+/**
+ * 将inputPromise的状态由未完成变成fulfilled
+ */
+defer.resolve(); //控制台打印出 test.txt 的内容
+```
+
+* promise链
+promise链提供了一种让函数顺序执行的方法。
+
+```
+var Q = require('q');
+var defer = Q.defer();
+
+//一个模拟数据库
+var users = [{'name':'andrew','passwd':'password'}];
+
+function getUsername() {
+return defer.promise;
+}
+
+function getUser(username){
+	var user;
+	users.forEach(function(element){
+		if(element.name === username) {
+			user = element;
+		}
+	});
+	return user;
+}
+
+//promise链
+getUsername().then(function(username){
+ return getUser(username);
+}).then(function(user){
+ console.log(user);
+});
+
+defer.resolve('andrew');
+```
+
+* promise组合
 
 
+```
+var Q = require('q'),
+	fs = require('fs');
+function printFileContent(fileName) {
+	return function(){
+		var defer = Q.defer();
+		fs.readFile(fileName,'utf8',function(err,data){
+		  if(!err && data) {
+			console.log(data);
+			defer.resolve();
+		  }
+		})
+		return defer.promise;
+	}
+}
+//手动链接
+printFileContent('sample01.txt')()
+	.then(printFileContent('sample02.txt'))
+	.then(printFileContent('sample03.txt'))
+	.then(printFileContent('sample04.txt'));   //控制台顺序打印sample01到sample04的内容
+很有成就感是不是。然而如果仔细分析，我们会发现为什么要他们顺序执行呢，如果他们能够并行执行不是更好
+
+
+```
+
+可以通过Q.all([promise1,promise2...])将多个promise组合成一个promise返回。 注意：
+
+当all里面所有的promise都fulfil时，Q.all返回的promise状态变成fulfil  
+当任意一个promise被reject时，Q.all返回的promise状态立即变成reject  
+我们来把上面读取文件内容的例子改成并行执行吧  
+
+```
+var Q = require('q');
+var fs = require('fs');
+/**
+ *读取文件内容
+ *@private
+ */
+function printFileContent(fileName) {
+		//Todo: 这段代码不够简洁。可以使用Q.denodeify来简化
+		var defer = Q.defer();
+		fs.readFile(fileName,'utf8',function(err,data){
+		  if(!err && data) {
+			console.log(data);
+			defer.resolve(fileName + ' success ');
+		  }else {
+			defer.reject(fileName + ' fail ');
+		  }
+		})
+		return defer.promise;
+}
+
+Q.all([printFileContent('sample01.txt'),printFileContent('sample02.txt'),printFileContent('sample03.txt'),printFileContent('sample04.txt')])
+	.then(function(success){
+		console.log(success);
+	}); //控制台打印各个文件内容 顺序不一定
+	
+	
+	
+	现在知道Q.all会在任意一个promise进入reject状态后立即进入reject状态。如果我们需要等到所有的promise都发生状态后(有的fulfil, 有的reject)，再转换Q.all的状态, 这时我们可以使用Q.allSettled
+
+var Q = require('q'),
+	fs = require('fs');
+/**
+ *读取文件内容
+ *@private
+ */
+function printFileContent(fileName) {
+	//Todo: 这段代码不够简洁。可以使用Q.denodeify来简化
+	var defer = Q.defer();
+	fs.readFile(fileName,'utf8',function(err,data){
+	  if(!err && data) {
+		console.log(data);
+		defer.resolve(fileName + ' success ');
+	  }else {
+		defer.reject(fileName + ' fail ');
+	  }
+	})
+	return defer.promise;
+}
+
+Q.allSettled([printFileContent('nosuchfile.txt'),printFileContent('sample02.txt'),printFileContent('sample03.txt'),printFileContent('sample04.txt')])
+	.then(function(results){
+		results.forEach(
+			function(result) {
+				console.log(result.state);
+			}
+		);
+	});
+```
+
+
+* 结束promise链
+
+通常，对于一个promise链，有两种结束的方式。第一种方式是返回最后一个promise
+
+如 return foo().then(bar);
+
+第二种方式就是通过done来结束promise链
+
+如 foo().then(bar).done()
