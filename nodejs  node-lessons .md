@@ -1063,3 +1063,21 @@ Q.allSettled([printFileContent('nosuchfile.txt'),printFileContent('sample02.txt'
 第二种方式就是通过done来结束promise链
 
 如 foo().then(bar).done()
+
+
+### 13 何为 connect 中间件
+
+https://github.com/senchalabs/connect
+
+先将处理逻辑存起来，然后循环调用
+
+Connect中主要有五个函数 PS: Connect的核心代码是200+行，建议对照源码看下面的函数介绍。
+
+```
+函数名	作用
+createServer	包装httpServer形成app
+listen	监听端口函数
+use	向middlewares里面放入业务逻辑
+handle	上一章的requestHandler函数增强版
+call	业务逻辑的真正执行者
+```
