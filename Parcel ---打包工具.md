@@ -12,3 +12,7 @@ or with npm:
 ```
 npm install -g parcel-bundler
 ```
+```
+parcel index.html
+```
+Now open http://localhost:1234/ in your browser. 
