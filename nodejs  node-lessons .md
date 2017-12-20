@@ -832,3 +832,40 @@ etag 当做 session，保存 http 会话
 很黑客的一种玩法：https://cnodejs.org/topic/5212d82d0a746c580b43d948
 ```
 
+
+### 12 使用 promise 替代回调函数
+
+学习 q 的 API，利用 q 来替代回调函数(https://github.com/kriskowal/q )
+
+* promise只有三种状态，未完成，完成(fulfilled)和失败(rejected)。
+* promise的状态可以由未完成转换成完成，或者未完成转换成失败。
+* promise的状态转换只发生一次
+
+```
+学习一个简单的例子：
+
+var Q = require('q');
+var defer = Q.defer();
+/**
+ * 获取初始promise
+ * @private
+ */
+function getInitialPromise() {
+  return defer.promise;
+}
+/**
+ * 为promise设置三种状态的回调函数
+ */
+getInitialPromise().then(function(success){
+	console.log(success);
+},function(error){
+	console.log(error);
+},function(progress){
+	console.log(progress);
+});
+defer.notify('in progress');//控制台打印in progress
+defer.resolve('resolve');   //控制台打印resolve
+defer.reject('reject');		//没有输出。promise的状态只能改变一次
+```
+
+
