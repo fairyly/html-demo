@@ -17,3 +17,9 @@ npm install -g parcel-bundler
 parcel index.html
 ```
 Now open http://localhost:1234/ in your browser. 
+
+你也可以使用 -p <port number> 选项覆盖默认的端口。 如果没有自己的服务器可使用开发服务器，或者你的应用程序完全由客户端呈现。如果有自己的服务器，你可以在watch 模式下运行 Parcel 。当文件改变它仍然会自动重建并支持热替换，但是不会启动 web 服务。
+  
+```
+parcel watch index.html
+```
