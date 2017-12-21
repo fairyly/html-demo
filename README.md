@@ -32,7 +32,8 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 | 	| 自定义拍摄时长	| 可根据需求设置不同拍摄时长| 
 | 	| 多比例拍摄	| 支持全屏、1：1、3：4比例拍摄| 
 
-
+### 图灵社区
+  - http://www.ituring.com.cn/
 
 # ECMAScript
 * [es6](http://es6.ruanyifeng.com/)
