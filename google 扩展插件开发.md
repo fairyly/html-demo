@@ -18,7 +18,7 @@
 可选的任何需要的其他文件，例如图片
 ```
 4. 开发者信息中心
-  - https://chrome.google.com/webstore/developer/dashboard
+  - https://chrome.google.com/webstore/developer/dashboard  
   - 要发布新应用、扩展程序或主题背景，请点击`添加新内容`
 
 5. Chrome插件安装的本机目录: chrome://version/
@@ -26,10 +26,10 @@
 1.如何优雅的调试
   右键Chrome工具栏的小图标会弹出一个窗口，选择审查弹出内容即可调试。  
   但是这种方法极度低效，直接chrome://extensions/找到你插件的ID：  
-  然后浏览器访问： 
-  比如:
-  chrome-extension://<插件ID>/�插件入口html文件  :
-  chrome-extension://fnfchnalfnjbjbfeccpophocngdgapad/index.html   
+  然后浏览器访问：   
+  比如:  
+  chrome-extension://<插件ID>/�插件入口html文件  :  
+  chrome-extension://fnfchnalfnjbjbfeccpophocngdgapad/index.html   
   
 2.如何查看其他插件的源码
   访问chrome://version 找到Chrome插件安装的本机目录:  
