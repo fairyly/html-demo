@@ -2,6 +2,7 @@
 
 * 阮一峰《JavaScript标准教程》:http://javascript.ruanyifeng.com/htmlapi/eventsource.html
 * 阮一峰 GitHub 介绍：https://github.com/wangdoc/webapi-tutorial/blob/master/docs/server-sent-events.md
+* MDN: https://developer.mozilla.org/zh-CN/docs/Server-sent_events/Using_server-sent_events
 
 - 服务器向客户端推送数据，有很多解决方案。除了“轮询” 和 WebSocket，HTML 5 还提供了 Server-Sent Events（以下简称 SSE）。
 
