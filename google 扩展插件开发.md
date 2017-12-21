@@ -6,6 +6,7 @@
   - http://open.chrome.360.cn/extension_dev/overview.html
   
   - 如何从零开始写一个 Chrome 扩展: https://www.zhihu.com/question/20179805
+  - http://www.jianshu.com/p/049eecc2062f
 3. 文件
 ```
 每个应用（扩展）都应该包含下面的文件：
@@ -18,3 +19,19 @@
 4. 开发者信息中心
   - https://chrome.google.com/webstore/developer/dashboard
   - 要发布新应用、扩展程序或主题背景，请点击`添加新内容`
+
+5. Chrome插件安装的本机目录: chrome://version/
+
+3.不要把JS代码写在html文件里
+出于安全考虑，入口html文件中的JS代码只能通过script标签引用外部脚本文件，内嵌的JS代码会失效的。
+
+4.注意国际化
+webstore面向的是全球用户，你辛辛苦苦写的小工具肯定不想只限于国内用户吧，所以在你的项目里面加上_locales文件夹，写代码的时候时刻考虑到如何才能更好地支持国际化。
+
+5.用好Google
+开发遇到的问题Google一下一般能找到，StackOverflow 和Google网上论坛这两个站点要尤其留意，大部分问题这上面�都有解决方案。
+
+作者：动感小前端
+链接：http://www.jianshu.com/p/049eecc2062f
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
