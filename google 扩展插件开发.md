@@ -17,3 +17,4 @@
 ```
 4. 开发者信息中心
   - https://chrome.google.com/webstore/developer/dashboard
+  - 要发布新应用、扩展程序或主题背景，请点击`添加新内容`
