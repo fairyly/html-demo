@@ -48,4 +48,35 @@ yarn --version
       yarn install
     ```
 
+### 基本工作流你应该知道几个简单的事：
+
+* 创建一个新项目：   `yarn init`
+* 增加／更新／删除依赖  `yarn add [package]`, `yarn upgrade [package]`,`yarn remove [package]`
+* 安装／重装你的依赖  
+  ```
+    安装所有依赖：yarn 或 yarn install
+    安装一个包的单一版本：yarn install --flat
+    强制重新下载所有包：yarn install --force
+    只安装生产环境依赖：yarn install --production
+  ```
+* 引入版本控制系统（例如 git）
+  ```
+    为了别人能使用你的包，以下文件必须被提交进版本控制系统：
+
+    package.json：包含包的所有依赖信息；
+    yarn.lock：记录每一个依赖项的确切版本信息；
+    包实现功能的实际项目代码。
+  ```
+* 持续集成: 详见：https://yarnpkg.com/zh-Hans/docs/install-ci  
+  - Yarn 很容易在许多持续构建系统中使用。为了加速构建，Yarn 缓存目录可以跨构建保存起来
+  ```
+    1.Yarn已预先安装在 AppVeyor 上，所以不需要在构建流程中做别的事情。
+
+    要让 build 更快，你可以把以下配置加到appveyor.yml，这会缓存 Yarn 的 缓存文件夹。
+
+    cache:
+       - "%LOCALAPPDATA%\\Yarn"
+  ```
+
+
 
