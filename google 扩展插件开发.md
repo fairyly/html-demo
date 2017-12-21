@@ -15,3 +15,5 @@
 可选的一个或多个javascript文件
 可选的任何需要的其他文件，例如图片
 ```
+4. 开发者信息中心
+  - https://chrome.google.com/webstore/developer/dashboard
