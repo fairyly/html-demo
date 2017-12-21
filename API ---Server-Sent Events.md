@@ -26,11 +26,45 @@
 - 使用 SSE 时，浏览器首先生成一个EventSource实例，向服务器发起连接。
   ```
     var source = new EventSource(url);
-    上面的url可以与当前网址同域，也可以跨域。跨域时，可以指定第二个参数，打开withCredentials属性，表示是否一起发送 Cookie。
+    上面的url可以与当前网址同域，也可以跨域。
+    跨域时，可以指定第二个参数，打开withCredentials属性，表示是否一起发送 Cookie。
     var source = new EventSource(url, { withCredentials: true });
   ```
 - EventSource实例的readyState属性，表明连接的当前状态。该属性只读，可以取以下值
   - 0：相当于常量EventSource.CONNECTING，表示连接还未建立，或者断线正在重连。
   - 1：相当于常量EventSource.OPEN，表示连接已经建立，可以接受数据。
   - 2：相当于常量EventSource.CLOSED，表示连接已断，且不会重连。
-  
+  ```
+    var source = new EventSource(url);
+    console.log(source.readyState);
+  ```
+- EventSource实例的withCredentials属性返回一个布尔值，表示当前实例是否开启 CORS 的withCredentials。该属性只读，默认是false。
+
+- 连接一旦建立，就会触发open事件，可以在onopen属性定义回调函数
+  ```
+    source.onopen = function (event) {
+      // ...
+    };
+
+    // 另一种写法
+    source.addEventListener('open', function (event) {
+      // ...
+    }, false);
+  ```
+- 客户端收到服务器发来的数据，就会触发message事件，可以在onmessage属性定义回调函数
+  ```
+    source.onmessage = function (event) {
+    var data = event.data;
+    var origin = event.origin;
+    var lastEventId = event.lastEventId;
+    // handle message
+  };
+
+  // 另一种写法
+  source.addEventListener('message', function (event) {
+    var data = event.data;
+    var origin = event.origin;
+    var lastEventId = event.lastEventId;
+    // handle message
+  }, false);
+  ```
