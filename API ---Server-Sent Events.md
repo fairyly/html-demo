@@ -67,4 +67,39 @@
     var lastEventId = event.lastEventId;
     // handle message
   }, false);
+  
+  参数对象event有如下属性:
+    data：服务器端传回的数据（文本格式）。
+    origin： 服务器 URL 的域名部分，即协议、域名和端口，表示消息的来源。
+    lastEventId：数据的编号，由服务器端发送。如果没有编号，这个属性为空。
+  ```
+
+- 如果发生通信错误（比如连接中断），就会触发error事件，可以在onerror属性定义回调函数
+
+  ```
+  source.onerror = function (event) {
+    // handle error event
+  };
+
+    // 另一种写法
+    source.addEventListener('error', function (event) {
+      // handle error event
+    }, false);
+  ```
+
+- 自定义事件
+  默认情况下，服务器发来的数据，总是触发浏览器EventSource实例的message事件。  
+  开发者还可以自定义 SSE 事件，这种情况下，发送回来的数据不会触发message事件。  
+  ```
+  source.addEventListener('foo', function (event) {
+    var data = event.data;
+    var origin = event.origin;
+    var lastEventId = event.lastEventId;
+    // handle message
+  }, false);
+  ```
+  
+- close方法用于关闭 SSE 连接。
+  ```
+    source.close();
   ```
