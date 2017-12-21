@@ -35,6 +35,8 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ### 图灵社区
   - http://www.ituring.com.cn/
 
+* 最新的长期支持版本(LTS - Long Term Support)
+
 # ECMAScript
 * [es6](http://es6.ruanyifeng.com/)
 * [es2018](https://tc39.github.io/ecma262/)
