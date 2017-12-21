@@ -44,7 +44,7 @@ yarn --version
   - 安装项目的全部依赖
     ```
       yarn
-      或者
+      或者
       yarn install
     ```
 
