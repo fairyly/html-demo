@@ -7,6 +7,7 @@
   
   - 如何从零开始写一个 Chrome 扩展: https://www.zhihu.com/question/20179805
   - http://www.jianshu.com/p/049eecc2062f
+  - 图灵社区图书: http://www.ituring.com.cn/book/1421
 3. 文件
 ```
 每个应用（扩展）都应该包含下面的文件：
