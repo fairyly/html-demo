@@ -17,21 +17,22 @@
   - SSE 一般只用来传送文本，二进制数据需要编码后传送，WebSocket 默认支持传送二进制数据。
   - SSE 支持自定义发送的消息类型。
 
-- SSE 的客户端 API 部署在EventSource对象上。下面的代码可以检测浏览器是否支持 SSE。
-  ```
-  if ('EventSource' in window) {
-    // ...
-  }
+- 1.SSE 的客户端 API 部署在EventSource对象上。下面的代码可以检测浏览器是否支持 SSE。
+
+  ```
+    if ('EventSource' in window) {
+      // ...
+    }
   ```
 
-- 使用 SSE 时，浏览器首先生成一个EventSource实例，向服务器发起连接。
+- 2.使用 SSE 时，浏览器首先生成一个EventSource实例，向服务器发起连接。
   ```
     var source = new EventSource(url);
     上面的url可以与当前网址同域，也可以跨域。
     跨域时，可以指定第二个参数，打开withCredentials属性，表示是否一起发送 Cookie。
     var source = new EventSource(url, { withCredentials: true });
   ```
-- EventSource实例的readyState属性，表明连接的当前状态。该属性只读，可以取以下值
+- 3.EventSource实例的readyState属性，表明连接的当前状态。该属性只读，可以取以下值
   - 0：相当于常量EventSource.CONNECTING，表示连接还未建立，或者断线正在重连。
   - 1：相当于常量EventSource.OPEN，表示连接已经建立，可以接受数据。
   - 2：相当于常量EventSource.CLOSED，表示连接已断，且不会重连。
@@ -39,9 +40,9 @@
     var source = new EventSource(url);
     console.log(source.readyState);
   ```
-- EventSource实例的withCredentials属性返回一个布尔值，表示当前实例是否开启 CORS 的withCredentials。该属性只读，默认是false。
+- 4.EventSource实例的withCredentials属性返回一个布尔值，表示当前实例是否开启 CORS 的withCredentials。该属性只读，默认是false。
 
-- 连接一旦建立，就会触发open事件，可以在onopen属性定义回调函数
+- 5.连接一旦建立，就会触发open事件，可以在onopen属性定义回调函数
   ```
     source.onopen = function (event) {
       // ...
@@ -52,7 +53,7 @@
       // ...
     }, false);
   ```
-- 客户端收到服务器发来的数据，就会触发message事件，可以在onmessage属性定义回调函数
+- 6.客户端收到服务器发来的数据，就会触发message事件，可以在onmessage属性定义回调函数
   ```
     source.onmessage = function (event) {
     var data = event.data;
@@ -75,7 +76,7 @@
     lastEventId：数据的编号，由服务器端发送。如果没有编号，这个属性为空。
   ```
 
-- 如果发生通信错误（比如连接中断），就会触发error事件，可以在onerror属性定义回调函数
+- 7.如果发生通信错误（比如连接中断），就会触发error事件，可以在onerror属性定义回调函数
 
   ```
   source.onerror = function (event) {
@@ -88,7 +89,7 @@
     }, false);
   ```
 
-- 自定义事件
+- 8.自定义事件
   默认情况下，服务器发来的数据，总是触发浏览器EventSource实例的message事件。  
   开发者还可以自定义 SSE 事件，这种情况下，发送回来的数据不会触发message事件。  
   ```
@@ -100,7 +101,7 @@
   }, false);
   ```
   
-- close方法用于关闭 SSE 连接。
+- 9.close方法用于关闭 SSE 连接。
   ```
     source.close();
   ```
@@ -140,7 +141,7 @@
     data: with two lines \n\n
   ```
   
-2. data 字段
+- 2. data 字段
   ```
   数据内容用data字段表示
   data:  message\n\n
@@ -154,7 +155,7 @@
   data: "baz", 555\n
   data: }\n\n
   ```
-3. id 字段
+- 3. id 字段
   数据标识符用id字段表示，相当于每一条数据的编号。
   
   ```
@@ -162,7 +163,7 @@
   data: message\n\n
   ```
   
-4. event 字段
+- 4. event 字段
   event字段表示自定义的事件类型，默认是message事件。浏览器可以用addEventListener()监听该事件。
   ```
   event: foo\n
@@ -175,7 +176,7 @@
   上面的代码创造了三条信息。第一条的名字是foo，触发浏览器的foo事件；第二条未取名，表示默认类型，触发浏览器的message事件；
   第三条是bar，触发浏览器的bar事件。
   ```
-5. retry 字段
+- 5. retry 字段
   服务器可以用retry字段，指定浏览器重新发起连接的时间间隔。
   ```
   retry: 10000\n
