@@ -103,3 +103,110 @@
   ```
     source.close();
   ```
+
+
+### 服务器实现
+
+- 1.数据格式
+  服务器向浏览器发送的 SSE 数据，必须是 UTF-8 编码的文本，具有如下的 HTTP 头信息  
+  ```
+    Content-Type: text/event-stream
+    Cache-Control: no-cache
+    Connection: keep-alive
+    
+    第一行的Content-Type必须指定 MIME 类型为event-steam
+    
+    每一次发送的信息，由若干个message组成，每个message之间用\n\n分隔。每个message内部由若干行组成，每一行都是如下格式。
+    [field]: value\n
+    
+    上面的field可以取四个值。
+
+    data
+    event
+    id
+    retry
+    
+    此外，还可以有冒号开头的行，表示注释。通常，服务器每隔一段时间就会向浏览器发送一个注释，保持连接不中断。
+    : This is a comment
+    
+    下面是一个例子。
+
+    : this is a test stream\n\n
+
+    data: some text\n\n
+
+    data: another message\n
+    data: with two lines \n\n
+  ```
+  
+2. data 字段
+  ```
+  数据内容用data字段表示
+  data:  message\n\n
+  ```
+  如果数据很长，可以分成多行，最后一行用\n\n结尾，前面行都用\n结尾。
+  ```
+  下面是一个发送 JSON 数据的例子。
+
+  data: {\n
+  data: "foo": "bar",\n
+  data: "baz", 555\n
+  data: }\n\n
+  ```
+3. id 字段
+  数据标识符用id字段表示，相当于每一条数据的编号。
+  
+  ```
+  id: msg1\n
+  data: message\n\n
+  ```
+  
+4. event 字段
+  event字段表示自定义的事件类型，默认是message事件。浏览器可以用addEventListener()监听该事件。
+  ```
+  event: foo\n
+  data: a foo event\n\n
+
+  data: an unnamed event\n\n
+
+  event: bar\n
+  data: a bar event\n\n
+  上面的代码创造了三条信息。第一条的名字是foo，触发浏览器的foo事件；第二条未取名，表示默认类型，触发浏览器的message事件；
+  第三条是bar，触发浏览器的bar事件。
+  ```
+5. retry 字段
+  服务器可以用retry字段，指定浏览器重新发起连接的时间间隔。
+  ```
+  retry: 10000\n
+  ```
+  
+### Node 服务器实例
+
+```
+var http = require("http");
+
+http.createServer(function (req, res) {
+  var fileName = "." + req.url;
+
+  if (fileName === "./stream") {
+    res.writeHead(200, {
+      "Content-Type":"text/event-stream",
+      "Cache-Control":"no-cache",
+      "Connection":"keep-alive",
+      "Access-Control-Allow-Origin": '*',
+    });
+    res.write("retry: 10000\n");
+    res.write("event: connecttime\n");
+    res.write("data: " + (new Date()) + "\n\n");
+    res.write("data: " + (new Date()) + "\n\n");
+
+    interval = setInterval(function () {
+      res.write("data: " + (new Date()) + "\n\n");
+    }, 1000);
+
+    req.connection.addListener("close", function () {
+      clearInterval(interval);
+    }, false);
+  }
+}).listen(8844, "127.0.0.1");
+```
