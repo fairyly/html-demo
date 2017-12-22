@@ -185,6 +185,8 @@
 ### Node 服务器实例
 
 ```
+新建一个文件 app.js;
+
 var http = require("http");
 
 http.createServer(function (req, res) {
@@ -211,4 +213,8 @@ http.createServer(function (req, res) {
     }, false);
   }
 }).listen(8844, "127.0.0.1");
+
+运行 node app.js
+
+打开浏览器 访问 http://localhost:8844/stream 就可以看到服务器 向 浏览器发送的数据了
 ```
