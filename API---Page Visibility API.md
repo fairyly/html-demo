@@ -4,6 +4,22 @@
 
 MDN: https://developer.mozilla.org/zh-CN/docs/Web/API/Page_Visibility_API
 
+通常，我们使用各种事件，判断用户是否正在离开当前页面。
+```
+visibilityState
+pageshow
+pagehide
+beforeunload
+unload
+```
+但是，手机浏览器往往不会触发这些事件，原因是浏览器进程会被突然关闭或者切换到后台，从而没有机会触发这些事件。常见的场景有以下这些。
+```
+用户点击了一条系统通知，切换到另一个 App。
+用户进入任务切换窗口，切换到另一个 App。
+用户点击了 Home 按钮，切换回主屏幕。
+操作系统自动切换到另一个 App（比如，收到一个打入的电话）。
+```
+
 使用 Page Visibility API，判断页面是否可见
 ```
 // 页面的 visibility 属性可能返回三种状态
