@@ -12,7 +12,13 @@
     <track src="web_en.vtt" srclang="en" kind="subtitles" label="English">
 </video>
 
-web.vtt 文件内容：
+<track> 标签中的 default :通知浏览器在用户没有选择使用其他字幕时候可以使用这个；
+src : 指定字幕文件的存放路径
+srclang: 指定字幕文件的语言
+kind: 指定字幕文件种类 （subtitles,captions,descriptions,chapters,metadata）
+
+web.vtt 文件内容如下：
+
 WEBVTT
  
 00:00:01.000 --> 00:00:10.000
