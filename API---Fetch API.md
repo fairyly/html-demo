@@ -147,3 +147,84 @@ fetch(url, {
   credentials: 'include'
 })
 ```
+
+发出 POST 请求的写法如下。
+
+```
+fetch('http://www.example.org/submit.php', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  body: 'firstName=Nikhil&favColor=blue&password=easytoguess'
+}).then(function(res) {
+  if (res.ok) {
+    console.log('Perfect! Your settings are saved.');
+  } else if (res.status == 401) {
+    console.log('Oops! You are not authorized.');
+  }
+}, function(e) {
+  console.log('Error submitting form!');
+});
+```
+
+
+### Headers
+
+Fetch API 引入三个新的对象（也是构造函数）：Headers, Request和Response。其中，Headers对象用来构造/读取 HTTP 数据包的头信息。
+```
+var content = 'Hello World';
+var headers = new Headers();
+headers.append('Accept', 'application/json');
+headers.append('Content-Type', 'text/plain');
+headers.append('Content-Length', content.length.toString());
+headers.append('X-Custom-Header', 'ProcessThisImmediately');
+```
+Headers对象的实例，除了使用append方法添加属性，也可以直接通过构造函数一次性生成。
+```
+var reqHeaders = new Headers({
+  'Content-Type': 'text/plain',
+  'Content-Length': content.length.toString(),
+  'X-Custom-Header': 'ProcessThisImmediately',
+});
+```
+Headers 对象实例还提供了一些工具方法。
+```
+reqHeaders.has('Content-Type') // true
+reqHeaders.has('Set-Cookie') // false
+reqHeaders.set('Content-Type', 'text/html')
+reqHeaders.append('X-Custom-Header', 'AnotherValue')
+
+reqHeaders.get('Content-Length') // 11
+reqHeaders.getAll('X-Custom-Header') // ["ProcessThisImmediately", "AnotherValue"]
+
+reqHeaders.delete('X-Custom-Header')
+reqHeaders.getAll('X-Custom-Header') // []
+```
+生成 Header 实例以后，可以将它作为第二个参数，传入Request方法。
+```
+var headers = new Headers();
+headers.append('Accept', 'application/json');
+var request = new Request(URL, {headers: headers});
+
+fetch(request).then(function(response) {
+  console.log(response.headers);
+});
+```
+同样地，Headers 实例可以用来构造 Response 方法。
+```
+var headers = new Headers({
+  'Content-Type': 'application/json',
+  'Cache-Control': 'max-age=3600'
+});
+
+var response = new Response(
+  JSON.stringify({photos: {photo: []}}),
+  {'status': 200, headers: headers}
+);
+
+response.json().then(function(json) {
+  insertPhotos(json);
+});
+```
+上面代码中，构造了一个 HTTP 回应。目前，浏览器构造 HTTP 回应没有太大用处，但是随着 Service Worker 的部署，不久浏览器就可以向 Service Worker 发出 HTTP 回应。
