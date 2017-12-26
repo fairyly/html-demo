@@ -228,3 +228,7 @@ response.json().then(function(json) {
 });
 ```
 上面代码中，构造了一个 HTTP 回应。目前，浏览器构造 HTTP 回应没有太大用处，但是随着 Service Worker 的部署，不久浏览器就可以向 Service Worker 发出 HTTP 回应。
+
+
+
+https://www.sitepen.com/blog/2017/10/02/a-guide-to-faster-web-app-io-and-data-operations-with-streams/
