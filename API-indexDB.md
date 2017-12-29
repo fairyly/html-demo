@@ -1,5 +1,8 @@
 # indexDB
 
+* IndexedDB Polyfill:https://github.com/axemclion/IndexedDBShim  为仅支持WebSQL 的浏览器(例如移动版的 WebKit)
+* JQuery IndexedDB 插件:http://nparashuram.com/IndexedDBShim/
+
 * https://www.cnblogs.com/sxz2008/p/6639030.html
 
 ```
