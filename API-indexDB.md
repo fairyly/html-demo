@@ -24,7 +24,7 @@ request.onsuccess = function(e){
 }
 ```
 
-测试 demo：
+* 测试 demo：
 ```
 var myDB={
             name:'test',
@@ -148,4 +148,21 @@ function updateDataByKey(db,storeName,value){
         }
     };
 }
+```
+* 使用 get() 要求你知道你想要检索哪一个键。如果你想要遍历对象存储空间中的所有值，那么你可以使用游标
+
+```
+var objectStore = db.transaction("customers").objectStore("customers");
+var customers = [];
+
+objectStore.openCursor().onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    customers.push(cursor.value);
+    cursor.continue();
+  }
+  else {
+    alert("Got all customers: " + customers);
+  }
+};
 ```
