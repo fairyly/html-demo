@@ -5,6 +5,8 @@
 
 * https://www.cnblogs.com/sxz2008/p/6639030.html
 
+**所有针对数据的操作只能在一个事务中被执行**
+
 ```
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;//indexDB对象
 
@@ -163,6 +165,36 @@ objectStore.openCursor().onsuccess = function(event) {
   }
   else {
     alert("Got all customers: " + customers);
+  }
+};
+```
+
+* 使用索引：如通过姓名来查找一个客户
+```
+  var index = objectStore.index("name");
+  index.get("Donna").onsuccess = function(event) {
+    alert("Donna's SSN is " + event.target.result.ssn);
+  };
+  
+  如果你需要访问带有给定 name 的所有的记录你可以使用一个游标
+  可以在索引上打开两个不同类型的游标。一个常规游标映射索引属性到对象存储空间中的对象。一个键索引映射索引属性到用来存储对象存储空间中的对象的键。
+  
+  index.openCursor().onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    // cursor.key 是一个 name, 就像 "Bill", 然后 cursor.value 是整个对象。
+    alert("Name: " + cursor.key + ", SSN: " + cursor.value.ssn + ", email: " + cursor.value.email);
+    cursor.continue();
+  }
+};
+
+index.openKeyCursor().onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    // cursor.key 是一个 name, 就像 "Bill", 然后 cursor.value 是那个 SSN。
+    // 没有办法可以得到存储对象的其余部分。
+    alert("Name: " + cursor.key + ", SSN: " + cursor.value);
+    cursor.continue();
   }
 };
 ```
