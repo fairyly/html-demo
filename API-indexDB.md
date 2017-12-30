@@ -198,3 +198,40 @@ index.openKeyCursor().onsuccess = function(event) {
   }
 };
 ```
+* 指定游标的范围和方向
+```
+如果你想要限定你在游标中看到的值的范围，你可以使用一个 key range 对象然后把它作为第一个参数传给 openCursor() 或是 openKeyCursor()。你可以构造一个只允许一个单一 key 的 key range，或者一个具有下限或上限，或者一个既有上限也有下限。边界可以是闭合的（也就是说 key range 包含给定的值）或者是“开放的”（也就是说 key range 不包括给定的值）
+
+// 只匹配 "Donna"
+var singleKeyRange = IDBKeyRange.only("Donna");
+
+// 匹配所有在 "Bill" 前面的, 包括 "Bill"
+var lowerBoundKeyRange = IDBKeyRange.lowerBound("Bill");
+
+// 匹配所有在 “Bill” 前面的, 但是不需要包括 "Bill"
+var lowerBoundOpenKeyRange = IDBKeyRange.lowerBound("Bill", true);
+
+// Match anything up to, but not including, "Donna"
+var upperBoundOpenKeyRange = IDBKeyRange.upperBound("Donna", true);
+
+//Match anything between "Bill" and "Donna", but not including "Donna"
+var boundKeyRange = IDBKeyRange.bound("Bill", "Donna", false, true);
+
+index.openCursor(boundKeyRange).onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    // Do something with the matches.
+    cursor.continue();
+  }
+};
+
+你可能想要以倒序而不是正序（所有游标的默认顺序）来遍历。切换方向是通过传递 prev 到 openCursor() 方法来实现的
+
+objectStore.openCursor(null, IDBCursor.prev).onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    // Do something with the entries.
+    cursor.continue();
+  }
+};
+```
