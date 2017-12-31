@@ -5,6 +5,11 @@
 
 * https://www.cnblogs.com/sxz2008/p/6639030.html
 
+* 1.打开数据库：indexedDB.open('数据库名','数据库版本号')
+* 2.数据库版本更新：indexedDB.open('数据库名','数据库版本号').onupgradeneeded = function(e){db = e.target.result;}
+* 3.创建对象仓库：var store = db.createObjectStore("对象仓库名",{keyPath:'id',autoIncreement: false});// 相当于指定主键
+* 4.创建索引：var dbindex = store.createIndex("索引名","对象的属性如username",{unique:false,multiEntry:false})
+
 **所有针对数据的操作只能在一个事务中被执行**
 
 ```
