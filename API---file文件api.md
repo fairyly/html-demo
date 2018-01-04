@@ -84,4 +84,17 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
   - readAsBinaryString则将文件读取为二进制串;
   - readAsDataURL会将文件内容进行base64编码后输出；
   - readAsText读取文件的单位是字符，故对于文本文件，只要按规定的编码方式读取即可；
+  
+  - onabort
+    当读取操作被中止时调用.
+  - onerror
+    当读取操作发生错误时调用.
+  - bonload
+    当读取操作成功完成时调用.
+  - onloadend
+    当读取操作完成时调用,不管是成功还是失败.该处理程序在onload或者onerror之后调用.
+  - onloadstart
+    当读取操作将要开始之前调用.
+  - onprogress
+    在读取数据过程中周期性调用.
 
