@@ -25,5 +25,10 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
   - Float64Array or
   - DataView.
   
+  ```
+    var buffer = new ArrayBuffer(8);
+    var view   = new Int32Array(buffer);
+  ```
+  
   
 
