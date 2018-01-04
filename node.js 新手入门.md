@@ -1,6 +1,7 @@
 # nodeJS
 
 * 新手指导：https://cnodejs.org/getstart
+* nodejs API 文档：http://nodejs.cn/api/buffer.html
 
 Node.js 入门
 
