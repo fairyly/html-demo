@@ -75,7 +75,7 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
     // 你可以像使用一个普通URL那样使用它，比如用在img.src上。
   ```
   
-  - blob 对象的 slice 方法
+  - blob 对象的 slice 方法  
     Blob.slice(start,end,contenttype)
 
 * 4.FileReader对象
@@ -97,4 +97,13 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
     当读取操作将要开始之前调用.
   - onprogress
     在读取数据过程中周期性调用.
-
+  ```
+     $('input').change(function(){
+         var reader = new FileReader();
+         reader.onload = function(e){
+            var dataURL=this.result;
+            $(".qrcode-pic img").attr("src", dataURL);
+         }
+         reader.readAsDataURL(this.files[0]);
+     });
+  ```
