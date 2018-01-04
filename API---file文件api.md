@@ -74,6 +74,14 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
     // 会产生一个类似blob:d3958f5c-0777-0845-9dcf-2cb28783acaf 这样的URL字符串
     // 你可以像使用一个普通URL那样使用它，比如用在img.src上。
   ```
+  
+  - blob 对象的 slice 方法
+    Blob.slice(start,end,contenttype)
 
-
+* 4.FileReader对象
+  - fileReader提供了四种不同的读取文件的方式，如：
+  - readAsArrayBuffer会将文件内容读取为ArrayBuffer对象，
+  - readAsBinaryString则将文件读取为二进制串;
+  - readAsDataURL会将文件内容进行base64编码后输出；
+  - readAsText读取文件的单位是字符，故对于文本文件，只要按规定的编码方式读取即可；
 
