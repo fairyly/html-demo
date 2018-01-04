@@ -40,5 +40,7 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
        dateview.setInt8(byteOffset,value);
     ```
  
-  
+* 3.blob 对象
+
+
 
