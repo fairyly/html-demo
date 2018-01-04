@@ -66,6 +66,13 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
         }
         return url;
     } 
+    
+    使用 Blob 创建一个指向类型数组的URL
+    var typedArray = GetTheTypedArraySomehow();
+    var blob = new Blob([typedArray], {type: "application/octet-binary"});// 传入一个合适的MIME类型
+    var url = URL.createObjectURL(blob);
+    // 会产生一个类似blob:d3958f5c-0777-0845-9dcf-2cb28783acaf 这样的URL字符串
+    // 你可以像使用一个普通URL那样使用它，比如用在img.src上。
   ```
 
 
