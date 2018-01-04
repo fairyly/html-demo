@@ -41,6 +41,32 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
     ```
  
 * 3.blob 对象
+  - 创建 blob: 
+  ```
+    var debug = {hello: "world"};
+    var blob = new Blob([JSON.stringify(debug, null, 2)],{type : 'application/json'});
+    
+    文件上传   blob对象：是一个可以存储二进制文件的容器；
+
+   $("input").change(function(){
+        var objUrl = getObjectURL(this.files[0]);
+        if (objUrl) {
+           $('.upfile1').css("background-image", "url("+objUrl+")");
+        }    
+    });
+     //建立一个可存取到该file的url
+    function getObjectURL(file){
+        var url = null; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    } 
+  ```
 
 
 
