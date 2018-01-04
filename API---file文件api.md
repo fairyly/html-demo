@@ -30,5 +30,15 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
     var view   = new Int32Array(buffer);
   ```
   
+  - 创建 DataView: new DataView(buffer [, byteOffset [, byteLength]])
+    1.得到指定位置处的一个 8 位整数，
+    ```
+      var int8value = dateview.getInt8(byteOffset);
+    ```
+    2.设置指定位置处的一个 8 位整数
+    ```
+       dateview.setInt8(byteOffset,value);
+    ```
+ 
   
 
