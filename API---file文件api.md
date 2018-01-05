@@ -119,9 +119,14 @@ window.webkitRequestFileSystem(window.PERSISTENT, 5 * 1024, initFs, errorHandler
 
 function initFs(fs) {
     console.log(fs);
-    fs.root.getFile('test.txt',{create:true},function(fileEntry){
+    fs.root.getFile(
+      'test.txt',
+      {create:true},
+      function(fileEntry){
         console.log(fileEntry)
-    })
+      },
+      errorHandler
+    )
 }
 function errorHandler(e) {
     console.log(e)
