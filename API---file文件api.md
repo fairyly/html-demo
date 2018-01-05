@@ -167,3 +167,17 @@ navigator.webkitPersistentStorage.requestQuota (
 ```
 
 * blog:http://blog.csdn.net/salonzhou/article/details/28275713
+
+```
+创建一个方法用来自动创建目录：
+
+function createDir(rootDir, folders) {
+  rootDir.getDirectory(folders[0], {create: true}, function(dirEntry) {
+    if (folders.length) {
+      createDir(dirEntry, folders.slice(1));
+    }
+  }, errorHandler);
+};
+createDir(fs.root, 'Documents/Images/Nature/Sky/'.split('/'));
+使用这个小技巧，我们只需要提供完整的路径就能自动为我们创建文件夹。
+```
