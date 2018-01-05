@@ -149,8 +149,31 @@ function initFs(fs) {
       alert('You have just created the ' + dirEntry.name + ' directory.');
     }, errorHandler);
 }
-function errorHandler(e) {
-    console.log(e)
+function errorHandler(err) {
+    console.log(err)
+    switch (err.code) {
+    case FileError.NOT_FOUND_ERR:
+      msg += 'File or directory not found';
+      break;
+
+    case FileError.NOT_READABLE_ERR:
+      msg += 'File or directory not readable';
+      break;
+
+    case FileError.PATH_EXISTS_ERR:
+      msg += 'File or directory already exists';
+      break;
+
+    case FileError.TYPE_MISMATCH_ERR:
+      msg += 'Invalid filetype';
+      break;
+
+    default:
+      msg += 'Unknown Error';
+      break;
+  };
+
+ console.log(msg);
 }
 
 
