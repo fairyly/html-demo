@@ -123,22 +123,47 @@ navigator.webkitTemporaryStorage.queryUsageAndQuota (
     }, 
     function(e) { console.log('Error', e);  }
 );
-// 申请磁盘配额
-window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
-window.webkitRequestFileSystem(window.PERSISTENT, 5 * 1024, initFs, errorHandler);
 
+<script>
+
+navigator.webkitTemporaryStorage.queryUsageAndQuota ( 
+    function(usedBytes, grantedBytes) {  
+        console.log('we are using ', usedBytes, ' of ', grantedBytes, 'bytes');
+    }, 
+    function(e) { console.log('Error', e);  }
+);
+
+window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+window.webkitRequestFileSystem(window.PERSISTENT, 2*1024, initFs, errorHandler);
 function initFs(fs) {
     console.log(fs);
     fs.root.getFile(
-      'test.txt',
-      {create:true},
-      function(fileEntry){
-        console.log(fileEntry)
-      },
-      errorHandler
-    )
+        'test.txt',
+        {create:true},
+        function(fileEntry){
+            console.log(fileEntry)
+        },
+        errorHandler
+    );
+    fs.root.getDirectory('Documents', {create: true}, function(dirEntry) {
+      alert('You have just created the ' + dirEntry.name + ' directory.');
+    }, errorHandler);
 }
 function errorHandler(e) {
     console.log(e)
 }
+
+
+// 申请磁盘配额
+var requestedBytes = 1024*1024*10; // 10MB
+navigator.webkitPersistentStorage.requestQuota (
+    requestedBytes, function(grantedBytes) {  
+        window.requestFileSystem(window.PERSISTENT, grantedBytes, initFs, errorHandler);
+
+    }, function(e) { console.log('Error', e); }
+);
+
+</script>
 ```
+
+* blog:http://blog.csdn.net/salonzhou/article/details/28275713
