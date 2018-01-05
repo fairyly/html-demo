@@ -115,7 +115,7 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
 1.
 ```
 window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
-window.requestFileSystem(window.PERSISTENT, 5 * 1024, initFs, errorHandler);
+window.webkitRequestFileSystem(window.PERSISTENT, 5 * 1024, initFs, errorHandler);
 
 function initFs(fs) {
     console.log(fs);
