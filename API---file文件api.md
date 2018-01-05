@@ -112,8 +112,18 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
 
 ###  File System API
 
-1.
+* 文件系统：https://developer.mozilla.org/zh-CN/docs/WebGuide/API/File_System/Introduction#quota
+
+1. 申请磁盘配额
 ```
+// 查看请求存储使用情况和容量
+navigator.webkitTemporaryStorage.queryUsageAndQuota ( 
+    function(usedBytes, grantedBytes) {  
+        console.log('we are using ', usedBytes, ' of ', grantedBytes, 'bytes');
+    }, 
+    function(e) { console.log('Error', e);  }
+);
+// 申请磁盘配额
 window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
 window.webkitRequestFileSystem(window.PERSISTENT, 5 * 1024, initFs, errorHandler);
 
