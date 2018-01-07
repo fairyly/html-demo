@@ -30,7 +30,7 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
     var view   = new Int32Array(buffer);
   ```
   
-  - 创建 DataView: new DataView(buffer [, byteOffset [, byteLength]])
+  - 创建 DataView: new DataView(buffer [, byteOffset [, byteLength]])
   
     1.得到指定位置处的一个 8 位整数，  
     ```
