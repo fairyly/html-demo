@@ -114,25 +114,8 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
 
 * 文件系统：https://developer.mozilla.org/zh-CN/docs/WebGuide/API/File_System/Introduction#quota
 
-1. 申请磁盘配额
+1.请求访问文件系统
 ```
-// 查看请求存储使用情况和容量
-navigator.webkitTemporaryStorage.queryUsageAndQuota ( 
-    function(usedBytes, grantedBytes) {  
-        console.log('we are using ', usedBytes, ' of ', grantedBytes, 'bytes');
-    }, 
-    function(e) { console.log('Error', e);  }
-);
-
-<script>
-
-navigator.webkitTemporaryStorage.queryUsageAndQuota ( 
-    function(usedBytes, grantedBytes) {  
-        console.log('we are using ', usedBytes, ' of ', grantedBytes, 'bytes');
-    }, 
-    function(e) { console.log('Error', e);  }
-);
-
 window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
 window.webkitRequestFileSystem(window.PERSISTENT, 2*1024, initFs, errorHandler);
 function initFs(fs) {
@@ -175,16 +158,34 @@ function errorHandler(err) {
 
  console.log(msg);
 }
+```
 
+2. 申请磁盘配额
+
+```
+'window.webkitStorageInfo' is deprecated. Please use 'navigator.webkitTemporaryStorage' or 'navigator.webkitPersistentStorage' instead.
+window.webkitStorageInfo 已经被弃用，使用 navigator.webkitTemporaryStorage 和 navigator.webkitPersistentStorage替代
 
 // 申请磁盘配额
 var requestedBytes = 1024*1024*10; // 10MB
 navigator.webkitPersistentStorage.requestQuota (
-    requestedBytes, function(grantedBytes) {  
-        window.requestFileSystem(window.PERSISTENT, grantedBytes, initFs, errorHandler);
+   PERSISTENT,// 指定为永久数据申请磁盘配额
+    requestedBytes, function(grantedBytes) {  、
+        window.requestFileSystem(window.PERSISTENT, grantedBytes, initFs, errorHandler);
 
     }, function(e) { console.log('Error', e); }
 );
+
+// 查看请求存储使用情况和容量
+navigator.webkitTemporaryStorage.queryUsageAndQuota (
+    TEMPORARY,// 指定为临时数据申请磁盘配额
+    function(usedBytes, grantedBytes) {  
+        console.log('we are using ', usedBytes, ' of ', grantedBytes, 'bytes');
+    }, 
+    function(e) { console.log('Error', e);  }
+);
+
+
 
 </script>
 ```
