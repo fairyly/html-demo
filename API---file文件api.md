@@ -238,3 +238,9 @@ function createDir(rootDir, folders) {
 createDir(fs.root, 'Documents/Images/Nature/Sky/'.split('/'));
 使用这个小技巧，我们只需要提供完整的路径就能自动为我们创建文件夹。
 ```
+
+
+## base64 编码
+
+* atob(): 将一串经过 base64 编码后的的 base64 格式的字符串进行解码处理
+* btoa(): 将一串字符串进行 base64 编码处理
