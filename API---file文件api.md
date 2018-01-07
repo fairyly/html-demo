@@ -121,15 +121,47 @@ window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileS
 window.webkitRequestFileSystem(window.PERSISTENT, 2*1024, initFs, errorHandler);
 function initFs(fs) {
     console.log(fs);
-    fs.root.getFile(
+    // 创建文件
+    fs.root.getFile(
         'test.txt',
         {create:true},
         function(fileEntry){
-            console.log(fileEntry)
+            console.log(fileEntry);
+            // 写入文件
+            fileEntry.createWriter(
+                    function (fileWriter){
+                        console.log(fileWriter);
+                        fileWriter.seek(fileWriter.length);
+                        var blob = new Blob(['test'])
+                        fileWriter.write(blob);
+                    },errorHandler
+                );
+                // 读取文件
+                fileEntry.file(
+                    function(file) {
+                        var reader = new FileReader();
+
+                        reader.onloadend = function(e) {
+                        var txtArea = document.createElement('textarea');
+                        txtArea.value = this.result;
+                        document.body.appendChild(txtArea);
+                        console.log(this.result)
+                    };
+
+                   reader.readAsText(file);
+                }, errorHandler);
+                
+                // 删除文件
+                fileEntry.remove(function (callback) {
+                    //log.debug(fileName + '文件删除成功.');
+                     // if (callback) callback(fileName);
+                     console.log(fileEntry.name,callback)
+                 }, errorHandler);
         },
         errorHandler
     );
-    fs.root.getDirectory('Documents', {create: true}, function(dirEntry) {
+    // 创建目录
+    fs.root.getDirectory('Documents', {create: true}, function(dirEntry) {
       alert('You have just created the ' + dirEntry.name + ' directory.');
     }, errorHandler);
 }
