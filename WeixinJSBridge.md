@@ -119,18 +119,18 @@
     
          var menuHidden=!1,toolbarHidden=!1,netType={"network_type:wifi":"wifi网络","network_type:edge":"非wifi,包含3G/2G","network_type:fail":"网络断开连接","network_type:wwan":"2g或者3g"};
          document.addEventListener("WeixinJSBridgeReady",function(){
-                     document.getElementById("imagePreview").addEventListener(
-                         "click",function(){
-                                             WeixinJSBridge.invoke("imagePreview",{
-                                 "urls":[
-                                 "http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/logo1ca3fe.png",
-                                 "http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/icons_features1ca3fe.png",
-                                 "http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/icons_workStyle1ca3fe.png"
-                                 ],
-                                 "current":"http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/icons_features1ca3fe.png"
-                             })
-                                     },!1),
-                 document.getElementById("profile").addEventListener(
+                document.getElementById("imagePreview").addEventListener(
+                     "click",function(){
+                                WeixinJSBridge.invoke("imagePreview",{
+                             "urls":[
+                             "http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/logo1ca3fe.png",
+                             "http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/icons_features1ca3fe.png",
+                             "http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/icons_workStyle1ca3fe.png"
+                             ],
+                             "current":"http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/icons_features1ca3fe.png"
+                         })
+                                 },!1),
+                document.getElementById("profile").addEventListener(
                         "click",function(){
                             alert("profile clicked");
                             WeixinJSBridge.invoke("profile",{
@@ -138,7 +138,7 @@
                                      "nickname":"企业微信小助手"
                              })
                          },!1),
-                 document.getElementById("shareWeibo").addEventListener(
+                document.getElementById("shareWeibo").addEventListener(
                          "click",function(){
                              WeixinJSBridge.invoke("shareWeibo",{
                                     "type":"link",
@@ -148,18 +148,18 @@
                                      alert(e.err_msg);
                                  })
                          },!1),
-                 document.getElementById("shareFB").addEventListener(
+                document.getElementById("shareFB").addEventListener(
                          "click",function(){
                              WeixinJSBridge.invoke("shareFB",{
                                      "link":"http://m.exmail.qq.com"
                              })
                          },!1),
-                 document.getElementById("scanQRCode").addEventListener(
+                document.getElementById("scanQRCode").addEventListener(
                          "click",function(){
                              WeixinJSBridge.invoke("scanQRCode",{
                                  })
                          },!1),
-                 document.getElementById("addEmoticon").addEventListener(
+                document.getElementById("addEmoticon").addEventListener(
                          "click",function(){
                              WeixinJSBridge.invoke("addEmoticon",{
                                      "url":"http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/icons_features1ca3fe.png",
@@ -170,7 +170,7 @@
                                                          alert(e.err_msg);
                                                  })
                          },!1),
-                 document.getElementById("cancelAddEmoticon").addEventListener(
+                document.getElementById("cancelAddEmoticon").addEventListener(
                          "click",function(){
                              WeixinJSBridge.invoke("cancelAddEmoticon",{
                                      "url":"http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/icons_features1ca3fe.png"
@@ -180,7 +180,7 @@
                                                          alert(e.err_msg);
                                                  })
                          },!1),
-                 document.getElementById("hasEmoticon").addEventListener(
+                document.getElementById("hasEmoticon").addEventListener(
                          "click",function(){
                              WeixinJSBridge.invoke("hasEmoticon",{
                                      "url":"http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/icons_features1ca3fe.png"
@@ -190,7 +190,7 @@
                                                          alert(e.err_msg);
                                                  })
                          },!1),
-                 document.getElementById("addContact").addEventListener(
+                document.getElementById("addContact").addEventListener(
                          "click",function(){
                              WeixinJSBridge.invoke("addContact",{
                                      "webtype":"1",
@@ -200,7 +200,7 @@
                                      alert(e.err_msg);
                                  })
                          },!1),
-                 document.getElementById("jumpToBizProfile").addEventListener(
+                document.getElementById("jumpToBizProfile").addEventListener(
                          "click",function(){
                              WeixinJSBridge.invoke("jumpToBizProfile",{
                                      "tousername":"gh_2248a2ade13e"
@@ -209,32 +209,32 @@
                                      alert(e.err_msg);
                                  })
                          },!1),
-                 document.getElementById("toggleMenuBtn").addEventListener(
+                document.getElementById("toggleMenuBtn").addEventListener(
                          "click",function(){
                              menuHidden?
                                  (WeixinJSBridge.call("showOptionMenu"),menuHidden=!1,this.value="隐藏右上角按钮")
                                  :
                              (WeixinJSBridge.call("hideOptionMenu"),menuHidden=!0,this.value="显示右上角按钮")
                          },!1),
-                 document.getElementById("toggleToolbar").addEventListener(
+                document.getElementById("toggleToolbar").addEventListener(
                          "click",function(){
                              toolbarHidden?
                                  (WeixinJSBridge.call("showToolbar"),toolbarHidden=!1,this.value="隐藏底部导航栏")
                                  :
                              (WeixinJSBridge.call("hideToolbar"),toolbarHidden=!0,this.value="显示底部导航栏")
                          },!1),
-                 document.getElementById("getNetType").addEventListener(
+                document.getElementById("getNetType").addEventListener(
                          "click",function(){
                              WeixinJSBridge.invoke("getNetworkType",{},
                                      function(e){
                                          alert(netType[e.err_msg])
                                      })
                          },!1),
-                  document.getElementById("closeWindow").addEventListener(
+                document.getElementById("closeWindow").addEventListener(
                                      "click",function(){
                                              WeixinJSBridge.invoke("closeWindow",{},function(e){})
                                      },!1),
-                 document.getElementById("getBrandWCPayRequest").addEventListener(
+                document.getElementById("getBrandWCPayRequest").addEventListener(
                          "click",function(){
                          WeixinJSBridge.invoke("getBrandWCPayRequest",{
                                  "appId" : "wxf8b4f85f3a794e77", //公众号名称，由商户传入
@@ -256,138 +256,138 @@
                              })
                          },!1),
         
-                 document.getElementById("sendEmail").addEventListener(
+                document.getElementById("sendEmail").addEventListener(
                          "click",function(){
                          WeixinJSBridge.invoke("sendEmail",{
-                260                 "title" : "title!",
-                261                 "content" : "i am an Email!", //时间戳 这里随意使用了一个值
-                262                 },
-            263                 function(e){
-                264         //          alert(e.err_msg)
-                265                 })
-            266             },!1),
-        267         document.getElementById("openSpecificView").addEventListener(
-            268             "click",function(){
-            269             WeixinJSBridge.invoke("openSpecificView",{
-                270                 "specificview" : "contacts"
-            271                 },
-            272                 function(e){
-                273                     alert(e.err_msg)
-                274                 })
-            275             },!1),
-        276         document.getElementById("getCanIAPPay").addEventListener(
-            277             "click",function(){
-            278             WeixinJSBridge.invoke("getCanIAPPay",{  },
-                279                 function(e){
-                280                     alert(e.err_msg)
-                281                 })
-            282             },!1),
-        283         document.getElementById("getBrandIAPPayRequest").addEventListener(
-            284             "click",function(){
-            285             WeixinJSBridge.invoke("getBrandIAPPayRequest",{
-                286                 "appId" : "wxf8b4f85f3a794e77", //公众号名称，由商户传入
-                287                 "timeStamp" : "189026618", //时间戳 这里随意使用了一个值
-                288                 "nonceStr" : "adssdasssd13d", //随机串
-                289                 "package" : "bankType=CITIC_CREDIT&bankName=%e4%b8%ad%e4%bf%a1%e9%93%b6%e8%a1%8c&sign=CF8922F49431FFE8A1834D0B32B25CE3",
-                290                 //扩展字段，由商户传入
-            291                 "signType" : "SHA1", //微信签名方式:sha1
-                292                 "paySign" : "1e6f13f78ca0ec43fbb80899087f77568af66987" //微信签名
-            293                 },
-            294                 function(e){
-                295                     alert(e.err_msg)
-                296                 })
-            297             },!1),
-        298         document.getElementById("openLocation").addEventListener(
-            299             "click",function(){
-            300             WeixinJSBridge.invoke("openProductView",{
-                301                 "latitude" : 23.113, //纬度
-                302                 "longitude" : 113.23, //经度
-                303                 "name" : "TIT创意园", //POI名称
-                304                 "address" : "广州市海珠区新港中路397号", //地址
-                305                 "scale" : 14, //地图缩放级别
-                306                 "infoUrl" : "http://weixin.qq.com/", //查看位置界面底部的超链接                
-                307                 },
-            308                 function(e){
-                309                     alert(e.err_msg)
-                310                 })
-            311             },!1),
-        312         document.getElementById("timelineCheckIn").addEventListener(
-            313             "click",function(){
-            314             WeixinJSBridge.invoke("timelineCheckIn",{
-                315                 "img_url": "http://mmsns.qpic.cn/mmsns/RLllkTm3DUdV24xbZnKicx9jJWxXI0Bq84zzbtibGuRyk/0", // 分享到朋友圈的缩略图
-                316                 "img_width": "640",　// 图片的长度
-                317                 "img_height": "640", // 图片高度
-                318                 "link": "http://news.qq.com/zt2012/cxkyym/index.htm",　// 连接地址
-                319                 "desc": "这个是描述啊啊", // 描述
-                320                 "title": "朝鲜称中国渔船越界捕捞", // 分享标题
-                321                 "latitude" : 23.113, //纬度
-                322                 "longitude" : 113.23, //经度
-                323                 "poiId" : "dianping_2331037", //商户id
-                324                 "poiName" : "TIT创意园", //POI名称
-                325                 "poiAddress" : "广州市海珠区新港中路397号", //地址
-                326                 "poiScale" : 14, //地图缩放级别
-                327                 "poiInfoUrl" : "http://weixin.qq.com/" //查看位置界面底部的超链接
-            328                 },
-            329                 function(e){
-                330                     alert(e.err_msg)
-                331                 })
-            332             },!1),
-        333         document.getElementById("geoLocation").addEventListener(
-            334             "click",function(){
-            335             WeixinJSBridge.invoke("geoLocation",{
-                    336                 },
-                337                 function(e){
-                338                     alert(e.err_msg)
-                339                 })
-            340             },!1),
-        341         document.getElementById("getBrandWCPayCreateCreditCardRequest").addEventListener(
-            342             "click",function(){
-            343             WeixinJSBridge.invoke("getBrandWCPayCreateCreditCardRequest",{
-                344                 "appId" : "wxf8b4f85f3a794e77", //公众号名称，由商户传入
-                345                 "timeStamp" : "189026618", //时间戳 这里随意使用了一个值
-                346                 "nonceStr" : "adssdasssd13d", //随机串
-                347                 "package" : "bankType=CITIC_CREDIT&bankName=%e4%b8%ad%e4%bf%a1%e9%93%b6%e8%a1%8c&sign= CF8922F49431FFE8A1834D0B32B25CE3",
-                348                 //扩展字段，由商户传入
-            349                 "signType" : "SHA1", //微信签名方式:sha1
-                350                 "paySign" : "1e6f13f78ca0ec43fbb80899087f77568af66987" //微信签名
-            351                 },
-            352                 function(e){
-                353                     alert(e.err_msg)
-                354                 })
-            355             },!1),
-        356         document.getElementById("getInstallState").addEventListener(
-            357             "click",function(){
-            358             WeixinJSBridge.invoke("getInstallState",{
-                359                     "packageUrl":"teamcircle://"
-            360                 },
-            361                 function(e){
-                362                     alert(e.err_msg)
-                363                 })
-            364             },!1),
-        365         document.getElementById("openProductView").addEventListener(
-            366             "click",function(){
-            367             WeixinJSBridge.invoke("openProductView",{
-                368                     "productInfo":"json"
-            369                 },
-            370                 function(e){
-                371                     alert(e.err_msg)
-                372                 })
-            373             },!1),
-        374         document.getElementById("getLatestAddress").addEventListener(
-            375                 "click",function(){
-            376                 WeixinJSBridge.invoke("getLatestAddress",{
-                377                     "appId" : "wxf8b4f85f3a794e77", //公众号名称，由商户传入
-                378                     "timeStamp" : "189026618", //时间戳 这里随意使用了一个值
-                379                     "nonceStr" : "adssdasssd13d", //随机串
-                380                     "signType" : "SHA1", //微信签名方式:sha1
-                381                     "addrSign" : "b737015b5b1eabe5db580945a07eac08c7bb55f8", //微信签名
-                382                     "scope"    : "snsapi"
-            383                 },
-            384                 function(e){
-                385                     alert(e.err_msg)
-                386                 })
-            387             },!1),
-        388         document.getElementById("editAddress").addEventListener(
+                                "title" : "title!",
+                                 "content" : "i am an Email!", //时间戳 这里随意使用了一个值
+                                },
+                            function(e){
+                         //          alert(e.err_msg)
+                                 })
+                        },!1),
+                document.getElementById("openSpecificView").addEventListener(
+                         "click",function(){
+                        WeixinJSBridge.invoke("openSpecificView",{
+                                 "specificview" : "contacts"
+                            },
+                            function(e){
+                                    alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("getCanIAPPay").addEventListener(
+                         "click",function(){
+                         WeixinJSBridge.invoke("getCanIAPPay",{  },
+                                 function(e){
+                                     alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("getBrandIAPPayRequest").addEventListener(
+                         "click",function(){
+                         WeixinJSBridge.invoke("getBrandIAPPayRequest",{
+                                 "appId" : "wxf8b4f85f3a794e77", //公众号名称，由商户传入
+                                 "timeStamp" : "189026618", //时间戳 这里随意使用了一个值
+                                 "nonceStr" : "adssdasssd13d", //随机串
+                                 "package" : "bankType=CITIC_CREDIT&bankName=%e4%b8%ad%e4%bf%a1%e9%93%b6%e8%a1%8c&sign=CF8922F49431FFE8A1834D0B32B25CE3",
+                                 //扩展字段，由商户传入
+                             "signType" : "SHA1", //微信签名方式:sha1
+                                 "paySign" : "1e6f13f78ca0ec43fbb80899087f77568af66987" //微信签名
+                             },
+                             function(e){
+                                     alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("openLocation").addEventListener(
+                         "click",function(){
+                         WeixinJSBridge.invoke("openProductView",{
+                                 "latitude" : 23.113, //纬度
+                                 "longitude" : 113.23, //经度
+                                 "name" : "TIT创意园", //POI名称
+                                 "address" : "广州市海珠区新港中路397号", //地址
+                                 "scale" : 14, //地图缩放级别
+                                 "infoUrl" : "http://weixin.qq.com/", //查看位置界面底部的超链接                
+                                 },
+                             function(e){
+                                     alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("timelineCheckIn").addEventListener(
+                         "click",function(){
+                         WeixinJSBridge.invoke("timelineCheckIn",{
+                                 "img_url": "http://mmsns.qpic.cn/mmsns/RLllkTm3DUdV24xbZnKicx9jJWxXI0Bq84zzbtibGuRyk/0", // 分享到朋友圈的缩略图
+                                 "img_width": "640",　// 图片的长度
+                                 "img_height": "640", // 图片高度
+                                 "link": "http://news.qq.com/zt2012/cxkyym/index.htm",　// 连接地址
+                                 "desc": "这个是描述啊啊", // 描述
+                                 "title": "朝鲜称中国渔船越界捕捞", // 分享标题
+                                 "latitude" : 23.113, //纬度
+                                 "longitude" : 113.23, //经度
+                                 "poiId" : "dianping_2331037", //商户id
+                                 "poiName" : "TIT创意园", //POI名称
+                                 "poiAddress" : "广州市海珠区新港中路397号", //地址
+                                 "poiScale" : 14, //地图缩放级别
+                                 "poiInfoUrl" : "http://weixin.qq.com/" //查看位置界面底部的超链接
+                             },
+                             function(e){
+                                     alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("geoLocation").addEventListener(
+                         "click",function(){
+                         WeixinJSBridge.invoke("geoLocation",{
+                                     },
+                                 function(e){
+                                     alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("getBrandWCPayCreateCreditCardRequest").addEventListener(
+                         "click",function(){
+                         WeixinJSBridge.invoke("getBrandWCPayCreateCreditCardRequest",{
+                                 "appId" : "wxf8b4f85f3a794e77", //公众号名称，由商户传入
+                                 "timeStamp" : "189026618", //时间戳 这里随意使用了一个值
+                                 "nonceStr" : "adssdasssd13d", //随机串
+                                 "package" : "bankType=CITIC_CREDIT&bankName=%e4%b8%ad%e4%bf%a1%e9%93%b6%e8%a1%8c&sign= CF8922F49431FFE8A1834D0B32B25CE3",
+                                 //扩展字段，由商户传入
+                             "signType" : "SHA1", //微信签名方式:sha1
+                                 "paySign" : "1e6f13f78ca0ec43fbb80899087f77568af66987" //微信签名
+                             },
+                             function(e){
+                                     alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("getInstallState").addEventListener(
+                         "click",function(){
+                         WeixinJSBridge.invoke("getInstallState",{
+                                     "packageUrl":"teamcircle://"
+                             },
+                             function(e){
+                                     alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("openProductView").addEventListener(
+                         "click",function(){
+                         WeixinJSBridge.invoke("openProductView",{
+                                     "productInfo":"json"
+                             },
+                             function(e){
+                                     alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("getLatestAddress").addEventListener(
+                             "click",function(){
+                             WeixinJSBridge.invoke("getLatestAddress",{
+                                     "appId" : "wxf8b4f85f3a794e77", //公众号名称，由商户传入
+                                     "timeStamp" : "189026618", //时间戳 这里随意使用了一个值
+                                     "nonceStr" : "adssdasssd13d", //随机串
+                                     "signType" : "SHA1", //微信签名方式:sha1
+                                     "addrSign" : "b737015b5b1eabe5db580945a07eac08c7bb55f8", //微信签名
+                                     "scope"    : "snsapi"
+                             },
+                             function(e){
+                                     alert(e.err_msg)
+                                 })
+                         },!1),
+                document.getElementById("editAddress").addEventListener(
                              "click",function(){
                              WeixinJSBridge.invoke("editAddress",{
                                      "appId" : "wxf8b4f85f3a794e77", //公众号名称，由商户传入
@@ -401,7 +401,7 @@
                                      alert(e.err_msg)
                                  })
                          },!1),
-                 document.getElementById("launch3rdApp").addEventListener(
+                document.getElementById("launch3rdApp").addEventListener(
                              "click",function(){
                              WeixinJSBridge.invoke("launch3rdApp",{
                                      "appId" : "wx5823bf96d3bd56c7", //公众号名称，由商户传入
@@ -410,7 +410,7 @@
                                      alert(e.err_msg)
                                  })
                          },!1),
-                 document.getElementById("jumpWCMall").addEventListener(
+                document.getElementById("jumpWCMall").addEventListener(
                              "click",function(){
                              WeixinJSBridge.invoke("jumpWCMall",{
                                      "appId" : "wx5823bf96d3bd56c7", //公众号名称，由商户传入
@@ -420,7 +420,7 @@
                                     alert(e.err_msg)
                                  })
                          },!1),
-                 document.getElementById("openUrlByExtBrowser").addEventListener(
+                document.getElementById("openUrlByExtBrowser").addEventListener(
                         "click",function(){
                        WeixinJSBridge.invoke("openUrlByExtBrowser",{
                                 "url" : "http://m.exmail.qq.com"
