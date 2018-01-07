@@ -113,6 +113,7 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
 ###  File System API
 
 * 文件系统：https://developer.mozilla.org/zh-CN/docs/WebGuide/API/File_System/Introduction#quota
+* https://www.html5rocks.com/zh/tutorials/file/filesystem/
 
 1.请求访问文件系统
 ```
