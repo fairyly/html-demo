@@ -1,5 +1,6 @@
 ## WeixinJSBridge
 
+* jssdk: http://203.195.235.76/jssdk/
 * 支付：https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_7&index=6
   ```
     function onBridgeReady(){
