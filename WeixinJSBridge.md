@@ -28,7 +28,7 @@
     }else{
        onBridgeReady();
     }
-  ```
+  ```
 * 原微信支付
 ```
 <script>
