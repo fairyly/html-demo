@@ -4,6 +4,7 @@ fairyilys@gmail.com
 
 yhq123456
 
+* Heroku + Node.JS gitbook:https://www.gitbook.com/book/samypesse/heroku-node/details
 
 Install the Heroku CLI  
 Download and install the Heroku CLI.
