@@ -100,3 +100,27 @@ Ctrl + Shift + D ---------复制这行文本
 
 SHift +Tab --------------去除缩进
 ```
+
+
+
+* sublime Text3 安装错误PyV8
+
+```
+1.  View->Show console ->根据官网 https://packagecontrol.io/installation 的提示，安装package Control 
+
+2.Preferences ->package Control ->install package -> Emment
+
+之后可能会报错 ：
+
+Error while loading PyV8 binary: exit code 4  Try to manually install PyV8 from https://github.com/emmetio/pyv8-binaries
+
+解决办法：
+
+a.   https://github.com/emmetio/pyv8-binaries  下载
+
+b.preferences ->Browse packages ,进入上一级菜单，在Installed Packages 里面新建文件夹: PyV8
+
+c.打开刚刚下载的压缩包，copy  pyv8-osx-p3.zip  和 pyv8-osx.zip 两个压缩包到 新建的PyV8文件夹
+
+之后重启 sublime Text ，会自动加载。
+```
