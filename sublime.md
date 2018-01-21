@@ -29,6 +29,31 @@
   HTML-css-js prettify ：ctrl + shift + p  --->  输入 install package ---> 输入 html css js  
   首先要配置插件的node路径才可以使用，，否则报错，无法使用
   
+* 插件推荐
+```
+
+
+1、SublimeLinter        = 错误语法
+2、JsMinifier           =自动压缩js文件
+3、Sublime CodeIntel    =代码自动提示
+4、Bracket Highlighter  =代码匹配
+5、CSScomb CSS          =属性排序
+6、SublimeTmpl          =快速生成文件模板
+7、SideBarEnhancements  =设置sublime text2/3支持浏览器预览
+8、ColorPicker          =调色盘
+9、Tag                  = Html格式化
+10、Clipboard History   = 剪贴板历史记录
+11、SideBarEnhancements = 侧栏右键功能增强
+12、GBK to UTF8         =GBK转黄成UTF8
+13、SFTP                =ftp插件
+14、WordPress           = WordPress函数
+15、PHPTidy             =排版PHP代码
+15、YUI Compressor      =压缩JS和CSS文件
+16、Alignment           =代码对齐
+17、Emmet               =大名鼎鼎呀
+18、Prefixr             =css自动添加 -webkit 等私有词缀
+```
+
 * sublime常用快捷键
 ```
 Ctrl + /  ---------------------注释
