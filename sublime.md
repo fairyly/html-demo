@@ -4,8 +4,9 @@
 
   ctrl + shift + p  --->  输入 install package ---> 输入 localization
   
-  sublime text 3 隐藏菜单后怎么点出来: 单击+alt或者 shift + ctrl + p 调出命令之后选择view: toggle menu。
-  
+  sublime text 3 隐藏菜单后怎么点出来: 单击+alt或者 shift + ctrl + p 调出命令之后选择view: toggle menu。
+
+* https://github.com/jikeytang/sublime-text
   
 * 注册码
 
