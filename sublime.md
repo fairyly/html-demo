@@ -6,7 +6,8 @@
   
   sublime text 3 隐藏菜单后怎么点出来: 单击+alt或者 shift + ctrl + p 调出命令之后选择view: toggle menu。
 
-* https://github.com/jikeytang/sublime-text
+* 插件介绍：https://github.com/jikeytang/sublime-text
+          http://www.cnblogs.com/hykun/p/sublimeText3.html
   
 * 注册码
 
