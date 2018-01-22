@@ -1,5 +1,7 @@
 # 微信中 video 播放全屏问题
 
+* 腾讯浏览器前端技术文档:http://x5.tencent.com/tbs/guide/tech.html#/
+
 * http://cnodejs.org/topic/5a55617299d207fa49f5cd85
 
 ```
