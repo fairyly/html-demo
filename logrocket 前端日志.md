@@ -1,6 +1,7 @@
 # logrocket
 
 * logrocket:https://logrocket.com/
+* doc: https://docs.logrocket.com/
 
 use info
 ```
