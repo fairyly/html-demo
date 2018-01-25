@@ -14,3 +14,12 @@ import LogRocket from 'logrocket';
 LogRocket.init('mi3vvo/my-app');
 
 ```
+
+or js
+
+```
+Add LogRocket.min.js from our CDN to the <head> tag before your other code:
+
+<script src="https://cdn.logrocket.io/LogRocket.min.js" crossorigin="anonymous"></script>
+<script>window.LogRocket && window.LogRocket.init('mi3vvo/my-app');</script>
+```
