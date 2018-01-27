@@ -4,8 +4,8 @@
 https://github.com/banmunongtian/react-es6-webpack/blob/master/webpack.config.js
 
 可参考 demo：https://github.com/zhangwang1990/blogs/tree/master/sources/MultiPageWebpackDemos
-* 一份比较完整的webpack配置文件:https://www.liayal.com/article/5a5d770924f2803679a960e5
-  [点击查看具体代码](#查看具体代码)
+* 一份比较完整的webpack配置文件:https://www.liayal.com/article/5a5d770924f2803679a960e5  
+  [点击查看具体代码](#查看具体代码)
 ```
 /**
  * __dirname是node.js中的一个全局变量，它指向当前执行脚本所在的目录
