@@ -2,3 +2,5 @@
 
 * https://gethomeland.com/
 * https://github.com/ruby-china/homeland
+
+* wiki: https://github.com/ruby-china/homeland/wiki
