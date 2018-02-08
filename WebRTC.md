@@ -2,7 +2,8 @@
 
 * Can I use: https://caniuse.com/#search=webrtc
 * webRTC 官网： https://webrtc.org/
-* demos：https://github.com/webrtc/samples/
+* demos：https://github.com/webrtc/samples/  
+  https://github.com/fairyly/echat
 
 学习 webRTC 必读教程：https://www.agora.io/cn/blog/courses-webrtc/
 * WebRTC技术教程：http://www.w3ii.com/zh-CN/webrtc/default.html
