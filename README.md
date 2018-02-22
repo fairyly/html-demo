@@ -26,8 +26,8 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   4000 1234 5678 9009
   
 * markdown 在线编辑器：
-  - 作业部落：https://www.zybuluo.com/mdeditor
-  - 石墨： https://shimo.im/
+  - 作业部落：https://www.zybuluo.com/mdeditor
+  - 石墨： https://shimo.im/
   
 * 手机号 *** 隐藏:"13812345678".replace(/(\d{3})\d{4}(\d{4})/, "\$1****\$2")
 
