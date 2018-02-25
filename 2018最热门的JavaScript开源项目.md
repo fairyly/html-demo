@@ -1,14 +1,16 @@
 # 最热门的JavaScript开源项目
 
-1编辑器tui.editor
+1.编辑器tui.editor
+
 https://github.com/nhnent/tui.editor Star 5033
 
 
+```
+tui.editor（TOAST UI Editor）是一款所见即所得的Markdown编辑器。
+TOAST UI Editor提供Markdown模式和WYSIWYG模式。
+它的功能非常强大，你可以编辑表格，UML图和图表等。
 
-tui.editor（TOAST UI Editor）是一款所见即所得的Markdown编辑器。TOAST UI Editor提供Markdown模式和WYSIWYG模式。它的功能非常强大，你可以编辑表格，UML图和图表等。
-
-
-
+```
 TOAST UI Editor的Markdown模式的特点有：
 
 ● 所见即所得。你在编辑Markdown的同时，可以预览生成的HTML页面。
