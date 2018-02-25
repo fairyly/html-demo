@@ -10,7 +10,7 @@ tui.editor（TOAST UI Editor）是一款所见即所得的Markdown编辑器。
 TOAST UI Editor提供Markdown模式和WYSIWYG模式。
 它的功能非常强大，你可以编辑表格，UML图和图表等。
 
-```
+
 TOAST UI Editor的Markdown模式的特点有：
 
 ● 所见即所得。你在编辑Markdown的同时，可以预览生成的HTML页面。
@@ -22,7 +22,6 @@ TOAST UI Editor的Markdown模式的特点有：
 ● 语法高亮。
 
 
-
 TOAST UI Editor的WYSIWYG模式的特点有：
 
 ● 可以直接从浏览器，excel，powerpoint等复制内容并进行粘贴。
@@ -31,15 +30,13 @@ TOAST UI Editor的WYSIWYG模式的特点有：
 
 ● 支持表格。
 
+```
 
+2.Web打包工具parcel
 
-
-
-2Web打包工具parcel
 https://github.com/parcel-bundler/parcel Star 18249
 
-
-
+```
 Parcel 是一款极速、零配置的 Web 应用打包工具。功能特性如下：
 
 ● 极速打包 - 多核心编译，以及即使在重启后也能快速重建的文件系统缓存。
@@ -54,14 +51,13 @@ Parcel 是一款极速、零配置的 Web 应用打包工具。功能特性如�
 
 ● 报错日志友好 - 代码高亮显示有助于查明问题。
 
+```
 
+3.JavaScript库vue
 
-
-
-3JavaScript库vue
 https://github.com/vuejs/vue Star 82083
 
-
+```
 
 Vue.js 是构建 Web 界面的 JavaScript 库，提供数据驱动的组件，还有简单灵活的 API，使得 MVVM 更简单。主要特性：
 
@@ -75,15 +71,16 @@ Vue.js 是构建 Web 界面的 JavaScript 库，提供数据驱动的组件，�
 
 ● 配合别的库使用
 
+```
 
 
 
+4.project-guidelines
 
-4project-guidelines
 https://github.com/wearehive/project-guidelines/ Star 15264
 
 
-
+```
 JavaScript工程项目的一系列最佳实践策略，如一些Git规则：
 
 ● 在功能分支中执行开发工作。
@@ -96,25 +93,30 @@ JavaScript工程项目的一系列最佳实践策略，如一些Git规则：
 
 ● ......
 
+```
 
 
 
+5.模块化文件上传组件uppy
 
-5模块化文件上传组件uppy
 https://github.com/transloadit/uppy Star  9225
 
+```
+
+Uppy 是一个流行的模块化文件上传组件，可无缝集成任何框架。
+它可从本地磁盘、Google 云端硬盘、Dropbox、Instagram、远程 URL、摄像机和其他位置提取文件，
+然后将其上传到最终目的地。它非常快速并且易于使用。
+由一个核心模块和其它用于选择、操作、上传等功能的插件组成。
 
 
-Uppy 是一个流行的模块化文件上传组件，可无缝集成任何框架。它可从本地磁盘、Google 云端硬盘、Dropbox、Instagram、远程 URL、摄像机和其他位置提取文件，然后将其上传到最终目的地。它非常快速并且易于使用。由一个核心模块和其它用于选择、操作、上传等功能的插件组成。
+```
 
 
+6.智能浏览器 JARVIS
 
-
-
-6智能浏览器 JARVIS
 https://github.com/zouhir/jarvis Star 4065
 
-
+```
 
 JARVIS，全称为 Just A Rather Very Intelligent System ，是一个非常智能的基于 Webpack 仪表板的浏览器。它会将你在 Webpack 构建开发和生产过程中的所有相关信息都放到浏览器中。
 
@@ -122,40 +124,45 @@ JARVIS，全称为 Just A Rather Very Intelligent System ，是一个非常智�
 
 JARVIS 非常漂亮，可显示导入的 ES Harmony 模块的数量，以及资产在 12 种不同的连接类型中的表现。
 
+```
 
 
 
+7.30-seconds-of-code
 
-730-seconds-of-code
 https://github.com/Chalarangelo/30-seconds-of-code Star 16705
 
 
+```
+这个项目里精心收集了大量有用的JavaScript代码片段文章，
+让你能够在极短的时间内可以理解使用它们，分为日期、节点、功能模块等部分，
+你可以直接将文件的这些代码直接导入到你的的文本编辑器（VSCode，Atom，Sublime）
 
-这个项目里精心收集了大量有用的JavaScript代码片段文章，让你能够在极短的时间内可以理解使用它们，分为日期、节点、功能模块等部分，你可以直接将文件的这些代码直接导入到你的的文本编辑器（VSCode，Atom，Sublime）
+```
 
 
 
+8.puppeteer
 
-
-8puppeteer
 https://github.com/GoogleChrome/puppeteer Star 25303
 
+```
+
+Puppeteer 是一个控制 headless Chrome 的 Node.js API 。它是一个 Node.js 库，
+通过 DevTools 协议提供了一个高级的 API 来控制 headless Chrome。
+它还可以配置为使用完整的（非 headless）Chrome。
 
 
-Puppeteer 是一个控制 headless Chrome 的 Node.js API 。它是一个 Node.js 库，通过 DevTools 协议提供了一个高级的 API 来控制 headless Chrome。它还可以配置为使用完整的（非 headless）Chrome。
+在浏览器中手动完成的大多数事情都可以通过使用 Puppeteer 完成，
+如生成屏幕截图和 PDF 页面、检索 SPA 并生成预渲染内容（即“SSR”）、从网站上爬取内容等
 
+```
 
+9.静态网站建站工具 Docusaurus
 
-在浏览器中手动完成的大多数事情都可以通过使用 Puppeteer 完成，如生成屏幕截图和 PDF 页面、检索 SPA 并生成预渲染内容（即“SSR”）、从网站上爬取内容等
-
-
-
-
-
-9静态网站建站工具 Docusaurus
 https://github.com/facebook/Docusaurus Star 6001
 
-
+```
 
 Docusaurus 是 Facebook 专门为开源项目开发者提供的一款易于维护的静态网站创建工具，使用 Markdown 即可更新网站。构建一个带有主页、文档、API、帮助以及博客页面的静态网站，只需5分钟。
 
@@ -166,13 +173,14 @@ Docusaurus 是 Facebook 专门为开源项目开发者提供的一款易于维�
 ● 可自定义：Docusaurus 可自定义项目需要的关键页面，包括主页，文档部分，博客和其他页面
 
 
+```
 
 
+9.JavaScript 运动引擎 Popmotion
 
-9JavaScript 运动引擎 Popmotion
 https://github.com/Popmotion/popmotion Star 9453
 
-
+```
 
 Popmotion 是一个 12kb 的 JavaScript 运动引擎，它可以使用在浏览器、Node 等所有地方。特性如下：
 
@@ -188,16 +196,19 @@ Popmotion 是一个 12kb 的 JavaScript 运动引擎，它可以使用在浏览�
 
 ● 开放的 rAF loop：可以在核心 requestAnimationFrame 循环里运行任何进程
 
+```
 
 
 
+10.JavaScript 库Nerv
 
-10JavaScript 库Nerv
 https://github.com/NervJS/nerv Star 2542
 
 
-
-Nerv 是一款基于虚拟 DOM 技术的 JavaScript(TypeScript) 库，它提供了与 React 16 一致的使用方式与 API，并且拥有更高的性能表现、更小的包大小以及更好的浏览器兼容性。特性如下：
+```
+Nerv 是一款基于虚拟 DOM 技术的 JavaScript(TypeScript) 库，
+它提供了与 React 16 一致的使用方式与 API，
+并且拥有更高的性能表现、更小的包大小以及更好的浏览器兼容性。特性如下：
 
 ● 与 React 保持一致的API，不需要 nerv-compat
 
@@ -212,15 +223,14 @@ Nerv 是一款基于虚拟 DOM 技术的 JavaScript(TypeScript) 库，它提供�
 ● 支持客户端与服务端同构渲染
 
 ● 支持 React 16 的新特性，例如错误处理，Portals，自定义 DOM 属性等等
+```
 
 
+11.JavaScript 库hyperapp
 
-
-
-11JavaScript 库hyperapp
 https://github.com/hyperapp/hyperapp Star 10585
 
-
+```
 
 HyperApp 是一个用于构建前端应用的 JavaScript 库，体积十分轻量，仅 1KB。具有以下特性：
 
@@ -231,19 +241,18 @@ HyperApp 是一个用于构建前端应用的 JavaScript 库，体积十分轻�
 ● Batteries-included：开箱即用，HyperApp 具有类 Elm 的状态管理和虚拟 DOM 引擎；但它仍然只有 1kb 的大小，没有依赖关系。
 
 
+```
 
 
+12.Workerize
 
-12Workerize
 https://github.com/developit/workerize Star 2418
 
+```
+workerize 能够方便地将某个模块移入 Web Worker，自动反射提供出接口函数；
+workerize 会注入某个轻量级的 RPC 实现到应用中，支持同步或者异步地 Worker 函数调用，并且能够顺滑支持 async/await。
 
-
-workerize 能够方便地将某个模块移入 Web Worker，自动反射提供出接口函数；workerize 会注入某个轻量级的 RPC 实现到应用中，支持同步或者异步地 Worker 函数调用，并且能够顺滑支持 async/await。
-
-
-
-
+```
 
 13.代码格式化工具Prettier
 
