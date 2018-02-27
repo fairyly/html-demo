@@ -15,6 +15,8 @@
 
 * book:https://github.com/threerocks/studyFiles/tree/master/%E7%94%B5%E5%AD%90%E4%B9%A6
 
+* Font-Awesome: https://github.com/FortAwesome/Font-Awesome
+
 
 # 深度学习 deep-learning
 
