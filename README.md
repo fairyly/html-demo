@@ -17,6 +17,8 @@
 
 * Font-Awesome: https://github.com/FortAwesome/Font-Awesome
 
+* .gitignore模板: https://github.com/github/gitignore
+
 
 # 深度学习 deep-learning
 
