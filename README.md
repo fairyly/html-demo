@@ -19,6 +19,8 @@
 
 * .gitignore模板: https://github.com/github/gitignore
 
+* 2017 GITHUB 开源项目 octoverse: https://octoverse.github.com/
+
 
 # 深度学习 deep-learning
 
