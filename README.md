@@ -1,3 +1,5 @@
+![awesome](https://raw.githubusercontent.com/github/explore/c304601f028774885ef27f72e6fe2d331729d8bc/topics/awesome/awesome.png)
+
 ![Build Status](https://travis-ci.org/ttsvetko/HTML5-Desktop-Notifications.svg?branch=master)
 [![CircleCI](https://circleci.com/gh/ttsvetko/HTML5-Desktop-Notifications/tree/master.svg?style=svg)](https://circleci.com/gh/ttsvetko/HTML5-Desktop-Notifications/tree/master)
 [![npm version](https://img.shields.io/npm/v/axios.svg?style=flat-square)](https://www.npmjs.org/package/axios)
