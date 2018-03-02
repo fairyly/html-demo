@@ -10,3 +10,4 @@
   - http://vue.ydui.org
 
 * ZUI : https://github.com/easysoft/zui
+  - http://zui.sexy
