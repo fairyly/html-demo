@@ -11,3 +11,5 @@
 
 * ZUI : https://github.com/easysoft/zui
   - http://zui.sexy
+
+* mint-ui: https://github.com/ElemeFE/mint-ui
