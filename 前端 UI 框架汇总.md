@@ -13,3 +13,4 @@
   - http://zui.sexy
 
 * mint-ui: https://github.com/ElemeFE/mint-ui
+  - http://mint-ui.github.io/#!/en
