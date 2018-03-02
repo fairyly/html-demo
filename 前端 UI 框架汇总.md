@@ -16,4 +16,4 @@
   - http://mint-ui.github.io/#!/en
 
 * element-ui: https://github.com/ElemeFE/element
-  - 
+  - http://element.eleme.io/#/zh-CN/component/installation
