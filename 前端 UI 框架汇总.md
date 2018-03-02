@@ -5,3 +5,5 @@
 
 * Semantic-UI: https://github.com/Semantic-Org/Semantic-UI
   - http://www.semantic-ui.com
+
+* vue-ydui: https://github.com/ydcss/vue-ydui
