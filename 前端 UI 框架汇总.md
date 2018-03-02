@@ -7,3 +7,4 @@
   - http://www.semantic-ui.com
 
 * vue-ydui: https://github.com/ydcss/vue-ydui
+  - http://vue.ydui.org
