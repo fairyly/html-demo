@@ -14,3 +14,6 @@
 
 * mint-ui: https://github.com/ElemeFE/mint-ui
   - http://mint-ui.github.io/#!/en
+
+* element-ui: https://github.com/ElemeFE/element
+  - 
