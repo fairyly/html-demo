@@ -22,3 +22,4 @@
   - http://getbootstrap.com/
 
 * HeyUI: https://github.com/heyui/heyui
+  - http://www.heyui.top/component/guide
