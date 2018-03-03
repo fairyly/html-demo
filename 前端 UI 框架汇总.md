@@ -20,3 +20,5 @@
 
 * Bootstrap:https://github.com/twbs/bootstrap
   - http://getbootstrap.com/
+
+* HeyUI: https://github.com/heyui/heyui
