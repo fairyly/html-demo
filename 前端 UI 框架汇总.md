@@ -6,6 +6,8 @@
 * Semantic-UI: https://github.com/Semantic-Org/Semantic-UI
   - http://www.semantic-ui.com
 
+* SUI-Mobile: https://github.com/sdc-alibaba/SUI-Mobile
+
 * vue-ydui: https://github.com/ydcss/vue-ydui
   - http://vue.ydui.org
 
