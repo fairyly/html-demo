@@ -4,7 +4,7 @@ fairyilys@gmail.com
 
 yhq123456
 
-已部署 node 项目: https://desolate-coast-83590.herokuapp.com/posts
+已部署 node 项目: [my blog](https://desolate-coast-83590.herokuapp.com/posts)
 
 * Heroku + Node.JS gitbook:https://www.gitbook.com/book/samypesse/heroku-node/details
 
