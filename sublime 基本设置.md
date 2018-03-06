@@ -18,10 +18,12 @@
   ```
   
 * 4.保存去除尾部空格:
-  ```
+  ```
     // Set to true to removing trailing white space on save
     "trim_trailing_white_space_on_save": true,
-  ```
+  ```
+
+.sublime-settings:
 
 ```
 // Place your settings in the file "Packages/User/Preferences.sublime-settings",
