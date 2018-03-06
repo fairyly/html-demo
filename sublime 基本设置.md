@@ -1,17 +1,17 @@
 # 基本设置
 
-1.缩进设置 2个空格 ,tab 自动转换空格缩进:
-  ```
+* 1.缩进设置 2个空格 ,tab 自动转换空格缩进:
+  ```
   // The number of spaces a tab is considered equal to
     "tab_size": 2,
 
     // Set to true to insert spaces when tab is pressed
     "translate_tabs_to_spaces": true,
   ```
-2.自动失焦保存文件:
-  ```
+* 2.自动失焦保存文件:
+  ```
   "save_on_focus_lost": true,
-  ```
+  ```
 
 
 ```
