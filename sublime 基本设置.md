@@ -11,11 +11,17 @@
 * 2.自动失焦保存文件:
   ```
   "save_on_focus_lost": true,
-  ```
-* 3.设置默认编码:
-  ```
-  "default_encoding": "UTF-8",
   ```
+* 3.设置默认编码:
+  ```
+    "default_encoding": "UTF-8",
+  ```
+  
+* 4.保存去除尾部空格:
+  ```
+    // Set to true to removing trailing white space on save
+    "trim_trailing_white_space_on_save": true,
+  ```
 
 ```
 // Place your settings in the file "Packages/User/Preferences.sublime-settings",
