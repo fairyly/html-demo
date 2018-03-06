@@ -7,7 +7,7 @@
 
     // Set to true to insert spaces when tab is pressed
     "translate_tabs_to_spaces": true,
-  ```
+  ```
 * 2.自动失焦保存文件:
   ```
   "save_on_focus_lost": true,
