@@ -11,8 +11,11 @@
 * 2.自动失焦保存文件:
   ```
   "save_on_focus_lost": true,
+  ```
+* 3.设置默认编码:
+  ```
+  "default_encoding": "UTF-8",
   ```
-
 
 ```
 // Place your settings in the file "Packages/User/Preferences.sublime-settings",
