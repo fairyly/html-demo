@@ -13,7 +13,7 @@
   mongodb（2.6+）
 ```
 
-* 安装
+* 方式一 安装
 
 ```
 使用提供的 yapi-cli 工具，部署 YApi 平台是非常容易的。
@@ -24,6 +24,26 @@
 npm install -g yapi-cli --registry https://registry.npm.taobao.org
 yapi server 
 
+打开 http://127.0.0.1:9090/
+
+填写信息,打开 mongodb 服务
+
+```
+
+* 方式二 安装
+
+```
+方式二. 命令行部署
+如果 github 压缩文件无法下载，或需要部署到一些特殊的服务器，可尝试此方法
+
+mkdir yapi
+cd yapi
+git clone https://github.com/YMFE/yapi.git vendors //或者下载 zip 包解压到 vendors 目录
+cp vendors/config_example.json ./config.json //复制完成后请修改相关配置
+cd vendors
+npm install --production --registry https://registry.npm.taobao.org
+npm run install-server //安装程序会初始化数据库索引和管理员账号，管理员账号名可在 config.json 配置
+node server/app.js //启动服务器后，请访问 127.0.0.1:{config.json配置的端口}，初次运行会有个编译的过程，请耐心等候
 ```
 
 * 升级
