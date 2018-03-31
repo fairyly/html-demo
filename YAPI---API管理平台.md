@@ -28,6 +28,19 @@ yapi server
 
 填写信息,打开 mongodb 服务
 
+依赖库安装完成，正在初始化数据库mongodb...
+
+> yapi@1.3.8 install-server F:\YAPI\my-yapi\vendors
+>  node server/install.js
+
+
+ log: mongodb load success...
+
+ 初始化管理员账号成功,账号名："yueheqing@demogic.com"，密码："ymfe.org"
+
+部署成功，请切换到部署目录，输入： "node vendors/server/app.js" 指令启动服务器,
+然后在浏览器打开 http://127.0.0.1:3000 访问
+
 ```
 
 * 方式二 安装
