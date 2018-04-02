@@ -7,6 +7,8 @@ http://www.k2zone.cn/?p=295
 
 http://fex.baidu.com/webuploader/
 
+https://segmentfault.com/a/1190000009448892
+
 php:
 
 ```
