@@ -4,6 +4,9 @@ demo: https://www.cnblogs.com/waited/p/5256477.html
 
 http://www.k2zone.cn/?p=295
 
+
+http://fex.baidu.com/webuploader/
+
 php:
 
 ```
