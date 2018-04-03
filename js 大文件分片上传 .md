@@ -12,10 +12,10 @@ https://segmentfault.com/a/1190000009448892
 https://segmentfault.com/a/1190000009448892
 
 * 上传目录
-  - <input type="file" name="test" id="file-upload" multiple webkitdirectory="">
-  - <input type="file" id="filesinput" multiple> 传多个文件
-  - <input type="file" id="directoryinput" multiple webkitdirectory>  传目录文件
-  - <input type="file" accept="application/zip" id="zipinput">  传zip 格式压缩文件
+  - `<input type="file" name="test" id="file-upload" multiple webkitdirectory="">`
+  - `<input type="file" id="filesinput" multiple> 传多个文件`
+  - `<input type="file" id="directoryinput" multiple webkitdirectory>  传目录文件`
+  - `<input type="file" accept="application/zip" id="zipinput">  传zip 格式压缩文件`
 
 php:
 
