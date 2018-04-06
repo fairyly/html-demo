@@ -3,6 +3,9 @@
 ### 安装
 ```
   npm install -g gitbook-cli
+  
+  使用 gitbook init 初始化书籍目录
+  使用 gitbook serve 编译书籍
 ```
 
 ### 常用命令
