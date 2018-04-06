@@ -49,6 +49,11 @@ gitbook builid --debug //输出错误信息
 
 ```
 
+### 绑定域名
+
+```
+settting-->domains   如：https://legacy.gitbook.com/book/fairyly/node-js-blockchain-dev/settings/domains
+```
 
 ### 发布到 GitHub Pages
 
