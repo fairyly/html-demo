@@ -35,3 +35,16 @@ gitbook uninstall 2.0.1 //卸载对应的gitbook版本
 gitbook build --log=debug //指定log的级别
 gitbook builid --debug //输出错误信息
 ```
+
+
+### 克隆 gitbook 本地查看
+```
+  git clone https://git.gitbook.com/fairyly/node-js-blockchain-dev.git
+  输入 用户名： fairyly 和 token ：be87tttbttd
+  
+  cd node-js-blockchain-dev
+  gitbook serve
+  Serving book on http://localhost:4000
+
+
+```
