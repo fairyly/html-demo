@@ -118,3 +118,19 @@ Branch gh-pages set up to track remote branch gh-pages from github.
 ### 参考
 
 * GitBook 简明教程：http://www.chengweiyang.cn/gitbook/index.html
+
+
+
+================================================================
+
+### 轻松打造属于自己的出版平台
+
+@author: imfly
+
+* gitbook: http://self-publishing.ebookchain.org/index.html
+
+```
+https://github.com/imfly/gitbook-summary
+安装：
+$ npm install -g gitbook-summary
+```
