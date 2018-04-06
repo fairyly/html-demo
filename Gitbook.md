@@ -98,3 +98,8 @@ Branch gh-pages set up to track remote branch gh-pages from github.
 
 注意：由于将 ***.github.io 重定向到了个人站点 www.***.cn，所以可以看到，浏览器中的 URL 自动变成了 www.***.cn/test，非常 cool! 关于怎样重定向 GitHub Pages 到个人域名
 ```
+
+
+### 参考
+
+* GitBook 简明教程：http://www.chengweiyang.cn/gitbook/index.html
