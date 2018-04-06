@@ -26,4 +26,8 @@ javascript fork:true
 项目的github’地址。欢迎大家补充
 
 javascript location:beijing
+
+(8)使用 Github 找优质资源的技巧：
+
+使用 Github 的站内搜索，搜索： Awesome + 你的关键字
 ```
