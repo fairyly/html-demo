@@ -55,6 +55,16 @@ gitbook builid --debug //输出错误信息
 settting-->domains   如：https://legacy.gitbook.com/book/fairyly/node-js-blockchain-dev/settings/domains
 ```
 
+### 插件
+
+```
+gitbook 还支持许多插件，用户可以从 NPM 上搜索 gitbook 的插件，gitbook 文档 推荐插件的命名方式为：
+
+gitbook-plugin-X: 插件
+gitbook-theme-X: 主题
+所以，可以通过以上两种方式来搜索 gitbook 的插件或者主题。
+```
+
 ### 发布到 GitHub Pages
 
 ```
