@@ -8,6 +8,16 @@
   使用 gitbook serve 编译书籍
 ```
 
+### Token
+
+```
+be87tttbttd
+git config --global gitbook.user fairyly
+git config --global gitbook.token be87tttbttd
+
+每次 clone 需要输入 fairyly  和 be87tttbttd
+```
+
 ### 常用命令
 
 ```
