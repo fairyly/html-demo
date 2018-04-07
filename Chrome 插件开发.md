@@ -6,6 +6,7 @@
 * https://www.zhihu.com/question/20179805
 * http://www.ituring.com.cn/book/1421
 * https://www.jianshu.com/p/049eecc2062f
+* https://github.com/sxei/chrome-plugin-demo
 
 
 * demo:
