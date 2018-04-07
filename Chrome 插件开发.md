@@ -4,12 +4,12 @@
 
 ### start：
 
-https://developer.chrome.com/extensions/getstarted
+官方文档：https://developer.chrome.com/extensions/getstarted
 
 * https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html
-* https://www.zhihu.com/question/20179805
-* http://www.ituring.com.cn/book/1421
-* https://www.jianshu.com/p/049eecc2062f
+* 知乎：https://www.zhihu.com/question/20179805
+* 图灵社区：http://www.ituring.com.cn/book/1421
+* 简书：https://www.jianshu.com/p/049eecc2062f
 * https://github.com/sxei/chrome-plugin-demo
 
 
