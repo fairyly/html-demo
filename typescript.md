@@ -9,6 +9,7 @@ javascript 超集
 
 - TypeScript-WeChat-Starter： https://github.com/Microsoft/TypeScript-WeChat-Starter#%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D
 - TypeScript-Vue-Starter: https://github.com/Microsoft/TypeScript-Vue-Starter#typescript-vue-starter
+- TypeScript-Node-Starter: https://github.com/Microsoft/TypeScript-Node-Starter#typescript-node-starter
 
 
 ### install
