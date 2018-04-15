@@ -16,4 +16,18 @@ javascript 超集
 
 ```
 npm install -g typescript
+
+Windows 安装 如果出现 The operation was rejected by your operating system
+
+需要到目录下 取得管理员权限，再去安装
+
+安装完成后输入
+
+tsc -v  :查看安装的版本
+Version 2.8.1
+
+
+
+
+
 ```
