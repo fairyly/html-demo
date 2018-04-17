@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <style type="text/css">
+    html,
+    body,
+    ul,
+    li,
+    ol,
+    dl,
+    dd,
+    dt,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    form,
+    fieldset,
+    legend,
+    img {
+        margin: 0;
+        padding: 0
+    }
+
+    body {
+        background: pink;
+    }
+
+    #picbox {
+        width: 300px;
+        height: 300px;
+        background: url('img/photo2.jpg');
+        position: relative;
+        margin: 50px auto;
+    }
+
+    .pic {
+        width: 97px;
+        height: 97px;
+        float: left;
+        background: url('img/photo2.jpg');
+        position: absolute;
+        /*transition: all 0.5s ease 0s;*/
+    }
+
+    .controller {
+        text-align: center;
+        position: relative;
+    }
+
+    #times {
+        position: absolute;
+        color: red;
+        top: 15px;
+        left: 300px;
+        font-size: 20px;
+    }
+    #newleft,#newtop {
+      width: 100px;
+      height: 50px;
+      color: #000;
+      font-size: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class='controller'>
+        <h1>拼图游戏</h1>
+        <button id='go'>go</button>
+        <span id='times'></span>
+    </div>
+    <div id='picbox'>
+        <div class="pic" data-index='1' style='background-position:0px 0px;left:0px;top:0px;'></div>
+        <div class="pic" data-index='2' style='background-position:-100px 0px;left:100px;top:0px;'></div>
+        <div class="pic" data-index='3' style='background-position:-200px 0px;left:200px;top:0px;'></div>
+        <div class="pic" data-index='4' style='background-position:0px -100px;left:0px;top:100px;'></div>
+        <div class="pic" data-index='5' style='background-position:-100px -100px;left:100px;top:100px;'></div>
+        <div class="pic" data-index='6' style='background-position:-200px -100px;left:200px;top:100px;'></div>
+        <div class="pic" data-index='7' style='background-position:0px -200px;left:0px;top:200px;'></div>
+        <div class="pic" data-index='8' style='background-position:-100px -200px;left:100px;top:200px;'></div>
+        <div class="pic" data-index='9' style='background-position:-200px -200px;left:200px;top:200px;'></div>
+    </div>
+    <div id="newleft" >0</div>
+    <div id="newtop" >0</div>
+    <div id="newtop2" >0</div>
+    <script>
+    var picbox = document.getElementById('picbox');
+    var newl = document.getElementById('newleft');
+    var newt = document.getElementById('newtop');
+    var newt2 = document.getElementById('newtop');
+    var pic = document.querySelectorAll('.pic');
+    var picWidth = pic[0].offsetWidth;
+    var picHeight = pic[0].offsetHeight;
+    var picboxWidth = picbox.offsetWidth;
+    var picboxHeight = picbox.offsetHeight;
+    var go = document.getElementById('go');
+    var times = document.getElementById('times'); //定时。用于扩展
+    var dx, dy, newLeft, newtop, startTime, endTime;
+    go.addEventListener('touchstart', function() {
+        startTime = Date.parse(new Date()); //获取到期1970年1月1日到当前时间的毫秒数，这个方法不常见，这里为试用
+        for (var i = 0; i < pic.length; i++) {
+            pic[i].style.display = "block"; //设置显示拼图，游戏开始
+        }
+        picbox.style.background = "#fff";
+        for (var i = 0; i < 20; i++) { //随机打乱
+            var a = Math.floor(Math.random() * 9);
+            var b = Math.floor(Math.random() * 9);
+            if (a != b) {
+                random(a, b);
+            }
+        }
+    })
+    for (var i = 0; i < pic.length; i++) {
+        pic[i].addEventListener('touchstart', function(e) {
+          console.log("touchstarttttttttttttttt:",e,this)
+            this.style.zIndex = 100; //设置拖拽元素的z-index值，使其在最上面。
+            dx = e.targetTouches[0].pageX - this.offsetLeft; //记录触发拖拽的水平状态发生改变时的位置
+            dy = e.targetTouches[0].pageY - this.offsetTop; //记录触发拖拽的垂直状态发生改变时的位置
+            window.startX = this.offsetLeft; //记录当前初始状态水平发生改变时的位置
+            window.startY = this.offsetTop; //offsetTop等取得的值与this.style.left获取的值区别在于前者不带px,后者带px
+            this.style.transition = 'none';
+            // console.log("touchstarttttttttttttttt,dx,dy,window.startX,window.startY:",dx,dy,window.startX,window.startY)
+        });
+        pic[i].addEventListener('touchmove', function(e) {
+           e.preventDefault()
+          console.log("moveeeeeeeeeee:",e,this)
+            newLeft = e.touches[0].pageX - dx; //记录拖拽的水平状态发生改变时的位置
+            newtop = e.touches[0].pageY - dy;
+            console.log("newLeft,newtop",newLeft,newtop,-picWidth / 2)
+           /* if (newLeft <= -picWidth / 2) { //限制边界代码块，拖拽区域不能超出边界的一半
+                newLeft = -picWidth / 2;
+            } else */
+            if (newLeft > (picboxWidth - picWidth / 2)) {
+                newLeft = (picboxWidth - picWidth / 2);
+                console.log("########1",newLeft)
+                // newl.innerHTML=newLeft
+            }
+            /*if (newtop <= -picHeight / 2) {
+                newtop = -picWidth / 2;
+            } else */
+            if (newtop > (picboxHeight - picHeight / 2)) {
+                newtop = (picboxHeight - picHeight / 2);
+                console.log("########2",newtop)
+                // newt.innerHTML=newtop
+            }
+            if (newLeft <= 0) { newLeft = 0}
+            if (newtop <= 0) { newtop = 0}
+            if (newLeft >= picWidth*2) { newLeft = picWidth*2 }
+            if (newtop >= picHeight*2) { newtop = picHeight*2 }
+            this.style.left = newLeft + 'px';
+            this.style.top = newtop + 'px'; //设置目标元素的left,top
+             
+             newl.innerHTML= this.style.left + this.style.top
+             newt.innerHTML = newtop
+        });
+        pic[i].addEventListener('touchend', function(e) {
+           e.preventDefault()
+          console.log("touchendddddddddddd:",e,this)
+          newt2.innerHTML = this.style.left + this.style.top
+            this.style.zIndex = 0;
+            // this.style.transition = 'all 0.5s ease 0s'; //添加css3动画效果
+            this.endX = e.changedTouches[0].pageX - dx;
+            this.endY = e.changedTouches[0].pageY - dy; //记录滑动结束时的位置，与进入元素对比，判断与谁交换
+
+            var obj = change(e.target, this.endX, this.endY); //调用交换函数
+
+            if (obj == e.target) { //如果交换函数返回的是自己
+                obj.style.left = window.startX + 'px';
+                obj.style.top = window.startY + 'px';
+                console.log("///////////////",window.startX,window.startY)
+            } else { //否则
+                var _left = obj.style.left;
+                obj.style.left = window.startX + 'px';
+                this.style.left = _left;
+                var _top = obj.style.top;
+                obj.style.top = window.startY + 'px';
+                this.style.top = _top;
+                var _index = obj.getAttribute('data-index');
+                obj.setAttribute('data-index', this.getAttribute('data-index'));
+                this.setAttribute('data-index', _index); //交换函数部分，可提取
+                console.log("//交换函数部分，可提取:",this.style.left,this.style.top)
+            }
+             console.log("this.endX,this.endY,var obj,obj.style.left, window.startX,obj.style.top ,window.startY:",this.endX,this.endY,obj,obj.style.left, window.startX,obj.style.top ,window.startY)
+        });
+        pic[i].addEventListener('transitionend', function(e) {
+          e.preventDefault()
+          document.removeEventListener("touchmove",function(event){
+            event.preventDefault()
+          },false);
+            if (isSuccess()) {
+                console.log('成功了！'); //此处监听事件有bug，会添加上多次事件。
+            } else {
+                // pic[i].removeEventListener('transitionend');
+            }
+        })
+    }
+
+    function change(obj, x, y) { //交换函数，判断拖动元素的位置是不是进入到目标原始1/2，这里采用绝对值得方式
+
+        for (var i = 0; i < pic.length; i++) { //还必须判断是不是当前原素本身。将自己排除在外
+          console.log("wwwwwwwwwwwww////",Math.abs(pic[i].offsetLeft - x) ,picWidth / 2, Math.abs(pic[i].offsetTop - y),picHeight / 2 , pic[i] != obj)
+            if (Math.abs(pic[i].offsetLeft - x) <= picWidth / 2 && Math.abs(pic[i].offsetTop - y) <= picHeight / 2 && pic[i] != obj)
+                return pic[i];
+        }
+        return obj; //返回当前
+    }
+
+    function random(a, b) { //随机打乱函数，其中交换部分，可以提取出来封装
+        var aEle = pic[a];
+        var bEle = pic[b];
+        var _left;
+        _left = aEle.style.left;
+        aEle.style.left = bEle.style.left;
+        bEle.style.left = _left;
+        var _top;
+        _top = aEle.style.top;
+        aEle.style.top = bEle.style.top;
+        bEle.style.top = _top;
+        var _index;
+        _index = aEle.getAttribute("data-index");
+        aEle.setAttribute("data-index", bEle.getAttribute("data-index"));
+        bEle.setAttribute("data-index", _index);
+    }
+
+    function isSuccess() { //判断成功标准
+        var str = ''
+        for (var i = 0; i < pic.length; i++) {
+            str += pic[i].getAttribute('data-index');
+        }
+        if (str == '123456789') {
+          alert('ok');
+            return true;
+        }
+        return false;
+    }
+    var time;
+    setInterval(function() { //定时函数，额。。。待续。
+        endTime = Date.parse(new Date());
+        times.innerHTML = (endTime - startTime) / 1000 || '';
+    }, 1000)
+    </script>
+</body>
+
+</html>
