@@ -62,6 +62,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 * sublime：HTML-css-js prettify 插件，首先要配置插件的node路径才可以使用，，否则报错，无法使用
 
 
+### 面试集合
+* http://codehtml.cn/front-end-interview-js/#/basic
+* https://github.com/nieyafei/front-end-interview-js
 # webpagemodule
 一些模板页面和效果
 
