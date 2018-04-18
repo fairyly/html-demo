@@ -55,10 +55,12 @@ step 8: firebase deploy，运行该命令发布应用到线上，等待一会，
 ```
 现下流行的技术一般都需要编译，而webpack被人诟病最多的地方莫过于配置过于繁琐且容易出错，这里推荐使用parcel打包构建我们的应用，使用上很方便，学习参考资料如下：
 
-parcel官网
-parcel awesome
+[parcel官网](https://link.juejin.im/?target=https%3A%2F%2Fparceljs.org%2F)
+[parcel awesome](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fparcel-bundler%2Fawesome-parcel)
 
-虽然parcel号称零配置，实际上还是需要配置一点点的内容，比如babel环境等，这里写了个种子项目，以parcel结合vue作为示例，parcel&vue demo
+虽然parcel号称零配置，实际上还是需要配置一点点的内容，比如babel环境等，
+这里写了个种子项目，
+以parcel结合vue作为示例，[parcel&vue demo](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fnwa2018%2Fparcel-vue-demo)
 
 如你此前已安装parcel，请确保全局安装的parcel版本 >= 1.7.0
 
@@ -70,12 +72,13 @@ parcel serve ./index.html --open -p 4567 --out-dir dist --no-cache
 当需要将应用发布到线上的时候，参照上述介绍的firebase完成初始化(此处参照第一步，不再赘述)，最终发布上线只需要两条命令
 parcel build ./index.html --out-dir public --no-cache
 firebase deploy
-最终发布上线的初始页面长这样：[示例]()
+最终发布上线的初始页面长这样：[示例](https://link.juejin.im/?target=https%3A%2F%2Ftestpwa2.firebaseapp.com%2F)
 ```
 
 ### 使用docsify编写文档
 ```
-docsify支持使用md语法编写文档，编写出来的文档优雅舒适，甚至可以使用docsify编写类似vue官网的文章，可以参考docsify官网以及docsify awesome，此篇文章的docsify版本
+docsify支持使用md语法编写文档，编写出来的文档优雅舒适，甚至可以使用docsify编写类似vue官网的文章，
+可以参考[docsify官网](https://link.juejin.im/?target=https%3A%2F%2Fdocsify.js.org%2F%23%2F)以及[docsify awesome](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FQingWei-Li%2Fawesome-docsify)，此篇文章的docsify版本
 以docisfy-start-demo示例
 安装
 npm i docsify-cli -g
