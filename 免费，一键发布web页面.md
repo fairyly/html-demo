@@ -85,8 +85,9 @@ docsify支持使用md语法编写文档，编写出来的文档优雅舒适，�
 ```
 可以参考[docsify官网](https://link.juejin.im/?target=https%3A%2F%2Fdocsify.js.org%2F%23%2F)以及[docsify awesome](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FQingWei-Li%2Fawesome-docsify)，此篇文章的docsify版本
 
+
+以[docisfy-start-demo](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fnwa2018%2Fdocisfy-start-demo)示例
 ```
-以docisfy-start-demo示例
 安装
 npm i docsify-cli -g
 
