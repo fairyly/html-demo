@@ -21,8 +21,25 @@ step 2: 首次使用firebase的话需要授权登录，如已经授权登录，�
 firebase login
 
 注：window环境下如果报错了，请注意要使用cmd而不是git bash
-![](https://user-gold-cdn.xitu.io/2018/4/16/162ce6723d3b984a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
 step 3: 打开firebase base控制台，点击添加项目，如下图
+![](https://user-gold-cdn.xitu.io/2018/4/16/162ce6723d3b984a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+step 4: 输入项目名称，并记下项目ID，如下图
+![](https://user-gold-cdn.xitu.io/2018/4/16/162ce67240fd2be8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+step 5: 新建文件夹test-firebase（名字仅做举例用）
+
+step 6: cd test-firebase
+
+step 7: firebase init，选择Hosting，按下空格 & 回车；选择刚才创建的项目；其他一路按回车，部分截图如下
+![](https://user-gold-cdn.xitu.io/2018/4/16/162ce67240a88939?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+step 8: firebase deploy，运行该命令发布应用到线上，等待一会，即可在控制台看到你的线上地址！初始的页面是这样子：示例
+到这里为止，如果一切顺利，即可使用firebase免费托管静态页面并且拥有属于自己的线上地址，此外，还可以在firebase控制台进行版本管理。
+
+在step 7中，有一条选项What do you want to use as your public directory，默认是使用public作为静态文件最终的上传路径，这里是可以修改的，在firebase.json中可以进行定制，更多内容参考[firebase](https://firebase.google.com/docs/hosting/?hl=zh-cn)托管
+
 
 作者：nw2018
 链接：https://juejin.im/post/5ad495416fb9a028cb2e1bca
