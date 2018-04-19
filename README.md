@@ -72,7 +72,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 * https://github.com/hiproxy/hiproxy-plugin-network
 
 ## rough.js
-- 基于 canvas 的图形库: https://github.com/pshihn/rough
+- 基于 canvas 的手绘风格图形库: https://github.com/pshihn/rough
 - website: http://roughjs.com/
 
 # webpagemodule
