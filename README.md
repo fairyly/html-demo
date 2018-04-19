@@ -43,7 +43,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 | 	| 多比例拍摄	| 支持全屏、1：1、3：4比例拍摄| 
 
 ### 图灵社区
-  - http://www.ituring.com.cn/
+  - http://www.ituring.com.cn/
 
 * 最新的长期支持版本(LTS - Long Term Support)
 
