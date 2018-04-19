@@ -75,6 +75,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 - 基于 canvas 的手绘风格图形库: https://github.com/pshihn/rough
 - website: http://roughjs.com/
 
+
+## http下载工具，基于http代理，支持多连接分块下载
+- https://github.com/monkeyWie/proxyee-down
+
 # webpagemodule
 一些模板页面和效果
 
