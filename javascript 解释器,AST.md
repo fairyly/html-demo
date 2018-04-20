@@ -14,10 +14,16 @@ AST: 抽象语法树简写
 
 ```
 解析 JavaScript 代码字符串，得到 JavaScript 代码的抽象语法树（AST）。
-解析这个步骤不需要自己做，有非常多优秀的现成的库，比如 [acornjs/acorn](https://github.com/acornjs/acorn) 。
-结果会解析成标准的 ESTree。
+解析这个步骤不需要自己做，有非常多优秀的现成的库，
 
-因为 JavaScript 的语法树是有标准格式的 estree/estree ，所以只需要对照这个标准格式进行实现语法树的求值，
+```
+比如 [acornjs/acorn](https://github.com/acornjs/acorn) 。
+```
+结果会解析成标准的 ESTree。
+```
+因为 JavaScript 的语法树是有标准格式的 [estree/estree](https://github.com/estree/estree) ，
+```
+所以只需要对照这个标准格式进行实现语法树的求值，
 只要保证 JavaScript 一样的语义，
 就和 eval / new Function 等效果差不多了。
 
