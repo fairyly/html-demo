@@ -37,3 +37,5 @@ AST: 抽象语法树简写
 解释器函数闭包就可以用语言本身的闭包来进
 
 ```
+
+示例代码：[bramblex/jsjs](https://link.juejin.im/?target=https%3A%2F%2Flink.zhihu.com%2F%3Ftarget%3Dhttps%253A%2F%2Fgithub.com%2Fbramblex%2Fjsjs)
