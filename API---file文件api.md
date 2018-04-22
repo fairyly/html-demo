@@ -115,6 +115,25 @@ ArrayBuffer 不能直接操作，而是要通过类型数组对象或 DataView �
 * 文件系统：https://developer.mozilla.org/zh-CN/docs/WebGuide/API/File_System/Introduction#quota
 * https://www.html5rocks.com/zh/tutorials/file/filesystem/
 
+### 创建文件之前，需要访问文件系统，申请配额
+
+```
+  1. 请求访问本地文件系统
+    window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+    window.requestFileSystem(type,size,successCallback,errCallback)
+    type: window.TEMPORARY 这个是临时的存储空间 或者 window.PERSISTENT 这个是永久的存储空间;
+    size: 使用文件存储空间的大小,(byte);
+    successCallback: 请求成功时执行的回调函数;
+    errCallback: 请求失败时的回调函数
+    
+  2. 申请配额 `window.webkitStorageInfo' is deprecated.`
+    navigator.webkitPersistentStorage.requestQuota (type,size, successCallback,errCallback)
+    type: TEMPORARY 这个是临时的配额 或者 window.PERSISTENT 这个是永久的配额;
+    size: 配额的空间大小,(byte);
+    successCallback: 申请配额成功时执行的回调函数;
+    errCallback: 申请配额失败时的回调函数
+```
+
 1.请求访问文件系统
 ```
 window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
