@@ -193,6 +193,20 @@
         };
        reader.readAsText(file);
     }, errorHandler);
+    
+  6. 创建目录
+    fs.root.getDirectory('Documents', {create: true}, function(dirEntry) {
+      alert('You have just created the ' + dirEntry.name + ' directory.');
+    }, errorHandler);
+    
+  7. 读取目录
+    fs.root.createReader().readEntries(function(results) {
+    
+    })
+    
+  8. 删除目录
+    使用 directoryEntry 对象的 remove() 方法，删除空目录
+    使用 directoryEntry 对象的 removeRecursively() 方法 ，删除目录及子目录和文件
 ```
 
 1.请求访问文件系统
