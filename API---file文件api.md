@@ -167,6 +167,32 @@
                       filesystem: 文件系统对象。
                     还包括删除：remove(),移动：moveTo(),复制：copyTo()方法;
     errCallback： 创建文件或者获取文件失败回调，参数 fileError 对象
+    
+  4. 写入文件
+    fileWriter ,fileWriterSync
+    // 写入文件
+    fileEntry.createWriter(
+        function (fileWriter){
+            console.log(fileWriter);
+            fileWriter.seek(fileWriter.length);
+            var blob = new Blob(['test'])
+            fileWriter.write(blob);
+        },errorHandler
+    );
+    
+  5. 读取文件
+    // 读取文件
+    fileEntry.file(
+        function(file) {
+            var reader = new FileReader();
+            reader.onloadend = function(e) {
+            var txtArea = document.createElement('textarea');
+            txtArea.value = this.result;
+            document.body.appendChild(txtArea);
+            console.log(this.result)
+        };
+       reader.readAsText(file);
+    }, errorHandler);
 ```
 
 1.请求访问文件系统
