@@ -99,10 +99,51 @@
   
   > 项目备注
   
-
+========================================================
 ## ESlint规范
+[![npm package](https://img.shields.io/npm/v/eslint-config-ivweb.svg?style=flat-square)](https://www.npmjs.org/package/eslint-config-ivweb)
+[![NPM downloads](http://img.shields.io/npm/dt/eslint-config-ivweb.svg?style=flat-square)](https://npmjs.org/package/eslint-config-ivweb)
+
+腾讯IVWEB团队ESLint共享配置规则
+
+## 安装
+
+```
+$ npm install --save-dev eslint eslint-plugin-react eslint-config-ivweb
+```
+
+## 文档
+* [介绍](docs/eslint-standard.md)
+* [规则解释](docs/RULE.md)
+
+## 使用
+一旦`eslint-config-ivweb`安装成功，你可以通过[ESLint配置文件]((http://eslint.org/docs/user-guide/configuring)) 中的字段extends中使用它
+
+```js
+{
+  "extends": "ivweb",
+  "rules": {
+    // Additional, per-project rules...
+  }
+}
+```
+
+### 配合`eslint:recommended`使用`ivweb`
+有部分[eslint:recommended](http://eslint.org/docs/rules/)提到的规则在ivweb中没有提到，因此最好配合eslint:recommend一起使用。
+
+只需要同时继承eslint:recommend 和 ivweb 即可，确保 ivweb 放置在最后。部分eslint:recommend定义的规则有点严格，ivweb里面有做定制化的修改。
+
+```js
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "ivweb"],
+  "rules": {
+    // Additional, per-project rules...
+  }
+}
+```
   
 
+=======================================================
 ## Git commit日志基本规范
   - https://github.com/feflow/git-commit-style-guide
   ![](https://github.com/feflow/git-commit-style-guide/raw/master/img/git-commit-message-mindmap.png)
