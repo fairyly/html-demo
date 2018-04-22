@@ -6,6 +6,7 @@
 
 ## Git commit日志基本规范
   - https://github.com/feflow/git-commit-style-guide
+  ![](https://github.com/feflow/git-commit-style-guide/raw/master/img/git-commit-message-mindmap.png)
 
   所有的 type 类型如下：
 
