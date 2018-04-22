@@ -154,7 +154,19 @@
           errCallback
       }
     }
-    
+    
+    fs.root.getFile(filename,autodefineObj,successCallback,errCallback): 四个参数
+    filename： 要创建或者获取的文件名,字符串值;
+    autodefineObj： 自定义对象,必须设置 create属性值 true,如： {create:true};
+    successCallback： 创建文件或者获取文件成功回调,回调中可以使用一个参数 fileEntry 对象，表示成功创建或获取的文件,
+                    fileEntry 对象包含属性：
+                      isFile: 区分对象是否为文件，true：对象是文件；false：对象是目录；
+                      isDirectory: 区分对象是否是目录；
+                      name: 文件名；
+                      fullPath: 文件完整路径；
+                      filesystem: 文件系统对象。
+                    还包括删除：remove(),移动：moveTo(),复制：copyTo()方法;
+    errCallback： 创建文件或者获取文件失败回调，参数 fileError 对象
 ```
 
 1.请求访问文件系统
