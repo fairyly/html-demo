@@ -135,6 +135,26 @@
     size: 配额的空间大小,(byte);
     successCallback: 申请配额成功时执行的回调函数;
     errCallback: 申请配额失败时的回调函数
+    
+  3. 创建文件
+    操作思路： 当调用 requestFileSystem() 方法请求本地文件系统时，如果请求成功，则执行一个回调，
+    回调函数中包含一个参数，它指向可以回去的文件系统对象，该对象包含一个 root 属性，属性值为一个 DirectoryEntry 对象，
+    通过文件系统的根目录对象的 getFile() 方法在根目录中创建文件;
+    请求
+    文件系统成功回调方法如下：
+    function initFs(fs) {
+      console.log(fs);
+      // 创建文件
+      fs.root.getFile(
+          'test.txt',
+          {create:true},
+          function(fileEntry){
+            console.log(fileEntry);
+          },
+          errCallback
+      }
+    }
+    
 ```
 
 1.请求访问文件系统
