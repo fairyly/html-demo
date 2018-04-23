@@ -3,7 +3,7 @@
 * https://github.com/feflow
 * doc: http://www.feflowjs.org/zh-cn/docs/
 
-- JavaScript Style Guide: https://github.com/airbnb/javascript
+- 爱彼迎 JavaScript Style Guide: https://github.com/airbnb/javascript
 
 ## README规范
   项目名：[project name]，git仓库地址：[repository's url from origin] 。本项目第一负责人为 `[owner]`。
