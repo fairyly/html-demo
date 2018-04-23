@@ -104,6 +104,9 @@
 [![npm package](https://img.shields.io/npm/v/eslint-config-ivweb.svg?style=flat-square)](https://www.npmjs.org/package/eslint-config-ivweb)
 [![NPM downloads](http://img.shields.io/npm/dt/eslint-config-ivweb.svg?style=flat-square)](https://npmjs.org/package/eslint-config-ivweb)
 
+- Google： [eslint-config-google](https://github.com/google/eslint-config-google)
+- airbnb: [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
+
 腾讯IVWEB团队ESLint共享配置规则
 
 ## 安装
