@@ -17,8 +17,8 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-  }
-  ```
+  }
+  ```
 
 - 上边框(0.5px), 伪元素写法
   ```css
