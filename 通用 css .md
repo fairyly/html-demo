@@ -11,8 +11,8 @@
   ```
 
 - 控制几行显示,超出显示省略号
-  ```
-  .line-clam{
+  ```
+  .line-clam{
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
