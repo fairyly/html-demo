@@ -25,7 +25,7 @@
   .border-top {
     position: relative;
   }
-  .border-top::before {
+  .border-top::before {
     position: absolute;
     left: 0;
     top: 0;
