@@ -22,7 +22,7 @@
 
 - 上边框(0.5px), 伪元素写法
   ```css
-  .border-top {
+  .border-top {
     position: relative;
   }
   .border-top::before {
