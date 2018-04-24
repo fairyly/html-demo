@@ -1,7 +1,7 @@
 # 通用 css
 
 - 省略号 ...
-  ```
+  ```css
     .ellipsis {
       display: block;
       overfolw: hidden;
@@ -11,7 +11,7 @@
   ```
 
 - 控制几行显示,超出显示省略号
-  ```
+  ```css
   .line-clam{
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -21,7 +21,7 @@
   ```
 
 - 上边框(0.5px), 伪元素写法
-  ```
+  ```css
   .border-top {
     position: relative;
   }
@@ -42,7 +42,7 @@
   ```
   
 - 下边距(0.5px) ,伪元素
-  ```
+  ```css
   .border-bottom {
     position: relative;
   }
