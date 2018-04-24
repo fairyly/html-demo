@@ -65,8 +65,8 @@
 
 
 - 边框 (0.5px)
-  ```
-  .weui-btn:after {
+  ```css
+  .btn:after {
     content: " ";
     width: 200%;
     height: 200%;
