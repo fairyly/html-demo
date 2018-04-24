@@ -63,7 +63,7 @@
   }
   ```
 - 左边距(0.5px) ,伪元素
-  ```
+  ```css
   .border-left::after {
     content: " ";
     position: absolute;
