@@ -6,7 +6,7 @@
       display: block;
       overfolw: hidden;
       text-overflow: ellipsis;
-      white-space: no-wrap;
+      white-space: nowrap;
   }
   ```
 
