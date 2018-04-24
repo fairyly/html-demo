@@ -2,7 +2,7 @@
 
 - 省略号 ...
   ```
-    ellipsis {
+    .ellipsis {
       display: block;
       overfolw: hidden;
       text-overflow: ellipsis;
@@ -10,12 +10,22 @@
     }
   ```
 
+- 控制几行显示,超出显示省略号
+  ```
+  .line-clam{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  ```
+
 - 上边框(0.5px), 伪元素写法
   ```
-  border-top {
+  .border-top {
     position: relative;
   }
-  border-top::before {
+  .border-top::before {
     position: absolute;
     left: 0;
     top: 0;
@@ -33,10 +43,10 @@
   
 - 下边距(0.5px) ,伪元素
   ```
-  border-bottom {
+  .border-bottom {
     position: relative;
   }
-  border-bottom:after {
+  .border-bottom:after {
     content: " ";
     position: absolute;
     left: 0;
