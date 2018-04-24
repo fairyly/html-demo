@@ -43,10 +43,10 @@
   
 - 下边距(0.5px) ,伪元素
   ```css
-  .border-bottom {
+  .border-bottom {
     position: relative;
   }
-  .border-bottom:after {
+  .border-bottom:after {
     content: " ";
     position: absolute;
     left: 0;
