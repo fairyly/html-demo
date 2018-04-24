@@ -1,13 +1,13 @@
 # 通用 css
 
 - 省略号 ...
-  ```css
-    .ellipsis {
+  ```css
+  .ellipsis {
       display: block;
       overfolw: hidden;
       text-overflow: ellipsis;
       white-space: no-wrap;
-    }
+  }
   ```
 
 - 控制几行显示,超出显示省略号
