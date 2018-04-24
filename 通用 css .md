@@ -62,7 +62,23 @@
     z-index: 2;
   }
   ```
-
+- 左边距(0.5px) ,伪元素
+  ```
+  .border-left::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 0px;
+    border-left: 1px solid #e3e5e9;
+    color: #e3e5e9;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+  }
+  ```
 
 - 边框 (0.5px)
   ```css
