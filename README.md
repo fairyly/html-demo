@@ -83,6 +83,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## http下载工具，基于http代理，支持多连接分块下载
 - https://github.com/monkeyWie/proxyee-down
 
+## Etherpad: Really real-time collaborative document editing http://etherpad.org
+  - https://github.com/ether/etherpad-lite
+
 # webpagemodule
 一些模板页面和效果
 
