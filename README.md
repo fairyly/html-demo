@@ -84,10 +84,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 - https://github.com/monkeyWie/proxyee-down
 
 ## Etherpad: Really real-time collaborative document editing http://etherpad.org
-  - https://github.com/ether/etherpad-lite
+  - https://github.com/ether/etherpad-lite
 
 ## Create PDF documents using web technologies
-  - https://github.com/RelaxedJS/ReLaXed
+  - https://github.com/RelaxedJS/ReLaXed
 
 ## webpagemodule
 一些模板页面和效果
