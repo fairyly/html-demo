@@ -86,7 +86,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## Etherpad: Really real-time collaborative document editing http://etherpad.org
   - https://github.com/ether/etherpad-lite
 
-# webpagemodule
+## Create PDF documents using web technologies
+  - https://github.com/RelaxedJS/ReLaXed
+
+## webpagemodule
 一些模板页面和效果
 
 * [蓝色通用企业首页模板](https://fairyly.github.io/html-demo/蓝色通用企业首页模板/index.html) (IE9+，chrome,FF等)
