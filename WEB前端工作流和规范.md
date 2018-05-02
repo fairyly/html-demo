@@ -109,6 +109,17 @@
 - Google： [eslint-config-google](https://github.com/google/eslint-config-google)
 - airbnb: [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 
+```
+如果同一个目录下有多个配置文件，ESLint 只会使用一个。优先级顺序如下：
+
+.eslintrc.js
+.eslintrc.yaml
+.eslintrc.yml
+.eslintrc.json
+.eslintrc
+package.json
+```
+
 腾讯IVWEB团队ESLint共享配置规则
 
 ## 安装
