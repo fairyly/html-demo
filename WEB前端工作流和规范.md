@@ -109,6 +109,7 @@
 - Google： [eslint-config-google](https://github.com/google/eslint-config-google)
 - airbnb: [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 
+- config: http://eslint.cn/docs/user-guide/configuring
 ```
 如果同一个目录下有多个配置文件，ESLint 只会使用一个。优先级顺序如下：
 
