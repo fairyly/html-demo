@@ -97,6 +97,13 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   - https://github.com/topics
   - 
 
+## 看最好的资讯
+  - Front-End Front: https://frontendfront.com/
+  - EchoJS: https://www.echojs.com/
+  - DailyJS: https://medium.com/dailyjs/
+  - ES.next News: http://esnextnews.com/
+  - Web Design Weekly: https://web-design-weekly.com/
+
 ## webpagemodule
 一些模板页面和效果
 
