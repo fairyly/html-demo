@@ -89,6 +89,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## Create PDF documents using web technologies
   - https://github.com/RelaxedJS/ReLaXed
 
+## 查看最新的趋势库和开发者
+  - https://github.com/trending
+
 ## webpagemodule
 一些模板页面和效果
 
