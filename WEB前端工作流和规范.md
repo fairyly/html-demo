@@ -111,6 +111,15 @@
 
 - config: http://eslint.cn/docs/user-guide/configuring
 ```
+$ npm install -g eslint
+You should then setup a configuration file:
+
+$ eslint --init
+After that, you can run ESLint on any file or directory like this:
+
+$ eslint yourfile.js
+
+
 如果同一个目录下有多个配置文件，ESLint 只会使用一个。优先级顺序如下：
 
 .eslintrc.js
