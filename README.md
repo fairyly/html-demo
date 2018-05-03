@@ -90,7 +90,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   - https://github.com/RelaxedJS/ReLaXed
 
 ## 查看最新的趋势库和开发者
-  - https://github.com/trending
+  - https://github.com/trending
+  - https://github.com/topics
+  - 
 
 ## webpagemodule
 一些模板页面和效果
