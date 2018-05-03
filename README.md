@@ -103,6 +103,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   - DailyJS: https://medium.com/dailyjs/
   - ES.next News: http://esnextnews.com/
   - Web Design Weekly: https://web-design-weekly.com/
+  - 订阅: https://cooperpress.com/publications/
 
 ## webpagemodule
 一些模板页面和效果
