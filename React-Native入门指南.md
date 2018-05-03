@@ -5,6 +5,7 @@
 * https://github.com/fairyly/react-native-lesson
 
 - doc: https://reactnative.cn/docs/0.51/getting-started.html
+  - https://facebook.github.io/react-native/docs/getting-started.html
 
 
 ### install chocolatey
