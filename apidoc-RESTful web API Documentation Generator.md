@@ -76,3 +76,26 @@ apidoc -i myapp/ -o apidoc/
 - 配置 
 
 无package.json文件时，需要在代码文件夹的根目录下，创建apidoc.json文件。
+```
+配置属性如下: 
+name：项目名称 
+version：项目版本 
+description：项目介绍 
+title：浏览器显示的标题内容 
+url：endpoints的前缀，例如https://api.github.com/v1 
+sampleUrl：如果设置了，则在api文档中出现一个测试用的from表单 
+header 
+title：导航文字包含header.md文件 
+filename：markdown-file 文件名 
+footer 
+title：导航文字包含header.md文件 
+filename：markdown-file 文件名 
+order：用于配置输出 api-names/group-names 排序，在列表中的将按照列表中的顺序排序，不在列表中的名称将自动显示。
+
+模板的配置: 
+在apidoc.json中或在package.json中添加template属性，将对模板进行特殊设置 
+forceLanguage：生成指定语言的文档，简体中文仅需设置”zh-cn”，支持的语言：https://github.com/apidoc/apidoc/tree/master/template/locales 
+withCompare：是否启用与旧版本的比较功能，默认为true 
+withGenerator：是否输出生成信息，默认为true 
+jQueryAjaxSetup：设置Ajax请求的默认值,参见http://api.jquery.com/jquery.ajaxsetup/
+```
