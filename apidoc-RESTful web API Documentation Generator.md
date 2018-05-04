@@ -7,9 +7,10 @@
 ```
 
 ### RUN
-ep: 项目目录 /apidocjs  
-              -myapp  
-              -apidoc.json  
+ep: 项目目录
+/apidocjs  
+  -myapp  
+  -apidoc.json  
               
 apidoc.json:
 
