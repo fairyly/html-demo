@@ -63,6 +63,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 * sublime：HTML-css-js prettify 插件，首先要配置插件的node路径才可以使用，，否则报错，无法使用
 
 
+## 世界上最快且最智能的在线批量裁剪图片工具
+  - https://www.smartresize.com/zh-cn
+
 ## 日期格式化
 * https://github.com/noahlam/Miment
 
