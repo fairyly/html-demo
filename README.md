@@ -104,6 +104,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 ## Generate an image of all your Github contributions https://github-contributions.now.sh
   - https://github.com/sallar/github-contributions-chart
+  
+## high level way to create menubar desktop applications with electron
+  - https://github.com/maxogden/menubar
 
 ## 查看最新的趋势库和开发者
 
