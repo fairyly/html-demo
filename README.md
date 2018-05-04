@@ -69,7 +69,15 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   - https://www.smartresize.com/zh-cn
 
 ## 日期格式化
-* https://github.com/noahlam/Miment
+  - https://github.com/noahlam/Miment
+
+## 日期控件
+  - http://singod.github.io/jeDate/
+  - https://github.com/singod/jeDate
+
+## A JavaScript calendar 
+  - http://ui.toast.com/tui-calendar
+  - https://github.com/nhnent/tui.calendar
 
 ### 面试集合
 * http://codehtml.cn/front-end-interview-js/#/basic
