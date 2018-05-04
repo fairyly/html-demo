@@ -8,10 +8,10 @@
 
 ### RUN
 ep: 项目目录
--apidocjs  
-  -myapp
-    - doc.js
-  - apidoc.json  
+-apidocjs    
+  -myapp  
+    -doc.js  
+  -apidoc.json    
 
 #### doc.js:
 ```
