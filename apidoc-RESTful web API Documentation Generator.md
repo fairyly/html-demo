@@ -8,9 +8,9 @@
 
 ### RUN
 ep: 项目目录
-/apidocjs  
-  -myapp  
-  -apidoc.json  
+- apidocjs  
+  - myapp  
+  - apidoc.json  
               
 apidoc.json:
 
