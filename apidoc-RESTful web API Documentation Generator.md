@@ -7,11 +7,13 @@
 ```
 
 ### RUN
-ep: 项目目录
+ep: 项目目录结构
+```
 -apidocjs    
   -myapp  
     -doc.js  
   -apidoc.json    
+```
 
 #### doc.js:
 ```
