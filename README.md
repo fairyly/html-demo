@@ -89,6 +89,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## Create PDF documents using web technologies
   - https://github.com/RelaxedJS/ReLaXed
 
+## Generate an image of all your Github contributions https://github-contributions.now.sh
+  - https://github.com/sallar/github-contributions-chart
+
 ## 查看最新的趋势库和开发者
 
 一个巨大的信息来源地，是Github的“Explore”标签。那里有无尽的内容如“Topics”、“Trends”、“Resources”...
