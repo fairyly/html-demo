@@ -13,6 +13,14 @@ ep: 项目目录结构
   -myapp  
     -doc.js  
   -apidoc.json    
+apidocjs/
+├─ myapp/
+│  ├─ doc.js
+│  └─ 
+│  └─ 
+│  └─ 
+├─ apidoc.json
+│  ├─ ...
 ```
 
 #### doc.js:
