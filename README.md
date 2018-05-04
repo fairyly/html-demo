@@ -62,6 +62,8 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ### html-css-js代码格式化
 * sublime：HTML-css-js prettify 插件，首先要配置插件的node路径才可以使用，，否则报错，无法使用
 
+## JavaScript GIF encoding library http://jnordberg.github.io/gif.js/
+  - https://github.com/jnordberg/gif.js
 
 ## 世界上最快且最智能的在线批量裁剪图片工具
   - https://www.smartresize.com/zh-cn
