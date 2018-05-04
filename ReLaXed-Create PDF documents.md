@@ -4,7 +4,7 @@ ReLaXed: Create PDF documents using web technologies
 
 * how to use (windows)
 ```
-  git clone https://github.com/RelaxedJS/ReLaXed.git .
+  git clone https://github.com/RelaxedJS/ReLaXed.git
   npm install
   npm link --unsafe-perm=true
   
