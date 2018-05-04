@@ -8,11 +8,25 @@
 
 ### RUN
 ep: 项目目录
-- apidocjs  
-  - myapp  
+-apidocjs  
+  -myapp
+    - doc.js
   - apidoc.json  
-              
-apidoc.json:
+
+#### doc.js:
+```
+/**
+ * @api {get} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */
+```
+#### apidoc.json:
 
 ```
   {
@@ -23,7 +37,7 @@ apidoc.json:
     "url" : "https://api.github.com/v1"
   }
 ```
-run generator:
+### run generator:
 
 ```
   apidoc -i myapp/ -o apidoc/
