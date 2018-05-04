@@ -27,3 +27,4 @@ run generator:
 ```
   apidoc -i myapp/ -o apidoc/
 ```
+
