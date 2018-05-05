@@ -146,7 +146,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 
 
-## webAR: fficient Augmented Reality for the Web - 60fps on mobile!
+## webAR: Efficient Augmented Reality for the Web - 60fps on mobile!
   - AR.js: https://github.com/jeromeetienne/AR.js
 
 
