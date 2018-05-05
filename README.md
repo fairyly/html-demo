@@ -80,6 +80,11 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## 日期控件
   - http://singod.github.io/jeDate/
   - https://github.com/singod/jeDate
+  
+## 一个可拖拽的日历组件
+  - https://github.com/ProtoTeam/drag-calendar
+  - 如何写一个拖拽日历组件: https://github.com/ProtoTeam/blog/blob/master/201804/1.md
+
 
 ## A JavaScript calendar 
   - http://ui.toast.com/tui-calendar
