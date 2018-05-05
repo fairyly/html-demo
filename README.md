@@ -129,6 +129,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 ## css-protips: https://github.com/AllThingsSmitty/css-protips
 
+## Tabler is free and open-source HTML Dashboard UI Kit built on Bootstrap 4
+  - https://tabler.github.io/
+  - https://github.com/tabler/tabler
+
 ## 互联网公司技术架构
   - https://github.com/davideuler/architecture.of.internet-product
 
