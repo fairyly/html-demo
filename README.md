@@ -152,7 +152,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## webVR:
   - https://github.com/aframevr/aframe
   -  web framework for building virtual reality experiences. https://aframe.io/
-
+  - awesome-aframe：https://github.com/aframevr/awesome-aframe
+  - Babylon.js： building 3D games with HTML 5 and WebGL http://www.babylonjs.com
+  - https://github.com/BabylonJS/Babylon.js
 ## 互联网公司技术架构
   - https://github.com/davideuler/architecture.of.internet-product
 
