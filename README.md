@@ -62,17 +62,19 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ### html-css-js代码格式化
 * sublime：HTML-css-js prettify 插件，首先要配置插件的node路径才可以使用，，否则报错，无法使用
 
-## JavaScript GIF encoding library http://jnordberg.github.io/gif.js/
-  - https://github.com/jnordberg/gif.js
+## JavaScript GIF encoding library 
+  - http://jnordberg.github.io/gif.js/
+  - https://github.com/jnordberg/gif.js
 
 ## 世界上最快且最智能的在线批量裁剪图片工具
-  - https://www.smartresize.com/zh-cn
+  - https://www.smartresize.com/zh-cn
  
 ## 最好的网易云音乐播放器
-  - https://github.com/trazyn/ieaseMusic
+  - https://github.com/trazyn/ieaseMusic
 
-## 一个命令行查单词的工具： http://www.kenshinji.com/yddict/
-  - https://github.com/kenshinji/yddict
+## 一个命令行查单词的工具： 
+  - http://www.kenshinji.com/yddict/
+  - https://github.com/kenshinji/yddict
 
 ## 日期格式化
   - https://github.com/noahlam/Miment
