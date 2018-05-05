@@ -68,6 +68,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## 世界上最快且最智能的在线批量裁剪图片工具
   - https://www.smartresize.com/zh-cn
 
+## 一个命令行查单词的工具： http://www.kenshinji.com/yddict/
+  - https://github.com/kenshinji/yddict
+
 ## 日期格式化
   - https://github.com/noahlam/Miment
 
