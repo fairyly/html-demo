@@ -127,7 +127,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## HTML5 Recorder - mp3 output: https://wangpengfei15974.github.io/recorder.js/
   - https://github.com/wangpengfei15975/recorder.js
 
+## css-protips: https://github.com/AllThingsSmitty/css-protips
 
+## 互联网公司技术架构
+  - https://github.com/davideuler/architecture.of.internet-product
 
 ## 查看最新的趋势库和开发者
 
