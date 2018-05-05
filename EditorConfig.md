@@ -32,3 +32,18 @@ indent_style = tab
 这里我们使用 2 个空格缩进，tab 长度也是 2 个空格。trim_trailing_whitespace 用来删除每一行最后多余的空格，
 insert_final_newline 用来在代码最后插入一个空的换行。
 ```
+
+
+### ep: 
+
+.editorconfig中常用内容
+```
+root = true
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+```
