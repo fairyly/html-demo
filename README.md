@@ -118,6 +118,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   - https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-
 
 
+## HTML5 Recorder - mp3 output: https://wangpengfei15974.github.io/recorder.js/
+  - https://github.com/wangpengfei15975/recorder.js
+
+
 
 ## 查看最新的趋势库和开发者
 
