@@ -133,7 +133,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   - https://tabler.github.io/
   - https://github.com/tabler/tabler
 
-## eneration of diagram and flowchart from text in a similar manner as markdown 
+## generation of diagram and flowchart from text in a similar manner as markdown 
   - http://knsv.github.io/mermaid/
   - https://github.com/knsv/mermaid
 
