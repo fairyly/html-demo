@@ -114,6 +114,11 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## Replace <img /> elements with <img-2> to automatically pre-cache images and improve page performance.
   - https://github.com/RevillWeb/img-2
 
+## A beautiful cross platform Desktop Player for Google Play Music:https://www.googleplaymusicdesktopplayer.com/
+  - https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-
+
+
+
 ## 查看最新的趋势库和开发者
 
 一个巨大的信息来源地，是Github的“Explore”标签。那里有无尽的内容如“Topics”、“Trends”、“Resources”...
