@@ -67,6 +67,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 ## 世界上最快且最智能的在线批量裁剪图片工具
   - https://www.smartresize.com/zh-cn
+ 
+## 最好的网易云音乐播放器
+  - https://github.com/trazyn/ieaseMusic
 
 ## 一个命令行查单词的工具： http://www.kenshinji.com/yddict/
   - https://github.com/kenshinji/yddict
