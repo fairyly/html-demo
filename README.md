@@ -115,6 +115,8 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## Create PDF documents using web technologies
   - https://github.com/RelaxedJS/ReLaXed
 
+## PDF Reader in JavaScript
+  - https://github.com/mozilla/pdf.js
 
 ## Generate an image of all your Github contributions https://github-contributions.now.sh
   - https://github.com/sallar/github-contributions-chart
