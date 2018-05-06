@@ -2,6 +2,9 @@
 
 blog: http://blog.163.com/work_laoshu/blog/static/11488577220102292153886/
 
+* Creative Commons： https://creativecommons.org/choose/
+  - 简称CC，中国大陆正式名称为知识共享，台湾正式名称为创用CC。是一个非营利组织，也是一种创作的授权方式。
+
 ### GNU General Public License
 
 - GNU General Public License （GPL）的可能是开源项目最常用的许可证。GPL赋予和保证了开源项目开发者广泛的权利。
