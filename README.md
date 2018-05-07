@@ -162,6 +162,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   - github: https://github.com/postcss/postcss
   - doc: https://github.com/postcss/postcss/blob/master/README-cn.md
 
+## SheetJS Community Edition -- Spreadsheet Parser and Writer https://sheetjs.com/
+  - https://github.com/SheetJS/js-xlsx
+
+
 ## 你可能不知道的前端知识点 
   - https://github.com/justjavac/the-front-end-knowledge-you-may-not-know
   - https://github.com/dev-reading
