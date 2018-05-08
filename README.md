@@ -164,6 +164,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 ## SheetJS Community Edition -- Spreadsheet Parser and Writer https://sheetjs.com/
   - https://github.com/SheetJS/js-xlsx
+  
+## fabric.js
+  - Javascript Canvas Library, SVG-to-Canvas (& canvas-to-SVG) Parser http://fabricjs.com
+  - https://github.com/fabricjs/fabric.js
 
 
 ## 你可能不知道的前端知识点 
