@@ -11,3 +11,7 @@ BrowserFS also integrates nicely into the Emscripten file system.
 
 ### JavaScript Animation Engine http://animejs.com 动画引擎
 - GitHub: https://github.com/juliangarnier/anime
+
+
+### Javascript Canvas Library, SVG-to-Canvas (& canvas-to-SVG) Parser http://fabricjs.com
+- https://github.com/fabricjs/fabric.js
