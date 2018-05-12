@@ -1,0 +1,9 @@
+
+
+
+### BrowserFS: BrowserFS是一个浏览器内文件系统，它模拟Node JS文件系统API并支持从各种后端存储和检索文件
+BrowserFS is an in-browser file system that emulates the Node JS file system API   
+and supports storing and retrieving files from various backends.   
+BrowserFS also integrates nicely into the Emscripten file system.  
+
+- GitHub: https://github.com/jvilk/BrowserFS
