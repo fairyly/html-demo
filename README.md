@@ -169,6 +169,8 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   - Javascript Canvas Library, SVG-to-Canvas (& canvas-to-SVG) Parser http://fabricjs.com
   - https://github.com/fabricjs/fabric.js
 
+## Running static file server anywhere / 随启随用的静态文件服务器
+  - github: https://github.com/JacksonTian/anywhere
 
 ## 你可能不知道的前端知识点 
   - https://github.com/justjavac/the-front-end-knowledge-you-may-not-know
