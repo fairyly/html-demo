@@ -172,6 +172,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## Running static file server anywhere / 随启随用的静态文件服务器
   - github: https://github.com/JacksonTian/anywhere
 
+
+## 程序员找工作黑名单
+- https://github.com/shengxinjing/programmer-job-blacklist
+
 ## 你可能不知道的前端知识点 
   - https://github.com/justjavac/the-front-end-knowledge-you-may-not-know
   - https://github.com/dev-reading
