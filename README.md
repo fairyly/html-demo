@@ -171,7 +171,8 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 ## Running static file server anywhere / 随启随用的静态文件服务器
   - github: https://github.com/JacksonTian/anywhere
-
+## paper.js 矢量图形脚本
+- paper.js: https://github.com/paperjs/paper.js
 
 ## 程序员找工作黑名单
 - https://github.com/shengxinjing/programmer-job-blacklist
