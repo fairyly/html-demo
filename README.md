@@ -45,6 +45,10 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ### 图灵社区
   - http://www.ituring.com.cn/
 
+
+## 开源图书网站
+- https://love2.io/
+
 * 最新的长期支持版本(LTS - Long Term Support)
 
 # ECMAScript
