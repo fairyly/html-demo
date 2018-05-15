@@ -178,6 +178,14 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 ## paper.js 矢量图形脚本
 - paper.js: https://github.com/paperjs/paper.js
 
+## IPBlade:
+- 有的网络服务限制 IP 地址，比如只有中国的 IP 地址才能使用。这个 Chrome 插件点击一下就可以改变浏览器的 IP 地址，从而绕过这些限制。
+- https://chrome.google.com/webstore/detail/ipblade-privacy-protector/hojjgiebfmgmlpjojjkaehgohkolmoea
+
+
+
+
+
 ## 程序员找工作黑名单
 - https://github.com/shengxinjing/programmer-job-blacklist
 
