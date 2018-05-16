@@ -30,7 +30,7 @@ BrowserFS also integrates nicely into the Emscripten file system.
 ## ECMAScript code generator
 - escodegen: https://github.com/estools/escodegen
 
-## forgiving html and xml parser
+## forgiving html and xml parser: HTML / XML / RSS解析器
 - htmlparser2: https://github.com/fb55/htmlparser2
 
 
