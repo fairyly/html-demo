@@ -116,7 +116,7 @@
     box-sizing: border-box;
     border-radius: 10px;
   }
-  ```
+  ```
 - 右箭头 >
   ```
   :before {
