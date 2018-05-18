@@ -4,7 +4,7 @@
 * doc: http://www.feflowjs.org/zh-cn/docs/
 
 - 爱彼迎 JavaScript Style Guide: https://github.com/airbnb/javascript
-
+- 优雅的提交你的 Git Commit Message: https://juejin.im/post/5afc5242f265da0b7f44bee4
 ## README规范
   项目名：[project name]，git仓库地址：[repository's url from origin] 。本项目第一负责人为 `[owner]`。
 
