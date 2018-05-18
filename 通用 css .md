@@ -118,7 +118,7 @@
   }
   ```
 - 右箭头 >
-  ```
+  ```
   :before {
     content: " ";
     display: inline-block;
@@ -136,4 +136,4 @@
     right: 15px;
     margin-top: -4px;
   }
-  ```
+  ```
