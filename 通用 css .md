@@ -81,6 +81,23 @@
     transform: scaleX(0.5);
   }
   ```
+- 右边距(0.5px) ,伪元素
+  ```
+  :after {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px solid #e5e5e5;
+    color: #e5e5e5;
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+  }
+  ```
 
 - 边框 (0.5px)
   ```css
@@ -99,4 +116,24 @@
     box-sizing: border-box;
     border-radius: 10px;
   }
-  ```
+  ```
+- 右箭头 >
+  ```
+  :before {
+    content: " ";
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border-width: 2px 2px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -2px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -4px;
+  }
+  ```
