@@ -3,6 +3,9 @@
 ## JavaScript 算法与数据结构
 - javascript-algorithms： https://github.com/trekhleb/javascript-algorithms
 
+## Free cross-platform password manager compatible with KeePass https://keeweb.info
+- https://github.com/keeweb/keeweb
+
 
 ### BrowserFS: BrowserFS是一个浏览器内文件系统，它模拟Node JS文件系统API并支持从各种后端存储和检索文件
 BrowserFS is an in-browser file system that emulates the Node JS file system API   
