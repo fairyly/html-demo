@@ -66,6 +66,8 @@ BrowserFS also integrates nicely into the Emscripten file system.
 ## 使用WebGL的JavaScript图像效果库
 - https://github.com/evanw/glfx.js
 
+## draw.io是一个在线图表网站，提供该项目的来源
+- https://github.com/jgraph/drawio
 
 
 # 许可协议
