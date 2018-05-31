@@ -1,5 +1,8 @@
 # 插件集合
 
+## 前端周刊
+- weekly: https://github.com/dt-fe/weekly
+
 ## JavaScript 算法与数据结构
 - javascript-algorithms： https://github.com/trekhleb/javascript-algorithms
 
