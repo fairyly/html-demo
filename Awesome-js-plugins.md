@@ -3,11 +3,14 @@
 ## 前端周刊
 - weekly: https://github.com/dt-fe/weekly
 
+## js 标准库
+- core-js: https://github.com/zloirock/core-js
+
 ## JavaScript 算法与数据结构
 - javascript-algorithms： https://github.com/trekhleb/javascript-algorithms
 
 ## Free cross-platform password manager compatible with KeePass https://keeweb.info
-- https://github.com/keeweb/keeweb
+- 免费跨平台密码管理器: https://github.com/keeweb/keeweb
 
 
 ### BrowserFS: BrowserFS是一个浏览器内文件系统，它模拟Node JS文件系统API并支持从各种后端存储和检索文件
@@ -23,7 +26,7 @@ BrowserFS also integrates nicely into the Emscripten file system.
 
 
 ### Javascript Canvas Library, SVG-to-Canvas (& canvas-to-SVG) Parser http://fabricjs.com
-- https://github.com/fabricjs/fabric.js
+- Javascript画布库，SVG到画布（和画布到SVG）解析器: https://github.com/fabricjs/fabric.js
 
 
 ### 时间插件
