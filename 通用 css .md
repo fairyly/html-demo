@@ -138,7 +138,7 @@
   }
   ```
 
-- 三角线箭头 如 >,
+- 三角线箭头 如 ∧∨,
   ```
     .vue-treeselect__control-arrow-container {
     position: relative;
