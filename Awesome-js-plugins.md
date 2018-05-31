@@ -6,6 +6,10 @@
 ## js 标准库
 - core-js: https://github.com/zloirock/core-js
 
+## 解析技术
+- github: https://github.com/photonstorm/phaser
+- book: http://parsing-techniques.duguying.net
+
 ## JavaScript 算法与数据结构
 - javascript-algorithms： https://github.com/trekhleb/javascript-algorithms
 
