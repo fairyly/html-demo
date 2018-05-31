@@ -137,7 +137,59 @@
     margin-top: -4px;
   }
   ```
-  
+
+- 三角线箭头 如 >,
+  ```
+    .vue-treeselect__control-arrow-container {
+    position: relative;
+  }
+
+  .vue-treeselect__control-arrow-container:after, .vue-treeselect__control-arrow-container:before {
+    border: 6px solid transparent;
+    border-left: 6px solid #fff;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -6px;
+    content: ' ';
+    margin-top: -3px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+  }
+
+  .vue-treeselect__control-arrow-container:before {
+    border-left-color: #c0c4cc;
+    top: 52%;
+  }
+
+  .vue-treeselect--focused .vue-treeselect__control-arrow-container:after, .vue-treeselect--focused .vue-treeselect__control-arrow-container:before {
+    margin-top: -6px;
+    -webkit-transform: rotateZ(-90deg);
+    -moz-transform: rotateZ(-90deg);
+    -o-transform: rotateZ(-90deg);
+    transform: rotateZ(-90deg);
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+  }
+
+  .vue-treeselect--focused .vue-treeselect__control-arrow-container:before {
+    border-left-color: #c0c4cc;
+    top: 48%;
+  }
+  ```
+
 - 虚线,可控制间隔
   ```
   width: 100%;
