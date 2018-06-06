@@ -60,6 +60,9 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 * [前端导航网](http://jsdig.com/)
 * javascript-learning-resource: https://github.com/keenjaan/javascript-learning-resource
 
+* 前端-清单: https://github.com/thedaviddias/Front-End-Checklist
+* Front-End-Develop-Guide: https://github.com/icepy/Front-End-Develop-Guide
+
 #### 跨域请求时候 option 请求
 * [HTTP访问控制（CORS）跨域请求](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
 
