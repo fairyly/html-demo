@@ -89,6 +89,8 @@ BrowserFS also integrates nicely into the Emscripten file system.
 - number-flip: https://github.com/gaoryrt/number-flip
 
 
+## 手机网页前端设计的调试面板
+- Eruda: https://github.com/liriliri/eruda/blob/master/doc/README_CN.md
 
 
 # 许可协议
