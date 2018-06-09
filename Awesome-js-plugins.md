@@ -38,6 +38,9 @@ BrowserFS also integrates nicely into the Emscripten file system.
 
 ### 条形码生成
 - JsBarcode: https://github.com/lindell/JsBarcode
+### 二维码生成
+- qrious： https://github.com/neocotic/qrious
+  - Pure JavaScript library for QR code generation using canvas https://neocotic.com/qrious
 
 ### 从模板，Node.js，浏览器和命令行生成docx和pptx（微软文档文档）
 - https://github.com/open-xml-templating/docxtemplater
