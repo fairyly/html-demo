@@ -62,6 +62,7 @@
 16、Alignment           =代码对齐
 17、Emmet               =大名鼎鼎呀
 18、Prefixr             =css自动添加 -webkit 等私有词缀
+Sublime注释插件 -Doc​Blockr
 ```
 
 * sublime常用快捷键
