@@ -46,6 +46,12 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
   - http://www.ituring.com.cn/
 
 
+### Twitter
+- https://twitter.com/fairyly_ly
+
+### facebook
+- https://www.facebook.com/fairylys
+
 ## 开源图书网站
 - https://love2.io/
 
