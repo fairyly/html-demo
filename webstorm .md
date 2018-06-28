@@ -2,6 +2,14 @@
 
 windows 系统下：
 
+## 手册
+- http://book.apebook.org/minghe/webstorm/index.html
+- 插件: https://blog.csdn.net/xs20691718/article/details/52269027
+
+
+
+## 快捷键
+
 ```
 Shift + Ctrl + Alt + J    //选中所有同样的词 
 Alt + J                         //选中下一个同样的词 
