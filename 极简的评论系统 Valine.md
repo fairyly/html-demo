@@ -12,9 +12,10 @@ wiki: https://github.com/xCss/Valine/wiki
 
 ## Vue 项目中使用
 
-单纯以模块引入没有效果， 最后添加到 index.html 中CDN资源才可以
+- 单纯以模块引入没有效果， 最后添加到 index.html 中CDN资源才可以
 
 ```
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,4 +31,37 @@ wiki: https://github.com/xCss/Valine/wiki
   </body>
 </html>
 
+```
+
+- 引入页配置：
+```
+valineObj: {
+          el: '#vcomments',
+          notify:false,
+          verify:false,
+          appId: 'dM7VDvl6pYCGVsrhpjFUPTzv-gzGzoHsz',
+          appKey: '1tWRv0vgoDPpJ2oDm0rKJSOP',
+          placeholder: '请在这里留言吧',
+          path: this.$route.path,
+          avatar:'mm'
+      }
+      
+ watch:{
+      //检测url变动重新渲染comment
+      $route(to){
+          let that=this;
+          console.log(that.$route.path)
+          that.valineop.path = that.$route.path;
+          Vue.nextTick(function(){
+            new Valine(that.valineObj);
+        })
+      }
+  },
+  mounted() {
+    console.log(this.$route)
+    var that = this
+
+    var init = new Valine(that.valineObj);
+    console.log(init);
+  }
 ```
