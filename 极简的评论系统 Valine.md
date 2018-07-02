@@ -65,3 +65,38 @@ valineObj: {
     console.log(init);
   }
 ```
+
+
+## 模块引入方式
+- 我提的 issue: https://github.com/xCss/Valine/issues/96
+
+```
+引入Leancloud的js-sdk所致，解决方案如下：
+
+安装：
+npm install leancloud-storage --save
+npm install valine --save
+使用：
+<template>
+    <div>
+        <div class="vcomments"></div>
+    </div>
+</template>
+<script>
+// 将AV对象注册到全局
+window.AV = require('leancloud-storage');
+import Valine from 'valine';
+export default{
+    name:'index',
+    data(){
+        return {}
+    },
+    mounted(){
+        new Valine({
+            el:'.vcomments',
+            // other config
+        })
+    }
+}
+<script>
+```
