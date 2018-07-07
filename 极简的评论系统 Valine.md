@@ -100,3 +100,24 @@ export default{
 }
 <script>
 ```
+
+
+## 添加统计访问（阅读量）
+- https://valine.js.org/visitor.html
+
+```
+Valine 从 v1.2.0-beta1 开始支持文章阅读量统计。
+
+new Valine({
+    el:'#vcomments',
+    ...
+    visitor: true // 阅读量统计
+})
+网页会自动查找页面中class值为leancloud_visitors的元素，获取其id为查询条件。并将得到的值填充到其class的值为leancloud-visitors-count的子元素里：
+
+<!-- id 将作为查询条件 -->
+<span id="/visitor.html" class="leancloud_visitors" data-flag-title="文章阅读量统计">
+    <span class="post-meta-item-text">阅读量 </span>
+    <span class="leancloud-visitors-count">1000000</span>
+</span>
+```
