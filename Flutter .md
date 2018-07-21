@@ -12,5 +12,10 @@ Flutter 兼容现有的代码，免费且开源，在全球开发者中广泛被
 - Engine使用C++实现，主要包括:Skia,Dart和Text。Skia是开源的二维图形库，提供了适用于多种软硬件平台的通用API。
 - Embedder是一个嵌入层，即把Flutter嵌入到各个平台上去
 
+## install Windows
+- https://flutter.io/setup-windows/
+
+
+
 ## 参考资料
 - 深入理解flutter的编译原理与优化： https://www.yuque.com/xytech/flutter/sh4fbm
