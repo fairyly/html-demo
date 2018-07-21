@@ -3,3 +3,10 @@
 Flutter 兼容现有的代码，免费且开源，在全球开发者中广泛被使用。
 
 - https://flutter-io.cn/#section-codelabs
+- github: 
+
+## 架构主要分成三层:Framework，Engine和Embedder
+
+
+## 参考资料
+- 深入理解flutter的编译原理与优化： https://www.yuque.com/xytech/flutter/sh4fbm
