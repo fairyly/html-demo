@@ -176,6 +176,23 @@ replaceChild用于将一个节点替换另一个节点，语法：
 parent.replaceChild(newChild, oldChild);
 ```
 
+## 节点关系API
+- 父关系API
+  - parentNode ：每个节点都有一个parentNode属性，它表示元素的父节点。Element的父节点可能是Element，Document或DocumentFragment；
+  - parentElement ：返回元素的父元素节点，与parentNode的区别在于，其父节点必须是一个Element元素，如果不是，则返回null；
+- 子关系API
+  - children ：返回一个实时的 HTMLCollection ，子节点都是Element，IE9以下浏览器不支持；
+  - childNodes ：返回一个实时的 NodeList ，表示元素的子节点列表，注意子节点可能包含文本节点、注释节点等；
+  - firstChild ：返回第一个子节点，不存在返回null，与之相对应的还有一个 firstElementChild ；
+  - lastChild ：返回最后一个子节点，不存在返回null，与之相对应的还有一个 lastElementChild ；
+- 兄弟关系型API
+  - previousSibling ：节点的前一个节点，如果不存在则返回null。注意有可能拿到的节点是文本节点或注释节点，与预期的不符，要进行处理一下。
+  - nextSibling ：节点的后一个节点，如果不存在则返回null。注意有可能拿到的节点是文本节点，与预期的不符，要进行处理一下。
+  - previousElementSibling ：返回前一个元素节点，前一个节点必须是Element，注意IE9以下浏览器不支持。
+  - nextElementSibling ：返回后一个元素节点，后一个节点必须是Element，注意IE9以下浏览器不支持。
+
+
+
 ## 设置标签的样式等方法 
 - 对标签的样式设置使用.style
 ```
@@ -189,4 +206,4 @@ box.innerHtml="哈哈";
 ```
 
 ## 参考资料
-- 
+- https://blog.csdn.net/hj7jay/article/details/53389522
