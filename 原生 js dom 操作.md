@@ -239,7 +239,53 @@ var clientRect = element.getBoundingClientRect();
 
 clientRect是一个 DOMRect 对象，包含width、height、left、top、right、bottom，它是相对于窗口顶部而不是文档顶部，滚动页面时它们的值是会发生变化的。
 
+## 事件
+```
+div1.addEventListener("click", listener, false);
+```
+- 第一个参数是事件名，第二个是回调函数，第三个参数为true表示捕获，false表示冒泡
+```
+var div1 = document.getElementById("div1");
+    div1.addEventListener("click", listener, false);
+    function listener() {
+        console.log('test');
+    }
+```
 
+- attachEvent()、detachEvent()
+
+IE8及以下使用这两个方法绑定和解绑事件，当然，IE9+也支持这个事件。但这个方法绑定的事件默认为冒泡也只有冒泡。
+
+- 自定义事件：createEvent()
+
+createEvent()用于创建一个新的 event ，而后这个 event 必须调用它的 init() 方法进行初始化。  
+最后就可以在目标元素上使用dispatchEvent()调用新创建的event事件了。
+
+createEvent()的参数一般有：UIEvents、MouseEvents、MutationEvents、HTMLEvents、Event(s)等等，  
+分别有对应的init()方法。HTMLEvents、Event(s)对应的都是initEvent()方法。
+```
+initEvent(type, bubbles, cancelable)
+```
+type表示自定义的事件类型，bubbles表示是否冒泡，cancelable表示是否阻止默认事件。
+```
+target.dispatchEvent(ev)  
+```
+target就是要触发自定义事件的DOM元素
+```
+    var div1 = document.getElementById("div1");
+    div1.addEventListener("message", function(){
+        console.log('test');
+    }, false);
+
+    var div2 = document.getElementById("div2");
+    div2.addEventListener("message", function(e){
+        console.log(this);
+        console.log(e);
+    }, false);
+    var ev = document.createEvent("Event");
+    ev.initEvent("message", false, true); // 起泡参数变为true，div1的事件就会触发
+    div2.dispatchEvent(ev);
+```
 
 ## 参考资料
 - https://blog.csdn.net/hj7jay/article/details/53389522
