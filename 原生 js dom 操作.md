@@ -225,5 +225,21 @@ style.innerHTML = 'body{color:red} #top:hover{background-color: red;color: white
 document.head.appendChild(style);
 ```
 
+## window.getComputedStyle
+通过 element.sytle.xxx 只能获取到内联样式，借助 window.getComputedStyle 可以获取应用到元素上的所有样式，IE8或更低版本不支持此方法。
+```
+var style = window.getComputedStyle(element[, pseudoElt]);
+```
+
+## getBoundingClientRect
+getBoundingClientRect 用来返回元素的大小以及相对于浏览器可视窗口的位置，用法如下：
+```
+var clientRect = element.getBoundingClientRect();
+```
+
+clientRect是一个 DOMRect 对象，包含width、height、left、top、right、bottom，它是相对于窗口顶部而不是文档顶部，滚动页面时它们的值是会发生变化的。
+
+
+
 ## 参考资料
 - https://blog.csdn.net/hj7jay/article/details/53389522
