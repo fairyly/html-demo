@@ -197,11 +197,14 @@ parent.replaceChild(newChild, oldChild);
 给元素设置属性：
 ```
 element.setAttribute(name, value);
+
+document.getElementById('articleHeader20').setAttribute('test','666')
 ```
 - getAttribute
 getAttribute返回指定的特性名相应的特性值，如果不存在，则返回null：
 ```
 var value = element.getAttribute("id");
+document.getElementById('articleHeader20').getAttribute('test')
 ```
 
 ## 设置标签的样式等方法 
