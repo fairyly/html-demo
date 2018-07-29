@@ -218,6 +218,12 @@ box.style.backgroundColor="#ff00000"//带有段横线的属性要是用驼峰命
 ```
 box.innerHtml="哈哈";
 ```
+- 动态添加样式规则
+```
+var style = document.createElement('style');
+style.innerHTML = 'body{color:red} #top:hover{background-color: red;color: white;}';
+document.head.appendChild(style);
+```
 
 ## 参考资料
 - https://blog.csdn.net/hj7jay/article/details/53389522
