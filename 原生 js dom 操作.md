@@ -110,6 +110,71 @@ document.body.appendChild(clone);
 ```
 
 ### 节点修改API
+- appendChild
+这个其实前面已经多次用到了，语法就是：
+```
+parent.appendChild(child);
+```
+它会将child追加到parent的子节点的最后面
+
+- insertBefore
+将某个节点插入到另外一个节点的前面，语法：
+```
+parentNode.insertBefore(newNode, refNode);
+```
+这个API个人觉得设置的非常不合理，因为插入节点只需要知道newNode和refNode就可以了，parentNode是多余的，所以jQuery封装的API就比较好：
+
+```
+newNode.insertBefore(refNode); // 如 $("p").insertBefore("#foo");
+```
+
+所以切记不要把这个原生API和jQuery的API使用方法搞混了！为了加深理解，这里写一个简单的例子：
+```
+<div id="parent">
+    我是父节点
+    <div id="child">
+        我是旧的子节点
+    </div>
+</div>
+<input type="button" id="insertNode" value="插入节点" />
+<script>
+var parent = document.getElementById("parent");
+var child = document.getElementById("child");
+document.getElementById("insertNode").addEventListener('click', function()
+{
+    var newNode = document.createElement("div");
+    newNode.textContent = "我是新节点";
+    parent.insertBefore(newNode, child);
+}, false);
+</script>
+```
+
+关于第二个参数：
+
+refNode是必传的，如果不传该参数会报错；  
+如果refNode是undefined或null，则insertBefore会将节点添加到末尾；
+
+- removeChild
+removeChild用于删除指定的子节点并返回子节点，语法：
+```
+var deletedChild = parent.removeChild(node);
+```
+
+deletedChild指向被删除节点的引用，它仍然存在于内存中，可以对其进行下一步操作。另外，如果被删除的节点不是其子节点，则将会报错。  
+一般删除节点都是这么删的：
+```
+function removeNode(node)
+{
+    if(!node) return;
+    if(node.parentNode) node.parentNode.removeChild(node);
+}
+```
+
+- replaceChild
+replaceChild用于将一个节点替换另一个节点，语法：
+```
+parent.replaceChild(newChild, oldChild);
+```
 
 ## 设置标签的样式等方法 
 - 对标签的样式设置使用.style
