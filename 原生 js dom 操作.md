@@ -192,6 +192,17 @@ parent.replaceChild(newChild, oldChild);
   - nextElementSibling ：返回后一个元素节点，后一个节点必须是Element，注意IE9以下浏览器不支持。
 
 
+## 元素属性型API
+- setAttribute
+给元素设置属性：
+```
+element.setAttribute(name, value);
+```
+- getAttribute
+getAttribute返回指定的特性名相应的特性值，如果不存在，则返回null：
+```
+var value = element.getAttribute("id");
+```
 
 ## 设置标签的样式等方法 
 - 对标签的样式设置使用.style
