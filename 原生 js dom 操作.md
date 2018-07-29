@@ -47,6 +47,69 @@ clone.id = "test2";
 document.body.appendChild(clone);
 ```
 
+### createDocumentFragment
+本方法用来创建一个 DocumentFragment ，也就是文档碎片，它表示一种轻量级的文档，主要是用来存储临时节点，大量操作DOM时用它可以大大提升性能。
+
+- 假设现有一题目，要求给ul添加10000个li，我们先用最简单的拼接字符串的方式来实现：
+```
+<ul id="ul"></ul>
+<script>
+(function()
+{
+    var start = Date.now();
+    var str = '';
+    for(var i=0; i<10000; i++) 
+    {
+        str += '<li>第'+i+'个子节点</li>';
+    }
+    document.getElementById('ul').innerHTML = str;
+    console.log('耗时：'+(Date.now()-start)+'毫秒'); // 44毫秒
+})();
+</script>
+```
+- 再换逐个append的方式，不用说，这种方式效率肯定低：
+```
+<ul id="ul"></ul>
+<script>
+(function()
+{
+    var start = Date.now();
+    var str = '', li;
+    var ul = document.getElementById('ul');
+    for(var i=0; i<10000; i++)
+    {
+        li = document.createElement('li');
+        li.textContent = '第'+i+'个子节点';
+        ul.appendChild(li);
+    }
+    console.log('耗时：'+(Date.now()-start)+'毫秒'); // 82毫秒
+})();
+</script>
+```
+
+- 最后再试试文档碎片的方法，可以预见的是，这种方式肯定比第二种好很多，但是应该没有第一种快：
+```
+<ul id="ul"></ul>
+<script>
+(function()
+{
+    var start = Date.now();
+    var str = '', li;
+    var ul = document.getElementById('ul');
+    var fragment = document.createDocumentFragment();
+    for(var i=0; i<10000; i++)
+    {
+        li = document.createElement('li');
+        li.textContent = '第'+i+'个子节点';
+        fragment.appendChild(li);
+    }
+    ul.appendChild(fragment);
+    console.log('耗时：'+(Date.now()-start)+'毫秒'); // 63毫秒
+})();
+</script>
+```
+
+### 节点修改API
 
 ## 设置标签的样式等方法 
 - 对标签的样式设置使用.style
