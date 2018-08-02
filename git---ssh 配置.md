@@ -48,7 +48,7 @@ Enter same passphrase again: [Type passphrase again]
 ```
 然后你就会得到你的 SSH Key 的指纹，看起来像下面的代码：
 
-````
+```
 Your identification has been saved in /Users/you/.ssh/id_rsa.
 Your public key has been saved in /Users/you/.ssh/id_rsa.pub.
 The key fingerprint is:
@@ -86,8 +86,12 @@ Hi username! You've successfully authenticated, but GitHub does not provide shel
 
 然后将https替换成ssh重新下载下代码，就OK了~~~
 
-Good Luck
 
-参考文档
+
+## git clone 错误
+- github clone fatal: unable to access '': OpenSSL SSL_r       
+  - 有人说设置 `git config --global http.sslVerify false`
+
+## 参考文档
 
 Generating SSH keys:https://help.github.com/articles/connecting-to-github-with-ssh/
