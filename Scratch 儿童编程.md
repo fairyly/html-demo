@@ -12,3 +12,15 @@
 
 - Scratch3.0在线编辑器：https://llk.github.io/scratch-gui/ （预览版）
 
+
+## use 
+
+```
+npm install 出现 No matching version found for scratch-audio@
+
+最后采用 yarn install 安装的
+
+可以选择 scratch-audio 最新版本
+  还有 scratch-svg-renderer scratch-vm
+
+```
