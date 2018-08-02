@@ -225,6 +225,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 
 
 ## 看最好的资讯
+  - Hacker News: https://news.ycombinator.com/ 
   - https://tutorialzine.com/articles
   - Front-End Front: https://frontendfront.com/
   - EchoJS: https://www.echojs.com/
