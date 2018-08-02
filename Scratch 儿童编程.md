@@ -23,6 +23,9 @@ npm install 出现 No matching version found for scratch-audio@
 可以选择 scratch-audio 最新版本
   还有 scratch-svg-renderer scratch-vm
 
+Update chromedriver to the latest version
+
+npm install chromedriver
 ```
 ## install
 ```
