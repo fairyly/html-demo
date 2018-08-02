@@ -24,3 +24,15 @@ npm install 出现 No matching version found for scratch-audio@
   还有 scratch-svg-renderer scratch-vm
 
 ```
+## install
+```
+npm install
+```
+## Getting started
+
+Running the project requires Node.js to be installed.
+```
+npm start
+```
+
+Then go to http://localhost:8601/ -
