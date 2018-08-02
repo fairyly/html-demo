@@ -1,5 +1,7 @@
 # Scratch 儿童编程
 
+部署源码: https://github.com/LLK/scratch-gui
+
 - github : https://github.com/LLK/
 - website: https://scratch.mit.edu/
 - scratch-gui: https://github.com/LLK/scratch-gui
