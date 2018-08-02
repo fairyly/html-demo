@@ -22,3 +22,9 @@
 4.更新DNS缓存
 
 命令行输入：sudo dscacheutil -flushcache，使增加的映射生效
+
+##  RPC failed; curl 56 OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054
+
+- `git config http.postBuffer 524288000`
+
+这里命令设置了通信缓存大小，之前发生错误是同步数据过大导致
