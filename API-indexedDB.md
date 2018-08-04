@@ -12,6 +12,14 @@
 * 5.打开游标：store.openCursor(range,direction)
 * 6.IDBKeyRange: var range = IDBKeyRange.bound(1,4)
 
+## 存储空间限制
+一个单独的数据库项目的大小没有限制。然而可能会限制每个 IndexedDB 数据库的大小。  
+这个限制（以及用户界面对它进行断言的方式）在各个浏览器上也可能有所不同：
+
+- Firefox: 对 IndexedDB 数据库的大小没有限制。在用户界面上只会针对存储超过 50 MB 大小的 BLOB（二进制大对象）请求权限。这个大小的限额可以通过 dom.indexedDB.warningQuota 首选项进行自定义 (定义在 http://mxr.mozilla.org/mozilla-central/source/modules/libpref/src/init/all.js)。
+
+- Google Chrome: 参见 https://developers.google.com/chrome/whitepapers/storage#temporary
+
 **所有针对数据的操作只能在一个事务中被执行**
 
 ```
