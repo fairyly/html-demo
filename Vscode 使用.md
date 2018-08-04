@@ -184,3 +184,4 @@
 ## 资料
 - vscode 一些基本知识: https://blog.csdn.net/amyloverice/article/details/79388270
 - https://www.cnblogs.com/weihe-xunwu/p/6687000.html
+- 快捷键：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
