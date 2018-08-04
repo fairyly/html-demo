@@ -255,3 +255,4 @@ objectStore.openCursor(null, IDBCursor.prev).onsuccess = function(event) {
 - Dexie.js: https://github.com/dfahlander/Dexie.js
 - zangodb: https://github.com/erikolson186/zangodb
 - MDN: https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API
+- Web Storage Support Test: http://dev-test.nemikor.com/web-storage/support-test/
