@@ -242,3 +242,8 @@ objectStore.openCursor(null, IDBCursor.prev).onsuccess = function(event) {
   }
 };
 ```
+## 扩展
+- localForage: https://github.com/localForage/localForage
+- Dexie.js: https://github.com/dfahlander/Dexie.js
+- zangodb: https://github.com/erikolson186/zangodb
+- MDN: https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API
