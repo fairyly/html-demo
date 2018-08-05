@@ -33,6 +33,48 @@ fix(model): fix something
 - fix second bug
 
 ```
+## 验证Git提交信息
+使用ghooks和validate-commit-msg可以在git提交时检查信息。
+```
+"ghooks": {
+  "pre-commit": "npm run eslint && npm test",  // 提交前检查代码格式和运行测试用例
+  "commit-msg": "validate-commit-msg"  // 提交时验证提交信息是否符合格式
+}
+```
+但还需要一个验证规则的文件.vcmrc：
+```
+{
+  "types": [
+    "feat",
+    "fix",
+    "docs",
+    "style",
+    "refactor",
+    "perf",
+    "test",
+    "build",
+    "ci",
+    "chore",
+    "revert"
+  ],
+  "scope": {
+    "required": false,
+    "allowed": [
+      "*"
+    ],
+    "validate": false,
+    "multiple": false
+  },
+  "warnOnFail": false,
+  "maxSubjectLength": 100,
+  "subjectPattern": ".+",
+  "subjectPatternErrorMsg": "subject does not match subject pattern!",
+  "helpMessage": "",
+  "autoFix": false
+}
+```
+这样就可以检验提交信息是否符合格式，不符合是不能提交成功的
+
 
 
 ## 参考
