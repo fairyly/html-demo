@@ -7,7 +7,7 @@ GitHub：https://github.com/yarnpkg/yarn/
 1. 安装：https://yarnpkg.com/zh-Hans/docs/install  
   在 Windows 系统中安装 Yarn 有三种方法：
   - 下载安装程序，运行它时带领你安装 Yarn 到 Windows 上，先安装 Node.js
-  - 用 Chocolatey 安装,
+  - 用 Chocolatey 安装, https://chocolatey.org/install
     ```
       管理员权限 运行 cmd 粘贴
       @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
