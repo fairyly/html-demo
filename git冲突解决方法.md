@@ -28,7 +28,8 @@ Patch failed at 0001 testmod //这里提交时带的消息
 
 这时候查看差异  git diff 就会看到冲突的位置，修改冲突后 git add .
 
-然后   git rebase --continue
+然后   git rebase --continue /或者 git rebase --abort
+
 
 
 然后再去 commit push
