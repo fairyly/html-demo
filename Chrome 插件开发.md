@@ -114,3 +114,4 @@ Manifest File Format:
 
 ## 参考
 - https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.htm
+- demo：https://github.com/yes1am/ChromePlugin
