@@ -43,3 +43,5 @@
 
 ## 参考资料
 - https://juejin.im/post/5b4d66125188251ace75ba27
+- https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA
+- https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0015266568413773c73cdc8b4ab4f9aa9be10ef3078be3f000
