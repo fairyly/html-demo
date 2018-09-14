@@ -1,6 +1,50 @@
 # Git多分支开发上线合并问题
 
 
+##  master dev1 dev2
+
+### rebase 合并
+
+master 分支是基准干净分支
+
+dev1 开发提交东西了
+
+dev2 也有改动没提交,  就先 `git rebase dev1`
+
+```
+git pull --rebase
+git add .
+git commit -m 'add'
+git push origin dev2
+
+这时候 dev2 中已经包含 dev1 中所有提交了
+```
+
+切换 master:
+
+```
+git chekout master
+git rebase dev2
+git push origin master
+
+这时候 master 已经包含 dev1 和 dev2 的所有提交了 ,应该说是最新代码了
+```
+
+可是 dev1 中代码还不是 master 中所有的代码
+
+```
+git checkout dev1
+git rebase master
+git push origin dev1
+
+这时候 dev1 dev2 master 分支代码都是一样的了
+```
+
+
+
+
+
+
 一、项目背景：
 
 项目AB分支同时进行开发时，A分支开发过程中有其他分支B上线，并且B分支上线版本已同步（merge）到master，
@@ -96,6 +140,12 @@ test: 测试用例，包括单元测试、集成测试等
 chore: 改变构建流程、或者增加依赖库、工具等 
 revert: 回滚到上一个版本
 ```
+
+
+
+
+
+
 
 ## 参考
 - https://blog.csdn.net/daybreak1209/article/details/77063572
