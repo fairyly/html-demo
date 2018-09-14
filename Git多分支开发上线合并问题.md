@@ -33,5 +33,69 @@ git push origin 【mergetagname】
 
 - 查看分支及主干流程图: git log --graph --pretty=oneline --abbrev-commit
 
+
+```
+git pull origin master
+
+合并命令行:
+
+快进合并 master 分支，使之包含来自 client 分支的修改
+
+将 server 分支中的修改也整合进来。 使用 git rebase [basebranch] [topicbranch] 命令可以直接将特性分支（即本例中的 server）变基到目标分支（即 master）上。
+
+这样做能省去你先切换到 server 分支，再对其执行变基命令的多个步骤。
+
+$ git rebase master server
+
+
+server 中的代码被“续”到了 master 后面。
+
+
+ 将 server 中的修改变基到 master 上
+然后就可以快进合并主分支 master 了：
+
+$ git checkout master
+$ git merge server
+
+client 和 server 分支中的修改都已经整合到主分支里了，你可以删除这两个分支，：
+
+$ git branch -d client
+$ git branch -d server
+
+通过测试发现
+
+需要先 merge 到 master,再  git rebase master dev1
+
+在 push 
+
+___________________________________________________
+
+
+
+sourvetree 合并分支: 
+
+先到 master 分支
+
+选择 合并 dev 到 master 分支
+
+切换 dev 分支
+
+选择 将当前变更变基到 master分支
+
+
+将开发分支变基到 master分支
+
+
+feat： 新增 feature
+fix: 修复 bug
+docs: 仅仅修改了文档，比如 README, CHANGELOG, CONTRIBUTE等等
+style: 仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑
+refactor: 代码重构，没有加新功能或者修复 bug
+perf: 优化相关，比如提升性能、体验
+test: 测试用例，包括单元测试、集成测试等
+chore: 改变构建流程、或者增加依赖库、工具等 
+revert: 回滚到上一个版本
+```
+
 ## 参考
 - https://blog.csdn.net/daybreak1209/article/details/77063572
