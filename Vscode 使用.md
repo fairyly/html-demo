@@ -9,8 +9,12 @@
   - 文件--》将文件夹添加到工作区
 
 - 设置中文
+  - 安装插件: Chinese (Simplified) Language Pack for Visual Studio Code
   - ctrl+shift+p
   - configure language
+  ```
+    "locale": "zh-CN"
+  ```
   
 ## 一、vs code 的常用快捷键
 
