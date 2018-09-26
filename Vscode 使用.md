@@ -7,6 +7,10 @@
   
 - 添加过个文件夹到工作区
   - 文件--》将文件夹添加到工作区
+
+- 设置中文
+  - ctrl+shift+p
+  - configure language
   
 ## 一、vs code 的常用快捷键
 
