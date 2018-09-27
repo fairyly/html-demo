@@ -1,3 +1,10 @@
+# Charles -
+
+
+安装好后 安装证书
+
+help--->ssl proxying-->install Charles root certificate
+
 
 
 ### Charles:  HTTP proxy / HTTP monitor / Reverse Proxy 
