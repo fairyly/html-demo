@@ -33,6 +33,7 @@ Hyper Text Transfer Protocol（超文本传输协议）
   - 404, Not Found，未发现指定网址
   - 500, Internal Server Error，服务器发生错误
 
+- 参考： [RESTful API 最佳实践](https://juejin.im/entry/5bb9f0845188255c9f06cd3e)
 
 http 301 和 302的区别 (2011-11-20 22:57:36)转载▼
 
