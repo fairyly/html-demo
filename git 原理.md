@@ -68,3 +68,4 @@ Git 提供了git commit命令，简化提交操作。保存进暂存区以后，
 
 ## 参考
 - [git 原理](http://www.ruanyifeng.com/blog/2018/10/git-internals.html)
+- [git 原理简介](https://www.cnblogs.com/yelbosh/p/7471979.html)
