@@ -22,6 +22,46 @@ $ git update-index --add --cacheinfo 100644 \
 - git add 命令
 上面两步（保存对象和更新暂存区），如果每个文件都做一遍，那是很麻烦的。Git 提供了git add命令简化操作。
 
+- 完成提交
+首先，设置一下用户名和 Email，保存快照的时候，会记录是谁提交的。
+
+```
+$ git config user.name "用户名" 
+$ git config user.email "Email 地址"
+```
+接下来，要保存当前的目录结构。前面保存对象的时候，只是保存单个文件，并没有记录文件之间的目录关系（哪个文件在哪里）。
+
+git write-tree命令用来将当前的目录结构，生成一个 Git 对象。
+
+```
+$ git write-tree
+
+c3b8bb102afeca86037d5b5dd89ceeb0090eae9d
+```
+上面代码中，目录结构也是作为二进制对象保存的，也保存在.git/objects目录里面，对象名就是哈希值。
+
+看一下这个文件的内容。
+
+```
+$ git cat-file -p c3b8bb102afeca86037d5b5dd89ceeb0090eae9d
+
+100644 blob 3b18e512dba79e4c8300dd08aeb37f8e728b8dad    test.txt
+```
+可以看到，当前的目录里面只有一个test.txt文件。
+
+所谓快照，就是保存当前的目录结构，以及每个文件对应的二进制对象。上一个操作，目录结构已经保存好了，现在需要将这个目录结构与一些元数据一起写入版本历史。
+
+git commit-tree命令用于将目录树对象写入版本历史。
+
+```
+$ echo "first commit" | git commit-tree c3b8bb102afeca86037d5b5dd89ceeb0090eae9d
+
+c9053865e9dff393fd2f7a92a18f9bd7f2caa7fa
+```
+上面代码中，提交的时候需要有提交说明，echo "first commit"就是给出提交说明。然后，git commit-tree命令将元数据和目录树，一起生成一个 Git 对象。
+
+
+Git 提供了git commit命令，简化提交操作。保存进暂存区以后，只要git commit一个命令，就同时提交目录结构和说明，生成快照。
 
 
 
