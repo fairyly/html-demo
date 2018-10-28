@@ -20,6 +20,13 @@ unload
 操作系统自动切换到另一个 App（比如，收到一个打入的电话）。
 ```
 
+## document.visibilityState
+这个 API 主要在document对象上，新增了一个document.visibilityState属性。该属性返回一个字符串，表示页面当前的可见性状态，共有三个可能的值。
+
+- hidden：页面彻底不可见。
+- visible：页面至少一部分可见。
+- prerender：页面即将或正在渲染，处于不可见状态。
+
 使用 Page Visibility API，判断页面是否可见
 ```
 // 页面的 visibility 属性可能返回三种状态
@@ -51,3 +58,6 @@ document.addEventListener('visibilitychange', function () {
   console.log(document.visibilityState);
 });
 ```
+
+## 参考
+- [Page Visibility API 教程](http://www.ruanyifeng.com/blog/2018/10/page_visibility_api.html)
