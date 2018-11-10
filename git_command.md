@@ -286,3 +286,9 @@ $ git archive
 
 author:ruanyifeng
 ```
+
+## git pull --rebase 和 git pull 的区别
+```
+git pull = git fetch + git merge
+git pull --rebase = git fetch + git rebase
+```
