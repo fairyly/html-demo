@@ -15,6 +15,14 @@
   ```
     "locale": "zh-CN"
   ```
+
+- vscode安装了vim插件之后: ctrl+c ctrl+v 快捷键用不了
+  - 是在INSERT模式下，使用ctrl+c复制，按下去之后，就别成图2的NORMAL模式了，按ctrl+v就变成了VISUAL BLOCK模式
+  - vim.useCtrlKeys 选项设置为 false，关掉vim对ctrl的绑架即可
+  - 最后卸载了 vim 插件才可以
+
+
+- 按住 ctrl 选择多个
   
 ## 一、vs code 的常用快捷键
 
