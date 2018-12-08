@@ -3,6 +3,7 @@
 文档: https://parceljs.org/getting_started.html
 
 github: https://github.com/parcel-bundler/parcel
+
 官网: https://parceljs.org/
 
 Install with yarn:
@@ -23,3 +24,8 @@ Now open http://localhost:1234/ in your browser.
 ```
 parcel watch index.html
 ```
+
+
+
+## 参考
+- [零配置打包工具 Parcel 实践](https://blog.csdn.net/qq_27626333/article/details/79452746)
