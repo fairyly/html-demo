@@ -23,7 +23,8 @@ JSBridge是Native代码与JS代码的通信桥梁。
 
 - 提到url scheme这个概念,那这到底是什么呢?
 
->url scheme是一种类似于url的链接,是为了方便app直接互相调用设计的
+>url scheme是一种类似于url的链接,是为了方便app直接互相调用设计的,  
+url scheme毕竟是通过url拦截实现的，在大量数据传输，以及效率上都有影响
 
 ###
 ###为什么要用JSBridge
