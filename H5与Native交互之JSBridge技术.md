@@ -95,5 +95,5 @@ _handleMessageFromNative( JSON )Native调用 原生调用H5页面注册的方法
 [IOS之URL Scheme的使用](http://blog.csdn.net/wbw1985/article/details/26264029)
 
 [Hybrid APP基础篇(一)->什么是Hybrid App](https://www.cnblogs.com/dailc/p/5930231.html#hybrid_4_1)
-- [SBridge的原理](http://www.cnblogs.com/dailc/p/5931324.html)
+- [JSBridge的原理](http://www.cnblogs.com/dailc/p/5931324.html)
 
