@@ -156,3 +156,6 @@ var main = function () {
 module.exports = main;
 （请注意，只有我们实际需要的数据被导入name，devDependencies而其他部分package.json被忽略，那就是动摇的！）
 ```
+
+## 参考
+- [rollupjs-note](https://github.com/chenshenhai/rollupjs-note)
