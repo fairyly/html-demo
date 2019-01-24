@@ -23,6 +23,10 @@
 
 
 - 按住 ctrl 选择多个
+
+
+- 保存文件自动格式化代码
+>后把JS-CS-HTML Formatter这个插件禁用
   
 ## 一、vs code 的常用快捷键
 
