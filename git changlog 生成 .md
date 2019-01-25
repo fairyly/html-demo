@@ -46,3 +46,4 @@ npm run version
 
 ## 参考
 - [conventional-changelog-cli](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-cli#readme)
+- [Git提交规范配置](https://mp.weixin.qq.com/s/TJ24OXFzzIemABGWYfJ-YQ) 
