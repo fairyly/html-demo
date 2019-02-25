@@ -33,3 +33,4 @@ $ git clean -fx           # 5
 (4): 如果你只想移除已被忽略的文件，请使用选项-X。
 (5): 如果你想移除已被忽略和未被忽略的文件，请使用选项-x。
 ```
+- 参考： [The following untracked working tree files would be overwritten by merge](https://www.jianshu.com/p/7b1c58e0a9ef)
