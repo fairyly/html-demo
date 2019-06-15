@@ -1,8 +1,6 @@
 # heroku
 
-fairyilys@gmail.com
-
-yhq@123456
+fairyilys@gmail.com@123456
 
 已部署 node 项目: [my blog](https://desolate-coast-83590.herokuapp.com/posts)
 
