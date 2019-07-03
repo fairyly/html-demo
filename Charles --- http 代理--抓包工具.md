@@ -24,3 +24,9 @@ help--->ssl proxying-->install Charles root certificate
 点击 proxy --->proxy settings---> http proxy, 输入 port ,点击 enable transparent HTTP proxy
    windows-->勾选 enable
 ```
+
+
+## 小米手机证书安装
+>直接点击 crt 文件无法安装
+
+- wlan--->高级设置--->安装证书
