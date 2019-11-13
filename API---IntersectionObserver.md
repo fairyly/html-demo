@@ -248,5 +248,7 @@ observer.observe(video);
 - [Intersection Observers Explained](https://github.com/WICG/IntersectionObserver/blob/gh-pages/explainer.md)
 - [A Few Functional Uses for Intersection Observer to Know When an Element is in View](https://css-tricks.com/a-few-functional-uses-for-intersection-observer-to-know-when-an-element-is-in-view/), Preethi
 
+- [polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill)
+
 阮一峰介绍： https://github.com/wangdoc/webapi-tutorial/blob/master/docs/intersectionObserver.md
 
