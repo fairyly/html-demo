@@ -43,6 +43,11 @@ const chart = new Chart({
   padding: [80,60,60,60]
 });
 
+// 坐标轴标题设置 null
+this.chart.axis('avgVisitTime', {
+        title: null
+      });
+
 
 chart.guide().text({
   top: true,
