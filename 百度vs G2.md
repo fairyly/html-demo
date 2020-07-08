@@ -11,7 +11,7 @@
 
 
 
-##  坐标轴 Axis title  问题
+##  1.坐标轴 Axis title  问题
 
 ```
 this.chart.axis('avgVisitTime', {
@@ -59,6 +59,43 @@ chart.guide().text({
 
 ```
 
+
+## 2. tooltip 内数据格式化问题
+
+```
+import { Chart } from '@antv/g2';
+
+const data = [
+  { time: '2019-0909',  waiting:100, people: 88 },
+  { time: '2019-09-10', waiting: 6, people: 3 },
+  { time: '2019-09-11',  waiting: 2, people: 5 },
+  { time: '2019-09-12', waiting: 9, people: 1 },
+];
+
+const chart = new Chart({
+  container: 'container',
+  autoFit: true,
+  height: 500,
+  padding:[60, 60 ,60,60]
+
+chart.tooltip({
+  shared: true,
+  itemTpl: '<li  style="padding-bottom:10px;"><span style="background-color:{color};width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:8px;"></span>{name}: {value}</li>'
+});
+chart.interval()
+  .position('time*waiting').size(20)
+  .color('#3182bd');
+chart.line()
+  .position('time*people')
+  .color('#fdae6b')
+  .tooltip('time*people', (time, people) => {
+          return {
+            name: '人均访问时长',
+            value: people
+          };
+        });
+
+```
 
 
 
