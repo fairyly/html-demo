@@ -97,6 +97,16 @@ chart.line()
 
 ```
 
+- 3.柱状图宽度问题
+
+```
+一般 化柱状图的时候默认自适应，如果屏幕宽度很宽，那么柱状图宽度也会变宽，反之，越窄
+chart.interval().position('type*value');
+
+# 解决可以设置柱状图宽度 size
+chart.interval().position('type*value').size(30)
+```
+
 
 
 ## 参考
