@@ -105,6 +105,9 @@ chart.interval().position('type*value');
 
 # 解决可以设置柱状图宽度 size
 chart.interval().position('type*value').size(30)
+
+可是设置 size 后固定了宽度，很多数据的时候就会不行，最好判断一下
+const size = data.length >7 ? 15 : 20
 ```
 
 
