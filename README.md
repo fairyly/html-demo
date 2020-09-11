@@ -66,6 +66,7 @@ Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
 * [es2018](https://tc39.github.io/ecma262/)
 * [JavaScript标准参考教程](http://javascript.ruanyifeng.com/)
 * [MDN JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
+* [web-apis-demo](https://github.com/atapas/demolab/tree/master/code/src/demos/web-apis)
 
 * [前端导航网](http://jsdig.com/)
 * javascript-learning-resource: https://github.com/keenjaan/javascript-learning-resource
