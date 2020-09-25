@@ -153,6 +153,8 @@
 
 17、JS-CSS-HTML Formatter  格式化
 
+korofileheader 在vscode中用于生成文件头部注释和函数注释的插件
+
 18、Npm intellisense   require 时的包提示工具
 
 19、Open in browser  打开默认浏览器
@@ -206,6 +208,20 @@
 6、 window + f  快速打开搜索窗口
 
 7、 alt + tab  快速查看打开的应用与窗口
+
+
+## 解决 vscode 卡顿，卡死，占用内存大
+
+```
+vscode-文件-首选项-设置 -搜索
+
+search.followSymlinks: false
+
+git.enabled: false
+git.autorefresh: false
+
+在 ‘User Settings’里面设置，基本可以解决跑项目时，vscode 造成 CPU 内存 占用过大的问题
+```
 
 ## 资料
 - vscode 一些基本知识: https://blog.csdn.net/amyloverice/article/details/79388270
