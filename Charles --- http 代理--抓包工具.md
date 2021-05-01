@@ -30,3 +30,8 @@ help--->ssl proxying-->install Charles root certificate
 >直接点击 crt 文件无法安装
 
 - wlan--->高级设置--->安装证书
+
+
+## 参考
+- [Charles ](https://zhuanlan.zhihu.com/p/115370438)
+- [破解](https://zhuanlan.zhihu.com/p/248767986)
