@@ -1,5 +1,7 @@
 # beacon api
 
+>主要用于满足统计和诊断代码的需要，这些代码通常尝试在卸载（unload）文档之前向web服务器发送数据。
+
 1.新建页面
 
 ```
@@ -44,4 +46,8 @@ console.log('Server running at http://127.0.0.1:1337/');
 在 server.js 目录打开命令窗口 node server.js
 
 在页面跳转时候会受到发送的数据
+
+
+## 参考
+- [sendBeacon](https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/sendBeacon)
 
